@@ -23,9 +23,24 @@ const tools = [
     href: "/tools/sso-id-validator",
     ready: true,
   },
-  { en: "Scholarship Calculator", hi: "छात्रवृत्ति कैलकुलेटर", ready: false },
-  { en: "Photo Resizer", hi: "फोटो रिसाइज़र", ready: false },
-  { en: "Jan Aadhaar Status Checker", hi: "जन आधार स्थिति चेकर", ready: false },
+  {
+    en: "Scholarship Calculator",
+    hi: "छात्रवृत्ति कैलकुलेटर",
+    href: "/tools/scholarship-calculator",
+    ready: true,
+  },
+  {
+    en: "Photo Resizer",
+    hi: "फोटो रिसाइज़र",
+    href: "/tools/photo-resizer",
+    ready: true,
+  },
+  {
+    en: "Jan Aadhaar Status Checker",
+    hi: "जन आधार स्थिति चेकर",
+    href: "/tools/jan-aadhaar-status",
+    ready: true,
+  },
 ];
 
 export async function generateMetadata({

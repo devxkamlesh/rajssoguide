@@ -14,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/otr-fee-calculator",
     "/tools/age-calculator",
     "/tools/sso-id-validator",
+    "/tools/scholarship-calculator",
+    "/tools/photo-resizer",
+    "/tools/jan-aadhaar-status",
     ...guides.map((g) => `/${g.slug}`),
   ];
   const dynamicPaths = [
