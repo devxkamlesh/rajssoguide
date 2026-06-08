@@ -48,8 +48,8 @@ export function PhotoResizer({ locale }: { locale: Locale }) {
   const t = labels[locale];
   const [src, setSrc] = useState<string | null>(null);
   const [preset, setPreset] = useState<Preset>("passport");
-  const [w, setW] = useState(PRESETS.passport.w);
-  const [h, setH] = useState(PRESETS.passport.h);
+  const [w, setW] = useState<number>(PRESETS.passport.w);
+  const [h, setH] = useState<number>(PRESETS.passport.h);
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   function onFile(e: React.ChangeEvent<HTMLInputElement>) {

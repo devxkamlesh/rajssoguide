@@ -71,7 +71,7 @@ export function ScholarshipCalculator({ locale }: { locale: Locale }) {
           >
             {(Object.keys(t.categories) as Cat[]).map((c) => (
               <option key={c} value={c}>
-                {t.categories[c]}
+                {t.categories[c as keyof typeof t.categories]}
               </option>
             ))}
           </select>
