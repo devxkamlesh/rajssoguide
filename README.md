@@ -26,7 +26,7 @@ Built with Next.js (App Router) + TypeScript + Tailwind CSS. Independent guide �
 | Styling | Tailwind CSS |
 | i18n | Locale-prefixed routing + dictionaries |
 | SEO | Native Metadata API, JSON-LD utilities, dynamic sitemap/robots |
-| Hosting | Cloudflare Pages + Cloudflare DNS/CDN |
+| Hosting | Vercel (native Next.js) |
 
 ## Project structure
 
@@ -48,9 +48,8 @@ src/
   data/                  # exams, services, cities, errors, scholarships, guides
   dictionaries/          # en.json, hi.json
   lib/                   # site config, i18n, schema builders, content access
-public/
-  _redirects             # Cloudflare: "/" -> "/en/"
-  RajSSO/                # brand assets (logos, OG images, favicons)
+  proxy.ts               # middleware: redirects "/" -> default locale
+public/RajSSO/           # brand assets (logos, OG images, favicons)
 ```
 
 ## Local development
@@ -62,18 +61,21 @@ npm run build    # production build
 npm run lint     # eslint
 ```
 
-## Deployment — Cloudflare Pages
+## Deployment — Vercel
 
-The site is a fully static export (`output: "export"`), so it deploys to Cloudflare Pages as plain static files — no adapter or compatibility flags needed.
+Vercel runs Next.js 16 natively, so no adapter or static-export workaround is needed. The locale redirect uses Next.js middleware (`proxy.ts`).
+
+1. Import the GitHub repo at [vercel.com/new](https://vercel.com/new).
+2. Vercel auto-detects Next.js — no build settings to change.
+3. Deploy. Pushes to `main` deploy automatically.
 
 | Setting | Value |
 |---|---|
-| Framework preset | None / Next.js (Static HTML Export) |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Node version | `NODE_VERSION=20` |
+| Framework preset | Next.js (auto-detected) |
+| Build command | `next build` (default) |
+| Output | `.next` (default) |
 
-The `/` → `/en/` redirect is handled by `public/_redirects` (served from `out/_redirects`).
+This setup is ready for ISR/SSR and a future database layer (e.g. Supabase) without changing hosts.
 
 ## Content & data
 
