@@ -26,6 +26,9 @@ export function Footer({ locale }: { locale: Locale }) {
           <Link href={`/${locale}/tools`} className="hover:text-amber-700">
             {t.nav.tools}
           </Link>
+          <Link href={`/${locale}/sitemap-page`} className="hover:text-amber-700">
+            {locale === "hi" ? "साइटमैप" : "Sitemap"}
+          </Link>
         </div>
         <p className="mt-4">
           © {new Date().getFullYear()} {site.name}
