@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -95,6 +96,14 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col">
         <JsonLd data={graph} />
+        {/* Google Analytics — loads after page is interactive */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-72FK7H2P8N"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-72FK7H2P8N');`}
+        </Script>
         <Header locale={locale} />
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
           {children}
