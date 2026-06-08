@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { cities, getCity } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import { cityBody } from "@/lib/pageContent";
 import {
   alternates,
   breadcrumbSchema,
@@ -70,16 +71,22 @@ export default async function CityPage({
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
           href={`${base}/sso-id-login`}
-          className="rounded-full bg-amber-600 px-5 py-2.5 font-medium text-white"
+          className="rounded-full bg-amber-700 px-5 py-2.5 font-medium text-white transition hover:bg-amber-800"
         >
           {t.nav.login}
         </Link>
         <Link
           href={`${base}/sso-id-registration`}
-          className="rounded-full border border-amber-600 px-5 py-2.5 font-medium text-amber-700"
+          className="rounded-full border border-amber-700 px-5 py-2.5 font-medium text-amber-800"
         >
           {t.nav.registration}
         </Link>
+      </div>
+
+      <div className="mt-8 space-y-4 leading-relaxed text-zinc-700">
+        {cityBody(c, loc).map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
       </div>
     </article>
   );

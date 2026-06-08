@@ -78,7 +78,7 @@ export default async function Home({
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Link
             href={`${base}/sso-id-login`}
-            className="rounded-full bg-amber-600 px-6 py-3 font-semibold text-white transition hover:bg-amber-700"
+            className="rounded-full bg-amber-700 px-6 py-3 font-semibold text-white transition hover:bg-amber-800"
           >
             {t.nav.login}
           </Link>
@@ -96,7 +96,7 @@ export default async function Home({
               key={s.label}
               className="rounded-xl border border-zinc-200 bg-white p-4"
             >
-              <dt className="text-2xl font-bold text-amber-600">{s.value}</dt>
+              <dt className="text-2xl font-bold text-amber-700">{s.value}</dt>
               <dd className="mt-1 text-xs text-zinc-500">{s.label}</dd>
             </div>
           ))}
@@ -250,7 +250,7 @@ export default async function Home({
         <a
           href={site.officialPortal}
           rel="nofollow noopener"
-          className="text-amber-600 underline"
+          className="text-amber-700 underline"
         >
           {site.officialPortal.replace("https://", "")}
         </a>

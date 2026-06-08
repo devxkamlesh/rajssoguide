@@ -12,7 +12,7 @@ export function Footer({ locale }: { locale: Locale }) {
           {t.common.officialPortalNote}{" "}
           <a
             href={site.officialPortal}
-            className="text-amber-600 underline"
+            className="text-amber-700 underline"
             rel="nofollow noopener"
             target="_blank"
           >
@@ -20,10 +20,10 @@ export function Footer({ locale }: { locale: Locale }) {
           </a>
         </p>
         <div className="mt-4 flex flex-wrap gap-4">
-          <Link href={`/${locale}/about`} className="hover:text-amber-600">
+          <Link href={`/${locale}/about`} className="hover:text-amber-700">
             {locale === "hi" ? "हमारे बारे में" : "About"}
           </Link>
-          <Link href={`/${locale}/tools`} className="hover:text-amber-600">
+          <Link href={`/${locale}/tools`} className="hover:text-amber-700">
             {t.nav.tools}
           </Link>
         </div>

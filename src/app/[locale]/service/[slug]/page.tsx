@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { services, getService } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import { serviceBody } from "@/lib/pageContent";
 import {
   alternates,
   breadcrumbSchema,
@@ -62,6 +63,11 @@ export default async function ServicePage({
       <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
         {s.purpose[loc]}
       </p>
+      <div className="mt-6 space-y-4 leading-relaxed text-zinc-700">
+        {serviceBody(s, loc).map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
     </article>
   );
 }

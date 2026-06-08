@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { exams, getExam } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import { examBody } from "@/lib/pageContent";
 import {
   alternates,
   breadcrumbSchema,
@@ -82,6 +83,12 @@ export default async function ExamPage({
           <li key={s}>{s}</li>
         ))}
       </ul>
+
+      <div className="mt-8 space-y-4 leading-relaxed text-zinc-700">
+        {examBody(e, loc).map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+      </div>
     </article>
   );
 }

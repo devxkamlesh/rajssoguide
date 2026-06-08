@@ -16,7 +16,26 @@ export function Header({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <header className="border-b border-zinc-200 dark:border-zinc-800">
+    <header className="border-b border-zinc-200">
+      {/* Gov-style utility bar */}
+      <div className="bg-zinc-900 text-zinc-100">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-1.5 text-xs">
+          <span>
+            {locale === "hi"
+              ? "एक स्वतंत्र मार्गदर्शिका — सरकार से संबद्ध नहीं"
+              : "An independent guide — not affiliated with the government"}
+          </span>
+          <a
+            href={site.officialPortal}
+            target="_blank"
+            rel="nofollow noopener"
+            className="hidden underline hover:text-amber-300 sm:inline"
+          >
+            {site.officialPortal.replace("https://", "")} ↗
+          </a>
+        </div>
+      </div>
+
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
         <Link href={base} className="flex items-center" aria-label={site.name}>
           <Image
@@ -33,7 +52,7 @@ export function Header({ locale }: { locale: Locale }) {
             <Link
               key={l.href}
               href={l.href}
-              className="text-zinc-600 hover:text-amber-600 dark:text-zinc-300"
+              className="text-zinc-600 hover:text-amber-700"
             >
               {l.label}
             </Link>

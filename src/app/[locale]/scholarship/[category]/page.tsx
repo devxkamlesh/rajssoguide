@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { scholarships, getScholarship } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import { scholarshipBody } from "@/lib/pageContent";
 import {
   alternates,
   breadcrumbSchema,
@@ -78,10 +79,16 @@ export default async function ScholarshipPage({
       <div className="mt-6">
         <Link
           href={`${base}/sso-id-login`}
-          className="rounded-full bg-amber-600 px-5 py-2.5 font-medium text-white"
+          className="rounded-full bg-amber-700 px-5 py-2.5 font-medium text-white transition hover:bg-amber-800"
         >
           {t.nav.login}
         </Link>
+      </div>
+
+      <div className="mt-8 space-y-4 leading-relaxed text-zinc-700">
+        {scholarshipBody(s, loc).map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
       </div>
     </article>
   );

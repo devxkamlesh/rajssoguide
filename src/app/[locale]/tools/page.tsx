@@ -11,8 +11,18 @@ const tools = [
     href: "/tools/otr-fee-calculator",
     ready: true,
   },
-  { en: "SSO ID Validator", hi: "एसएसओ आईडी वैलिडेटर", ready: false },
-  { en: "Age Calculator", hi: "आयु कैलकुलेटर", ready: false },
+  {
+    en: "Age Calculator",
+    hi: "आयु कैलकुलेटर",
+    href: "/tools/age-calculator",
+    ready: true,
+  },
+  {
+    en: "SSO ID Validator",
+    hi: "एसएसओ आईडी वैलिडेटर",
+    href: "/tools/sso-id-validator",
+    ready: true,
+  },
   { en: "Scholarship Calculator", hi: "छात्रवृत्ति कैलकुलेटर", ready: false },
   { en: "Photo Resizer", hi: "फोटो रिसाइज़र", ready: false },
   { en: "Jan Aadhaar Status Checker", hi: "जन आधार स्थिति चेकर", ready: false },
@@ -47,6 +57,11 @@ export default async function ToolsPage({
   return (
     <div>
       <h1 className="text-3xl font-bold tracking-tight">{t.nav.tools}</h1>
+      <p className="mt-3 max-w-2xl leading-relaxed text-zinc-600">
+        {loc === "hi"
+          ? "ये मुफ़्त टूल राजस्थान एसएसओ उपयोगकर्ताओं, छात्रों और नौकरी आवेदकों की मदद के लिए बनाए गए हैं। ये सभी आपके ब्राउज़र में चलते हैं — कोई लॉगिन नहीं, कोई डेटा संग्रहीत नहीं। आयु कैलकुलेटर से परीक्षा पात्रता जांचें, ओटीआर फीस कैलकुलेटर से श्रेणी अनुसार शुल्क देखें, और एसएसओ आईडी वैलिडेटर से अपने यूज़रनेम का फॉर्मेट जांचें।"
+          : "These free tools are built to help Rajasthan SSO users, students, and job seekers. They all run in your browser — no login and no data stored. Use the Age Calculator to check exam eligibility, the OTR Fee Calculator to see category-wise fees, and the SSO ID Validator to check your username format."}
+      </p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tools.map((tool) =>
           tool.ready && tool.href ? (
@@ -56,7 +71,7 @@ export default async function ToolsPage({
               className="rounded-xl border border-zinc-200 p-5 hover:border-amber-500"
             >
               <h2 className="font-semibold">{tool[loc]}</h2>
-              <p className="mt-1 text-sm text-amber-600">
+              <p className="mt-1 text-sm text-amber-700">
                 {loc === "hi" ? "उपलब्ध" : "Open tool"}
               </p>
             </Link>

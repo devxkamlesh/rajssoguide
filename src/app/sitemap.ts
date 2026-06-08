@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { locales } from "@/lib/i18n";
+import { locales, hreflangMap, defaultLocale } from "@/lib/i18n";
 import { guides } from "@/data/guides";
 import { exams, services, cities, errors, scholarships } from "@/lib/content";
 
@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/tools",
     "/tools/otr-fee-calculator",
+    "/tools/age-calculator",
+    "/tools/sso-id-validator",
     ...guides.map((g) => `/${g.slug}`),
   ];
   const dynamicPaths = [
@@ -22,16 +24,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...scholarships.map((s) => `/scholarship/${s.slug}`),
   ];
   const allPaths = [...staticPaths, ...dynamicPaths];
+  const lastModified = new Date();
+
+  // Reciprocal hreflang alternates (en-IN, hi-IN, x-default) for each path.
+  const languagesFor = (path: string) => ({
+    ...Object.fromEntries(
+      locales.map((l) => [hreflangMap[l], `${site.url}/${l}${path}`]),
+    ),
+    "x-default": `${site.url}/${defaultLocale}${path}`,
+  });
 
   return locales.flatMap((locale) =>
     allPaths.map((path) => ({
       url: `${site.url}/${locale}${path}`,
-      lastModified: new Date(),
-      alternates: {
-        languages: Object.fromEntries(
-          locales.map((l) => [l, `${site.url}/${l}${path}`]),
-        ),
-      },
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: path === "" ? 1 : 0.7,
+      alternates: { languages: languagesFor(path) },
     })),
   );
 }
