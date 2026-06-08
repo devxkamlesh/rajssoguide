@@ -70,6 +70,9 @@ export async function generateMetadata({
       site: site.social.twitter,
       images: [site.assets.ogImage[loc]],
     },
+    verification: {
+      google: "p_abO8_AL_rYysORgZ8oWGT4ZwacZdbNoR6FCtwNU48",
+    },
   };
 }
 
