@@ -4,6 +4,8 @@ import { locales } from "@/lib/i18n";
 import { guides } from "@/data/guides";
 import { exams, services, cities, errors, scholarships } from "@/lib/content";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",

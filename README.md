@@ -48,8 +48,9 @@ src/
   data/                  # exams, services, cities, errors, scholarships, guides
   dictionaries/          # en.json, hi.json
   lib/                   # site config, i18n, schema builders, content access
-  proxy.ts               # redirects "/" -> default locale
-public/RajSSO/           # brand assets (logos, OG images, favicons)
+public/
+  _redirects             # Cloudflare: "/" -> "/en/"
+  RajSSO/                # brand assets (logos, OG images, favicons)
 ```
 
 ## Local development
@@ -63,15 +64,16 @@ npm run lint     # eslint
 
 ## Deployment — Cloudflare Pages
 
-The site uses edge middleware (`proxy.ts`) for locale redirects, so it deploys via the Cloudflare Next.js adapter.
+The site is a fully static export (`output: "export"`), so it deploys to Cloudflare Pages as plain static files — no adapter or compatibility flags needed.
 
 | Setting | Value |
 |---|---|
-| Framework preset | Next.js |
-| Build command | `npx @cloudflare/next-on-pages@1` |
-| Build output directory | `.vercel/output/static` |
-| Compatibility flags | `nodejs_compat` |
+| Framework preset | None / Next.js (Static HTML Export) |
+| Build command | `npm run build` |
+| Build output directory | `out` |
 | Node version | `NODE_VERSION=20` |
+
+The `/` → `/en/` redirect is handled by `public/_redirects` (served from `out/_redirects`).
 
 ## Content & data
 

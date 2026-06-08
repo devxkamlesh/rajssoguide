@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects.
+# Send the bare root to the default (English) locale.
+/            /en/    302
