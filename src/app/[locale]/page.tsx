@@ -1,10 +1,40 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getDictionary, isLocale, type Locale } from "@/lib/i18n";
-import { guides } from "@/data/guides";
+import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import { JsonLd } from "@/components/JsonLd";
+import { FaqSection } from "@/components/FaqSection";
 import { exams, services, cities, scholarships } from "@/lib/content";
+import { homeContent } from "@/data/home";
 import { site } from "@/lib/site";
+import {
+  alternates,
+  buildGraph,
+  canonicalFor,
+  faqSchema,
+  howToSchema,
+} from "@/lib/schema";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return {
+    title: homeContent.metaTitle[locale],
+    description: homeContent.metaDescription[locale],
+    alternates: {
+      canonical: canonicalFor(locale, "/"),
+      ...alternates("/"),
+    },
+  };
+}
 
 export default async function Home({
   params,
@@ -15,67 +45,144 @@ export default async function Home({
   if (!isLocale(locale)) notFound();
   const loc = locale as Locale;
   const t = getDictionary(loc);
+  const c = homeContent;
   const base = `/${loc}`;
 
+  const graph = buildGraph([
+    howToSchema(
+      c.loginTitle[loc],
+      c.loginSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
+    ),
+    howToSchema(
+      c.registerTitle[loc],
+      c.registerSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
+    ),
+    faqSchema(c.faqs[loc]),
+  ]);
+
   return (
-    <div>
-      <section className="overflow-hidden rounded-2xl bg-amber-50 dark:bg-zinc-900">
-        <Image
-          src={site.assets.hero}
-          alt={t.home.heroTitle}
-          width={1600}
-          height={600}
-          priority
-          className="h-auto w-full object-cover"
-        />
-        <div className="p-8">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {t.home.heroTitle}
-          </h1>
-          <p className="mt-3 max-w-2xl text-lg text-zinc-600 dark:text-zinc-300">
-            {t.home.heroSubtitle}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href={`${base}/sso-id-login`}
-              className="rounded-full bg-amber-600 px-5 py-2.5 font-medium text-white"
-            >
-              {t.nav.login}
-            </Link>
-            <Link
-              href={`${base}/sso-id-registration`}
-              className="rounded-full border border-amber-600 px-5 py-2.5 font-medium text-amber-700 dark:text-amber-400"
-            >
-              {t.nav.registration}
-            </Link>
-          </div>
+    <div className="space-y-14">
+      <JsonLd data={graph} />
+
+      {/* Hero */}
+      <section className="text-center">
+        <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+          sso.rajasthan.gov.in
+        </span>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          {c.h1[loc]}
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">
+          {c.heroLead[loc]}
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link
+            href={`${base}/sso-id-login`}
+            className="rounded-full bg-amber-600 px-6 py-3 font-semibold text-white transition hover:bg-amber-700"
+          >
+            {t.nav.login}
+          </Link>
+          <Link
+            href={`${base}/sso-id-registration`}
+            className="rounded-full border border-zinc-300 px-6 py-3 font-semibold text-zinc-800 transition hover:border-amber-500"
+          >
+            {t.nav.registration}
+          </Link>
         </div>
+
+        <dl className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-4">
+          {c.stats[loc].map((s) => (
+            <div
+              key={s.label}
+              className="rounded-xl border border-zinc-200 bg-white p-4"
+            >
+              <dt className="text-2xl font-bold text-amber-600">{s.value}</dt>
+              <dd className="mt-1 text-xs text-zinc-500">{s.label}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
-      <section className="mt-10 grid gap-4 sm:grid-cols-2">
-        {guides.map((g) => (
+      {/* Quick access */}
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { href: "/sso-id-login", label: t.nav.login },
+          { href: "/sso-id-registration", label: t.nav.registration },
+          { href: "/forgot-sso-id", label: t.nav.forgot },
+          { href: "/merge-sso-id", label: loc === "hi" ? "आईडी मर्ज" : "Merge ID" },
+        ].map((q) => (
           <Link
-            key={g.slug}
-            href={`${base}/${g.slug}`}
-            className="rounded-xl border border-zinc-200 p-5 hover:border-amber-500 dark:border-zinc-800"
+            key={q.href}
+            href={`${base}${q.href}`}
+            className="rounded-xl border border-zinc-200 p-5 font-medium transition hover:border-amber-500 hover:shadow-sm"
           >
-            <h2 className="font-semibold">{g.title[loc]}</h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-              {g.intro[loc]}
-            </p>
+            {q.label} →
           </Link>
         ))}
       </section>
 
-      <section className="mt-10 grid gap-6 sm:grid-cols-2">
+      {/* What is SSO ID */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{c.whatTitle[loc]}</h2>
+        <div className="mt-4 space-y-4 leading-relaxed text-zinc-600">
+          {c.whatBody[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+      </section>
+
+      {/* Login + Registration steps */}
+      <section className="grid gap-8 md:grid-cols-2">
+        {[
+          { title: c.loginTitle[loc], steps: c.loginSteps[loc] },
+          { title: c.registerTitle[loc], steps: c.registerSteps[loc] },
+        ].map((block) => (
+          <div
+            key={block.title}
+            className="rounded-2xl border border-zinc-200 p-6"
+          >
+            <h2 className="text-xl font-semibold">{block.title}</h2>
+            <ol className="mt-4 space-y-3">
+              {block.steps.map((step, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-700">
+                    {i + 1}
+                  </span>
+                  <span className="text-zinc-600">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
+      </section>
+
+      {/* Services */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">
+          {c.servicesTitle[loc]}
+        </h2>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {c.services[loc].map((s) => (
+            <div
+              key={s}
+              className="rounded-lg border border-zinc-200 px-4 py-3 text-center text-sm font-medium text-zinc-700"
+            >
+              {s}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Internal links: exams, scholarships, cities */}
+      <section className="grid gap-8 sm:grid-cols-3">
         <div>
-          <h2 className="text-xl font-semibold">{t.nav.exams}</h2>
-          <ul className="mt-3 space-y-2">
+          <h2 className="font-semibold">{t.nav.exams}</h2>
+          <ul className="mt-3 space-y-1.5 text-sm">
             {exams.map((e) => (
               <li key={e.slug}>
                 <Link
                   href={`${base}/exam/${e.slug}`}
-                  className="text-amber-700 hover:underline dark:text-amber-400"
+                  className="text-amber-700 hover:underline"
                 >
                   {e.name[loc]}
                 </Link>
@@ -84,13 +191,30 @@ export default async function Home({
           </ul>
         </div>
         <div>
-          <h2 className="text-xl font-semibold">{t.nav.services}</h2>
-          <ul className="mt-3 space-y-2">
+          <h2 className="font-semibold">
+            {loc === "hi" ? "छात्रवृत्ति" : "Scholarships"}
+          </h2>
+          <ul className="mt-3 space-y-1.5 text-sm">
+            {scholarships.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`${base}/scholarship/${s.slug}`}
+                  className="text-amber-700 hover:underline"
+                >
+                  {s.name[loc]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="font-semibold">{t.nav.services}</h2>
+          <ul className="mt-3 space-y-1.5 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`${base}/service/${s.slug}`}
-                  className="text-amber-700 hover:underline dark:text-amber-400"
+                  className="text-amber-700 hover:underline"
                 >
                   {s.name[loc]}
                 </Link>
@@ -100,39 +224,37 @@ export default async function Home({
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold">
-          {loc === "hi" ? "छात्रवृत्ति" : "Scholarships"}
+      {/* Cities */}
+      <section>
+        <h2 className="font-semibold">
+          {loc === "hi" ? "शहर अनुसार मदद" : "Help by city"}
         </h2>
         <div className="mt-3 flex flex-wrap gap-2">
-          {scholarships.map((s) => (
+          {cities.map((city) => (
             <Link
-              key={s.slug}
-              href={`${base}/scholarship/${s.slug}`}
+              key={city.slug}
+              href={`${base}/city/${city.slug}`}
               className="rounded-full border border-zinc-200 px-3 py-1.5 text-sm hover:border-amber-500"
             >
-              {s.name[loc]}
+              {city.name[loc]}
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold">
-          {loc === "hi" ? "शहर अनुसार मदद" : "Help by city"}
-        </h2>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {cities.map((c) => (
-            <Link
-              key={c.slug}
-              href={`${base}/city/${c.slug}`}
-              className="rounded-full border border-zinc-200 px-3 py-1.5 text-sm hover:border-amber-500"
-            >
-              {c.name[loc]}
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* FAQ */}
+      <FaqSection title={t.common.faqTitle} faqs={c.faqs[loc]} />
+
+      <p className="text-center text-sm text-zinc-500">
+        {t.common.officialPortalNote}{" "}
+        <a
+          href={site.officialPortal}
+          rel="nofollow noopener"
+          className="text-amber-600 underline"
+        >
+          {site.officialPortal.replace("https://", "")}
+        </a>
+      </p>
     </div>
   );
 }
