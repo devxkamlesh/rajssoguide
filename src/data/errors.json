@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "captcha-not-loading",
+    "title": {
+      "en": "SSO ID Captcha Not Loading — Fix",
+      "hi": "एसएसओ आईडी कैप्चा लोड नहीं हो रहा — समाधान"
+    },
+    "problem": {
+      "en": "The captcha image on the SSO login page is blank or not refreshing.",
+      "hi": "एसएसओ लॉगिन पेज पर कैप्चा इमेज खाली है या रिफ्रेश नहीं हो रही।"
+    },
+    "fixes": {
+      "en": [
+        "Hard refresh the page with Ctrl+F5.",
+        "Clear your browser cache and cookies.",
+        "Disable browser extensions or try incognito mode.",
+        "Try a different browser or device."
+      ],
+      "hi": [
+        "Ctrl+F5 से पेज को हार्ड रिफ्रेश करें।",
+        "ब्राउज़र कैश और कुकीज़ साफ करें।",
+        "ब्राउज़र एक्सटेंशन बंद करें या इनकॉग्निटो मोड आज़माएं।",
+        "दूसरा ब्राउज़र या डिवाइस आज़माएं।"
+      ]
+    },
+    "keywords": ["sso captcha not loading", "sso id captcha problem", "sso captcha fix"]
+  },
+  {
+    "slug": "server-busy",
+    "title": {
+      "en": "SSO Rajasthan Server Busy — Fix",
+      "hi": "एसएसओ राजस्थान सर्वर बिजी — समाधान"
+    },
+    "problem": {
+      "en": "The portal shows a 'server busy' or timeout message during peak hours.",
+      "hi": "पीक आवर्स में पोर्टल 'सर्वर बिजी' या टाइमआउट संदेश दिखाता है।"
+    },
+    "fixes": {
+      "en": [
+        "Wait a few minutes and retry, ideally during off-peak hours.",
+        "Check your internet connection is stable.",
+        "Avoid opening multiple tabs of the portal at once."
+      ],
+      "hi": [
+        "कुछ मिनट रुककर पुनः प्रयास करें, बेहतर हो ऑफ-पीक समय में।",
+        "अपना इंटरनेट कनेक्शन स्थिर है यह जांचें।",
+        "पोर्टल के कई टैब एक साथ न खोलें।"
+      ]
+    },
+    "keywords": ["sso server busy fix", "sso rajasthan not working", "sso portal down"]
+  },
+  {
+    "slug": "id-already-exists",
+    "title": {
+      "en": "SSO ID Already Exists — What To Do",
+      "hi": "एसएसओ आईडी पहले से मौजूद है — क्या करें"
+    },
+    "problem": {
+      "en": "Registration fails saying an SSO ID already exists for your details.",
+      "hi": "रजिस्ट्रेशन में बताया जाता है कि आपके विवरण से एसएसओ आईडी पहले से मौजूद है।"
+    },
+    "fixes": {
+      "en": [
+        "Use the 'I Forgot my SSOID' option to recover the existing ID.",
+        "Check if a family member registered using your Jan Aadhaar.",
+        "Visit an e-Mitra centre if you cannot recover it online."
+      ],
+      "hi": [
+        "मौजूदा आईडी रिकवर करने के लिए 'I Forgot my SSOID' विकल्प चुनें।",
+        "जांचें कि किसी परिवार सदस्य ने आपके जन आधार से रजिस्टर तो नहीं किया।",
+        "ऑनलाइन रिकवर न कर पाने पर ई-मित्र केंद्र पर जाएं।"
+      ]
+    },
+    "keywords": ["sso id already exists", "sso id duplicate", "sso id recover"]
+  }
+]

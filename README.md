@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RajSSO Guide
 
-## Getting Started
+Bilingual (Hindi/English) SEO-first information portal for the **Rajasthan SSO ID** portal — login, registration, recovery, government exams, linked services, scholarships, and free utility tools.
 
-First, run the development server:
+Built with Next.js (App Router) + TypeScript + Tailwind CSS. Independent guide — **not** affiliated with the Government of Rajasthan, and it never asks for or stores any login credentials.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+🌐 Domain: `rajssoguide.in`
+
+---
+
+## Features
+
+- **Bilingual** — every page in Hindi and English under `/hi` and `/en`, with reciprocal `hreflang` and canonical URLs.
+- **Programmatic pages** — exams, services, cities, error fixes, and scholarships generated from JSON data.
+- **Structured data (JSON-LD)** — WebSite, Organization, Person, FAQPage, HowTo, and BreadcrumbList for rich snippets.
+- **Auto sitemap + robots** with locale alternates.
+- **Working tools** — e.g. OTR Fee Calculator (client-side).
+- **EEAT** — About page, editorial "last verified" dates, and a clear non-affiliation/privacy stance.
+- **Light theme** tuned for the brand logos on white backgrounds.
+
+## Tech stack
+
+| Layer | Choice |
+|---|---|
+| Framework | Next.js (App Router), React, TypeScript |
+| Styling | Tailwind CSS |
+| i18n | Locale-prefixed routing + dictionaries |
+| SEO | Native Metadata API, JSON-LD utilities, dynamic sitemap/robots |
+| Hosting | Cloudflare Pages + Cloudflare DNS/CDN |
+
+## Project structure
+
+```
+src/
+  app/
+    [locale]/            # locale-scoped routes (en, hi)
+      [guide]/           # core guides: login, registration, forgot, merge
+      exam/[slug]/       # programmatic exam pages
+      service/[slug]/    # programmatic service pages
+      city/[slug]/       # district pages
+      error/[code]/      # troubleshooting pages
+      scholarship/[category]/
+      tools/             # tools index + individual tools
+      about/             # EEAT page
+    sitemap.ts
+    robots.ts
+  components/             # Header, Footer, FAQ, HowTo, JSON-LD, tools
+  data/                  # exams, services, cities, errors, scholarships, guides
+  dictionaries/          # en.json, hi.json
+  lib/                   # site config, i18n, schema builders, content access
+  proxy.ts               # redirects "/" -> default locale
+public/RajSSO/           # brand assets (logos, OG images, favicons)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment — Cloudflare Pages
 
-## Learn More
+The site uses edge middleware (`proxy.ts`) for locale redirects, so it deploys via the Cloudflare Next.js adapter.
 
-To learn more about Next.js, take a look at the following resources:
+| Setting | Value |
+|---|---|
+| Framework preset | Next.js |
+| Build command | `npx @cloudflare/next-on-pages@1` |
+| Build output directory | `.vercel/output/static` |
+| Compatibility flags | `nodejs_compat` |
+| Node version | `NODE_VERSION=20` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content & data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All content lives in `src/data/*.json` and `src/dictionaries/*.json`. Adding a new exam, service, city, error, or scholarship is a JSON edit — the page, metadata, schema, and sitemap entry are generated automatically.
 
-## Deploy on Vercel
+## Disclaimer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RajSSO Guide is an independent informational website. For official services, always use the government portal at [sso.rajasthan.gov.in](https://sso.rajasthan.gov.in). We never request or store SSO IDs, passwords, or OTPs.

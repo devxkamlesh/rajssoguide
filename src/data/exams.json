@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "rpsc-cet",
+    "name": { "en": "RPSC CET", "hi": "आरपीएससी सीईटी" },
+    "fullName": {
+      "en": "Rajasthan Common Eligibility Test (CET)",
+      "hi": "राजस्थान समान पात्रता परीक्षा (सीईटी)"
+    },
+    "otrFee": { "general": 600, "sc_st": 400 },
+    "lastDate": "2026-07-31",
+    "services": ["OTR", "Application Form", "Admit Card"],
+    "keywords": ["rpsc cet sso id", "rpsc cet otr 2026", "rpsc cet login"]
+  },
+  {
+    "slug": "rsmssb-ldc",
+    "name": { "en": "RSMSSB LDC", "hi": "आरएसएमएसएसबी एलडीसी" },
+    "fullName": {
+      "en": "Lower Division Clerk (LDC) Recruitment",
+      "hi": "लोअर डिवीजन क्लर्क (एलडीसी) भर्ती"
+    },
+    "otrFee": { "general": 600, "sc_st": 400 },
+    "lastDate": "2026-08-15",
+    "services": ["OTR", "Application Form", "Fee Payment"],
+    "keywords": ["ldc sso id registration", "ldc otr rajasthan 2026", "rsmssb ldc login"]
+  },
+  {
+    "slug": "patwari",
+    "name": { "en": "Rajasthan Patwari", "hi": "राजस्थान पटवारी" },
+    "fullName": {
+      "en": "Rajasthan Patwari Recruitment",
+      "hi": "राजस्थान पटवारी भर्ती"
+    },
+    "otrFee": { "general": 600, "sc_st": 400 },
+    "lastDate": "2026-09-10",
+    "services": ["OTR", "Application Form", "Admit Card"],
+    "keywords": ["patwari sso id", "patwari sso login", "rajasthan patwari otr"]
+  }
+]

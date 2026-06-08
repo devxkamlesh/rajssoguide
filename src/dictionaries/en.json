@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Home",
+    "login": "SSO Login",
+    "registration": "Registration",
+    "forgot": "Forgot SSO ID",
+    "tools": "Tools",
+    "exams": "Exams",
+    "services": "Services"
+  },
+  "common": {
+    "lastVerified": "Last verified",
+    "officialPortalNote": "This is an independent guide. The official portal is sso.rajasthan.gov.in.",
+    "readMore": "Read more",
+    "steps": "Steps",
+    "faqTitle": "Frequently Asked Questions",
+    "switchLanguage": "हिन्दी"
+  },
+  "home": {
+    "heroTitle": "Rajasthan SSO ID — Login, Registration & Services Guide",
+    "heroSubtitle": "Step-by-step help for Rajasthan SSO ID login, registration, password recovery, and government services.",
+    "exploreExams": "Explore Exams",
+    "exploreServices": "Explore Services"
+  },
+  "footer": {
+    "disclaimer": "RajSSO Guide is an independent informational website and is not affiliated with the Government of Rajasthan. We never ask for or store your SSO ID password."
+  }
+}

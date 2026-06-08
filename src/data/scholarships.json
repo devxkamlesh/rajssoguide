@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "sc",
+    "name": { "en": "SC Scholarship", "hi": "एससी छात्रवृत्ति" },
+    "eligibility": {
+      "en": "Scheduled Caste students of Rajasthan enrolled in recognised institutions.",
+      "hi": "मान्यता प्राप्त संस्थानों में नामांकित राजस्थान के अनुसूचित जाति के छात्र।"
+    },
+    "keywords": ["sc scholarship rajasthan sso", "sje sc scholarship login", "sc scholarship sso id"]
+  },
+  {
+    "slug": "st",
+    "name": { "en": "ST Scholarship", "hi": "एसटी छात्रवृत्ति" },
+    "eligibility": {
+      "en": "Scheduled Tribe students of Rajasthan enrolled in recognised institutions.",
+      "hi": "मान्यता प्राप्त संस्थानों में नामांकित राजस्थान के अनुसूचित जनजाति के छात्र।"
+    },
+    "keywords": ["st scholarship rajasthan sso", "tad st scholarship login", "st scholarship sso id"]
+  },
+  {
+    "slug": "obc",
+    "name": { "en": "OBC Scholarship", "hi": "ओबीसी छात्रवृत्ति" },
+    "eligibility": {
+      "en": "Other Backward Class students of Rajasthan within the income limit.",
+      "hi": "आय सीमा के भीतर राजस्थान के अन्य पिछड़ा वर्ग के छात्र।"
+    },
+    "keywords": ["obc scholarship rajasthan sso", "obc scholarship login", "obc scholarship sso id"]
+  },
+  {
+    "slug": "ews",
+    "name": { "en": "EWS Scholarship", "hi": "ईडब्ल्यूएस छात्रवृत्ति" },
+    "eligibility": {
+      "en": "Economically Weaker Section students of Rajasthan with a valid EWS certificate.",
+      "hi": "वैध ईडब्ल्यूएस प्रमाणपत्र वाले राजस्थान के आर्थिक रूप से कमजोर वर्ग के छात्र।"
+    },
+    "keywords": ["ews scholarship rajasthan sso", "ews scholarship login", "ews scholarship sso id"]
+  },
+  {
+    "slug": "minority",
+    "name": { "en": "Minority Scholarship", "hi": "अल्पसंख्यक छात्रवृत्ति" },
+    "eligibility": {
+      "en": "Students from notified minority communities of Rajasthan.",
+      "hi": "राजस्थान के अधिसूचित अल्पसंख्यक समुदायों के छात्र।"
+    },
+    "keywords": ["minority scholarship rajasthan sso", "minority scholarship login", "minority scholarship sso id"]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  { "slug": "jaipur", "name": { "en": "Jaipur", "hi": "जयपुर" }, "keywords": ["sso id jaipur", "emitra jaipur", "jaipur sso center"] },
+  { "slug": "jodhpur", "name": { "en": "Jodhpur", "hi": "जोधपुर" }, "keywords": ["sso id jodhpur", "emitra jodhpur", "jodhpur sso center"] },
+  { "slug": "kota", "name": { "en": "Kota", "hi": "कोटा" }, "keywords": ["sso id kota", "emitra kota", "kota sso center"] },
+  { "slug": "udaipur", "name": { "en": "Udaipur", "hi": "उदयपुर" }, "keywords": ["sso id udaipur", "emitra udaipur", "udaipur sso center"] },
+  { "slug": "ajmer", "name": { "en": "Ajmer", "hi": "अजमेर" }, "keywords": ["sso id ajmer", "emitra ajmer", "ajmer sso center"] },
+  { "slug": "bikaner", "name": { "en": "Bikaner", "hi": "बीकानेर" }, "keywords": ["sso id bikaner", "emitra bikaner", "bikaner sso center"] },
+  { "slug": "alwar", "name": { "en": "Alwar", "hi": "अलवर" }, "keywords": ["sso id alwar", "emitra alwar", "alwar sso center"] },
+  { "slug": "bharatpur", "name": { "en": "Bharatpur", "hi": "भरतपुर" }, "keywords": ["sso id bharatpur", "emitra bharatpur", "bharatpur sso center"] },
+  { "slug": "sikar", "name": { "en": "Sikar", "hi": "सीकर" }, "keywords": ["sso id sikar", "emitra sikar", "sikar sso center"] },
+  { "slug": "bhilwara", "name": { "en": "Bhilwara", "hi": "भीलवाड़ा" }, "keywords": ["sso id bhilwara", "emitra bhilwara", "bhilwara sso center"] },
+  { "slug": "pali", "name": { "en": "Pali", "hi": "पाली" }, "keywords": ["sso id pali", "emitra pali", "pali sso center"] },
+  { "slug": "sri-ganganagar", "name": { "en": "Sri Ganganagar", "hi": "श्रीगंगानगर" }, "keywords": ["sso id sri ganganagar", "emitra sri ganganagar", "ganganagar sso center"] }
+]

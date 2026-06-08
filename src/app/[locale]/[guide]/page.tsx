@@ -1,0 +1,66 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { GuideArticle } from "@/components/GuideArticle";
+import { JsonLd } from "@/components/JsonLd";
+import { guides, getGuide } from "@/data/guides";
+import { isLocale, locales, type Locale } from "@/lib/i18n";
+import {
+  alternates,
+  breadcrumbSchema,
+  buildGraph,
+  canonicalFor,
+  faqSchema,
+  howToSchema,
+} from "@/lib/schema";
+
+export function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    guides.map((g) => ({ locale, guide: g.slug })),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; guide: string }>;
+}): Promise<Metadata> {
+  const { locale, guide } = await params;
+  const g = getGuide(guide);
+  if (!g || !isLocale(locale)) return {};
+  return {
+    title: g.title[locale],
+    description: g.intro[locale],
+    alternates: {
+      canonical: canonicalFor(locale, `/${guide}`),
+      ...alternates(`/${guide}`),
+    },
+  };
+}
+
+export default async function GuidePage({
+  params,
+}: {
+  params: Promise<{ locale: string; guide: string }>;
+}) {
+  const { locale, guide } = await params;
+  if (!isLocale(locale)) notFound();
+  const g = getGuide(guide);
+  if (!g) notFound();
+  const loc = locale as Locale;
+
+  const graph = buildGraph([
+    howToSchema(g.title[loc], g.steps[loc]),
+    faqSchema(g.faqs[loc]),
+    breadcrumbSchema([
+      { name: "Home", path: `/${loc}` },
+      { name: g.title[loc], path: `/${loc}/${guide}` },
+    ]),
+  ]);
+
+  return (
+    <>
+      <JsonLd data={graph} />
+      <GuideArticle guide={g} locale={loc} />
+    </>
+  );
+}

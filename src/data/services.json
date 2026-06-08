@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "paymanager",
+    "name": { "en": "PayManager", "hi": "पे-मैनेजर" },
+    "purpose": {
+      "en": "Download salary slip and manage employee pay details.",
+      "hi": "सैलरी स्लिप डाउनलोड करें और कर्मचारी वेतन विवरण प्रबंधित करें।"
+    },
+    "keywords": ["paymanager sso login", "paymanager salary slip", "pay manager rajasthan"]
+  },
+  {
+    "slug": "rajkaj",
+    "name": { "en": "RajKaj", "hi": "राजकाज" },
+    "purpose": {
+      "en": "Apply for leave and manage government office workflows.",
+      "hi": "छुट्टी के लिए आवेदन करें और सरकारी कार्यालय वर्कफ़्लो प्रबंधित करें।"
+    },
+    "keywords": ["rajkaj sso", "rajkaj leave application", "rajkaj login"]
+  },
+  {
+    "slug": "jan-aadhaar",
+    "name": { "en": "Jan Aadhaar", "hi": "जन आधार" },
+    "purpose": {
+      "en": "Complete Jan Aadhaar e-KYC and check enrolment status.",
+      "hi": "जन आधार ई-केवाईसी पूरा करें और नामांकन स्थिति जांचें।"
+    },
+    "keywords": ["jan aadhaar e-kyc", "jan aadhaar sso", "jan aadhaar status"]
+  }
+]

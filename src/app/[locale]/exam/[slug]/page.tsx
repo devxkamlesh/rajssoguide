@@ -1,0 +1,87 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
+import { exams, getExam } from "@/lib/content";
+import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
+import {
+  alternates,
+  breadcrumbSchema,
+  buildGraph,
+  canonicalFor,
+} from "@/lib/schema";
+
+export function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    exams.map((e) => ({ locale, slug: e.slug })),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const e = getExam(slug);
+  if (!e || !isLocale(locale)) return {};
+  const title = `${e.fullName[locale]} — SSO ID & OTR`;
+  return {
+    title,
+    description: e.fullName[locale],
+    keywords: e.keywords,
+    alternates: {
+      canonical: canonicalFor(locale, `/exam/${slug}`),
+      ...alternates(`/exam/${slug}`),
+    },
+  };
+}
+
+export default async function ExamPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
+  const e = getExam(slug);
+  if (!e) notFound();
+  const loc = locale as Locale;
+  const t = getDictionary(loc);
+
+  const graph = buildGraph([
+    breadcrumbSchema([
+      { name: "Home", path: `/${loc}` },
+      { name: t.nav.exams, path: `/${loc}` },
+      { name: e.name[loc], path: `/${loc}/exam/${slug}` },
+    ]),
+  ]);
+
+  return (
+    <article>
+      <JsonLd data={graph} />
+      <h1 className="text-3xl font-bold tracking-tight">
+        {e.fullName[loc]}
+      </h1>
+      <dl className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
+          <dt className="text-sm text-zinc-500">OTR Fee (General)</dt>
+          <dd className="text-xl font-semibold">₹{e.otrFee.general}</dd>
+        </div>
+        <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
+          <dt className="text-sm text-zinc-500">OTR Fee (SC/ST)</dt>
+          <dd className="text-xl font-semibold">₹{e.otrFee.sc_st}</dd>
+        </div>
+        <div className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-800">
+          <dt className="text-sm text-zinc-500">Last Date</dt>
+          <dd className="text-xl font-semibold">{e.lastDate}</dd>
+        </div>
+      </dl>
+      <h2 className="mt-8 text-xl font-semibold">Services via SSO</h2>
+      <ul className="mt-3 list-inside list-disc text-zinc-600 dark:text-zinc-400">
+        {e.services.map((s) => (
+          <li key={s}>{s}</li>
+        ))}
+      </ul>
+    </article>
+  );
+}
