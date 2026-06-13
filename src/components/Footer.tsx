@@ -1,6 +1,7 @@
 import { getDictionary, type Locale } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import Link from "next/link";
+import { DevBadge } from "./DevBadge";
 
 export function Footer({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
@@ -23,16 +24,25 @@ export function Footer({ locale }: { locale: Locale }) {
           <Link href={`/${locale}/about`} className="hover:text-amber-700">
             {locale === "hi" ? "हमारे बारे में" : "About"}
           </Link>
+          <Link href={`/${locale}/privacy-policy`} className="hover:text-amber-700">
+            {locale === "hi" ? "गोपनीयता नीति" : "Privacy Policy"}
+          </Link>
+          <Link href={`/${locale}/terms-of-service`} className="hover:text-amber-700">
+            {locale === "hi" ? "सेवा की शर्तें" : "Terms of Service"}
+          </Link>
           <Link href={`/${locale}/tools`} className="hover:text-amber-700">
             {t.nav.tools}
           </Link>
-          <Link href={`/${locale}/sitemap-page`} className="hover:text-amber-700">
+          <a href="/sitemap.xml" className="hover:text-amber-700">
             {locale === "hi" ? "साइटमैप" : "Sitemap"}
-          </Link>
+          </a>
         </div>
         <p className="mt-4">
           © {new Date().getFullYear()} {site.name}
         </p>
+        <div className="mt-3">
+          <DevBadge />
+        </div>
       </div>
     </footer>
   );

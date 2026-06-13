@@ -131,6 +131,83 @@ export default async function Home({
         </div>
       </section>
 
+      {/* Why is SSO ID Important */}
+      <section className="rounded-2xl border border-amber-100 bg-amber-50/30 p-6">
+        <h2 className="text-2xl font-bold tracking-tight text-amber-900">
+          {c.whyImportantTitle[loc]}
+        </h2>
+        <div className="mt-4 space-y-3 leading-relaxed text-zinc-700">
+          {c.whyImportantBody[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+          {c.whyImportantPoints[loc].map((point, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-1 text-amber-600">✓</span>
+              <span className="text-zinc-700">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* User Categories */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">
+          {c.userCategoriesTitle[loc]}
+        </h2>
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          {c.userCategories[loc].map((cat) => (
+            <div
+              key={cat.title}
+              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold text-zinc-900">
+                {cat.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+                {cat.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Major Services */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">
+          {c.majorServicesTitle[loc]}
+        </h2>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {c.majorServices[loc].map((service) => (
+            <div
+              key={service.title}
+              className="rounded-xl border border-zinc-200 bg-gradient-to-br from-white to-amber-50/20 p-5 shadow-sm"
+            >
+              <h3 className="font-semibold text-zinc-900">{service.title}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-zinc-600">
+                {service.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight">
+          {c.benefitsTitle[loc]}
+        </h2>
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+          {c.benefitsPoints[loc].map((benefit, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-1 text-amber-600">✓</span>
+              <span className="text-zinc-700">{benefit}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Login + Registration steps */}
       <section className="grid gap-8 md:grid-cols-2">
         {[
@@ -244,6 +321,23 @@ export default async function Home({
 
       {/* FAQ */}
       <FaqSection title={t.common.faqTitle} faqs={c.faqs[loc]} />
+
+      {/* Safety Tips */}
+      <section className="rounded-2xl border border-red-100 bg-red-50/20 p-6">
+        <h2 className="text-2xl font-bold tracking-tight text-red-900">
+          {c.safetyTitle[loc]}
+        </h2>
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+          {c.safetyTips[loc].map((tip, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-0.5 text-red-600">🔒</span>
+              <span className="text-sm leading-relaxed text-zinc-700">
+                {tip}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <p className="text-center text-sm text-zinc-500">
         {t.common.officialPortalNote}{" "}

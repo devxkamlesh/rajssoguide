@@ -19,6 +19,7 @@ import {
   organizationSchema,
   websiteSchema,
 } from "@/lib/schema";
+import { ATTRIBUTION, personJsonLd } from "@/lib/attribution";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -44,6 +45,9 @@ export async function generateMetadata({
       template: `%s | ${site.name}`,
     },
     description: site.description[loc],
+    authors: [{ name: ATTRIBUTION.name, url: ATTRIBUTION.url }],
+    creator: `${ATTRIBUTION.name} — ${ATTRIBUTION.handle}`,
+    publisher: site.name,
     icons: {
       icon: [
         { url: site.assets.favicons.icon32, sizes: "32x32", type: "image/png" },
@@ -74,6 +78,10 @@ export async function generateMetadata({
     verification: {
       google: "p_abO8_AL_rYysORgZ8oWGT4ZwacZdbNoR6FCtwNU48",
     },
+    other: {
+      "designed-by": `${ATTRIBUTION.name} (${ATTRIBUTION.url})`,
+      generator: `Next.js — built by ${ATTRIBUTION.handle}`,
+    },
   };
 }
 
@@ -87,23 +95,31 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
-  const graph = buildGraph([websiteSchema(), organizationSchema()]);
+  const graph = buildGraph([websiteSchema(), organizationSchema(), personJsonLd()]);
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html
       lang={hreflangMap[locale]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="author" type="text/plain" href="/humans.txt" />
+      </head>
       <body className="flex min-h-full flex-col">
         <JsonLd data={graph} />
         {/* Google Analytics — loads after page is interactive */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-72FK7H2P8N"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-72FK7H2P8N');`}
-        </Script>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <Header locale={locale} />
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
           {children}

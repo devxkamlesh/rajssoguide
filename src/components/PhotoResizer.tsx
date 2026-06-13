@@ -62,8 +62,8 @@ export function PhotoResizer({ locale }: { locale: Locale }) {
   function applyPreset(p: Preset) {
     setPreset(p);
     if (p !== "custom") {
-      setW(PRESETS[p].w);
-      setH(PRESETS[p].h);
+      setW(Number(PRESETS[p].w));
+      setH(Number(PRESETS[p].h));
     }
   }
 

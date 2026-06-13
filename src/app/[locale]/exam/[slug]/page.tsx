@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { exams, getExam } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
-import { examBody } from "@/lib/pageContent";
+import { getExamDetailedContent } from "@/lib/examContent";
 import {
   alternates,
   breadcrumbSchema,
@@ -57,6 +57,8 @@ export default async function ExamPage({
     ]),
   ]);
 
+  const detailedContent = getExamDetailedContent(slug, loc);
+
   return (
     <article>
       <JsonLd data={graph} />
@@ -77,18 +79,21 @@ export default async function ExamPage({
           <dd className="text-xl font-semibold">{e.lastDate}</dd>
         </div>
       </dl>
-      <h2 className="mt-8 text-xl font-semibold">Services via SSO</h2>
+
+      {detailedContent && (
+        <div className="mt-8 space-y-4 leading-relaxed text-zinc-700">
+          {detailedContent.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+      )}
+
+      <h2 className="mt-8 text-xl font-semibold">{loc === "hi" ? "SSO के माध्यम से सेवाएं" : "Services via SSO"}</h2>
       <ul className="mt-3 list-inside list-disc text-zinc-600 dark:text-zinc-400">
         {e.services.map((s) => (
           <li key={s}>{s}</li>
         ))}
       </ul>
-
-      <div className="mt-8 space-y-4 leading-relaxed text-zinc-700">
-        {examBody(e, loc).map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-      </div>
     </article>
   );
 }

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { locales, hreflangMap, defaultLocale } from "@/lib/i18n";
+import { locales } from "@/lib/i18n";
 import { guides } from "@/data/guides";
 import { exams, services, cities, errors, scholarships } from "@/lib/content";
 
@@ -12,16 +12,6 @@ interface PathConfig {
   path: string;
   priority: number;
   changeFrequency: Freq;
-}
-
-// Build hreflang alternates for every locale + x-default.
-function alternatesFor(path: string) {
-  return {
-    ...Object.fromEntries(
-      locales.map((l) => [hreflangMap[l], `${site.url}/${l}${path}`]),
-    ),
-    "x-default": `${site.url}/${defaultLocale}${path}`,
-  };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -70,19 +60,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `/error/${e.slug}`, priority: 0.6, changeFrequency: "monthly" as Freq,
     })),
 
-    // ── About ─────────────────────────────────────────────────── priority 0.5
+    // ── About & Legal ─────────────────────────────────────────── priority 0.5-0.6
     { path: "/about",  priority: 0.5, changeFrequency: "monthly" },
-    { path: "/sitemap-page", priority: 0.4, changeFrequency: "monthly" },
+    { path: "/privacy-policy", priority: 0.6, changeFrequency: "monthly" },
+    { path: "/terms-of-service", priority: 0.6, changeFrequency: "monthly" },
   ];
 
-  // Emit one entry per locale per path (canonical = that locale's URL).
+  // Emit one entry per locale per path - simplified for Google Search Console compatibility
   return locales.flatMap((locale) =>
     paths.map(({ path, priority, changeFrequency }) => ({
       url: `${site.url}/${locale}${path}`,
       lastModified,
       changeFrequency,
       priority,
-      alternates: { languages: alternatesFor(path) },
     })),
   );
 }

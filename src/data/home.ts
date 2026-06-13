@@ -12,12 +12,23 @@ export const homeContent: {
   stats: L<{ value: string; label: string }[]>;
   whatTitle: L<string>;
   whatBody: L<string[]>;
+  whyImportantTitle: L<string>;
+  whyImportantBody: L<string[]>;
+  whyImportantPoints: L<string[]>;
+  userCategoriesTitle: L<string>;
+  userCategories: L<{ title: string; desc: string }[]>;
+  majorServicesTitle: L<string>;
+  majorServices: L<{ title: string; desc: string }[]>;
+  benefitsTitle: L<string>;
+  benefitsPoints: L<string[]>;
   loginTitle: L<string>;
   loginSteps: L<string[]>;
   registerTitle: L<string>;
   registerSteps: L<string[]>;
   servicesTitle: L<string>;
   services: L<string[]>;
+  safetyTitle: L<string>;
+  safetyTips: L<string[]>;
   faqs: L<FaqItem[]>;
 } = {
   metaTitle: {
@@ -54,12 +65,176 @@ export const homeContent: {
   },
   whatBody: {
     en: [
-      "SSO ID (Single Sign-On ID) is a single digital identity created by the Government of Rajasthan in 2013 and managed by the Department of Information Technology & Communication (DoITC). With one SSO login you can access more than 100 services on the RajSSO portal at sso.rajasthan.gov.in.",
-      "Using your SSO ID Rajasthan account you can apply for government jobs, fill scholarship forms, use e-Mitra, pay your bijli bill, download admit cards, and access schemes like Jan Aadhaar and Chiranjeevi — all without a separate login for each service.",
+      "SSO ID Rajasthan (Single Sign-On ID) is the unified digital identity system developed by the Government of Rajasthan to provide citizens, government employees, and businesses with secure access to online government services through a single account. Instead of creating separate usernames and passwords for different departments, users can access multiple services using one SSO login at the official Rajasthan SSO portal.",
+      "The Rajasthan Single Sign-On platform was launched in 2013 and is maintained by the Department of Information Technology & Communication (DoITC). Over the years, it has become the primary gateway for accessing hundreds of government services, examinations, welfare schemes, recruitment applications, and citizen-focused digital initiatives across Rajasthan.",
+      "Today, residents from Jaipur, Jodhpur, Kota, Udaipur, Ajmer, Bikaner, Bharatpur, Alwar, Sikar, Bhilwara, Pali, Sri Ganganagar, and every other district of Rajasthan use SSO ID to interact with government services online without visiting offices repeatedly.",
     ],
     hi: [
-      "एसएसओ आईडी (सिंगल साइन-ऑन आईडी) राजस्थान सरकार द्वारा 2013 में बनाई गई एक डिजिटल पहचान है, जिसे सूचना प्रौद्योगिकी और संचार विभाग (DoITC) संचालित करता है। एक एसएसओ लॉगिन से आप sso.rajasthan.gov.in पर 100 से अधिक सेवाओं का उपयोग कर सकते हैं।",
-      "अपने एसएसओ आईडी राजस्थान अकाउंट से आप सरकारी नौकरी के लिए आवेदन, छात्रवृत्ति फॉर्म, ई-मित्र, बिजली बिल भुगतान, एडमिट कार्ड डाउनलोड और जन आधार व चिरंजीवी जैसी योजनाओं का लाभ ले सकते हैं — हर सेवा के लिए अलग लॉगिन की ज़रूरत नहीं।",
+      "एसएसओ आईडी राजस्थान (सिंगल साइन-ऑन आईडी) राजस्थान सरकार द्वारा विकसित एकीकृत डिजिटल पहचान प्रणाली है जो नागरिकों, सरकारी कर्मचारियों और व्यवसायों को एक खाते के माध्यम से ऑनलाइन सरकारी सेवाओं तक सुरक्षित पहुंच प्रदान करती है। विभिन्न विभागों के लिए अलग-अलग यूजरनेम और पासवर्ड बनाने के बजाय, उपयोगकर्ता आधिकारिक राजस्थान SSO पोर्टल पर एक SSO लॉगिन का उपयोग करके कई सेवाओं तक पहुंच सकते हैं।",
+      "राजस्थान सिंगल साइन-ऑन प्लेटफ़ॉर्म 2013 में लॉन्च किया गया था और इसे सूचना प्रौद्योगिकी और संचार विभाग (DoITC) द्वारा बनाए रखा जाता है। पिछले कुछ वर्षों में, यह सैकड़ों सरकारी सेवाओं, परीक्षाओं, कल्याण योजनाओं, भर्ती आवेदनों और राजस्थान भर में नागरिक-केंद्रित डिजिटल पहलों तक पहुंचने का प्राथमिक गेटवे बन गया है।",
+      "आज, जयपुर, जोधपुर, कोटा, उदयपुर, अजमेर, बीकानेर, भरतपुर, अलवर, सीकर, भीलवाड़ा, पाली, श्री गंगानगर और राजस्थान के हर अन्य जिले के निवासी बार-बार कार्यालयों में जाए बिना ऑनलाइन सरकारी सेवाओं के साथ बातचीत करने के लिए SSO ID का उपयोग करते हैं।",
+    ],
+  },
+  whyImportantTitle: {
+    en: "Why is SSO ID Important?",
+    hi: "एसएसओ आईडी क्यों महत्वपूर्ण है?",
+  },
+  whyImportantBody: {
+    en: [
+      "The Rajasthan government created the SSO platform to simplify access to digital services. A single account reduces paperwork, improves security, and provides a consistent user experience across multiple departments.",
+    ],
+    hi: [
+      "राजस्थान सरकार ने डिजिटल सेवाओं तक पहुंच को सरल बनाने के लिए SSO प्लेटफ़ॉर्म बनाया। एक खाता कागजी कार्रवाई को कम करता है, सुरक्षा में सुधार करता है, और कई विभागों में एक सुसंगत उपयोगकर्ता अनुभव प्रदान करता है।",
+    ],
+  },
+  whyImportantPoints: {
+    en: [
+      "Access e-Mitra services online",
+      "Apply for Rajasthan government jobs",
+      "Register for RPSC and RSMSSB examinations",
+      "Use Jan Aadhaar related services",
+      "Access PayManager and RajKaj portals",
+      "Apply for scholarships and welfare schemes",
+      "Download admit cards and recruitment notifications",
+      "Access various departmental services from one dashboard",
+    ],
+    hi: [
+      "ई-मित्र सेवाओं तक ऑनलाइन पहुंच",
+      "राजस्थान सरकारी नौकरियों के लिए आवेदन करें",
+      "RPSC और RSMSSB परीक्षाओं के लिए पंजीकरण करें",
+      "जन आधार संबंधित सेवाओं का उपयोग करें",
+      "PayManager और RajKaj पोर्टल तक पहुंच",
+      "छात्रवृत्ति और कल्याण योजनाओं के लिए आवेदन करें",
+      "एडमिट कार्ड और भर्ती अधिसूचनाएं डाउनलोड करें",
+      "एक डैशबोर्ड से विभिन्न विभागीय सेवाओं तक पहुंच",
+    ],
+  },
+  userCategoriesTitle: {
+    en: "Who Can Use SSO ID Rajasthan?",
+    hi: "एसएसओ आईडी राजस्थान का उपयोग कौन कर सकता है?",
+  },
+  userCategories: {
+    en: [
+      {
+        title: "Citizens",
+        desc: "Residents of Rajasthan can create an account using Jan Aadhaar, Aadhaar, or other supported methods to access public services and welfare schemes.",
+      },
+      {
+        title: "Government Employees",
+        desc: "Government staff can use SSO credentials to access official portals such as PayManager, RajKaj, departmental systems, and employee-related services.",
+      },
+      {
+        title: "Businesses and Industries",
+        desc: "Business users can access services related to registrations, approvals, compliance requirements, and other government interactions.",
+      },
+    ],
+    hi: [
+      {
+        title: "नागरिक",
+        desc: "राजस्थान के निवासी सार्वजनिक सेवाओं और कल्याण योजनाओं तक पहुंचने के लिए जन आधार, आधार, या अन्य समर्थित तरीकों का उपयोग करके खाता बना सकते हैं।",
+      },
+      {
+        title: "सरकारी कर्मचारी",
+        desc: "सरकारी कर्मचारी PayManager, RajKaj, विभागीय प्रणाली, और कर्मचारी-संबंधित सेवाओं तक पहुंचने के लिए SSO क्रेडेंशियल्स का उपयोग कर सकते हैं।",
+      },
+      {
+        title: "व्यवसाय और उद्योग",
+        desc: "व्यावसायिक उपयोगकर्ता पंजीकरण, अनुमोदन, अनुपालन आवश्यकताओं, और अन्य सरकारी बातचीत से संबंधित सेवाओं तक पहुंच सकते हैं।",
+      },
+    ],
+  },
+  majorServicesTitle: {
+    en: "Major Services Available Through SSO",
+    hi: "एसएसओ के माध्यम से उपलब्ध प्रमुख सेवाएं",
+  },
+  majorServices: {
+    en: [
+      {
+        title: "e-Mitra Services",
+        desc: "e-Mitra is one of the most widely used digital service platforms in Rajasthan. Citizens can access various government and utility services through integrated online systems.",
+      },
+      {
+        title: "Jan Aadhaar",
+        desc: "Jan Aadhaar is a key identity and service delivery platform in Rajasthan. Many government schemes and benefits are connected with Jan Aadhaar information.",
+      },
+      {
+        title: "PayManager",
+        desc: "PayManager is used by government employees for salary slips, payroll management, and employee-related services.",
+      },
+      {
+        title: "Recruitment and Examinations",
+        desc: "Many recruitment processes and examination-related activities are connected with the Rajasthan SSO ecosystem. Candidates preparing for RPSC, RSMSSB, CET, Patwari, LDC examinations often use their SSO account.",
+      },
+    ],
+    hi: [
+      {
+        title: "ई-मित्र सेवाएं",
+        desc: "ई-मित्र राजस्थान में सबसे व्यापक रूप से उपयोग किए जाने वाले डिजिटल सेवा प्लेटफार्मों में से एक है। नागरिक एकीकृत ऑनलाइन सिस्टम के माध्यम से विभिन्न सरकारी और उपयोगिता सेवाओं तक पहुंच सकते हैं।",
+      },
+      {
+        title: "जन आधार",
+        desc: "जन आधार राजस्थान में एक प्रमुख पहचान और सेवा वितरण मंच है। कई सरकारी योजनाएं और लाभ जन आधार जानकारी से जुड़े हुए हैं।",
+      },
+      {
+        title: "पे-मैनेजर",
+        desc: "पे-मैनेजर का उपयोग सरकारी कर्मचारियों द्वारा वेतन पर्ची, पेरोल प्रबंधन, और कर्मचारी-संबंधित सेवाओं के लिए किया जाता है।",
+      },
+      {
+        title: "भर्ती और परीक्षाएं",
+        desc: "कई भर्ती प्रक्रियाएं और परीक्षा-संबंधित गतिविधियां राजस्थान SSO पारिस्थितिकी तंत्र से जुड़ी हुई हैं। RPSC, RSMSSB, CET, पटवारी, LDC परीक्षाओं की तैयारी करने वाले उम्मीदवार अक्सर अपने SSO खाते का उपयोग करते हैं।",
+      },
+    ],
+  },
+  benefitsTitle: {
+    en: "Benefits of Using Rajasthan SSO Portal",
+    hi: "राजस्थान एसएसओ पोर्टल के लाभ",
+  },
+  benefitsPoints: {
+    en: [
+      "One login for multiple government services",
+      "Faster access to online applications",
+      "Reduced paperwork and office visits",
+      "Secure authentication and account management",
+      "Integration with various state government departments",
+      "Convenient access from desktop and mobile devices",
+      "Streamlined examination and recruitment applications",
+      "Easier management of personal records and services",
+    ],
+    hi: [
+      "कई सरकारी सेवाओं के लिए एक लॉगिन",
+      "ऑनलाइन आवेदनों तक तेज़ पहुंच",
+      "कम कागजी कार्रवाई और कार्यालय की यात्राएं",
+      "सुरक्षित प्रमाणीकरण और खाता प्रबंधन",
+      "विभिन्न राज्य सरकार विभागों के साथ एकीकरण",
+      "डेस्कटॉप और मोबाइल उपकरणों से सुविधाजनक पहुंच",
+      "सुव्यवस्थित परीक्षा और भर्ती आवेदन",
+      "व्यक्तिगत रिकॉर्ड और सेवाओं का आसान प्रबंधन",
+    ],
+  },
+  safetyTitle: {
+    en: "Safety Tips for SSO Users",
+    hi: "एसएसओ उपयोगकर्ताओं के लिए सुरक्षा सुझाव",
+  },
+  safetyTips: {
+    en: [
+      "Never share your password with anyone",
+      "Use a strong and unique password",
+      "Keep your registered mobile number active",
+      "Update recovery information when required",
+      "Avoid logging in from public computers",
+      "Always verify the official website address before entering credentials",
+      "Log out after completing sensitive activities",
+      "Be cautious of unofficial websites claiming to provide account recovery",
+    ],
+    hi: [
+      "अपना पासवर्ड कभी किसी के साथ साझा न करें",
+      "एक मजबूत और अद्वितीय पासवर्ड का उपयोग करें",
+      "अपना पंजीकृत मोबाइल नंबर सक्रिय रखें",
+      "आवश्यक होने पर रिकवरी जानकारी अपडेट करें",
+      "सार्वजनिक कंप्यूटरों से लॉगिन करने से बचें",
+      "क्रेडेंशियल्स दर्ज करने से पहले हमेशा आधिकारिक वेबसाइट पते को सत्यापित करें",
+      "संवेदनशील गतिविधियों को पूरा करने के बाद लॉग आउट करें",
+      "खाता रिकवरी प्रदान करने का दावा करने वाली अनौपचारिक वेबसाइटों से सावधान रहें",
     ],
   },
   loginTitle: {
