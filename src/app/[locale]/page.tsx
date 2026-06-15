@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { LatestUpdates } from "@/components/LatestUpdates";
 import { exams, services, cities, scholarships } from "@/lib/content";
 import { homeContent } from "@/data/home";
+import { homeGuide as g } from "@/data/homeGuide";
 import { site } from "@/lib/site";
 import {
   alternates,
@@ -247,6 +248,91 @@ export default async function Home({
         ))}
       </section>
 
+      {/* Who needs SSO ID */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{g.whoNeedsTitle[loc]}</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{g.whoNeedsCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{g.whoNeedsCols[loc][1]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {g.whoNeeds[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.a}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Documents needed */}
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight">{g.documentsTitle[loc]}</h2>
+        <ul className="mt-5 space-y-2.5">
+          {g.documents[loc].map((d, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-1 text-amber-600">•</span>
+              <span className="text-zinc-700">{d}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Registration options */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{g.registrationTitle[loc]}</h2>
+        <div className="mt-5 space-y-5">
+          {g.registrationOptions[loc].map((opt, i) => (
+            <div key={i} className="rounded-2xl border border-zinc-200 p-6">
+              <h3 className="font-semibold text-zinc-900">{opt.title}</h3>
+              <ol className="mt-3 space-y-2">
+                {opt.steps.map((s, j) => (
+                  <li key={j} className="flex gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-semibold text-amber-700">
+                      {j + 1}
+                    </span>
+                    <span className="text-sm text-zinc-700">{s}</span>
+                  </li>
+                ))}
+              </ol>
+              {opt.note && (
+                <p className="mt-3 rounded-lg bg-amber-50/60 px-3 py-2 text-xs text-amber-900">
+                  {opt.note}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Recovery scenarios */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{g.recoveryTitle[loc]}</h2>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          {g.recoveryScenarios[loc].map((sc, i) => (
+            <div key={i} className="rounded-2xl border border-zinc-200 p-6">
+              <h3 className="font-semibold text-zinc-900">{sc.title}</h3>
+              <ol className="mt-3 space-y-2">
+                {sc.steps.map((s, j) => (
+                  <li key={j} className="flex gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-semibold text-amber-700">
+                      {j + 1}
+                    </span>
+                    <span className="text-sm text-zinc-700">{s}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Services */}
       <section>
         <h2 className="text-2xl font-bold tracking-tight">
@@ -330,6 +416,69 @@ export default async function Home({
               {city.name[loc]}
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Common errors */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{g.errorsTitle[loc]}</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{g.errorsCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{g.errorsCols[loc][1]}</th>
+                <th className="px-4 py-3 font-semibold">{g.errorsCols[loc][2]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {g.errors[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.message}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.meaning}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.fix}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Mobile app */}
+      <section className="rounded-2xl border border-amber-100 bg-amber-50/30 p-6">
+        <h2 className="text-2xl font-bold tracking-tight text-amber-900">{g.appTitle[loc]}</h2>
+        <p className="mt-3 leading-relaxed text-zinc-700">{g.appBody[loc]}</p>
+      </section>
+
+      {/* Pre-register checklist */}
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight">{g.checklistTitle[loc]}</h2>
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+          {g.checklist[loc].map((item, i) => (
+            <li key={i} className="flex gap-2.5">
+              <span className="mt-1 text-amber-600">✓</span>
+              <span className="text-zinc-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Quick reference */}
+      <section>
+        <h2 className="text-2xl font-bold tracking-tight">{g.quickRefTitle[loc]}</h2>
+        <div className="mt-4 overflow-hidden rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <tbody>
+              {g.quickRef[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <th scope="row" className="w-1/2 px-4 py-3 text-left font-medium text-zinc-700">
+                    {r.a}
+                  </th>
+                  <td className="w-1/2 px-4 py-3 text-zinc-600">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 

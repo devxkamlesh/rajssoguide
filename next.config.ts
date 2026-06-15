@@ -1,10 +1,25 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
-  // Deployed on Vercel with native Next.js support (SSG now, ISR/SSR-ready).
+  // Deployed on Cloudflare Workers via the OpenNext adapter (also Vercel-compatible).
   // Images are pre-optimized, so we skip the optimizer to avoid quota usage.
   images: {
     unoptimized: true,
+  },
+
+  // Locale routing: send non-localized paths to the default locale.
+  // Replaces the old proxy/middleware (Next.js 16 proxy is Node-only and
+  // not supported on Cloudflare Workers).
+  async redirects() {
+    return [
+      { source: "/", destination: "/en", permanent: false },
+      {
+        source: "/:path((?!en|hi|_next|api|.*\\.).*)",
+        destination: "/en/:path",
+        permanent: false,
+      },
+    ];
   },
 
   // Security headers to protect against XSS, clickjacking, and other attacks
@@ -13,6 +28,10 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          {
+            key: 'X-Built-By',
+            value: 'Kamlesh Choudhary (devxkamlesh.com)',
+          },
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
@@ -48,3 +67,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Enables Cloudflare bindings during local `next dev` and integrates the
+// OpenNext Cloudflare adapter. Safe no-op when not developing on Cloudflare.
+initOpenNextCloudflareForDev();
