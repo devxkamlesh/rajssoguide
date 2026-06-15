@@ -23,6 +23,7 @@ It is structured as an Obsidian-compatible vault. Notes use `[[wiki links]]`, so
 | [[08 - Backend and Database]] | Analysis of adding a backend/database, with pros and cons |
 | [[09 - Content Template and Checklist]] | Reusable template and checklists for creating new content |
 | [[10 - Content Prompt Template]] | Ready-to-paste prompt for requesting a new page |
+| [[11 - Cloudflare Deployment]] | Cloudflare Workers build/deploy settings and troubleshooting |
 
 ## Recommended reading order
 
