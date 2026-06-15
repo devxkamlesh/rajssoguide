@@ -95,7 +95,7 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const graph = buildGraph([websiteSchema(), organizationSchema(), personJsonLd()]);
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GA_ID = "G-DNK2KR5G8Z";
 
   return (
     <html
@@ -104,6 +104,14 @@ export default async function LocaleLayout({
     >
       <head>
         <link rel="author" type="text/plain" href="/humans.txt" />
+        <link
+          rel="preload"
+          href="/RajSSO/logo-horizontal.webp"
+          as="image"
+          type="image/webp"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
       </head>
       <body className="flex min-h-full flex-col">
         <a
@@ -113,14 +121,14 @@ export default async function LocaleLayout({
           {locale === "hi" ? "मुख्य सामग्री पर जाएं" : "Skip to main content"}
         </a>
         <JsonLd data={graph} />
-        {/* Google Analytics — loads after page is interactive */}
+        {/* Google Analytics — loads only when browser is idle */}
         {GA_ID && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="gtag-init" strategy="afterInteractive">
+            <Script id="gtag-init" strategy="lazyOnload">
               {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
             </Script>
           </>

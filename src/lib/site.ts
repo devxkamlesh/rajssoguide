@@ -32,7 +32,7 @@ export const site = {
   },
   assets: {
     logoSquare: "/RajSSO/logo-square.png",
-    logoHorizontal: "/RajSSO/logo-horizontal.png",
+    logoHorizontal: "/RajSSO/logo-horizontal.webp",
     hero: "/RajSSO/hero-banner.webp",
     ogImage: {
       en: "/RajSSO/og-image.webp",

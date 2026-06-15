@@ -109,7 +109,7 @@ export function Header({ locale }: { locale: Locale }) {
               className="flex items-center gap-1 py-2 text-sm font-medium text-zinc-700 transition-colors hover:text-amber-700"
             >
               {t.nav.updates}
-              <span className="rounded bg-red-500 px-1 py-0.5 text-[9px] font-bold uppercase leading-none text-white">
+              <span className="rounded bg-red-700 px-1 py-0.5 text-[9px] font-bold uppercase leading-none text-white">
                 {locale === "hi" ? "नया" : "New"}
               </span>
             </Link>
@@ -219,7 +219,7 @@ export function Header({ locale }: { locale: Locale }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.nav.updates}
-              <span className="rounded bg-red-500 px-1 py-0.5 text-[9px] font-bold uppercase leading-none text-white">
+              <span className="rounded bg-red-700 px-1 py-0.5 text-[9px] font-bold uppercase leading-none text-white">
                 {locale === "hi" ? "नया" : "New"}
               </span>
             </Link>
