@@ -514,7 +514,7 @@ export default async function Home({
         </p>
         <Link
           href={`${base}/contact`}
-          className="mt-5 inline-block rounded-full bg-amber-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-500"
+          className="mt-5 inline-block rounded-full bg-amber-500 px-6 py-2.5 text-sm font-semibold text-zinc-900 transition hover:bg-amber-400"
         >
           {loc === "hi" ? "संपर्क करें" : "Contact Us"}
         </Link>

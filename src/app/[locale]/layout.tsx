@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -132,8 +130,6 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} />
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
