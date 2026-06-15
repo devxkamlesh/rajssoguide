@@ -13,6 +13,13 @@ export const site = {
   },
   // We are an INDEPENDENT guide, not the official portal.
   officialPortal: "https://sso.rajasthan.gov.in",
+  officialHelpdesk: {
+    phone: "0141-5153222",
+    email: "helpdesk.sso@rajasthan.gov.in",
+  },
+  contactEmail: "contact@rajssoguide.in",
+  contactWhatsApp: "919257241205",
+  established: "2024",
   author: {
     name: "RajSSO Guide Editorial Team",
     url: "https://rajssoguide.in/about",

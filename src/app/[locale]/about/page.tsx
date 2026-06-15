@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { site } from "@/lib/site";
@@ -93,6 +94,29 @@ export default async function AboutPage({
         {loc === "hi" ? "संपादकीय प्रक्रिया" : "Editorial process"}
       </h2>
       <p className="mt-2 text-zinc-600">{c.editorial}</p>
+
+      <h2 className="mt-8 text-xl font-semibold">
+        {loc === "hi" ? "संपर्क करें" : "Contact us"}
+      </h2>
+      <p className="mt-2 text-zinc-600">
+        {loc === "hi" ? (
+          <>
+            प्रतिक्रिया या किसी गलत जानकारी की रिपोर्ट के लिए{" "}
+            <Link href={`/${loc}/contact`} className="text-amber-700 underline">
+              संपर्क पेज
+            </Link>{" "}
+            देखें।
+          </>
+        ) : (
+          <>
+            For feedback or to report incorrect information, see our{" "}
+            <Link href={`/${loc}/contact`} className="text-amber-700 underline">
+              contact page
+            </Link>
+            .
+          </>
+        )}
+      </p>
 
       <p className="mt-8 text-sm text-zinc-500">
         {site.author.name} ·{" "}

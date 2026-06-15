@@ -6,7 +6,11 @@
     "forgot": "एसएसओ आईडी भूल गए",
     "tools": "टूल्स",
     "exams": "परीक्षाएं",
-    "services": "सेवाएं"
+    "services": "सेवाएं",
+    "scholarships": "छात्रवृत्ति",
+    "cities": "शहर",
+    "guides": "गाइड्स",
+    "updates": "अपडेट्स"
   },
   "common": {
     "lastVerified": "अंतिम सत्यापन",
@@ -14,7 +18,11 @@
     "readMore": "और पढ़ें",
     "steps": "चरण",
     "faqTitle": "अक्सर पूछे जाने वाले प्रश्न",
-    "switchLanguage": "English"
+    "switchLanguage": "English",
+    "related": "संबंधित पेज",
+    "home": "होम",
+    "latestUpdates": "ताज़ा अपडेट",
+    "viewAll": "सभी देखें →"
   },
   "home": {
     "heroTitle": "राजस्थान एसएसओ आईडी — लॉगिन, रजिस्ट्रेशन और सेवाएं गाइड",

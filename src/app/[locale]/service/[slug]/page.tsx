@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { ImportantLinks } from "@/components/ImportantLinks";
 import { services, getService } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { serviceBody } from "@/lib/pageContent";
+import { relatedForService, importantLinksForService } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
@@ -50,8 +54,8 @@ export default async function ServicePage({
 
   const graph = buildGraph([
     breadcrumbSchema([
-      { name: "Home", path: `/${loc}` },
-      { name: t.nav.services, path: `/${loc}` },
+      { name: t.common.home, path: `/${loc}` },
+      { name: t.nav.services, path: `/${loc}/services` },
       { name: s.name[loc], path: `/${loc}/service/${slug}` },
     ]),
   ]);
@@ -59,6 +63,13 @@ export default async function ServicePage({
   return (
     <article>
       <JsonLd data={graph} />
+      <Breadcrumbs
+        items={[
+          { name: t.common.home, href: `/${loc}` },
+          { name: t.nav.services, href: `/${loc}/services` },
+          { name: s.name[loc] },
+        ]}
+      />
       <h1 className="text-3xl font-bold tracking-tight">{s.name[loc]}</h1>
       <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
         {s.purpose[loc]}
@@ -68,6 +79,13 @@ export default async function ServicePage({
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      <ImportantLinks
+        title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}
+        rows={importantLinksForService(loc)}
+      />
+
+      <RelatedLinks title={t.common.related} links={relatedForService(slug, loc)} />
     </article>
   );
 }

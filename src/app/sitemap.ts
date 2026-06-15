@@ -21,6 +21,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Home ──────────────────────────────────────────────────── priority 1.0
     { path: "",              priority: 1.0, changeFrequency: "daily"   },
 
+    // ── Category hubs ─────────────────────────────────────────── priority 0.9
+    { path: "/guides",        priority: 0.9, changeFrequency: "weekly"  },
+    { path: "/exams",         priority: 0.9, changeFrequency: "weekly"  },
+    { path: "/exam-calendar", priority: 0.9, changeFrequency: "daily"   },
+    { path: "/services",      priority: 0.9, changeFrequency: "weekly"  },
+    { path: "/scholarships",  priority: 0.9, changeFrequency: "weekly"  },
+    { path: "/updates",       priority: 0.9, changeFrequency: "daily"   },
+    { path: "/cities",        priority: 0.8, changeFrequency: "monthly" },
+
     // ── Core guides ───────────────────────────────────────────── priority 0.9
     ...guides.map((g) => ({
       path: `/${g.slug}`,   priority: 0.9, changeFrequency: "weekly" as Freq,
@@ -62,6 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── About & Legal ─────────────────────────────────────────── priority 0.5-0.6
     { path: "/about",  priority: 0.5, changeFrequency: "monthly" },
+    { path: "/contact", priority: 0.5, changeFrequency: "monthly" },
     { path: "/privacy-policy", priority: 0.6, changeFrequency: "monthly" },
     { path: "/terms-of-service", priority: 0.6, changeFrequency: "monthly" },
   ];

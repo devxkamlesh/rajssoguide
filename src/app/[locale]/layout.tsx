@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -107,6 +108,12 @@ export default async function LocaleLayout({
         <link rel="author" type="text/plain" href="/humans.txt" />
       </head>
       <body className="flex min-h-full flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-amber-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          {locale === "hi" ? "मुख्य सामग्री पर जाएं" : "Skip to main content"}
+        </a>
         <JsonLd data={graph} />
         {/* Google Analytics — loads after page is interactive */}
         {GA_ID && (
@@ -121,11 +128,12 @@ export default async function LocaleLayout({
           </>
         )}
         <Header locale={locale} />
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+        <main id="main-content" className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
           {children}
         </main>
         <Footer locale={locale} />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

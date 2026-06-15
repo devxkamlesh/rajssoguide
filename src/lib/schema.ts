@@ -26,9 +26,16 @@ export function organizationSchema(): Json {
     name: site.name,
     url: site.url,
     logo: `${site.url}${site.assets.logoSquare}`,
+    description: site.description.en,
+    foundingDate: site.established,
+    email: site.contactEmail,
+    areaServed: { "@type": "State", name: "Rajasthan, India" },
+    sameAs: [`https://x.com/${site.social.twitter.replace("@", "")}`],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "editorial",
+      email: site.contactEmail,
+      availableLanguage: ["en", "hi"],
     },
   };
 }
@@ -90,6 +97,21 @@ export function breadcrumbSchema(crumbs: Crumb[]): Json {
       position: i + 1,
       name: c.name,
       item: `${site.url}${c.path}`,
+    })),
+  };
+}
+
+// ItemList for hub/listing pages — helps Google understand collections.
+export function itemListSchema(
+  items: { name: string; path: string }[],
+): Json {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      url: `${site.url}${it.path}`,
     })),
   };
 }

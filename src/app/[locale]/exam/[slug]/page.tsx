@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { ImportantLinks } from "@/components/ImportantLinks";
 import { exams, getExam } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { getExamDetailedContent } from "@/lib/examContent";
+import { relatedForExam, importantLinksForExam } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
@@ -51,8 +55,8 @@ export default async function ExamPage({
 
   const graph = buildGraph([
     breadcrumbSchema([
-      { name: "Home", path: `/${loc}` },
-      { name: t.nav.exams, path: `/${loc}` },
+      { name: t.common.home, path: `/${loc}` },
+      { name: t.nav.exams, path: `/${loc}/exams` },
       { name: e.name[loc], path: `/${loc}/exam/${slug}` },
     ]),
   ]);
@@ -62,6 +66,13 @@ export default async function ExamPage({
   return (
     <article>
       <JsonLd data={graph} />
+      <Breadcrumbs
+        items={[
+          { name: t.common.home, href: `/${loc}` },
+          { name: t.nav.exams, href: `/${loc}/exams` },
+          { name: e.name[loc] },
+        ]}
+      />
       <h1 className="text-3xl font-bold tracking-tight">
         {e.fullName[loc]}
       </h1>
@@ -94,6 +105,13 @@ export default async function ExamPage({
           <li key={s}>{s}</li>
         ))}
       </ul>
+
+      <ImportantLinks
+        title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}
+        rows={importantLinksForExam(loc)}
+      />
+
+      <RelatedLinks title={t.common.related} links={relatedForExam(slug, loc)} />
     </article>
   );
 }

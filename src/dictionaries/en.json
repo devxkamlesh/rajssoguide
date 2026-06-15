@@ -6,7 +6,11 @@
     "forgot": "Forgot SSO ID",
     "tools": "Tools",
     "exams": "Exams",
-    "services": "Services"
+    "services": "Services",
+    "scholarships": "Scholarships",
+    "cities": "Cities",
+    "guides": "Guides",
+    "updates": "Updates"
   },
   "common": {
     "lastVerified": "Last verified",
@@ -14,7 +18,11 @@
     "readMore": "Read more",
     "steps": "Steps",
     "faqTitle": "Frequently Asked Questions",
-    "switchLanguage": "हिन्दी"
+    "switchLanguage": "हिन्दी",
+    "related": "Related pages",
+    "home": "Home",
+    "latestUpdates": "Latest Updates",
+    "viewAll": "View all →"
   },
   "home": {
     "heroTitle": "Rajasthan SSO ID — Login, Registration & Services Guide",

@@ -14,6 +14,7 @@ export interface Exam {
   fullName: Localized;
   otrFee: { general: number; sc_st: number };
   lastDate: string;
+  examDate?: string;
   services: string[];
   keywords: string[];
 }

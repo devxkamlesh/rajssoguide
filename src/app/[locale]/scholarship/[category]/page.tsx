@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
+import { ImportantLinks } from "@/components/ImportantLinks";
 import { scholarships, getScholarship } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { scholarshipBody } from "@/lib/pageContent";
+import { relatedForScholarship, importantLinksForScholarship } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
@@ -52,7 +56,8 @@ export default async function ScholarshipPage({
 
   const graph = buildGraph([
     breadcrumbSchema([
-      { name: "Home", path: base },
+      { name: t.common.home, path: base },
+      { name: t.nav.scholarships, path: `${base}/scholarships` },
       { name: s.name[loc], path: `${base}/scholarship/${category}` },
     ]),
   ]);
@@ -60,6 +65,13 @@ export default async function ScholarshipPage({
   return (
     <article>
       <JsonLd data={graph} />
+      <Breadcrumbs
+        items={[
+          { name: t.common.home, href: base },
+          { name: t.nav.scholarships, href: `${base}/scholarships` },
+          { name: s.name[loc] },
+        ]}
+      />
       <h1 className="text-3xl font-bold tracking-tight">{s.name[loc]}</h1>
 
       <h2 className="mt-6 text-xl font-semibold">
@@ -90,6 +102,16 @@ export default async function ScholarshipPage({
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      <ImportantLinks
+        title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}
+        rows={importantLinksForScholarship(loc)}
+      />
+
+      <RelatedLinks
+        title={t.common.related}
+        links={relatedForScholarship(category, loc)}
+      />
     </article>
   );
 }

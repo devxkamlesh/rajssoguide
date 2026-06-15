@@ -8,6 +8,7 @@
     },
     "otrFee": { "general": 600, "sc_st": 400 },
     "lastDate": "2026-07-31",
+    "examDate": "2026-09-27",
     "services": ["OTR", "Application Form", "Admit Card"],
     "keywords": ["rpsc cet sso id", "rpsc cet otr 2026", "rpsc cet login"]
   },
@@ -20,6 +21,7 @@
     },
     "otrFee": { "general": 600, "sc_st": 400 },
     "lastDate": "2026-08-15",
+    "examDate": "2026-10-18",
     "services": ["OTR", "Application Form", "Fee Payment"],
     "keywords": ["ldc sso id registration", "ldc otr rajasthan 2026", "rsmssb ldc login"]
   },
@@ -32,6 +34,7 @@
     },
     "otrFee": { "general": 600, "sc_st": 400 },
     "lastDate": "2026-09-10",
+    "examDate": "2026-11-15",
     "services": ["OTR", "Application Form", "Admit Card"],
     "keywords": ["patwari sso id", "patwari sso login", "rajasthan patwari otr"]
   }

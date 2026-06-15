@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { cities, getCity } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { cityBody } from "@/lib/pageContent";
+import { relatedForCity } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
@@ -52,7 +55,8 @@ export default async function CityPage({
 
   const graph = buildGraph([
     breadcrumbSchema([
-      { name: "Home", path: base },
+      { name: t.common.home, path: base },
+      { name: t.nav.cities, path: `${base}/cities` },
       { name: c.name[loc], path: `${base}/city/${slug}` },
     ]),
   ]);
@@ -60,6 +64,13 @@ export default async function CityPage({
   return (
     <article>
       <JsonLd data={graph} />
+      <Breadcrumbs
+        items={[
+          { name: t.common.home, href: base },
+          { name: t.nav.cities, href: `${base}/cities` },
+          { name: c.name[loc] },
+        ]}
+      />
       <h1 className="text-3xl font-bold tracking-tight">
         SSO ID {c.name[loc]}
       </h1>
@@ -88,6 +99,8 @@ export default async function CityPage({
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      <RelatedLinks title={t.common.related} links={relatedForCity(loc)} />
     </article>
   );
 }

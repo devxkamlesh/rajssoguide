@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqSection } from "@/components/FaqSection";
+import { LatestUpdates } from "@/components/LatestUpdates";
 import { exams, services, cities, scholarships } from "@/lib/content";
 import { homeContent } from "@/data/home";
 import { site } from "@/lib/site";
@@ -61,40 +62,41 @@ export default async function Home({
   ]);
 
   return (
-    <div className="space-y-14">
+    <div className="space-y-12">
       <JsonLd data={graph} />
 
       {/* Hero */}
-      <section className="text-center">
-        <span className="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+      <section className="relative overflow-hidden rounded-3xl border border-amber-100 bg-gradient-to-br from-amber-50 via-white to-white px-6 py-12 text-center sm:px-10 sm:py-16">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
           sso.rajasthan.gov.in
         </span>
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+        <h1 className="mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
           {c.h1[loc]}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
           {c.heroLead[loc]}
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link
             href={`${base}/sso-id-login`}
-            className="rounded-full bg-amber-700 px-6 py-3 font-semibold text-white transition hover:bg-amber-800"
+            className="rounded-full bg-amber-700 px-7 py-3 font-semibold text-white shadow-sm transition hover:bg-amber-800"
           >
             {t.nav.login}
           </Link>
           <Link
             href={`${base}/sso-id-registration`}
-            className="rounded-full border border-zinc-300 px-6 py-3 font-semibold text-zinc-800 transition hover:border-amber-500"
+            className="rounded-full border border-zinc-300 bg-white px-7 py-3 font-semibold text-zinc-800 transition hover:border-amber-500"
           >
             {t.nav.registration}
           </Link>
         </div>
 
-        <dl className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-4">
+        <dl className="mx-auto mt-10 grid max-w-xl grid-cols-3 gap-3">
           {c.stats[loc].map((s) => (
             <div
               key={s.label}
-              className="rounded-xl border border-zinc-200 bg-white p-4"
+              className="rounded-2xl border border-zinc-200 bg-white/70 p-4 backdrop-blur"
             >
               <dt className="text-2xl font-bold text-amber-700">{s.value}</dt>
               <dd className="mt-1 text-xs text-zinc-500">{s.label}</dd>
@@ -104,7 +106,7 @@ export default async function Home({
       </section>
 
       {/* Quick access */}
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { href: "/sso-id-login", label: t.nav.login },
           { href: "/sso-id-registration", label: t.nav.registration },
@@ -114,12 +116,24 @@ export default async function Home({
           <Link
             key={q.href}
             href={`${base}${q.href}`}
-            className="rounded-xl border border-zinc-200 p-5 font-medium transition hover:border-amber-500 hover:shadow-sm"
+            className="group flex items-center justify-between rounded-2xl border border-zinc-200 bg-white px-5 py-4 font-medium text-zinc-800 transition hover:border-amber-500 hover:shadow-sm"
           >
-            {q.label} →
+            <span>{q.label}</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-50 text-amber-700 transition group-hover:bg-amber-700 group-hover:text-white">
+              →
+            </span>
           </Link>
         ))}
       </section>
+
+      {/* Latest Updates */}
+      <LatestUpdates
+        title={t.common.latestUpdates}
+        locale={loc}
+        limit={5}
+        viewAllHref={`${base}/updates`}
+        viewAllLabel={t.common.viewAll}
+      />
 
       {/* What is SSO ID */}
       <section>
@@ -251,9 +265,9 @@ export default async function Home({
       </section>
 
       {/* Internal links: exams, scholarships, cities */}
-      <section className="grid gap-8 sm:grid-cols-3">
-        <div>
-          <h2 className="font-semibold">{t.nav.exams}</h2>
+      <section className="grid gap-5 sm:grid-cols-3">
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <h2 className="font-semibold text-zinc-900">{t.nav.exams}</h2>
           <ul className="mt-3 space-y-1.5 text-sm">
             {exams.map((e) => (
               <li key={e.slug}>
@@ -267,8 +281,8 @@ export default async function Home({
             ))}
           </ul>
         </div>
-        <div>
-          <h2 className="font-semibold">
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <h2 className="font-semibold text-zinc-900">
             {loc === "hi" ? "छात्रवृत्ति" : "Scholarships"}
           </h2>
           <ul className="mt-3 space-y-1.5 text-sm">
@@ -284,8 +298,8 @@ export default async function Home({
             ))}
           </ul>
         </div>
-        <div>
-          <h2 className="font-semibold">{t.nav.services}</h2>
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <h2 className="font-semibold text-zinc-900">{t.nav.services}</h2>
           <ul className="mt-3 space-y-1.5 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
@@ -337,6 +351,24 @@ export default async function Home({
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="rounded-2xl border border-zinc-200 bg-zinc-900 px-6 py-8 text-center text-white sm:px-10">
+        <h2 className="text-xl font-bold tracking-tight sm:text-2xl">
+          {loc === "hi" ? "कोई प्रश्न या सुझाव?" : "Have a question or suggestion?"}
+        </h2>
+        <p className="mx-auto mt-2 max-w-xl text-sm text-zinc-300">
+          {loc === "hi"
+            ? "हमारी संपादकीय टीम से संपर्क करें या किसी गलत जानकारी की रिपोर्ट करें।"
+            : "Reach our editorial team or report incorrect information on any page."}
+        </p>
+        <Link
+          href={`${base}/contact`}
+          className="mt-5 inline-block rounded-full bg-amber-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-500"
+        >
+          {loc === "hi" ? "संपर्क करें" : "Contact Us"}
+        </Link>
       </section>
 
       <p className="text-center text-sm text-zinc-500">
