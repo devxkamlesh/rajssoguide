@@ -16,6 +16,7 @@ import {
   canonicalFor,
   faqSchema,
   howToSchema,
+  itemListSchema,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
