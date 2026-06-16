@@ -5,27 +5,5 @@
   "main": ".open-next/worker.js",
   "assets": {
     "directory": ".open-next/assets"
-  },
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "SHARDED_TAG_CACHE",
-        "class_name": "ShardedTagCache",
-        "script_name": "rajssoguide"
-      },
-      {
-        "name": "BUCKET_CACHE_PURGE",
-        "class_name": "BucketCachePurge",
-        "script_name": "rajssoguide"
-      },
-      {
-        "name": "QUEUE",
-        "class_name": "Queue",
-        "script_name": "rajssoguide"
-      }
-    ]
-  },
-  "migrations": [
-    { "tag": "v1", "new_classes": ["ShardedTagCache", "BucketCachePurge", "Queue"] }
-  ]
+  }
 }

@@ -29,7 +29,7 @@ Or push to GitHub and connect to Vercel for auto-deployment.
 ## 🟠 Cloudflare Branch (Cloudflare Workers)
 **Branch:** `cloudflare`  
 **Platform:** Cloudflare Workers  
-**URL:** https://rajssoguide.devxkamlesh.workers.dev
+**URL:** https://rajssoidguide.in (or workers.dev subdomain for testing)
 
 ### Configuration:
 - Webpack build (`next build --webpack`)
@@ -94,7 +94,7 @@ npm install
 
 ## Domain Configuration
 
-Both deployments should point to: **rajssoguide.online**
+Both deployments should point to: **rajssoidguide.in**
 
 - **Vercel:** Configure custom domain in Vercel dashboard
 - **Cloudflare:** Configure custom domain in Cloudflare Workers settings

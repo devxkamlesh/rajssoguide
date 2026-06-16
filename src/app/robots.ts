@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/",
       },
     ],
-    sitemap: "https://rajssoguide.online/sitemap.xml",
+    sitemap: "https://rajssoidguide.in/sitemap.xml",
   };
 }

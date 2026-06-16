@@ -5,7 +5,7 @@ tags: [index]
 
 # RajSSO Guide — Documentation
 
-This folder is the complete documentation for **rajssoguide.online**, an independent bilingual (English/Hindi) informational guide for the Rajasthan SSO ID portal.
+This folder is the complete documentation for **rajssoidguide.in**, an independent bilingual (English/Hindi) informational guide for the Rajasthan SSO ID portal.
 
 It is structured as an Obsidian-compatible vault. Notes use `[[wiki links]]`, so opening this folder in Obsidian gives you clickable navigation, backlinks, and a graph view. The files also read correctly as plain Markdown on GitHub or any editor.
 

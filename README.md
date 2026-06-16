@@ -4,7 +4,7 @@ Bilingual (Hindi/English) SEO-first information portal for the **Rajasthan SSO I
 
 Built with Next.js (App Router) + TypeScript + Tailwind CSS. Independent guide — **not** affiliated with the Government of Rajasthan, and it never asks for or stores any login credentials.
 
-🌐 Domain: `rajssoguide.online`
+🌐 Domain: `rajssoidguide.in`
 
 ---
 

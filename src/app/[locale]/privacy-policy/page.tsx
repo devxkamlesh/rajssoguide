@@ -242,10 +242,10 @@ function PrivacyPolicyEnglish() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              Email: <a href="mailto:privacy@rajssoguide.online" className="text-amber-700 underline">privacy@rajssoguide.online</a>
+              Email: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
             </p>
             <p className="text-zinc-700">
-              Website: <a href="https://rajssoguide.online" className="text-amber-700 underline">rajssoguide.online</a>
+              Website: <a href="https://rajssoidguide.in" className="text-amber-700 underline">rajssoidguide.in</a>
             </p>
           </div>
         </section>
@@ -466,10 +466,10 @@ function PrivacyPolicyHindi() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              ईमेल: <a href="mailto:privacy@rajssoguide.online" className="text-amber-700 underline">privacy@rajssoguide.online</a>
+              ईमेल: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
             </p>
             <p className="text-zinc-700">
-              वेबसाइट: <a href="https://rajssoguide.online" className="text-amber-700 underline">rajssoguide.online</a>
+              वेबसाइट: <a href="https://rajssoidguide.in" className="text-amber-700 underline">rajssoidguide.in</a>
             </p>
           </div>
         </section>
