@@ -5,7 +5,7 @@ tags: [index]
 
 # RajSSO Guide — Documentation
 
-This folder is the complete documentation for **rajssoguide.in**, an independent bilingual (English/Hindi) informational guide for the Rajasthan SSO ID portal.
+This folder is the complete documentation for **rajssoguide.online**, an independent bilingual (English/Hindi) informational guide for the Rajasthan SSO ID portal.
 
 It is structured as an Obsidian-compatible vault. Notes use `[[wiki links]]`, so opening this folder in Obsidian gives you clickable navigation, backlinks, and a graph view. The files also read correctly as plain Markdown on GitHub or any editor.
 
@@ -23,6 +23,7 @@ It is structured as an Obsidian-compatible vault. Notes use `[[wiki links]]`, so
 | [[08 - Backend and Database]] | Analysis of adding a backend/database, with pros and cons |
 | [[09 - Content Template and Checklist]] | Reusable template and checklists for creating new content |
 | [[10 - Content Prompt Template]] | Ready-to-paste prompt for requesting a new page |
+| [[11 - Cloudflare Deployment]] | Cloudflare Workers build/deploy settings and troubleshooting |
 
 ## Recommended reading order
 

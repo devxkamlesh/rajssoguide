@@ -11,6 +11,7 @@ import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { relatedForGuide, importantLinksForGuide } from "@/lib/related";
 import {
   alternates,
+  articleSchema,
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
@@ -56,6 +57,14 @@ export default async function GuidePage({
   const base = `/${loc}`;
 
   const graph = buildGraph([
+    articleSchema(
+      g.title[loc],
+      g.intro[loc],
+      `/${loc}/${guide}`,
+      "2026-01-15",
+      new Date().toISOString().split("T")[0],
+      loc,
+    ),
     howToSchema(g.title[loc], g.steps[loc]),
     faqSchema(g.faqs[loc]),
     breadcrumbSchema([

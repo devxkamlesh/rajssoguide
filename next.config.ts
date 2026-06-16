@@ -1,10 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Deployed on Vercel with native Next.js support (SSG now, ISR/SSR-ready).
-  // Images are pre-optimized, so we skip the optimizer to avoid quota usage.
+  // Deployed on Vercel with standard Next.js runtime.
+  // Images are pre-optimized to avoid quota usage.
   images: {
     unoptimized: true,
+  },
+
+  // Locale routing: send non-localized paths to the default locale.
+  // Replaces the old proxy/middleware (Next.js 16 proxy is Node-only and
+  // not supported on Cloudflare Workers).
+  async redirects() {
+    return [
+      { source: "/", destination: "/en", permanent: true },
+      {
+        source: "/:path((?!en|hi|_next|api|.*\\.).*)",
+        destination: "/en/:path",
+        permanent: true,
+      },
+    ];
   },
 
   // Security headers to protect against XSS, clickjacking, and other attacks
@@ -13,6 +27,10 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          {
+            key: 'X-Built-By',
+            value: 'Kamlesh Choudhary (devxkamlesh.com)',
+          },
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN',
@@ -33,11 +51,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com",
+              "connect-src 'self' https://www.google-analytics.com",
               "frame-ancestors 'self'",
             ].join('; '),
           },

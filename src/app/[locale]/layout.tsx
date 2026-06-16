@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
@@ -97,7 +95,7 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const graph = buildGraph([websiteSchema(), organizationSchema(), personJsonLd()]);
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GA_ID = "G-RYT943398Y";
 
   return (
     <html
@@ -106,6 +104,14 @@ export default async function LocaleLayout({
     >
       <head>
         <link rel="author" type="text/plain" href="/humans.txt" />
+        <link
+          rel="preload"
+          href="/RajSSO/logo-horizontal.webp"
+          as="image"
+          type="image/webp"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
       </head>
       <body className="flex min-h-full flex-col">
         <a
@@ -115,14 +121,14 @@ export default async function LocaleLayout({
           {locale === "hi" ? "मुख्य सामग्री पर जाएं" : "Skip to main content"}
         </a>
         <JsonLd data={graph} />
-        {/* Google Analytics — loads after page is interactive */}
+        {/* Google Analytics — loads only when browser is idle */}
         {GA_ID && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="gtag-init" strategy="afterInteractive">
+            <Script id="gtag-init" strategy="lazyOnload">
               {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
             </Script>
           </>
@@ -132,8 +138,6 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer locale={locale} />
-        <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );

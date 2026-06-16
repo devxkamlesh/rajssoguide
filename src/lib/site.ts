@@ -1,8 +1,8 @@
 // Central site configuration. Single source of truth for URLs, brand, author.
 export const site = {
   name: "RajSSO Guide",
-  domain: "rajssoguide.in",
-  url: "https://rajssoguide.in",
+  domain: "rajssoguide.online",
+  url: "https://rajssoguide.online",
   tagline: {
     en: "SSO ID Rajasthan — Login, Registration & Services Guide",
     hi: "एसएसओ आईडी राजस्थान — लॉगिन, रजिस्ट्रेशन और सेवाएं गाइड",
@@ -17,12 +17,12 @@ export const site = {
     phone: "0141-5153222",
     email: "helpdesk.sso@rajasthan.gov.in",
   },
-  contactEmail: "contact@rajssoguide.in",
+  contactEmail: "contact@rajssoguide.online",
   contactWhatsApp: "919257241205",
   established: "2024",
   author: {
     name: "RajSSO Guide Editorial Team",
-    url: "https://rajssoguide.in/about",
+    url: "https://rajssoguide.online/about",
   },
   social: {
     twitter: "@rajssoguide",
@@ -32,7 +32,7 @@ export const site = {
   },
   assets: {
     logoSquare: "/RajSSO/logo-square.png",
-    logoHorizontal: "/RajSSO/logo-horizontal.png",
+    logoHorizontal: "/RajSSO/logo-horizontal.webp",
     hero: "/RajSSO/hero-banner.webp",
     ogImage: {
       en: "/RajSSO/og-image.webp",

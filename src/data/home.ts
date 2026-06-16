@@ -32,12 +32,12 @@ export const homeContent: {
   faqs: L<FaqItem[]>;
 } = {
   metaTitle: {
-    en: "SSO ID Rajasthan – SSO Login, Registration & RajSSO Portal 2026",
-    hi: "एसएसओ आईडी राजस्थान – एसएसओ लॉगिन, रजिस्ट्रेशन और RajSSO पोर्टल 2026",
+    en: "SSO ID Rajasthan 2026 — Register, Login & Recover Your Account",
+    hi: "एसएसओ आईडी राजस्थान 2026 — रजिस्टर, लॉगिन और अकाउंट रिकवरी",
   },
   metaDescription: {
-    en: "SSO ID Rajasthan guide: how to do SSO login, SSO ID registration and recover your RajSSO ID at sso.rajasthan.gov.in. Step-by-step help in English and Hindi.",
-    hi: "एसएसओ आईडी राजस्थान गाइड: sso.rajasthan.gov.in पर एसएसओ लॉगिन, एसएसओ आईडी रजिस्ट्रेशन और RajSSO आईडी रिकवर करना सीखें। हिंदी और अंग्रेज़ी में स्टेप-बाय-स्टेप मदद।",
+    en: "Complete guide to SSO ID Rajasthan — how to register, login to sso.rajasthan.gov.in, recover a forgotten SSO ID or password, and access scholarship and exam services. Updated for 2026.",
+    hi: "एसएसओ आईडी राजस्थान की पूरी गाइड — sso.rajasthan.gov.in पर रजिस्टर और लॉगिन कैसे करें, भूली हुई एसएसओ आईडी या पासवर्ड कैसे रिकवर करें, और छात्रवृत्ति व परीक्षा सेवाओं तक पहुंच। 2026 के लिए अपडेटेड।",
   },
   h1: {
     en: "SSO ID Rajasthan — Login & Registration Guide",

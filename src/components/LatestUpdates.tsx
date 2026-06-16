@@ -99,11 +99,11 @@ function UpdateRow({
       </span>
       <span className="flex-1 text-sm text-zinc-700">{u.title[locale]}</span>
       {isRecent(u.date) && (
-        <span className="rounded bg-red-500 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
+        <span className="rounded bg-red-600 px-1.5 py-0.5 text-[10px] font-bold uppercase text-white">
           {locale === "hi" ? "नया" : "New"}
         </span>
       )}
-      <span className="text-xs text-zinc-400">{fmtDate(u.date, locale)}</span>
+      <span className="text-xs text-zinc-500">{fmtDate(u.date, locale)}</span>
     </>
   );
 }
