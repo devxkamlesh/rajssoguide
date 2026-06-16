@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
-  // Deployed on Cloudflare Workers via the OpenNext adapter (also Vercel-compatible).
-  // Images are pre-optimized, so we skip the optimizer to avoid quota usage.
+  // Deployed on Vercel with standard Next.js runtime.
+  // Images are pre-optimized to avoid quota usage.
   images: {
     unoptimized: true,
   },
@@ -52,11 +51,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: https:",
               "font-src 'self' data:",
-              "connect-src 'self' https://www.google-analytics.com https://cloudflareinsights.com",
+              "connect-src 'self' https://www.google-analytics.com",
               "frame-ancestors 'self'",
             ].join('; '),
           },
@@ -67,7 +66,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-// Enables Cloudflare bindings during local `next dev` and integrates the
-// OpenNext Cloudflare adapter. Safe no-op when not developing on Cloudflare.
-initOpenNextCloudflareForDev();

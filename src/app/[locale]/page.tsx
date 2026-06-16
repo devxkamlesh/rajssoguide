@@ -64,6 +64,18 @@ export default async function Home({
     breadcrumbSchema([
       { name: loc === "hi" ? "होम" : "Home", path: `/${loc}` },
     ]),
+    itemListSchema(
+      exams.map((e) => ({ name: e.name[loc], path: `${base}/exam/${e.slug}` })),
+    ),
+    itemListSchema(
+      scholarships.map((s) => ({ name: s.name[loc], path: `${base}/scholarship/${s.slug}` })),
+    ),
+    itemListSchema(
+      services.map((s) => ({ name: s.name[loc], path: `${base}/service/${s.slug}` })),
+    ),
+    itemListSchema(
+      cities.map((c) => ({ name: c.name[loc], path: `${base}/city/${c.slug}` })),
+    ),
   ]);
 
   return (
