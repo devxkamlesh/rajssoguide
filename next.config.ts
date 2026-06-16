@@ -12,11 +12,11 @@ const nextConfig: NextConfig = {
   // not supported on Cloudflare Workers).
   async redirects() {
     return [
-      { source: "/", destination: "/en", permanent: false },
+      { source: "/", destination: "/en", permanent: true },
       {
         source: "/:path((?!en|hi|_next|api|.*\\.).*)",
         destination: "/en/:path",
-        permanent: false,
+        permanent: true,
       },
     ];
   },
