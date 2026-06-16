@@ -11,6 +11,7 @@ import { homeGuide as g } from "@/data/homeGuide";
 import { site } from "@/lib/site";
 import {
   alternates,
+  breadcrumbSchema,
   buildGraph,
   canonicalFor,
   faqSchema,
@@ -60,6 +61,9 @@ export default async function Home({
       c.registerSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
     ),
     faqSchema(c.faqs[loc]),
+    breadcrumbSchema([
+      { name: loc === "hi" ? "होम" : "Home", path: `/${loc}` },
+    ]),
   ]);
 
   return (
