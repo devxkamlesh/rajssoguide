@@ -56,7 +56,7 @@ The site is ready to launch, provided the data caveats in the "Caveats" section 
 ## Caveats
 
 1. The exam dates, last dates, and fees in `src/data/exams.json`, and the entries in `src/data/updates.ts`, are realistic placeholders. Verify them against official notifications before launch.
-2. The contact email `contact@rajssoguide.in` must be created on the domain for it to work.
+2. The contact email `contact@rajssoguide.online` must be created on the domain for it to work.
 3. The Google verification token is in the layout; confirm the matching Search Console property exists.
 
 ## Recommended next steps after launch

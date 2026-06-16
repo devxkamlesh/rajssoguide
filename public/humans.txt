@@ -9,7 +9,7 @@ Location: India
 /* SITE */
 Project: RajSSO Guide
 Purpose: Independent guide for Rajasthan SSO ID portal
-URL: https://rajssoguide.in
+URL: https://rajssoguide.online
 Language: English / Hindi
 Standards: HTML5, CSS3, TypeScript, WCAG 2.1
 Components: Next.js 16, React 19, Tailwind CSS 4

@@ -276,10 +276,10 @@ function TermsOfServiceEnglish() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              Email: <a href="mailto:legal@rajssoguide.in" className="text-amber-700 underline">legal@rajssoguide.in</a>
+              Email: <a href="mailto:legal@rajssoguide.online" className="text-amber-700 underline">legal@rajssoguide.online</a>
             </p>
             <p className="text-zinc-700">
-              Website: <a href="https://rajssoguide.in" className="text-amber-700 underline">rajssoguide.in</a>
+              Website: <a href="https://rajssoguide.online" className="text-amber-700 underline">rajssoguide.online</a>
             </p>
           </div>
         </section>
@@ -526,10 +526,10 @@ function TermsOfServiceHindi() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              ईमेल: <a href="mailto:legal@rajssoguide.in" className="text-amber-700 underline">legal@rajssoguide.in</a>
+              ईमेल: <a href="mailto:legal@rajssoguide.online" className="text-amber-700 underline">legal@rajssoguide.online</a>
             </p>
             <p className="text-zinc-700">
-              वेबसाइट: <a href="https://rajssoguide.in" className="text-amber-700 underline">rajssoguide.in</a>
+              वेबसाइट: <a href="https://rajssoguide.online" className="text-amber-700 underline">rajssoguide.online</a>
             </p>
           </div>
         </section>
