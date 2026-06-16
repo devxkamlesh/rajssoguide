@@ -61,7 +61,7 @@ export default async function GuidePage({
       g.title[loc],
       g.intro[loc],
       `/${loc}/${guide}`,
-      "2024-01-15",
+      "2026-01-15",
       new Date().toISOString().split("T")[0],
       loc,
     ),
