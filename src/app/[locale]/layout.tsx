@@ -95,7 +95,7 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const graph = buildGraph([websiteSchema(), organizationSchema(), personJsonLd()]);
-  const GA_ID = "G-H7XRW67HZH";
+  const GA_ID = "G-RYT943398Y";
 
   return (
     <html
