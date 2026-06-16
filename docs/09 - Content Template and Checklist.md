@@ -11,13 +11,13 @@ A reusable template for creating and reviewing content for any page. Copy the re
 
 | Page type | Minimum | Target | Notes |
 |-----------|:--:|:--:|-------|
-| Core guide | 450 | 600 to 900 | Step-by-step plus FAQs |
-| Exam | 450 | 600 to 1000 | Eligibility, pattern, fees, dates |
-| Service | 400 | 800 to 1200 | Currently thin; expand first |
-| Scholarship | 400 | 700 to 1000 | Currently thin; expand first |
-| City | 350 | 500 to 800 | District details, local e-Mitra |
-| Error fix | 250 | 300 to 500 | Causes, solutions, related links |
-| Hub | 120 | 150 to 300 | Intro plus listing |
+| Core guide | 800 | 1200 to 1600 | Step-by-step plus FAQs |
+| Exam | 800 | 1200 to 1600 | Eligibility, pattern, fees, dates |
+| Service | 800 | 1200 to 1600 | Currently thin; expand first |
+| Scholarship | 800 | 1200 to 1600 | Currently thin; expand first |
+| City | 600 | 1000 to 1400 | District details, local e-Mitra |
+| Error fix | 400 | 600 to 800 | Causes, solutions, related links |
+| Hub | 200 | 300 to 500 | Intro plus listing |
 
 Content depth status used in reviews:
 
