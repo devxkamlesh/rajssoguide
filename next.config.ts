@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
   // Deployed on Cloudflare Workers via the OpenNext adapter (also Vercel-compatible).
@@ -67,7 +66,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-// Enables Cloudflare bindings during local `next dev` and integrates the
-// OpenNext Cloudflare adapter. Safe no-op when not developing on Cloudflare.
-initOpenNextCloudflareForDev();
