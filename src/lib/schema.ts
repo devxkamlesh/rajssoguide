@@ -50,6 +50,32 @@ export function personSchema(): Json {
   };
 }
 
+export function articleSchema(
+  headline: string,
+  description: string,
+  path: string,
+  datePublished: string,
+  dateModified: string,
+  locale: Locale,
+): Json {
+  return {
+    "@type": "Article",
+    headline,
+    description,
+    url: `${site.url}${path}`,
+    datePublished,
+    dateModified,
+    author: { "@id": `${site.url}/#author` },
+    publisher: { "@id": `${site.url}/#org` },
+    inLanguage: locale === "hi" ? "hi-IN" : "en-IN",
+    image: site.assets.ogImage[locale],
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${site.url}${path}`,
+    },
+  };
+}
+
 export interface FaqItem {
   question: string;
   answer: string;
