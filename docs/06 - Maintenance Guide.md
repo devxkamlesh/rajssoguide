@@ -51,8 +51,11 @@ Edit `src/lib/attribution.ts`. Values are base64-encoded; decode and re-encode i
 ## Before committing
 
 1. Run `npm run lint` and fix any reported issues.
-2. Run `npm run build` and confirm it completes without errors.
+2. Run `npm run build` and confirm it completes without errors (this branch uses `next build --webpack`).
 3. Confirm both `/en` and `/hi` versions render as expected.
+
+> [!tip] Preview the Cloudflare build locally
+> After `npm run build`, run `npm run preview` (Wrangler) to test the Worker output before `npm run deploy`. See [[11 - Cloudflare Deployment]].
 
 ## Things to verify regularly
 
@@ -62,4 +65,4 @@ Edit `src/lib/attribution.ts`. Values are base64-encoded; decode and re-encode i
 
 ## Related
 
-[[02 - Architecture]] · [[04 - Content Inventory]] · [[README]]
+[[02 - Architecture]] · [[04 - Content Inventory]] · [[11 - Cloudflare Deployment]] · [[README]]

@@ -95,8 +95,8 @@ export function Header({ locale }: { locale: Locale }) {
             <Image
               src={site.assets.logoHorizontal}
               alt={site.name}
-              width={150}
-              height={36}
+              width={192}
+              height={64}
               priority
               className="h-8 w-auto"
             />

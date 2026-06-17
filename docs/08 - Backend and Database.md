@@ -37,7 +37,17 @@ You do not have to run a traditional server. Common approaches, from lightest to
 - **Headless CMS (Sanity, Contentful, Strapi, or a Git-based CMS).** Lets non-developers manage content. Pairs well with a static site through scheduled or on-demand rebuilds, so you can keep most of the speed benefits.
 - **Full custom backend with a database (Node plus Postgres or MongoDB).** Maximum control, maximum responsibility. Rarely justified for a content site of this size.
 
-For this project, the lightest option that solves the actual need is almost always the right one. A headless or Git-based CMS for editing, or a serverless function plus a managed database for forms, would cover the most likely needs without abandoning the static model.
+> [!tip] Cloudflare-native options (this branch already runs on Workers)
+> Because the site deploys to Cloudflare Workers via OpenNext, you can add backend capability without leaving the platform or adding a new vendor:
+> - **D1** — serverless SQLite, ideal for form submissions or a small structured dataset.
+> - **KV** — low-latency key/value store for counters, feature flags, or cached lookups.
+> - **R2** — object storage (e.g. user-uploaded documents) with no egress fees.
+> - **Workers / Queues** — handle a form POST or background job in the same Worker that already serves the site.
+> - **Durable Objects** — coordination/state when you genuinely need it.
+>
+> These bind directly in `wrangler.jsonc`, so a contact form or a "report incorrect info" endpoint could ship as one Worker route plus a D1 table.
+
+For this project, the lightest option that solves the actual need is almost always the right one. A headless or Git-based CMS for editing, or a single Worker route plus D1 for forms, would cover the most likely needs without abandoning the static model.
 
 ## Pros of adding a backend and database
 
@@ -65,7 +75,7 @@ Keep the static architecture as the default. It directly serves the project's go
 Add backend capability only for a specific, justified need, and add the smallest piece that solves it:
 
 - To let a non-developer manage updates and content, adopt a Git-based or headless CMS that triggers a rebuild. This keeps the static speed.
-- To accept form submissions or subscriptions, add a single serverless function plus a managed database such as Supabase, rather than a full server.
+- To accept form submissions or subscriptions, add a single serverless function (or a Cloudflare Worker route plus **D1**) rather than a full server.
 - Defer accounts, comments, and personalisation until there is clear user demand and steady traffic, because they carry the most cost and privacy responsibility.
 
 A staged path keeps today's advantages while leaving room to grow. There is no need to add a database now; the current design is appropriate for the site's purpose and stage.
