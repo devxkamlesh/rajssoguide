@@ -1,0 +1,59 @@
+# RajSSO Guide
+
+> Independent bilingual (English/Hindi) guide to the Rajasthan SSO ID portal (sso.rajasthan.gov.in). Covers login, registration, account recovery, government exams, linked services, scholarships, district help, and free browser-based tools. This is NOT the official government portal and never asks for SSO IDs, passwords, or OTPs.
+
+Every page is available in English (/en) and Hindi (/hi). Replace /en with /hi for the Hindi version.
+
+## Guides
+- [SSO ID Login](https://rajssoidguide.in/en/sso-id-login): How to log in to the Rajasthan SSO portal safely.
+- [SSO ID Registration](https://rajssoidguide.in/en/sso-id-registration): Create a new citizen SSO ID using Jan Aadhaar, Aadhaar, or Google.
+- [Forgot SSO ID](https://rajssoidguide.in/en/forgot-sso-id): Recover a forgotten SSO ID or reset a password.
+- [Merge SSO ID](https://rajssoidguide.in/en/merge-sso-id): Combine duplicate SSO IDs into one account.
+- [All Guides](https://rajssoidguide.in/en/guides): Index of core SSO guides.
+
+## Exams
+- [Government Exams](https://rajssoidguide.in/en/exams): Rajasthan exams, OTR fees, and how to apply via SSO.
+- [Exam Calendar](https://rajssoidguide.in/en/exam-calendar): Last dates and exam dates with a live countdown.
+- [RPSC CET](https://rajssoidguide.in/en/exam/rpsc-cet): Common Eligibility Test details and OTR.
+- [RSMSSB LDC](https://rajssoidguide.in/en/exam/rsmssb-ldc): Lower Division Clerk recruitment.
+- [Patwari](https://rajssoidguide.in/en/exam/patwari): Rajasthan Patwari recruitment.
+
+## Services
+- [Services](https://rajssoidguide.in/en/services): SSO-linked government services.
+- [PayManager](https://rajssoidguide.in/en/service/paymanager): Salary slips and employee pay details.
+- [RajKaj](https://rajssoidguide.in/en/service/rajkaj): Leave applications and office workflows.
+- [Jan Aadhaar](https://rajssoidguide.in/en/service/jan-aadhaar): Jan Aadhaar e-KYC and enrolment status.
+
+## Scholarships
+- [Scholarships](https://rajssoidguide.in/en/scholarships): SSO-linked scholarship schemes.
+- [SC Scholarship](https://rajssoidguide.in/en/scholarship/sc)
+- [ST Scholarship](https://rajssoidguide.in/en/scholarship/st)
+- [OBC Scholarship](https://rajssoidguide.in/en/scholarship/obc)
+- [EWS Scholarship](https://rajssoidguide.in/en/scholarship/ews)
+- [Minority Scholarship](https://rajssoidguide.in/en/scholarship/minority)
+
+## Tools
+- [All Tools](https://rajssoidguide.in/en/tools): Free client-side tools (no data leaves the browser).
+- [OTR Fee Calculator](https://rajssoidguide.in/en/tools/otr-fee-calculator)
+- [Age Calculator](https://rajssoidguide.in/en/tools/age-calculator)
+- [SSO ID Validator](https://rajssoidguide.in/en/tools/sso-id-validator)
+- [Scholarship Calculator](https://rajssoidguide.in/en/tools/scholarship-calculator)
+- [Photo Resizer](https://rajssoidguide.in/en/tools/photo-resizer)
+- [Jan Aadhaar Status](https://rajssoidguide.in/en/tools/jan-aadhaar-status)
+
+## Help & error fixes
+- [Latest Updates](https://rajssoidguide.in/en/updates): Dated feed of exam, scholarship, and service notices.
+- [Cities](https://rajssoidguide.in/en/cities): SSO and e-Mitra help by district.
+- [Captcha Not Loading — Fix](https://rajssoidguide.in/en/error/captcha-not-loading)
+- [Server Busy — Fix](https://rajssoidguide.in/en/error/server-busy)
+- [SSO ID Already Exists — Fix](https://rajssoidguide.in/en/error/id-already-exists)
+
+## About
+- [About](https://rajssoidguide.in/en/about): Who runs this independent guide.
+- [Contact](https://rajssoidguide.in/en/contact): Reach the editorial team.
+- [Privacy Policy](https://rajssoidguide.in/en/privacy-policy)
+- [Terms of Service](https://rajssoidguide.in/en/terms-of-service)
+
+## Optional
+- [Official Portal](https://sso.rajasthan.gov.in): The official Government of Rajasthan SSO portal (use this for all real logins and applications).
+- [Sitemap](https://rajssoidguide.in/sitemap.xml)
