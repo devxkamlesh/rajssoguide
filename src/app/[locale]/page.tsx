@@ -887,7 +887,7 @@ export default async function Home({
                 href={s.url}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                className="text-amber-700 hover:underline"
+                className="text-amber-800 underline underline-offset-2 hover:text-amber-900"
               >
                 {s.url.replace("https://", "")}
               </a>{" "}

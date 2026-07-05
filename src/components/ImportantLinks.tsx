@@ -50,7 +50,7 @@ export function ImportantLinks({
                         href={a.href}
                         target="_blank"
                         rel="nofollow noopener"
-                        className="font-medium text-amber-700 hover:underline"
+                        className="font-medium text-amber-800 underline underline-offset-2 hover:text-amber-900"
                       >
                         {a.text} ↗
                       </a>
@@ -58,7 +58,7 @@ export function ImportantLinks({
                       <Link
                         key={a.href}
                         href={a.href}
-                        className="font-medium text-amber-700 hover:underline"
+                        className="font-medium text-amber-800 underline underline-offset-2 hover:text-amber-900"
                       >
                         {a.text}
                       </Link>

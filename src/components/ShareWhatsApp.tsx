@@ -21,7 +21,7 @@ export function ShareWhatsApp({
       href={href}
       target="_blank"
       rel="noopener"
-      className="inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-700"
+      className="inline-flex items-center gap-2 rounded-full bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
       aria-label={locale === "hi" ? "व्हाट्सएप पर शेयर करें" : "Share on WhatsApp"}
     >
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
