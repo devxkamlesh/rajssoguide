@@ -38,17 +38,20 @@ export function serviceBody(s: Service, loc: Locale): string[] {
 
 export function cityBody(c: City, loc: Locale): string[] {
   const name = c.name[loc];
+  const region = c.region[loc];
+  const knownFor = c.knownFor[loc];
+  const note = c.localNote[loc];
   if (loc === "hi") {
     return [
-      `${name} के निवासी राजस्थान एसएसओ आईडी का उपयोग कर 100 से अधिक सरकारी सेवाओं तक पहुँच सकते हैं — सभी एक ही लॉगिन से। चाहे सरकारी नौकरी के लिए आवेदन हो, छात्रवृत्ति फॉर्म भरना हो, बिजली बिल भरना हो या जन आधार अपडेट करना हो, यह सब sso.rajasthan.gov.in पर किया जा सकता है।`,
-      `${name} में कई ई-मित्र केंद्र हैं जहाँ आप एसएसओ आईडी रजिस्ट्रेशन, दस्तावेज़ अपडेट और सेवा आवेदन में सहायता ले सकते हैं। यदि आपका रजिस्टर्ड मोबाइल नंबर बदल गया है या ओटीपी नहीं मिल रहा, तो अपने आधार या जन आधार के साथ नज़दीकी ई-मित्र केंद्र पर जाएं।`,
-      `${name} के छात्रों और नौकरी आवेदकों के लिए एसएसओ आईडी विशेष रूप से उपयोगी है, क्योंकि RPSC, RSSB और पटवारी जैसी भर्तियों के लिए OTR इसी पोर्टल से होता है। नई एसएसओ आईडी बनाना पूरी तरह मुफ़्त है और पाँच मिनट से कम समय लेता है। आधिकारिक कार्यों के लिए हमेशा sso.rajasthan.gov.in का उपयोग करें।`,
+      `${name}, राजस्थान के ${region} क्षेत्र में, ${knownFor} है। यहाँ के निवासी एक ही राजस्थान एसएसओ आईडी से 100 से अधिक सरकारी सेवाओं तक पहुँच सकते हैं — नौकरी और छात्रवृत्ति आवेदन से लेकर बिजली बिल भुगतान और जन आधार अपडेट तक, सब कुछ sso.rajasthan.gov.in पर, बार-बार सरकारी कार्यालय जाए बिना।`,
+      `${name} में ई-मित्र केंद्रों का व्यापक नेटवर्क है जहाँ आप एसएसओ आईडी रजिस्ट्रेशन, दस्तावेज़ अपडेट और सेवा आवेदन में सीधी सहायता ले सकते हैं। यदि आपका रजिस्टर्ड मोबाइल नंबर बदल गया है या ओटीपी नहीं मिल रहा, तो अपने आधार या जन आधार के साथ ${name} के नज़दीकी ई-मित्र केंद्र पर जाएं ताकि संचालक आपके विवरण व्यक्तिगत रूप से अपडेट कर सके।`,
+      `${name} के छात्रों और नौकरी आवेदकों के लिए एसएसओ आईडी आवश्यक है, क्योंकि RPSC, RSSB और पटवारी भर्तियों के लिए वन-टाइम रजिस्ट्रेशन (OTR) इसी पोर्टल से होता है। ${note} नई एसएसओ आईडी बनाना पूरी तरह मुफ़्त है और पाँच मिनट से कम समय लेता है — आधिकारिक कार्यों के लिए हमेशा sso.rajasthan.gov.in का ही उपयोग करें।`,
     ];
   }
   return [
-    `Residents of ${name} can use a Rajasthan SSO ID to access more than 100 government services — all from a single login. Whether you need to apply for a government job, fill a scholarship form, pay an electricity bill, or update Jan Aadhaar, it can all be done at sso.rajasthan.gov.in.`,
-    `${name} has several e-Mitra centres where you can get help with SSO ID registration, document updates, and service applications. If your registered mobile number has changed or you are not receiving the OTP, visit a nearby e-Mitra centre in ${name} with your Aadhaar or Jan Aadhaar to update your details.`,
-    `For students and job seekers in ${name}, the SSO ID is especially useful because the One-Time Registration (OTR) for recruitments such as RPSC, RSSB, and Patwari is done through this portal. Creating a new SSO ID is completely free and takes under five minutes. For all official actions, always use sso.rajasthan.gov.in.`,
+    `${name}, in the ${region} region of Rajasthan, is ${knownFor}. Its residents use a single Rajasthan SSO ID to reach more than 100 government services online — from applying for jobs and scholarships to paying electricity bills and updating Jan Aadhaar — all at sso.rajasthan.gov.in without repeated trips to a government office.`,
+    `${name} has a wide network of e-Mitra centres where you can get hands-on help with SSO ID registration, document updates, and service applications. If your registered mobile number has changed or your OTP is not arriving, visit a nearby e-Mitra centre in ${name} with your Aadhaar or Jan Aadhaar so an operator can update your details in person.`,
+    `For students and job seekers in ${name}, the SSO ID is essential because the One-Time Registration (OTR) for recruitments such as RPSC, RSSB, and Patwari is done through this portal. ${note} Creating a new SSO ID is completely free and takes under five minutes — for all official actions, always use sso.rajasthan.gov.in.`,
   ];
 }
 

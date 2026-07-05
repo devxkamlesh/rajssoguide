@@ -1,6 +1,7 @@
 // JSON-LD structured data builders. These power rich snippets
 // (FAQ, HowTo, Breadcrumb) and entity signals (WebSite, Organization).
 import { site } from "./site";
+import { ATTRIBUTION } from "./attribution";
 import type { Locale } from "./i18n";
 
 type Json = Record<string, unknown>;
@@ -30,7 +31,11 @@ export function organizationSchema(): Json {
     foundingDate: site.established,
     email: site.contactEmail,
     areaServed: { "@type": "State", name: "Rajasthan, India" },
-    sameAs: [`https://x.com/${site.social.twitter.replace("@", "")}`],
+    sameAs: [
+      `https://x.com/${site.social.twitter.replace("@", "")}`,
+      ATTRIBUTION.linkedin,
+      ATTRIBUTION.github,
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "editorial",
@@ -44,8 +49,10 @@ export function personSchema(): Json {
   return {
     "@type": "Person",
     "@id": `${site.url}/#author`,
-    name: site.author.name,
-    url: site.author.url,
+    name: ATTRIBUTION.name,
+    url: ATTRIBUTION.url,
+    jobTitle: ATTRIBUTION.role,
+    sameAs: ATTRIBUTION.sameAs,
     worksFor: { "@id": `${site.url}/#org` },
   };
 }
@@ -79,6 +86,83 @@ export function articleSchema(
 export interface FaqItem {
   question: string;
   answer: string;
+}
+
+// The Rajasthan SSO portal as a GovernmentService entity. Used as the `about`
+// of the home WebPage so search/AI engines tie the page to the real-world
+// service it documents.
+export function ssoGovernmentService(locale: Locale): Json {
+  const hi = locale === "hi";
+  return {
+    "@type": "GovernmentService",
+    name: hi
+      ? "राजस्थान सिंगल साइन-ऑन (SSO) पोर्टल"
+      : "Rajasthan Single Sign-On (SSO) Portal",
+    url: site.officialPortal,
+    serviceType: hi
+      ? "सिंगल साइन-ऑन डिजिटल पहचान"
+      : "Single Sign-On digital identity",
+    provider: {
+      "@type": "GovernmentOrganization",
+      name: hi
+        ? "सूचना प्रौद्योगिकी एवं संचार विभाग, राजस्थान सरकार"
+        : "Department of Information Technology & Communication, Government of Rajasthan",
+    },
+    areaServed: {
+      "@type": "State",
+      name: "Rajasthan",
+      containedInPlace: { "@type": "Country", name: "India" },
+    },
+  };
+}
+
+// WebPage node — anchors the page as an entity, attributes authorship and
+// review, exposes recency (datePublished/dateModified) and speakable regions
+// for voice assistants and AI answer engines (GEO).
+export function webPageSchema({
+  name,
+  description,
+  path,
+  locale,
+  datePublished,
+  dateModified,
+  speakableSelectors,
+  about,
+}: {
+  name: string;
+  description: string;
+  path: string; // path including locale prefix, e.g. "/en"
+  locale: Locale;
+  datePublished: string;
+  dateModified: string;
+  speakableSelectors?: string[];
+  about?: Json;
+}): Json {
+  const url = `${site.url}${path}`;
+  return {
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: locale === "hi" ? "hi-IN" : "en-IN",
+    isPartOf: { "@id": `${site.url}/#website` },
+    datePublished,
+    dateModified,
+    author: { "@id": `${site.url}/#author` },
+    publisher: { "@id": `${site.url}/#org` },
+    reviewedBy: { "@id": `${site.url}/#author` },
+    mainEntityOfPage: url,
+    ...(about ? { about } : {}),
+    ...(speakableSelectors
+      ? {
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: speakableSelectors,
+          },
+        }
+      : {}),
+  };
 }
 
 export function faqSchema(faqs: FaqItem[]): Json {

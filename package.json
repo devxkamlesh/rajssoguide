@@ -7,8 +7,8 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "preview": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "preview": "opennextjs-cloudflare build && wrangler dev",
+    "deploy": "opennextjs-cloudflare build && wrangler deploy",
     "upload": "wrangler pages deploy .open-next/assets --project-name=rajssoguide"
   },
   "dependencies": {

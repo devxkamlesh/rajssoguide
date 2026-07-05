@@ -1,14 +1,134 @@
 [
-  { "slug": "jaipur", "name": { "en": "Jaipur", "hi": "जयपुर" }, "keywords": ["sso id jaipur", "emitra jaipur", "jaipur sso center"] },
-  { "slug": "jodhpur", "name": { "en": "Jodhpur", "hi": "जोधपुर" }, "keywords": ["sso id jodhpur", "emitra jodhpur", "jodhpur sso center"] },
-  { "slug": "kota", "name": { "en": "Kota", "hi": "कोटा" }, "keywords": ["sso id kota", "emitra kota", "kota sso center"] },
-  { "slug": "udaipur", "name": { "en": "Udaipur", "hi": "उदयपुर" }, "keywords": ["sso id udaipur", "emitra udaipur", "udaipur sso center"] },
-  { "slug": "ajmer", "name": { "en": "Ajmer", "hi": "अजमेर" }, "keywords": ["sso id ajmer", "emitra ajmer", "ajmer sso center"] },
-  { "slug": "bikaner", "name": { "en": "Bikaner", "hi": "बीकानेर" }, "keywords": ["sso id bikaner", "emitra bikaner", "bikaner sso center"] },
-  { "slug": "alwar", "name": { "en": "Alwar", "hi": "अलवर" }, "keywords": ["sso id alwar", "emitra alwar", "alwar sso center"] },
-  { "slug": "bharatpur", "name": { "en": "Bharatpur", "hi": "भरतपुर" }, "keywords": ["sso id bharatpur", "emitra bharatpur", "bharatpur sso center"] },
-  { "slug": "sikar", "name": { "en": "Sikar", "hi": "सीकर" }, "keywords": ["sso id sikar", "emitra sikar", "sikar sso center"] },
-  { "slug": "bhilwara", "name": { "en": "Bhilwara", "hi": "भीलवाड़ा" }, "keywords": ["sso id bhilwara", "emitra bhilwara", "bhilwara sso center"] },
-  { "slug": "pali", "name": { "en": "Pali", "hi": "पाली" }, "keywords": ["sso id pali", "emitra pali", "pali sso center"] },
-  { "slug": "sri-ganganagar", "name": { "en": "Sri Ganganagar", "hi": "श्रीगंगानगर" }, "keywords": ["sso id sri ganganagar", "emitra sri ganganagar", "ganganagar sso center"] }
+  {
+    "slug": "jaipur",
+    "name": { "en": "Jaipur", "hi": "जयपुर" },
+    "region": { "en": "Dhundhar", "hi": "ढूंढाड़" },
+    "knownFor": { "en": "the state capital and the Pink City", "hi": "राज्य की राजधानी और गुलाबी नगरी" },
+    "localNote": {
+      "en": "As the capital, Jaipur hosts the head offices of many state departments, so it sees the highest SSO and e-Mitra usage in Rajasthan.",
+      "hi": "राजधानी होने के कारण जयपुर में कई राज्य विभागों के मुख्यालय हैं, इसलिए यहाँ राजस्थान में सबसे अधिक एसएसओ और ई-मित्र उपयोग होता है।"
+    },
+    "keywords": ["sso id jaipur", "emitra jaipur", "jaipur sso center"]
+  },
+  {
+    "slug": "jodhpur",
+    "name": { "en": "Jodhpur", "hi": "जोधपुर" },
+    "region": { "en": "Marwar", "hi": "मारवाड़" },
+    "knownFor": { "en": "the Blue City and gateway to the Thar Desert", "hi": "नीली नगरी और थार रेगिस्तान का प्रवेशद्वार" },
+    "localNote": {
+      "en": "Jodhpur's universities and large student population make scholarship and recruitment applications especially common here.",
+      "hi": "जोधपुर के विश्वविद्यालय और बड़ी छात्र आबादी के कारण यहाँ छात्रवृत्ति और भर्ती आवेदन विशेष रूप से आम हैं।"
+    },
+    "keywords": ["sso id jodhpur", "emitra jodhpur", "jodhpur sso center"]
+  },
+  {
+    "slug": "kota",
+    "name": { "en": "Kota", "hi": "कोटा" },
+    "region": { "en": "Hadoti", "hi": "हाड़ौती" },
+    "knownFor": { "en": "India's coaching hub on the Chambal river", "hi": "चंबल नदी किनारे भारत का कोचिंग केंद्र" },
+    "localNote": {
+      "en": "As India's coaching capital, Kota has thousands of exam aspirants who rely on the SSO portal for OTR and recruitment forms every season.",
+      "hi": "भारत की कोचिंग राजधानी होने के कारण कोटा में हजारों परीक्षार्थी हर सत्र में ओटीआर और भर्ती फॉर्म के लिए एसएसओ पोर्टल पर निर्भर रहते हैं।"
+    },
+    "keywords": ["sso id kota", "emitra kota", "kota sso center"]
+  },
+  {
+    "slug": "udaipur",
+    "name": { "en": "Udaipur", "hi": "उदयपुर" },
+    "region": { "en": "Mewar", "hi": "मेवाड़" },
+    "knownFor": { "en": "the City of Lakes", "hi": "झीलों की नगरी" },
+    "localNote": {
+      "en": "Udaipur's many tribal-area welfare schemes make Jan Aadhaar-linked SSO services particularly important for local families.",
+      "hi": "उदयपुर में जनजातीय क्षेत्र की कई कल्याण योजनाओं के कारण जन आधार से जुड़ी एसएसओ सेवाएं स्थानीय परिवारों के लिए विशेष रूप से महत्वपूर्ण हैं।"
+    },
+    "keywords": ["sso id udaipur", "emitra udaipur", "udaipur sso center"]
+  },
+  {
+    "slug": "ajmer",
+    "name": { "en": "Ajmer", "hi": "अजमेर" },
+    "region": { "en": "central Rajasthan", "hi": "मध्य राजस्थान" },
+    "knownFor": { "en": "home to Ajmer Sharif Dargah and close to Pushkar", "hi": "अजमेर शरीफ़ दरगाह का शहर और पुष्कर के निकट" },
+    "localNote": {
+      "en": "Ajmer hosts major education boards and offices, so students here frequently use the SSO portal for exam and certificate services.",
+      "hi": "अजमेर में प्रमुख शिक्षा बोर्ड और कार्यालय हैं, इसलिए यहाँ के छात्र परीक्षा और प्रमाण पत्र सेवाओं के लिए अक्सर एसएसओ पोर्टल का उपयोग करते हैं।"
+    },
+    "keywords": ["sso id ajmer", "emitra ajmer", "ajmer sso center"]
+  },
+  {
+    "slug": "bikaner",
+    "name": { "en": "Bikaner", "hi": "बीकानेर" },
+    "region": { "en": "the Thar region", "hi": "थार क्षेत्र" },
+    "knownFor": { "en": "its desert heritage and famous namkeen", "hi": "रेगिस्तानी विरासत और प्रसिद्ध नमकीन" },
+    "localNote": {
+      "en": "Bikaner's rural surroundings mean many residents use e-Mitra centres for first-time SSO registration and Jan Aadhaar updates.",
+      "hi": "बीकानेर के ग्रामीण परिवेश के कारण कई निवासी पहली बार एसएसओ रजिस्ट्रेशन और जन आधार अपडेट के लिए ई-मित्र केंद्रों का उपयोग करते हैं।"
+    },
+    "keywords": ["sso id bikaner", "emitra bikaner", "bikaner sso center"]
+  },
+  {
+    "slug": "alwar",
+    "name": { "en": "Alwar", "hi": "अलवर" },
+    "region": { "en": "the Matsya (Mewat) region", "hi": "मत्स्य (मेवात) क्षेत्र" },
+    "knownFor": { "en": "its closeness to the Delhi-NCR belt and Sariska Tiger Reserve", "hi": "दिल्ली-एनसीआर पट्टी और सरिस्का बाघ अभयारण्य के निकट होना" },
+    "localNote": {
+      "en": "Being close to the Delhi-NCR job market, Alwar sees heavy use of the SSO recruitment portal for state government vacancies.",
+      "hi": "दिल्ली-एनसीआर नौकरी बाज़ार के निकट होने के कारण अलवर में राज्य सरकार की भर्तियों के लिए एसएसओ भर्ती पोर्टल का अधिक उपयोग होता है।"
+    },
+    "keywords": ["sso id alwar", "emitra alwar", "alwar sso center"]
+  },
+  {
+    "slug": "bharatpur",
+    "name": { "en": "Bharatpur", "hi": "भरतपुर" },
+    "region": { "en": "the Brij region", "hi": "ब्रज क्षेत्र" },
+    "knownFor": { "en": "the eastern gateway to Rajasthan and home to Keoladeo National Park", "hi": "राजस्थान का पूर्वी प्रवेशद्वार और केवलादेव राष्ट्रीय उद्यान का शहर" },
+    "localNote": {
+      "en": "Bharatpur's students often apply for both Rajasthan and neighbouring-state opportunities, making accurate SSO and OTR details important.",
+      "hi": "भरतपुर के छात्र अक्सर राजस्थान और पड़ोसी राज्यों दोनों के अवसरों के लिए आवेदन करते हैं, इसलिए सही एसएसओ और ओटीआर विवरण महत्वपूर्ण हैं।"
+    },
+    "keywords": ["sso id bharatpur", "emitra bharatpur", "bharatpur sso center"]
+  },
+  {
+    "slug": "sikar",
+    "name": { "en": "Sikar", "hi": "सीकर" },
+    "region": { "en": "Shekhawati", "hi": "शेखावाटी" },
+    "knownFor": { "en": "a fast-growing education and coaching centre", "hi": "तेज़ी से बढ़ता शिक्षा और कोचिंग केंद्र" },
+    "localNote": {
+      "en": "Sikar is a major coaching town, so OTR and recruitment-form help is among the most searched SSO topics here.",
+      "hi": "सीकर एक प्रमुख कोचिंग नगर है, इसलिए ओटीआर और भर्ती फॉर्म सहायता यहाँ सबसे अधिक खोजे जाने वाले एसएसओ विषयों में है।"
+    },
+    "keywords": ["sso id sikar", "emitra sikar", "sikar sso center"]
+  },
+  {
+    "slug": "bhilwara",
+    "name": { "en": "Bhilwara", "hi": "भीलवाड़ा" },
+    "region": { "en": "Mewar", "hi": "मेवाड़" },
+    "knownFor": { "en": "Rajasthan's textile city", "hi": "राजस्थान की वस्त्र नगरी" },
+    "localNote": {
+      "en": "As a textile-industry hub, Bhilwara also sees business owners using SSO for Udyog and GST-related services.",
+      "hi": "वस्त्र उद्योग केंद्र होने के कारण भीलवाड़ा में व्यवसायी उद्योग और जीएसटी संबंधी सेवाओं के लिए भी एसएसओ का उपयोग करते हैं।"
+    },
+    "keywords": ["sso id bhilwara", "emitra bhilwara", "bhilwara sso center"]
+  },
+  {
+    "slug": "pali",
+    "name": { "en": "Pali", "hi": "पाली" },
+    "region": { "en": "the Godwar (Marwar) belt", "hi": "गोडवाड़ (मारवाड़) पट्टी" },
+    "knownFor": { "en": "an industrial and textile centre south of Jodhpur", "hi": "जोधपुर के दक्षिण में औद्योगिक और वस्त्र केंद्र" },
+    "localNote": {
+      "en": "Pali's industrial units mean both job seekers and small business owners regularly use SSO-linked services.",
+      "hi": "पाली की औद्योगिक इकाइयों के कारण नौकरी आवेदक और छोटे व्यवसायी दोनों नियमित रूप से एसएसओ से जुड़ी सेवाओं का उपयोग करते हैं।"
+    },
+    "keywords": ["sso id pali", "emitra pali", "pali sso center"]
+  },
+  {
+    "slug": "sri-ganganagar",
+    "name": { "en": "Sri Ganganagar", "hi": "श्रीगंगानगर" },
+    "region": { "en": "northern Rajasthan", "hi": "उत्तरी राजस्थान" },
+    "knownFor": { "en": "the agricultural belt near the Punjab border, often called the food basket of Rajasthan", "hi": "पंजाब सीमा के निकट कृषि पट्टी, जिसे अक्सर राजस्थान का अन्न भंडार कहा जाता है" },
+    "localNote": {
+      "en": "In Sri Ganganagar's farming belt, SSO-linked services like Jan Aadhaar and farmer schemes are widely used.",
+      "hi": "श्रीगंगानगर की कृषि पट्टी में जन आधार और किसान योजनाओं जैसी एसएसओ सेवाएं व्यापक रूप से उपयोग होती हैं।"
+    },
+    "keywords": ["sso id sri ganganagar", "emitra sri ganganagar", "ganganagar sso center"]
+  }
 ]

@@ -29,6 +29,9 @@ export interface Service {
 export interface City {
   slug: string;
   name: Localized;
+  region: Localized;
+  knownFor: Localized;
+  localNote: Localized;
   keywords: string[];
 }
 

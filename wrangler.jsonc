@@ -1,7 +1,7 @@
 {
   "name": "rajssoguide",
-  "compatibility_date": "2024-12-01",
-  "compatibility_flags": ["nodejs_compat_v2"],
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
   "assets": {
     "directory": ".open-next/assets"

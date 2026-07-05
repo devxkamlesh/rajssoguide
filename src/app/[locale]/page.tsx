@@ -5,9 +5,19 @@ import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { JsonLd } from "@/components/JsonLd";
 import { FaqSection } from "@/components/FaqSection";
 import { LatestUpdates } from "@/components/LatestUpdates";
+import { ShareBar } from "@/components/ShareBar";
 import { exams, services, cities, scholarships } from "@/lib/content";
 import { homeContent } from "@/data/home";
+import { homeMeta } from "@/data/homeMeta";
 import { homeGuide as g } from "@/data/homeGuide";
+import { homeExtra as x } from "@/data/homeExtra";
+import { ATTRIBUTION } from "@/lib/attribution";
+import {
+  serviceGroups,
+  serviceGroupsTitle,
+  serviceGroupsIntro,
+} from "@/data/serviceGroups";
+import { SectionHeading } from "@/components/SectionHeading";
 import { site } from "@/lib/site";
 import {
   alternates,
@@ -16,7 +26,8 @@ import {
   canonicalFor,
   faqSchema,
   howToSchema,
-  itemListSchema,
+  ssoGovernmentService,
+  webPageSchema,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -30,12 +41,74 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const ogImage = site.assets.ogImage[locale];
+  const isHi = locale === "hi";
   return {
     title: homeContent.metaTitle[locale],
     description: homeContent.metaDescription[locale],
+    keywords: isHi
+      ? [
+          "SSO ID",
+          "SSO ID लॉगिन",
+          "SSOID",
+          "SSO पोर्टल राजस्थान",
+          "राजस्थान सिंगल साइन ऑन",
+          "sso.rajasthan.gov.in",
+        ]
+      : [
+          "SSO ID",
+          "SSO ID Login",
+          "SSOID",
+          "SSO Portal Rajasthan",
+          "Rajasthan Single Sign On",
+          "sso.rajasthan.gov.in",
+        ],
     alternates: {
       canonical: canonicalFor(locale, "/"),
       ...alternates("/"),
+    },
+    openGraph: {
+      title: homeContent.metaTitle[locale],
+      description: homeContent.metaDescription[locale],
+      url: canonicalFor(locale, "/"),
+      type: "article",
+      locale: isHi ? "hi_IN" : "en_IN",
+      alternateLocale: isHi ? "en_IN" : "hi_IN",
+      publishedTime: homeMeta.published,
+      modifiedTime: homeMeta.modified,
+      authors: [ATTRIBUTION.url],
+      images: [
+        {
+          url: ogImage,
+          secureUrl: `${site.url}${ogImage}`,
+          width: 1200,
+          height: 630,
+          alt: isHi
+            ? "SSO ID राजस्थान गाइड — लॉगिन और रजिस्ट्रेशन overview"
+            : "SSO ID Rajasthan guide — login and registration overview",
+          type: "image/webp",
+        },
+      ],
+    },
+    twitter: {
+      title: homeContent.metaTitle[locale],
+      description: homeContent.metaDescription[locale],
+      creator: ATTRIBUTION.handle,
+    },
+    other: {
+      "article:author": ATTRIBUTION.linkedin,
+      "article:published_time": homeMeta.published,
+      "article:modified_time": homeMeta.modified,
+      "article:section": isHi ? "सरकारी सेवाएं" : "Government Services",
+      "article:tag": isHi
+        ? ["SSO ID", "राजस्थान सरकार", "SSO लॉगिन"]
+        : ["SSO ID", "Rajasthan Government", "SSO Login"],
+      "revisit-after": "7 days",
+      bingbot: "index, follow, max-snippet:-1, max-image-preview:large",
+      "geo.region": site.geo.region,
+      "geo.placename": site.geo.placename,
+      "geo.position": site.geo.position,
+      ICBM: site.geo.icbm,
     },
   };
 }
@@ -53,6 +126,16 @@ export default async function Home({
   const base = `/${loc}`;
 
   const graph = buildGraph([
+    webPageSchema({
+      name: c.metaTitle[loc],
+      description: c.metaDescription[loc],
+      path: `/${loc}`,
+      locale: loc,
+      datePublished: homeMeta.published,
+      dateModified: homeMeta.modified,
+      speakableSelectors: ["#what-is-sso", "h1"],
+      about: ssoGovernmentService(loc),
+    }),
     howToSchema(
       c.loginTitle[loc],
       c.loginSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
@@ -61,22 +144,18 @@ export default async function Home({
       c.registerTitle[loc],
       c.registerSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
     ),
+    howToSchema(
+      x.otrTitle[loc],
+      x.otrSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
+    ),
+    howToSchema(
+      x.mergeTitle[loc],
+      x.mergeSteps[loc].map((text, i) => ({ name: `Step ${i + 1}`, text })),
+    ),
     faqSchema(c.faqs[loc]),
     breadcrumbSchema([
       { name: loc === "hi" ? "होम" : "Home", path: `/${loc}` },
     ]),
-    itemListSchema(
-      exams.map((e) => ({ name: e.name[loc], path: `${base}/exam/${e.slug}` })),
-    ),
-    itemListSchema(
-      scholarships.map((s) => ({ name: s.name[loc], path: `${base}/scholarship/${s.slug}` })),
-    ),
-    itemListSchema(
-      services.map((s) => ({ name: s.name[loc], path: `${base}/service/${s.slug}` })),
-    ),
-    itemListSchema(
-      cities.map((c) => ({ name: c.name[loc], path: `${base}/city/${c.slug}` })),
-    ),
   ]);
 
   return (
@@ -95,6 +174,26 @@ export default async function Home({
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
           {c.heroLead[loc]}
         </p>
+
+        {/* Author byline + last-updated badge — E-E-A-T / GEO trust signals */}
+        <div className="mx-auto mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-sm text-zinc-500">
+          <span>
+            {homeMeta.byPrefix[loc]}{" "}
+            <a
+              href={ATTRIBUTION.linkedin}
+              target="_blank"
+              rel="author noopener"
+              className="font-semibold text-zinc-700 hover:text-amber-700"
+            >
+              {ATTRIBUTION.name}
+            </a>
+          </span>
+          <span aria-hidden>·</span>
+          <time dateTime={homeMeta.modified}>{homeMeta.updatedLabel[loc]}</time>
+          <span aria-hidden>·</span>
+          <span className="font-medium text-green-600">✓ {homeMeta.reviewedWeekly[loc]}</span>
+        </div>
+
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link
             href={`${base}/sso-id-login`}
@@ -122,6 +221,65 @@ export default async function Home({
           ))}
         </dl>
       </section>
+
+      {/* Independent guide disclaimer */}
+      <aside className="flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50/60 px-5 py-4">
+        <span
+          aria-hidden
+          className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-200 text-sm text-amber-800"
+        >
+          i
+        </span>
+        <p className="text-sm leading-relaxed text-amber-900">{x.disclaimer[loc]}</p>
+      </aside>
+
+      {/* Share bar — top */}
+      <ShareBar
+        path={`/${loc}`}
+        title={homeMeta.shareTitle[loc]}
+        label={homeMeta.shareLabel[loc]}
+        locale={loc}
+      />
+
+      {/* Quick action box — above-the-fold task router */}
+      <section aria-labelledby="quick-action-heading" className="overflow-hidden rounded-2xl border border-zinc-200 shadow-sm">
+        <h2 id="quick-action-heading" className="sr-only">
+          {homeMeta.quickActionTitle[loc]}
+        </h2>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="bg-zinc-900 text-left text-white">
+              <th className="px-4 py-3 font-semibold">{homeMeta.quickActionCols[loc][0]}</th>
+              <th className="px-4 py-3 font-semibold">{homeMeta.quickActionCols[loc][1]}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {homeMeta.quickActions.map((q, i) => (
+              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                <td className="px-4 py-3 font-medium text-zinc-800">{q.need[loc]}</td>
+                <td className="px-4 py-3">
+                  {q.href ? (
+                    <Link href={`${base}${q.href}`} className="text-amber-700 hover:underline">
+                      {q.action[loc]}
+                    </Link>
+                  ) : (
+                    <span className="text-zinc-700">{q.action[loc]}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      {/* SMS recovery callout — high-intent direct answer */}
+      <aside className="flex items-start gap-3 rounded-2xl border border-green-200 bg-green-50/60 px-5 py-4">
+        <span aria-hidden className="mt-0.5 text-lg">📱</span>
+        <div>
+          <h2 className="font-semibold text-green-900">{homeMeta.smsTitle[loc]}</h2>
+          <p className="mt-1 text-sm leading-relaxed text-green-900">{homeMeta.smsBody[loc]}</p>
+        </div>
+      </aside>
 
       {/* Quick access */}
       <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -153,14 +311,42 @@ export default async function Home({
         viewAllLabel={t.common.viewAll}
       />
 
-      {/* What is SSO ID */}
+      {/* Why searches spike — exam season (contextual link to Exam Calendar) */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{c.whatTitle[loc]}</h2>
-        <div className="mt-4 space-y-4 leading-relaxed text-zinc-600">
-          {c.whatBody[loc].map((p, i) => (
+        <SectionHeading
+          eyebrow={loc === "hi" ? "परीक्षा सीज़न" : "Exam season"}
+          title={homeMeta.examSeason.title[loc]}
+          intro={homeMeta.examSeason.body[loc].map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+        />
+        <p className="mt-4 leading-relaxed text-zinc-700">
+          {homeMeta.examSeason.linkPre[loc]}{" "}
+          <Link
+            href={`${base}/exam-calendar`}
+            className="font-medium text-amber-700 hover:underline"
+          >
+            {homeMeta.examSeason.linkText[loc]}
+          </Link>{" "}
+          {homeMeta.examSeason.linkPost[loc]}
+        </p>
+      </section>
+
+      {/* What is SSO ID */}
+      <section id="what-is-sso">
+        {/* Direct answer box — AEO featured-snippet + GEO target */}
+        <div className="mb-6 rounded-r-xl border-l-4 border-amber-500 bg-amber-50/60 px-5 py-4">
+          <p className="text-base leading-relaxed text-zinc-800">
+            {homeMeta.directAnswer[loc]}
+          </p>
         </div>
+        <SectionHeading
+          eyebrow={loc === "hi" ? "परिचय" : "Overview"}
+          title={c.whatTitle[loc]}
+          intro={c.whatBody[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        />
       </section>
 
       {/* Why is SSO ID Important */}
@@ -185,14 +371,15 @@ export default async function Home({
 
       {/* User Categories */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">
-          {c.userCategoriesTitle[loc]}
-        </h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-3">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "उपयोगकर्ता" : "Who can use"}
+          title={c.userCategoriesTitle[loc]}
+        />
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
           {c.userCategories[loc].map((cat) => (
             <div
               key={cat.title}
-              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+              className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-amber-300 hover:shadow-md"
             >
               <h3 className="text-lg font-semibold text-zinc-900">
                 {cat.title}
@@ -207,68 +394,80 @@ export default async function Home({
 
       {/* Major Services */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">
-          {c.majorServicesTitle[loc]}
-        </h2>
-        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {c.majorServices[loc].map((service) => (
+        <SectionHeading
+          eyebrow={loc === "hi" ? "सेवाएं" : "Services"}
+          title={serviceGroupsTitle[loc]}
+          intro={<p>{serviceGroupsIntro[loc]}</p>}
+        />
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          {serviceGroups[loc].map((group) => (
             <div
-              key={service.title}
-              className="rounded-xl border border-zinc-200 bg-gradient-to-br from-white to-amber-50/20 p-5 shadow-sm"
+              key={group.audience}
+              className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:border-amber-300 hover:shadow-md"
             >
-              <h3 className="font-semibold text-zinc-900">{service.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-zinc-600">
-                {service.desc}
-              </p>
+              <div className="flex items-center gap-3 border-b border-zinc-100 bg-gradient-to-r from-amber-50 to-white px-5 py-4">
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-xl shadow-sm ring-1 ring-amber-100"
+                >
+                  {group.icon}
+                </span>
+                <h3 className="font-semibold text-zinc-900">{group.audience}</h3>
+              </div>
+              <ul className="divide-y divide-zinc-100">
+                {group.services.map((service) => (
+                  <li
+                    key={service.name}
+                    className="flex gap-3 px-5 py-3.5 transition hover:bg-amber-50/40"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500"
+                    />
+                    <div>
+                      <p className="text-sm font-medium text-zinc-900">
+                        {service.name}
+                      </p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-zinc-500">
+                        {service.desc}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight">
-          {c.benefitsTitle[loc]}
-        </h2>
-        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-          {c.benefitsPoints[loc].map((benefit, i) => (
-            <li key={i} className="flex gap-2.5">
-              <span className="mt-1 text-amber-600">✓</span>
-              <span className="text-zinc-700">{benefit}</span>
+      {/* Login steps */}
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "लॉगिन" : "Login"}
+          title={c.loginTitle[loc]}
+        />
+        <ol className="mt-6 grid gap-3 sm:grid-cols-2">
+          {c.loginSteps[loc].map((step, i) => (
+            <li
+              key={i}
+              className="flex gap-3 rounded-xl border border-zinc-100 bg-zinc-50/60 px-4 py-3"
+            >
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-700 text-sm font-semibold text-white">
+                {i + 1}
+              </span>
+              <span className="pt-0.5 text-zinc-700">{step}</span>
             </li>
           ))}
-        </ul>
-      </section>
-
-      {/* Login + Registration steps */}
-      <section className="grid gap-8 md:grid-cols-2">
-        {[
-          { title: c.loginTitle[loc], steps: c.loginSteps[loc] },
-          { title: c.registerTitle[loc], steps: c.registerSteps[loc] },
-        ].map((block) => (
-          <div
-            key={block.title}
-            className="rounded-2xl border border-zinc-200 p-6"
-          >
-            <h2 className="text-xl font-semibold">{block.title}</h2>
-            <ol className="mt-4 space-y-3">
-              {block.steps.map((step, i) => (
-                <li key={i} className="flex gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-700">
-                    {i + 1}
-                  </span>
-                  <span className="text-zinc-600">{step}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        ))}
+        </ol>
       </section>
 
       {/* Who needs SSO ID */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{g.whoNeedsTitle[loc]}</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "पात्रता" : "Eligibility"}
+          title={g.whoNeedsTitle[loc]}
+        />
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-zinc-200 shadow-sm">
           <table className="w-full border-collapse text-sm">
             <thead>
               <tr className="bg-zinc-900 text-left text-white">
@@ -289,13 +488,19 @@ export default async function Home({
       </section>
 
       {/* Documents needed */}
-      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight">{g.documentsTitle[loc]}</h2>
-        <ul className="mt-5 space-y-2.5">
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "तैयारी" : "Get ready"}
+          title={g.documentsTitle[loc]}
+        />
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
           {g.documents[loc].map((d, i) => (
-            <li key={i} className="flex gap-2.5">
-              <span className="mt-1 text-amber-600">•</span>
-              <span className="text-zinc-700">{d}</span>
+            <li
+              key={i}
+              className="flex gap-2.5 rounded-xl border border-zinc-100 bg-zinc-50/60 px-4 py-3"
+            >
+              <span className="mt-0.5 text-amber-600">•</span>
+              <span className="text-sm text-zinc-700">{d}</span>
             </li>
           ))}
         </ul>
@@ -303,8 +508,11 @@ export default async function Home({
 
       {/* Registration options */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{g.registrationTitle[loc]}</h2>
-        <div className="mt-5 space-y-5">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "रजिस्ट्रेशन" : "Registration"}
+          title={g.registrationTitle[loc]}
+        />
+        <div className="mt-6 space-y-5">
           {g.registrationOptions[loc].map((opt, i) => (
             <div key={i} className="rounded-2xl border border-zinc-200 p-6">
               <h3 className="font-semibold text-zinc-900">{opt.title}</h3>
@@ -330,8 +538,11 @@ export default async function Home({
 
       {/* Recovery scenarios */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{g.recoveryTitle[loc]}</h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-2">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "रिकवरी" : "Recovery"}
+          title={g.recoveryTitle[loc]}
+        />
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
           {g.recoveryScenarios[loc].map((sc, i) => (
             <div key={i} className="rounded-2xl border border-zinc-200 p-6">
               <h3 className="font-semibold text-zinc-900">{sc.title}</h3>
@@ -350,21 +561,130 @@ export default async function Home({
         </div>
       </section>
 
-      {/* Services */}
+      {/* OTR — One Time Registration */}
+      <section className="rounded-3xl border border-zinc-200 bg-gradient-to-br from-white to-amber-50/30 p-6 sm:p-8">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "भर्ती" : "Recruitment"}
+          title={x.otrTitle[loc]}
+          intro={x.otrIntro[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        />
+        <ol className="mt-6 space-y-3">
+          {x.otrSteps[loc].map((step, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-700 text-sm font-semibold text-white">
+                {i + 1}
+              </span>
+              <span className="pt-0.5 text-zinc-700">{step}</span>
+            </li>
+          ))}
+        </ol>
+
+        <h3 className="mt-7 text-lg font-semibold text-zinc-900">
+          {x.otrFeeTitle[loc]}
+        </h3>
+        <div className="mt-3 overflow-x-auto rounded-2xl border border-zinc-200 bg-white">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{x.otrFeeCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{x.otrFeeCols[loc][1]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {x.otrFees[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.a}</td>
+                  <td className="px-4 py-3 font-semibold text-amber-700">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 rounded-xl bg-amber-50/70 px-4 py-3 text-sm leading-relaxed text-amber-900">
+          {x.otrNote[loc]}
+        </p>
+      </section>
+
+      {/* Merge duplicate SSO IDs */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">
-          {c.servicesTitle[loc]}
-        </h2>
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {c.services[loc].map((s) => (
+        <SectionHeading
+          eyebrow={loc === "hi" ? "खाता प्रबंधन" : "Account"}
+          title={x.mergeTitle[loc]}
+          intro={x.mergeIntro[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        />
+        <div className="mt-6 rounded-2xl border border-zinc-200 p-6">
+          <ol className="space-y-3">
+            {x.mergeSteps[loc].map((step, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-700">
+                  {i + 1}
+                </span>
+                <span className="pt-0.5 text-zinc-700">{step}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 flex gap-2.5 rounded-xl bg-red-50/60 px-4 py-3 text-sm leading-relaxed text-red-900">
+            <span aria-hidden>⚠</span>
+            <span>{x.mergeNote[loc]}</span>
+          </p>
+        </div>
+      </section>
+
+      {/* Jan Aadhaar update */}
+      <section className="rounded-3xl border border-amber-100 bg-amber-50/30 p-6 sm:p-8">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "जन आधार" : "Jan Aadhaar"}
+          title={x.janTitle[loc]}
+          tone="amber"
+          intro={<p>{x.janIntro[loc]}</p>}
+        />
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+          {x.janPhases[loc].map((phase, i) => (
             <div
-              key={s}
-              className="rounded-lg border border-zinc-200 px-4 py-3 text-center text-sm font-medium text-zinc-700"
+              key={i}
+              className="rounded-2xl border border-amber-100 bg-white p-6 shadow-sm"
             >
-              {s}
+              <h3 className="font-semibold text-zinc-900">{phase.title}</h3>
+              <ul className="mt-3 space-y-2.5">
+                {phase.steps.map((s, j) => (
+                  <li key={j} className="flex gap-2.5 text-sm text-zinc-700">
+                    <span className="mt-1 text-amber-600">•</span>
+                    <span>{s}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
+
+        <h3 className="mt-7 text-lg font-semibold text-zinc-900">
+          {x.janDocTitle[loc]}
+        </h3>
+        <div className="mt-3 overflow-x-auto rounded-2xl border border-amber-100 bg-white">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{x.janDocCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{x.janDocCols[loc][1]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {x.janDocs[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-amber-50/40"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.a}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 rounded-xl bg-white/70 px-4 py-3 text-sm leading-relaxed text-zinc-700">
+          {x.janNote[loc]}
+        </p>
       </section>
 
       {/* Internal links: exams, scholarships, cities */}
@@ -438,8 +758,11 @@ export default async function Home({
 
       {/* Common errors */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{g.errorsTitle[loc]}</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "समस्या समाधान" : "Troubleshooting"}
+          title={g.errorsTitle[loc]}
+        />
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-zinc-200 shadow-sm">
           <table className="w-full border-collapse text-sm">
             <thead>
               <tr className="bg-zinc-900 text-left text-white">
@@ -468,13 +791,19 @@ export default async function Home({
       </section>
 
       {/* Pre-register checklist */}
-      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight">{g.checklistTitle[loc]}</h2>
+      <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "चेकलिस्ट" : "Checklist"}
+          title={g.checklistTitle[loc]}
+        />
         <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
           {g.checklist[loc].map((item, i) => (
-            <li key={i} className="flex gap-2.5">
-              <span className="mt-1 text-amber-600">✓</span>
-              <span className="text-zinc-700">{item}</span>
+            <li
+              key={i}
+              className="flex gap-2.5 rounded-xl border border-zinc-100 bg-zinc-50/60 px-4 py-3"
+            >
+              <span className="mt-0.5 text-amber-600">✓</span>
+              <span className="text-sm text-zinc-700">{item}</span>
             </li>
           ))}
         </ul>
@@ -482,8 +811,11 @@ export default async function Home({
 
       {/* Quick reference */}
       <section>
-        <h2 className="text-2xl font-bold tracking-tight">{g.quickRefTitle[loc]}</h2>
-        <div className="mt-4 overflow-hidden rounded-2xl border border-zinc-200">
+        <SectionHeading
+          eyebrow={loc === "hi" ? "सारांश" : "At a glance"}
+          title={g.quickRefTitle[loc]}
+        />
+        <div className="mt-5 overflow-hidden rounded-2xl border border-zinc-200 shadow-sm">
           <table className="w-full border-collapse text-sm">
             <tbody>
               {g.quickRef[loc].map((r, i) => (
@@ -496,6 +828,103 @@ export default async function Home({
               ))}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      {/* Official helpline & contacts */}
+      <section>
+        <SectionHeading
+          eyebrow={loc === "hi" ? "सहायता" : "Support"}
+          title={x.helplineTitle[loc]}
+        />
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{x.helplineCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{x.helplineCols[loc][1]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {x.helplines[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.a}</td>
+                  <td className="px-4 py-3 font-semibold text-amber-700">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+          {x.helplineNote[loc]}
+        </p>
+      </section>
+
+      {/* About this guide — E-E-A-T: independence, authorship, cited sources */}
+      <section
+        id="about-this-guide"
+        aria-labelledby="about-heading"
+        className="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-6"
+      >
+        <h2 id="about-heading" className="font-semibold text-zinc-900">
+          {homeMeta.aboutTitle[loc]}
+        </h2>
+        <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-700">
+          {homeMeta.aboutBody[loc].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+
+        <h3 className="mt-6 flex items-center gap-2 text-sm font-semibold text-zinc-900">
+          <span aria-hidden>📋</span>
+          {homeMeta.sourcesTitle[loc]}
+        </h3>
+        <p className="mt-1 text-xs text-zinc-500">{homeMeta.sourcesIntro[loc]}</p>
+        <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-zinc-700">
+          {homeMeta.sources.map((s) => (
+            <li key={s.url}>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="text-amber-700 hover:underline"
+              >
+                {s.url.replace("https://", "")}
+              </a>{" "}
+              — {s.label[loc]}
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-6 border-t border-zinc-200 pt-4 text-sm text-zinc-600">
+          <p>
+            {homeMeta.authorBioPrefix[loc]}{" "}
+            <a
+              href={ATTRIBUTION.linkedin}
+              target="_blank"
+              rel="author noopener"
+              className="font-semibold text-zinc-800 hover:text-amber-700"
+            >
+              {ATTRIBUTION.name}
+            </a>
+            {" — "}
+            {homeMeta.authorBio[loc].split("—")[1]?.trim() ?? homeMeta.authorBio[loc]}
+          </p>
+          <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+            <a href={ATTRIBUTION.linkedin} target="_blank" rel="noopener" className="text-amber-700 hover:underline">
+              LinkedIn
+            </a>
+            <span aria-hidden className="text-zinc-300">·</span>
+            <a href={ATTRIBUTION.url} target="_blank" rel="noopener" className="text-amber-700 hover:underline">
+              {loc === "hi" ? "पोर्टफोलियो" : "Portfolio"}
+            </a>
+          </p>
+          <p className="mt-3 text-xs text-zinc-500">
+            {homeMeta.correctionNote[loc].split(homeMeta.contactCta[loc])[0]}
+            <Link href={`${base}/contact`} className="text-amber-700 underline">
+              {homeMeta.contactCta[loc]}
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -536,6 +965,16 @@ export default async function Home({
           {loc === "hi" ? "संपर्क करें" : "Contact Us"}
         </Link>
       </section>
+
+      {/* Share bar — bottom */}
+      <div className="flex justify-center">
+        <ShareBar
+          path={`/${loc}`}
+          title={homeMeta.shareTitle[loc]}
+          label={homeMeta.shareLabel[loc]}
+          locale={loc}
+        />
+      </div>
 
       <p className="text-center text-sm text-zinc-500">
         {t.common.officialPortalNote}{" "}

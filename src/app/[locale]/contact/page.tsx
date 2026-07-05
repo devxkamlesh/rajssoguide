@@ -107,17 +107,6 @@ export default async function ContactPage({
             </a>
           </li>
           <li>
-            <span className="text-zinc-500">GitHub: </span>
-            <a
-              href={ATTRIBUTION.github}
-              target="_blank"
-              rel="noopener"
-              className="font-medium text-amber-700 hover:underline"
-            >
-              {ATTRIBUTION.handle} ↗
-            </a>
-          </li>
-          <li>
             <span className="text-zinc-500">LinkedIn: </span>
             <a
               href={ATTRIBUTION.linkedin}

@@ -20,12 +20,18 @@ export const site = {
   contactEmail: "contact@rajssoidguide.in",
   contactWhatsApp: "919257241205",
   established: "2024",
+  geo: {
+    region: "IN-RJ",
+    placename: "Jaipur, Rajasthan, India",
+    position: "26.9124;75.7873",
+    icbm: "26.9124, 75.7873",
+  },
   author: {
     name: "RajSSO Guide Editorial Team",
     url: "https://rajssoidguide.in/about",
   },
   social: {
-    twitter: "@rajssoguide",
+    twitter: "@devxkamlesh",
   },
   locale: {
     default: "en" as const,
@@ -35,13 +41,15 @@ export const site = {
     logoHorizontal: "/RajSSO/logo-horizontal.webp",
     hero: "/RajSSO/hero-banner.webp",
     ogImage: {
-      en: "/RajSSO/og-image.webp",
-      hi: "/RajSSO/og-image-hi.webp",
+      en: "/RajSSO/sso-id-rajasthan-2026-og-image-en.webp",
+      hi: "/RajSSO/sso-id-rajasthan-2026-og-image-hi.webp",
     },
     favicons: {
       ico: "/RajSSO/favicon_io/favicon.ico",
       icon16: "/RajSSO/favicon_io/favicon-16x16.png",
       icon32: "/RajSSO/favicon_io/favicon-32x32.png",
+      icon192: "/RajSSO/favicon_io/android-chrome-192x192.png",
+      icon512: "/RajSSO/favicon_io/android-chrome-512x512.png",
       apple: "/RajSSO/favicon_io/apple-touch-icon.png",
       manifest: "/RajSSO/favicon_io/site.webmanifest",
     },

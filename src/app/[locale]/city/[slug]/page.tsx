@@ -76,8 +76,8 @@ export default async function CityPage({
       </h1>
       <p className="mt-3 text-lg text-zinc-600">
         {loc === "hi"
-          ? `${c.name[loc]} में एसएसओ आईडी लॉगिन, रजिस्ट्रेशन और ई-मित्र सेवाओं की जानकारी।`
-          : `SSO ID login, registration and e-Mitra service help for ${c.name[loc]}, Rajasthan.`}
+          ? `${c.name[loc]} (${c.knownFor[loc]}) में एसएसओ आईडी लॉगिन, रजिस्ट्रेशन और ई-मित्र सेवाओं की जानकारी।`
+          : `SSO ID login, registration and e-Mitra service help for ${c.name[loc]} — ${c.knownFor[loc]}.`}
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
         <Link

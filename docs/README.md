@@ -1,72 +1,122 @@
 ---
-title: RajSSO Guide — Documentation
-tags: [index, moc]
+title: 🏠 RajSSO Guide — Documentation Home
+aliases: [Home, Dashboard, Index, MOC]
+tags: [moc, index, home]
+cssclasses: [dashboard]
+created: 2026-06-27
+updated: 2026-06-27
 ---
 
-# RajSSO Guide — Documentation
+# 🏠 RajSSO Guide — Documentation Home
 
-This folder is the complete, code-verified documentation for **rajssoidguide.in**, an independent bilingual (English/Hindi) informational guide for the Rajasthan SSO ID portal.
+> [!abstract] What this vault is
+> The **complete, code-verified** documentation for [**rajssoidguide.in**](https://rajssoidguide.in) — an independent, bilingual (English + Hindi) informational guide to the Rajasthan **SSO ID** portal.
+>
+> This folder is a self-contained **Obsidian vault**. Notes are linked with `[[wikilinks]]`, illustrated with `mermaid` diagrams, and annotated with `> [!callout]` blocks. Everything also renders as plain Markdown on GitHub.
 
-It is an **Obsidian vault**. Notes use `[[wiki links]]` for clickable navigation, backlinks, and a graph view, plus `mermaid` diagrams and `> [!callout]` blocks for visual data. Everything also reads correctly as plain Markdown on GitHub.
+> [!tip]- How to get the best experience in Obsidian (click to expand)
+> 1. **Open the `docs/` folder as a vault** (Open folder as vault).
+> 2. Press the **Graph View** icon in the left ribbon to see how every note connects.
+> 3. **Hover** any `[[link]]` for a live preview; `Ctrl/Cmd+Click` to open in a split.
+> 4. Open the **Outline** pane for in-note navigation.
+> 5. Use **Search** (`Ctrl/Cmd+Shift+F`) with the `tag:` filters listed below.
+> 6. Mermaid diagrams and callouts render automatically — no plugins required.
 
-> [!info] How to read this vault in Obsidian
-> Open the `docs/` folder as a vault. Use the **graph view** (left ribbon) to see how notes connect, hover any `[[link]]` for a preview, and open the **outline** for in-note navigation. Diagrams render automatically.
+---
 
-## Map of contents
+## 🗺️ Vault map
 
 ```mermaid
 flowchart TB
-    R["README"] --> O["01 Overview"]
-    O --> A["02 Architecture"]
-    A --> P["03 Pages & Flow"]
-    P --> C["04 Content"]
-    C --> S["05 SEO/Sec/Perf"]
-    S --> M["06 Maintenance"]
-    M --> CF["11 Cloudflare"]
-    CF --> L["07 Launch"]
-    L --> B["08 Backend"]
-    B --> T["09 Template"]
-    T --> PR["10 Prompt"]
-    PR --> I["12 Improvements"]
+    R["🏠 README<br/>(you are here)"]
+    R --> G1["**Understand**"]
+    R --> G2["**Build & Ship**"]
+    R --> G3["**Extend & Plan**"]
+
+    G1 --> O["01 · Overview"]
+    G1 --> A["02 · Architecture"]
+    G1 --> RP["03 · Routing & Pages"]
+    G1 --> DM["04 · Data Model"]
+
+    G2 --> SEO["06 · SEO & Structured Data"]
+    G2 --> SEC["07 · Security & Performance"]
+    G2 --> CF["08 · Cloudflare Deployment"]
+
+    G3 --> CI["05 · Content Inventory"]
+    G3 --> MG["09 · Maintenance Guide"]
+    G3 --> PB["10 · Content Playbook"]
+    G3 --> BE["11 · Backend & Database"]
+    G3 --> RM["12 · Roadmap"]
+    G3 --> CL["13 · Changelog"]
+    G3 --> GL["14 · Glossary"]
+
+    classDef group fill:#2563EB,stroke:#1e40af,color:#fff,font-weight:bold;
+    class G1,G2,G3 group;
 ```
 
-## Contents
+---
 
-| Document | Purpose |
-|----------|---------|
-| [[01 - Overview]] | What the project is, the technology used, and key facts |
-| [[02 - Architecture]] | Code structure, data flow, routing, and how pages are generated |
-| [[03 - Pages and Flow]] | Full site map, every page type, navigation, and user journeys |
-| [[04 - Content Inventory]] | Per-page content breakdown, word counts, and review scores |
-| [[05 - SEO Security Performance]] | SEO system, structured data, security headers, performance |
-| [[06 - Maintenance Guide]] | How to add or update content without breaking anything |
-| [[07 - Launch Review]] | Pre-launch checklist and readiness scorecard |
-| [[08 - Backend and Database]] | Analysis of adding a backend/database, with pros and cons |
-| [[09 - Content Template and Checklist]] | Reusable template and checklists for creating new content |
-| [[10 - Content Prompt Template]] | Ready-to-paste prompt for requesting a new page |
-| [[11 - Cloudflare Deployment]] | Cloudflare Workers (OpenNext) build/deploy settings and troubleshooting |
-| [[12 - Improvements and Recommendations]] | Prioritised backlog of technical and content improvements |
+## 📚 Contents
 
-## Recommended reading order
+| # | Note | Purpose | Tags |
+|:-:|------|---------|------|
+| — | [[README]] | This dashboard | `#moc` |
+| 01 | [[01 - Overview]] | What the project is, principles, stack, key facts | `#overview` |
+| 02 | [[02 - Architecture]] | Request lifecycle, middleware, config, folders, i18n | `#architecture` |
+| 03 | [[03 - Routing and Pages]] | Full site map, page types, navigation, journeys | `#pages` |
+| 04 | [[04 - Data Model]] | Every data source, TypeScript shapes, content libs | `#data` |
+| 05 | [[05 - Content Inventory]] | Per-page content depth + review scores | `#content` |
+| 06 | [[06 - SEO and Structured Data]] | Metadata, JSON-LD `@graph`, hreflang, GEO | `#seo` |
+| 07 | [[07 - Security and Performance]] | Headers, CSP, perf, accessibility | `#security` |
+| 08 | [[08 - Cloudflare Deployment]] | OpenNext build/deploy, Wrangler, troubleshooting | `#deployment` |
+| 09 | [[09 - Maintenance Guide]] | How to add/update content safely | `#maintenance` |
+| 10 | [[10 - Content Playbook]] | Templates, checklists, and the AI content prompt | `#workflow` |
+| 11 | [[11 - Backend and Database]] | If/when to add a backend — options & tradeoffs | `#planning` |
+| 12 | [[12 - Roadmap and Improvements]] | Prioritised, code-grounded backlog | `#roadmap` |
+| 13 | [[13 - Changelog]] | Record of the June 2026 SEO/GEO upgrades | `#changelog` |
+| 14 | [[14 - Glossary]] | SSO + project terminology | `#glossary` |
+| 15 | [[15 - Page Flow and Low-Level Detail]] | Visitor's view: URL structure, site map, and user journeys | `#pages` |
 
-1. [[01 - Overview]] — understand the project at a high level
-2. [[03 - Pages and Flow]] — see how the site is organised
-3. [[02 - Architecture]] — learn how it works in code
-4. [[04 - Content Inventory]] — review the actual content
-5. [[06 - Maintenance Guide]] — learn to extend it
-6. [[11 - Cloudflare Deployment]] — learn how it ships
-7. [[07 - Launch Review]] — confirm it is ready
-8. [[12 - Improvements and Recommendations]] — plan what is next
+---
 
-## Status at a glance
+## 🧭 Recommended reading paths
 
-> [!success] Verified against the codebase on 17 June 2026
-> The facts below were re-checked against the actual source on this branch.
+> [!example]- New developer onboarding
+> [[01 - Overview]] → [[03 - Routing and Pages]] → [[02 - Architecture]] → [[04 - Data Model]] → [[09 - Maintenance Guide]] → [[08 - Cloudflare Deployment]]
 
-- **Stack:** Next.js 16.2.7, React 19.2.4, TypeScript 5, Tailwind CSS 4.
-- **This branch (`cloudflare`):** deployed to **Cloudflare Workers** via the OpenNext adapter (`@opennextjs/cloudflare`). A separate `main` branch targets Vercel — see [[11 - Cloudflare Deployment]] and `DEPLOYMENT-BRANCHES.md`.
-- **Rendering:** fully static / pre-rendered (SSG). No application backend or database.
-- **Analytics:** Google Analytics (`G-RYT943398Y`), loaded lazily in the locale layout.
-- **Locale routing:** handled by `next.config.ts` `redirects()` — there is **no** `proxy.ts` middleware on this branch.
-- **Pages:** ~100 static pages (~50 per language).
-- **Launch state:** ready, pending verification of dates and fees in the data files.
+> [!example]- Content editor / SEO
+> [[05 - Content Inventory]] → [[06 - SEO and Structured Data]] → [[10 - Content Playbook]] → [[12 - Roadmap and Improvements]]
+
+> [!example]- Ship it today
+> [[08 - Cloudflare Deployment]] → [[07 - Security and Performance]] → [[13 - Changelog]]
+
+---
+
+## ✅ Status at a glance
+
+> [!success] Verified against the codebase on **27 June 2026**
+> Every fact below was re-checked against the actual source on the `cloudflare` branch.
+
+| Fact | Value |
+|------|-------|
+| **Stack** | Next.js `16.2.7` · React `19.2.4` · TypeScript `5` · Tailwind CSS `4` |
+| **Rendering** | Static Site Generation (SSG) — no app backend / database |
+| **Hosting** | Cloudflare Workers via OpenNext (`@opennextjs/cloudflare`) |
+| **Worker name** | `rajssoguide` → `rajssoguide.devxkamlesh.workers.dev` |
+| **Custom domain** | `rajssoidguide.in` |
+| **Locales** | `/en` (default) + `/hi`, `x-default → /en` |
+| **Pages** | ~108 static routes (~54 per language) |
+| **Middleware** | `src/middleware.ts` sets `x-locale`; prefixing via `next.config.ts` `redirects()` |
+| **Analytics** | Google Analytics `G-RYT943398Y` (lazy-loaded) |
+| **Data** | 3 exams · 3 services · 5 scholarships · 12 cities · 4 guides · 6 tools · 3 errors |
+
+> [!warning] Ongoing accuracy duty
+> Exam dates/fees, scholarship income limits, and the updates feed are **realistic values that must be re-verified** against official notifications. See [[12 - Roadmap and Improvements#1. Correctness and trust]].
+
+---
+
+## 🔖 Tag directory
+
+`#overview` `#architecture` `#pages` `#data` `#content` `#seo` `#security` `#deployment` `#maintenance` `#workflow` `#planning` `#roadmap` `#changelog` `#glossary`
+
+%% Maintainers: keep the Status table and 13 - Changelog in sync after every deploy. %%

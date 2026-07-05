@@ -3,13 +3,19 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FaqSection } from "@/components/FaqSection";
+import { ImportantLinks } from "@/components/ImportantLinks";
 import { services } from "@/lib/content";
+import { servicesHub as sh, servicesLong } from "@/data/servicesHub";
+import { importantLinksForService } from "@/lib/related";
+import { site } from "@/lib/site";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import {
   alternates,
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  faqSchema,
   itemListSchema,
 } from "@/lib/schema";
 
@@ -25,14 +31,8 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   return {
-    title:
-      locale === "hi"
-        ? "राजस्थान एसएसओ सेवाएं — PayManager, RajKaj, जन आधार"
-        : "Rajasthan SSO Services — PayManager, RajKaj, Jan Aadhaar",
-    description:
-      locale === "hi"
-        ? "एक एसएसओ लॉगिन से उपलब्ध प्रमुख राजस्थान सरकारी सेवाएं और उनका उपयोग कैसे करें।"
-        : "Key Rajasthan government services available through one SSO login and how to use them.",
+    title: sh.metaTitle[locale],
+    description: sh.metaDescription[locale],
     alternates: {
       canonical: canonicalFor(locale, "/services"),
       ...alternates("/services"),
@@ -59,6 +59,7 @@ export default async function ServicesHub({
     itemListSchema(
       services.map((s) => ({ name: s.name[loc], path: `${base}/service/${s.slug}` })),
     ),
+    faqSchema(sh.faqs[loc]),
   ]);
 
   return (
@@ -74,6 +75,9 @@ export default async function ServicesHub({
         {loc === "hi"
           ? "एक SSO ID से राजस्थान सरकार की 100 से अधिक सेवाओं का लाभ उठाएँ — PayManager पर सैलरी स्लिप डाउनलोड करने से लेकर Jan Aadhaar अपडेट करने और सरकारी नौकरी के लिए आवेदन करने तक।"
           : "One SSO ID unlocks 100+ Rajasthan government services — from downloading your salary slip on PayManager to updating Jan Aadhaar details and applying for government jobs."}
+      </p>
+      <p className="mt-3 text-sm text-zinc-500">
+        {t.common.lastVerified}: {sh.lastVerified}
       </p>
 
       {/* Popular Services Grid */}
@@ -251,6 +255,87 @@ export default async function ServicesHub({
           </li>
         </ul>
       </section>
+
+      {/* SSO services by user type */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold tracking-tight">{sh.categoryTitle[loc]}</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-zinc-900 text-left text-white">
+                <th className="px-4 py-3 font-semibold">{sh.categoryCols[loc][0]}</th>
+                <th className="px-4 py-3 font-semibold">{sh.categoryCols[loc][1]}</th>
+                <th className="px-4 py-3 font-semibold">{sh.categoryCols[loc][2]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sh.categoryRows[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <td className="px-4 py-3 font-medium text-zinc-800">{r.audience}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.services}</td>
+                  <td className="px-4 py-3 text-zinc-600">{r.registerWith}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Official portals quick reference */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold tracking-tight">{sh.quickRefTitle[loc]}</h2>
+        <div className="mt-4 overflow-hidden rounded-2xl border border-zinc-200">
+          <table className="w-full border-collapse text-sm">
+            <tbody>
+              {sh.quickRef[loc].map((r, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                  <th
+                    scope="row"
+                    className="w-1/2 px-4 py-3 text-left font-medium text-zinc-700"
+                  >
+                    {r.a}
+                  </th>
+                  <td className="w-1/2 px-4 py-3 text-zinc-600">{r.b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Long-form editorial */}
+      {servicesLong.map((sec, i) => (
+        <section key={i} className="mt-12">
+          <h2 className="text-2xl font-bold tracking-tight">{sec.title[loc]}</h2>
+          <div className="mt-4 space-y-4 leading-relaxed text-zinc-600">
+            {sec.body[loc].map((p, j) => (
+              <p key={j}>{p}</p>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {/* FAQ */}
+      <div className="mt-12">
+        <FaqSection title={t.common.faqTitle} faqs={sh.faqs[loc]} />
+      </div>
+
+      {/* Important links */}
+      <ImportantLinks
+        title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}
+        rows={importantLinksForService(loc)}
+      />
+
+      <p className="mt-10 text-center text-sm text-zinc-500">
+        {t.common.officialPortalNote}{" "}
+        <a
+          href={site.officialPortal}
+          rel="nofollow noopener"
+          className="text-amber-700 underline"
+        >
+          {site.officialPortal.replace("https://", "")}
+        </a>
+      </p>
     </div>
   );
 }

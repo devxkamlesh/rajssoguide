@@ -48,6 +48,60 @@ export function GuideArticle({
         ))}
       </div>
 
+      {/* Optional prose sections */}
+      {guide.sections?.map((sec, i) => (
+        <section key={i} className="mt-8">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            {sec.title[locale]}
+          </h2>
+          <div className="mt-4 space-y-4 leading-relaxed text-zinc-700">
+            {sec.body[locale].map((p, j) => (
+              <p key={j}>{p}</p>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {/* Optional data tables */}
+      {guide.tables?.map((tbl, i) => (
+        <section key={i} className="mt-8">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            {tbl.title[locale]}
+          </h2>
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-zinc-200">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="bg-zinc-900 text-left text-white">
+                  {tbl.cols[locale].map((c, j) => (
+                    <th key={j} className="px-4 py-3 font-semibold">
+                      {c}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tbl.rows[locale].map((row, r) => (
+                  <tr key={r} className={r % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+                    {row.map((cell, c) => (
+                      <td
+                        key={c}
+                        className={
+                          c === 0
+                            ? "px-4 py-3 font-medium text-zinc-800"
+                            : "px-4 py-3 text-zinc-600"
+                        }
+                      >
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+
       <HowToSection title={t.common.steps} steps={guide.steps[locale]} />
       <FaqSection title={t.common.faqTitle} faqs={guide.faqs[locale]} />
 

@@ -34,8 +34,8 @@ export async function generateMetadata({
   const g = getGuide(guide);
   if (!g || !isLocale(locale)) return {};
   return {
-    title: g.title[locale],
-    description: g.intro[locale],
+    title: g.metaTitle?.[locale] ?? g.title[locale],
+    description: g.metaDescription?.[locale] ?? g.intro[locale],
     alternates: {
       canonical: canonicalFor(locale, `/${guide}`),
       ...alternates(`/${guide}`),

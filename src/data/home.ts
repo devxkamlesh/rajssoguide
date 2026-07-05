@@ -32,20 +32,20 @@ export const homeContent: {
   faqs: L<FaqItem[]>;
 } = {
   metaTitle: {
-    en: "SSO ID Rajasthan 2026 — Register, Login & Recover Your Account",
-    hi: "एसएसओ आईडी राजस्थान 2026 — रजिस्टर, लॉगिन और अकाउंट रिकवरी",
+    en: "SSO ID Rajasthan — Login, Registration & Complete Guide 2026",
+    hi: "SSO ID राजस्थान — लॉगिन, रजिस्ट्रेशन और पूरी जानकारी 2026",
   },
   metaDescription: {
-    en: "Complete guide to SSO ID Rajasthan — how to register, login to sso.rajasthan.gov.in, recover a forgotten SSO ID or password, and access scholarship and exam services. Updated for 2026.",
-    hi: "एसएसओ आईडी राजस्थान की पूरी गाइड — sso.rajasthan.gov.in पर रजिस्टर और लॉगिन कैसे करें, भूली हुई एसएसओ आईडी या पासवर्ड कैसे रिकवर करें, और छात्रवृत्ति व परीक्षा सेवाओं तक पहुंच। 2026 के लिए अपडेटेड।",
+    en: "Complete guide to SSO ID Rajasthan — how to log in at sso.rajasthan.gov.in, create a new account, recover a forgotten SSO ID, and access 100+ government services like scholarships, RPSC exams, and PayManager salary slips. An independent informational guide.",
+    hi: "SSO ID राजस्थान की पूरी गाइड हिंदी में। SSO ID लॉगिन करें, नया SSO ID बनाएं, भूला हुआ ID वापस पाएं। स्कॉलरशिप, सरकारी नौकरी, सैलरी स्लिप — सब एक जगह। sso.rajasthan.gov.in की जानकारी।",
   },
   h1: {
     en: "SSO ID Rajasthan — Login & Registration Guide",
     hi: "एसएसओ आईडी राजस्थान — लॉगिन और रजिस्ट्रेशन गाइड",
   },
   heroLead: {
-    en: "One RajSSO login for 100+ Rajasthan government services. Learn how to do SSO login, create a new SSO ID, and recover a forgotten ID — step by step.",
-    hi: "100+ राजस्थान सरकारी सेवाओं के लिए एक RajSSO लॉगिन। एसएसओ लॉगिन करना, नई एसएसओ आईडी बनाना और भूली हुई आईडी रिकवर करना सीखें — स्टेप बाय स्टेप।",
+    en: "Whether you need a scholarship, a government job form, or a salary slip — one thing handles it all: your SSO ID. This guide covers how to do SSO login on sso.rajasthan.gov.in, create a new account, and recover a forgotten SSO ID or password. No jargon, no runaround.",
+    hi: "स्कॉलरशिप चाहिए, सरकारी नौकरी के लिए फॉर्म भरना है, या PayManager से सैलरी स्लिप निकालनी है — सब काम एक ही चीज़ से होता है: आपकी SSO ID। यहाँ मिलेगा sso.rajasthan.gov.in पर लॉगिन करने का तरीका, नया रजिस्ट्रेशन, और भूले हुए SSO ID या पासवर्ड को वापस पाने की पूरी जानकारी — सीधी और आसान भाषा में।",
   },
   stats: {
     en: [
@@ -65,26 +65,32 @@ export const homeContent: {
   },
   whatBody: {
     en: [
-      "SSO ID Rajasthan (Single Sign-On ID) is the unified digital identity system developed by the Government of Rajasthan to provide citizens, government employees, and businesses with secure access to online government services through a single account. Instead of creating separate usernames and passwords for different departments, users can access multiple services using one SSO login at the official Rajasthan SSO portal.",
-      "The Rajasthan Single Sign-On platform was launched in 2013 and is maintained by the Department of Information Technology & Communication (DoITC). Over the years, it has become the primary gateway for accessing hundreds of government services, examinations, welfare schemes, recruitment applications, and citizen-focused digital initiatives across Rajasthan.",
-      "Today, residents from Jaipur, Jodhpur, Kota, Udaipur, Ajmer, Bikaner, Bharatpur, Alwar, Sikar, Bhilwara, Pali, Sri Ganganagar, and every other district of Rajasthan use SSO ID to interact with government services online without visiting offices repeatedly.",
+      "SSO stands for Single Sign-On. In Rajasthan's case, it means one account — one username and password — that opens the door to over 100 government services. Scholarship forms, exam registrations, salary slips, ration card updates: all of it runs through this one SSO portal at sso.rajasthan.gov.in.",
+      "The Rajasthan government launched this Rajasthan Single Sign-On system in 2013 under the Department of Information Technology & Communication (DoITC). Before SSO existed, a citizen had to create separate logins for each department. Now, a student in Barmer and a government teacher in Jaipur both use the same SSO ID to access completely different services — that is the whole point of a single sign-on.",
+      "If you live in Rajasthan and interact with the government online even once a year, you need an SSO ID. The three groups who use it most are everyday citizens (with Aadhaar or Jan Aadhaar), government employees (for PayManager, RajKaj, and SIPF), and business owners (for GST, BPAS approvals, and labour compliance).",
     ],
     hi: [
-      "एसएसओ आईडी राजस्थान (सिंगल साइन-ऑन आईडी) राजस्थान सरकार द्वारा विकसित एकीकृत डिजिटल पहचान प्रणाली है जो नागरिकों, सरकारी कर्मचारियों और व्यवसायों को एक खाते के माध्यम से ऑनलाइन सरकारी सेवाओं तक सुरक्षित पहुंच प्रदान करती है। विभिन्न विभागों के लिए अलग-अलग यूजरनेम और पासवर्ड बनाने के बजाय, उपयोगकर्ता आधिकारिक राजस्थान SSO पोर्टल पर एक SSO लॉगिन का उपयोग करके कई सेवाओं तक पहुंच सकते हैं।",
-      "राजस्थान सिंगल साइन-ऑन प्लेटफ़ॉर्म 2013 में लॉन्च किया गया था और इसे सूचना प्रौद्योगिकी और संचार विभाग (DoITC) द्वारा बनाए रखा जाता है। पिछले कुछ वर्षों में, यह सैकड़ों सरकारी सेवाओं, परीक्षाओं, कल्याण योजनाओं, भर्ती आवेदनों और राजस्थान भर में नागरिक-केंद्रित डिजिटल पहलों तक पहुंचने का प्राथमिक गेटवे बन गया है।",
-      "आज, जयपुर, जोधपुर, कोटा, उदयपुर, अजमेर, बीकानेर, भरतपुर, अलवर, सीकर, भीलवाड़ा, पाली, श्री गंगानगर और राजस्थान के हर अन्य जिले के निवासी बार-बार कार्यालयों में जाए बिना ऑनलाइन सरकारी सेवाओं के साथ बातचीत करने के लिए SSO ID का उपयोग करते हैं।",
+      "SSO का मतलब है Single Sign-On — यानी एक अकाउंट जो 100 से ज़्यादा सरकारी सेवाओं का दरवाज़ा खोलता है। स्कॉलरशिप फॉर्म, परीक्षा रजिस्ट्रेशन, सैलरी स्लिप, राशन कार्ड अपडेट — सब कुछ एक ही SSO पोर्टल से होता है: sso.rajasthan.gov.in।",
+      "राजस्थान सरकार ने यह राजस्थान सिंगल साइन ऑन सिस्टम 2013 में सूचना प्रौद्योगिकी एवं संचार विभाग (DoITC) के तहत शुरू किया था। पहले हर विभाग का अलग लॉगिन था, अलग पासवर्ड था। अब बाड़मेर का एक स्टूडेंट और जयपुर की एक सरकारी टीचर — दोनों एक ही SSO ID से अपनी-अपनी ज़रूरत की सेवाएं ले सकते हैं। यही सिंगल साइन-ऑन का असली मतलब है।",
+      "अगर आप राजस्थान में रहते हैं और साल में एक बार भी सरकार से ऑनलाइन काम पड़ता है — SSO ID होना ज़रूरी है। इसे सबसे ज़्यादा तीन तरह के लोग इस्तेमाल करते हैं: आम नागरिक (आधार या जन आधार से), सरकारी कर्मचारी (PayManager, RajKaj, SIPF के लिए), और व्यापारी (GST, BPAS अप्रूवल, लेबर कॉम्प्लायंस के लिए)।",
     ],
   },
   whyImportantTitle: {
-    en: "Why is SSO ID Important?",
-    hi: "एसएसओ आईडी क्यों महत्वपूर्ण है?",
+    en: "Why Your SSO ID Is the Most Useful Thing the Rajasthan Government Ever Made",
+    hi: "SSO ID — राजस्थान सरकार का सबसे काम का डिजिटल काम",
   },
   whyImportantBody: {
     en: [
-      "The Rajasthan government created the SSO platform to simplify access to digital services. A single account reduces paperwork, improves security, and provides a consistent user experience across multiple departments.",
+      "Most government websites are painful. You already know this. Rajasthan's SSO portal is genuinely different — not perfect, but different.",
+      "Before 2013, filling a scholarship form meant visiting the education department in person. Checking your SIPF balance meant calling someone. Every department had its own password, its own login page, and its own way of losing your data.",
+      "Now one SSO ID handles all of it. A Class 12 student in Jhunjhunu can register on the SSO portal, apply for a post-matric scholarship, check the e-Mitra status of that application, and download an admit card — without leaving their chair. That is not nothing.",
+      "Is the portal slow sometimes? Yes. Does the OTP occasionally take five minutes to arrive? Also yes. But the core idea — that a single verified identity connects you to every government service — is solid, and Rajasthan has executed it better than most Indian states. If you have not created your SSO ID yet, that is the first thing to fix.",
     ],
     hi: [
-      "राजस्थान सरकार ने डिजिटल सेवाओं तक पहुंच को सरल बनाने के लिए SSO प्लेटफ़ॉर्म बनाया। एक खाता कागजी कार्रवाई को कम करता है, सुरक्षा में सुधार करता है, और कई विभागों में एक सुसंगत उपयोगकर्ता अनुभव प्रदान करता है।",
+      "ज़्यादातर सरकारी वेबसाइटें थकाने वाली होती हैं। यह बात आप भी जानते हैं। SSO Rajasthan थोड़ा अलग है — परफेक्ट नहीं, लेकिन बाकियों से बेहतर ज़रूर है।",
+      "2013 से पहले स्कॉलरशिप फॉर्म भरने के लिए शिक्षा विभाग के ऑफिस जाना पड़ता था। SIPF बैलेंस चेक करने के लिए किसी को फोन करना पड़ता था। हर विभाग का अपना पासवर्ड, अपना लॉगिन पेज, और अपना डेटा खोने का तरीका था।",
+      "अब एक SSO ID से यह सब हो जाता है। झुंझुनू के किसी 12वीं के छात्र ने SSO पोर्टल पर रजिस्ट्रेशन किया, पोस्ट-मैट्रिक स्कॉलरशिप के लिए अप्लाई किया, e-Mitra से स्टेटस चेक किया, और एडमिट कार्ड डाउनलोड किया — बिना कुर्सी छोड़े। यह छोटी बात नहीं है।",
+      "पोर्टल कभी-कभी स्लो होता है? हाँ। OTP आने में पाँच मिनट लग जाते हैं? वो भी होता है। लेकिन जो मूल विचार है — एक वेरिफाइड पहचान से सारी सरकारी सेवाएं — वो सही है, और राजस्थान ने इसे ज़्यादातर राज्यों से बेहतर किया है। अगर अभी तक SSO ID नहीं बनाई, तो यही पहला काम करना है।",
     ],
   },
   whyImportantPoints: {
@@ -217,24 +223,24 @@ export const homeContent: {
   },
   safetyTips: {
     en: [
-      "Never share your password with anyone",
-      "Use a strong and unique password",
-      "Keep your registered mobile number active",
-      "Update recovery information when required",
-      "Avoid logging in from public computers",
-      "Always verify the official website address before entering credentials",
-      "Log out after completing sensitive activities",
-      "Be cautious of unofficial websites claiming to provide account recovery",
+      "Always check the URL says sso.rajasthan.gov.in before entering credentials — then bookmark it.",
+      "Never share your SSO password with anyone, including e-Mitra operators or 'helpline' numbers that call you.",
+      "Use a strong password: at least eight characters with one number and one special character.",
+      "Keep your registered mobile number active; if your SIM changes, update it at e-Mitra before you lose access.",
+      "Log out after using SSO on shared or public computers.",
+      "If someone calls asking for your OTP, hang up — no real SSO support team ever asks for an OTP.",
+      "Be cautious of unofficial websites that claim to 'recover' or 'fix' your SSO ID for a fee; official recovery is always free.",
+      "Update your Jan Aadhaar and contact details promptly when they change, rather than waiting until you urgently need them.",
     ],
     hi: [
-      "अपना पासवर्ड कभी किसी के साथ साझा न करें",
-      "एक मजबूत और अद्वितीय पासवर्ड का उपयोग करें",
-      "अपना पंजीकृत मोबाइल नंबर सक्रिय रखें",
-      "आवश्यक होने पर रिकवरी जानकारी अपडेट करें",
-      "सार्वजनिक कंप्यूटरों से लॉगिन करने से बचें",
-      "क्रेडेंशियल्स दर्ज करने से पहले हमेशा आधिकारिक वेबसाइट पते को सत्यापित करें",
-      "संवेदनशील गतिविधियों को पूरा करने के बाद लॉग आउट करें",
-      "खाता रिकवरी प्रदान करने का दावा करने वाली अनौपचारिक वेबसाइटों से सावधान रहें",
+      "Login से पहले हमेशा URL चेक करें — sso.rajasthan.gov.in होना चाहिए। इसे bookmark कर लें।",
+      "SSO पासवर्ड किसी को मत बताएं — e-Mitra operator को भी नहीं, और फोन करने वाले 'helpline' वाले को भी नहीं।",
+      "मज़बूत पासवर्ड रखें — कम से कम 8 अक्षर, एक नंबर और एक special character।",
+      "जो मोबाइल नंबर दर्ज किया है उसे active रखें; SIM बदले तो access खोने से पहले e-Mitra से update करवाएं।",
+      "Public या shared कंप्यूटर पर SSO इस्तेमाल करने के बाद logout करें।",
+      "OTP माँगने वाली किसी भी कॉल पर फोन काट दें — कोई भी असली SSO सपोर्ट टीम कभी OTP नहीं माँगती।",
+      "जो वेबसाइट या व्यक्ति शुल्क लेकर आपकी SSO ID 'recover' या 'ठीक' करने का दावा करे उससे सावधान रहें; आधिकारिक रिकवरी हमेशा मुफ्त है।",
+      "जन आधार और संपर्क विवरण बदलते ही तुरंत update करें, ज़रूरत पड़ने तक इंतज़ार न करें।",
     ],
   },
   loginTitle: {
@@ -243,16 +249,16 @@ export const homeContent: {
   },
   loginSteps: {
     en: [
-      "Open sso.rajasthan.gov.in.",
-      "Enter your SSO ID and password.",
-      "Type the captcha shown on screen.",
-      "Click Login to open your RajSSO dashboard.",
+      "Open sso.rajasthan.gov.in in Chrome or Firefox — older browsers sometimes break the CAPTCHA.",
+      "Enter your SSO ID in the username field — this is the username you chose at registration, not your Aadhaar or phone number.",
+      "Enter your password, then type the CAPTCHA exactly as shown (click refresh if it is hard to read).",
+      "Click Login to open your RajSSO dashboard. Three failed password attempts lock the account for 30 minutes, so use Forgot Password instead of guessing.",
     ],
     hi: [
-      "sso.rajasthan.gov.in खोलें।",
-      "अपनी एसएसओ आईडी और पासवर्ड दर्ज करें।",
-      "स्क्रीन पर दिख रहा कैप्चा टाइप करें।",
-      "RajSSO डैशबोर्ड खोलने के लिए लॉगिन पर क्लिक करें।",
+      "Chrome या Firefox में sso.rajasthan.gov.in खोलें — पुराने ब्राउज़र में CAPTCHA टूट सकता है।",
+      "Username वाले बॉक्स में अपनी SSO ID डालें — यह वही username है जो रजिस्ट्रेशन के समय बनाया था, आधार या फोन नंबर नहीं।",
+      "अपना पासवर्ड डालें और स्क्रीन पर दिख रहा CAPTCHA सही-सही टाइप करें (पढ़ने में दिक्कत हो तो refresh दबाएं)।",
+      "Login पर क्लिक करें। तीन बार गलत पासवर्ड पर अकाउंट 30 मिनट के लिए लॉक हो जाता है, इसलिए अंदाज़ा लगाने की जगह Forgot Password इस्तेमाल करें।",
     ],
   },
   registerTitle: {
@@ -262,15 +268,15 @@ export const homeContent: {
   registerSteps: {
     en: [
       "Go to sso.rajasthan.gov.in and click Registration.",
-      "Choose Citizen, Udyog, or Government Employee.",
-      "Register using Jan Aadhaar, Aadhaar, or Google.",
-      "Create your SSO ID username and password.",
+      "Choose your type: Jan Aadhaar (best for families), Aadhaar (best for individual students), or Google/Facebook (quick but limited).",
+      "Verify with the OTP sent to the mobile number linked to your Aadhaar.",
+      "Pick a username you will remember and set a strong password — your username becomes your permanent SSO ID and cannot be changed later.",
     ],
     hi: [
-      "sso.rajasthan.gov.in पर जाकर रजिस्ट्रेशन पर क्लिक करें।",
-      "नागरिक, उद्योग या सरकारी कर्मचारी चुनें।",
-      "जन आधार, आधार या Google से रजिस्टर करें।",
-      "अपनी एसएसओ आईडी यूज़रनेम और पासवर्ड बनाएं।",
+      "sso.rajasthan.gov.in पर जाकर Registration पर क्लिक करें।",
+      "अपना तरीका चुनें: जन आधार (परिवारों के लिए सबसे अच्छा), Aadhaar (अकेले स्टूडेंट्स के लिए), या Google/Facebook (तेज़ पर सीमित)।",
+      "अपने आधार से लिंक मोबाइल नंबर पर आई OTP से वेरिफाई करें।",
+      "एक याद रहने वाला username चुनें और मज़बूत पासवर्ड सेट करें — यही username आपकी permanent SSO ID बनेगी और बाद में बदली नहीं जा सकती।",
     ],
   },
   servicesTitle: {
@@ -304,54 +310,169 @@ export const homeContent: {
       {
         question: "What is SSO ID Rajasthan?",
         answer:
-          "SSO ID Rajasthan is a single sign-on digital identity that lets you access 100+ Rajasthan government services with one login at sso.rajasthan.gov.in.",
+          "SSO ID Rajasthan is a Single Sign-On account issued by the Rajasthan government through sso.rajasthan.gov.in. It gives you access to 100+ government services — scholarships, exams, salary slips, health insurance, and more — using one username and password.",
       },
       {
-        question: "How do I do SSO login?",
+        question: "What is SSO ID used for?",
         answer:
-          "Open sso.rajasthan.gov.in, enter your SSO ID and password, type the captcha, and click Login.",
+          "Your SSO ID is used to log in to the Rajasthan SSO portal and access services like RPSC exam applications, post-matric scholarships (SJE), PayManager salary slips, e-Mitra, Jan Aadhaar, Chiranjeevi health insurance, and dozens of other government portals.",
       },
       {
-        question: "How can I create a new SSO ID?",
+        question: "How do I do SSO ID login?",
         answer:
-          "Click Registration on the RajSSO portal, choose your category, and register using Jan Aadhaar, Aadhaar, or a Google account.",
+          "Go to sso.rajasthan.gov.in, enter your SSO ID (username) and password, type the CAPTCHA, and click Login. If you have forgotten your password, use the 'Forgot Password' link on the same page.",
       },
       {
-        question: "I forgot my SSO ID. How do I recover it?",
+        question: "How do I register for SSO ID?",
         answer:
-          "Use the 'I Forgot my SSOID' link on the login page and verify your registered mobile number or Jan Aadhaar to recover it.",
+          "Click 'Registration' on the SSO portal. Choose your type: Jan Aadhaar (for families), Aadhaar (for individuals), or Google/Facebook (limited access). Enter the required details, verify with OTP, and set a username and password. Your username becomes your permanent SSO ID.",
       },
       {
-        question: "Is RajSSO login free?",
+        question: "How do I recover a forgotten SSO ID?",
         answer:
-          "Yes. Creating and using an SSO ID on the official Rajasthan portal is completely free.",
+          "The fastest way is to send the SMS 'RJ SSO' to 9223166166 from your registered mobile number — your SSO ID is returned by SMS within seconds. Online, click 'Forgot Username' on the SSO login page, enter the mobile number or email registered on your account, verify with OTP, and your SSO ID will appear on screen and be sent to your registered contact.",
+      },
+      {
+        question: "Is SSO ID registration free?",
+        answer:
+          "Yes. Creating an SSO ID on sso.rajasthan.gov.in is completely free. Some services accessed through SSO (like OTR exam registration) have their own fees set by the respective departments.",
+      },
+      {
+        question: "Can I have two SSO IDs?",
+        answer:
+          "Technically you can create two accounts, but you shouldn't. One Aadhaar number and one phone number can link to only one SSO ID. If you have two accounts, use the merge option in your profile to combine them into one.",
+      },
+      {
+        question: "What documents are needed for SSO ID registration?",
+        answer:
+          "You need either an Aadhaar card or a Jan Aadhaar card, a mobile number linked to that document (for OTP), and an email address. A recent photograph is not required for registration itself.",
+      },
+      {
+        question: "Who runs the SSO Rajasthan portal?",
+        answer:
+          "The SSO portal is maintained by the Department of Information Technology & Communication (DoITC), Government of Rajasthan. It has been operational since 2013.",
+      },
+      {
+        question: "What is the Rajasthan Single Sign-On portal address?",
+        answer:
+          "The official Rajasthan Single Sign-On portal address is sso.rajasthan.gov.in. This is the only legitimate login URL — avoid any third-party sites that ask for your SSO credentials.",
+      },
+      {
+        question: "Can someone living outside Rajasthan create an SSO ID?",
+        answer:
+          "Yes, mainly for exam purposes. Out-of-state candidates can register and complete OTR for RPSC or RSSB exams open to all-India applicants, but they are generally treated as the General fee category regardless of their home state's reservation category.",
+      },
+      {
+        question: "Is my old Bhamashah-based SSO ID still valid in 2026?",
+        answer:
+          "Bhamashah has been folded into Jan Aadhaar, but SSO accounts originally created through Bhamashah generally continue to work. If login fails on an old account, first confirm the linked mobile number is still active rather than assuming the account expired.",
+      },
+      {
+        question: "What happens if the name on my SSO ID does not match my Aadhaar?",
+        answer:
+          "Most day-to-day use is unaffected, but it becomes a problem during OTR for recruitment exams, where auto-filled details are checked against your Class 10 marksheet. Correcting a mismatch after submission usually carries a separate fee, so fix it in your profile before you apply.",
+      },
+      {
+        question: "Do I need a computer, or can I register entirely on a phone?",
+        answer:
+          "Registration works fine on mobile. Document uploads for scholarship forms or exam applications are the part that struggles on mobile browsers, particularly on slower connections, so those steps are better done on a desktop or laptop where possible.",
+      },
+      {
+        question: "Is my SSO ID the same thing as my Jan Aadhaar number?",
+        answer:
+          "No. Jan Aadhaar is a 10-digit family identity number used as one method to register. Your SSO ID is the separate username you choose during that registration, and it is this username — not your Jan Aadhaar number — that you use to log in afterward.",
+      },
+      {
+        question: "If I move to a different city within Rajasthan, does my SSO ID change?",
+        answer:
+          "No. The SSO ID is tied to your identity, not your address. Moving cities does not require a new account, though updating your address under Jan Aadhaar may still be worth doing if a welfare scheme you use checks residence details.",
       },
     ],
     hi: [
       {
-        question: "एसएसओ आईडी राजस्थान क्या है?",
+        question: "SSO ID राजस्थान क्या है?",
         answer:
-          "एसएसओ आईडी राजस्थान एक सिंगल साइन-ऑन डिजिटल पहचान है जिससे आप sso.rajasthan.gov.in पर एक लॉगिन से 100+ सरकारी सेवाओं का उपयोग कर सकते हैं।",
+          "SSO ID राजस्थान एक Single Sign-On अकाउंट है जो sso.rajasthan.gov.in पर 100+ सरकारी सेवाएं एक login से देता है। यह राजस्थान सरकार के सूचना प्रौद्योगिकी एवं संचार विभाग (DoITC) द्वारा 2013 से चलाया जा रहा है।",
       },
       {
-        question: "एसएसओ लॉगिन कैसे करें?",
+        question: "SSO ID से क्या-क्या होता है?",
         answer:
-          "sso.rajasthan.gov.in खोलें, अपनी एसएसओ आईडी और पासवर्ड डालें, कैप्चा टाइप करें और लॉगिन पर क्लिक करें।",
+          "SSO ID से RPSC परीक्षा आवेदन, SJE स्कॉलरशिप, PayManager सैलरी स्लिप, e-Mitra, Jan Aadhaar, चिरंजीवी हेल्थ इंश्योरेंस, और दर्जनों दूसरे सरकारी पोर्टल access होते हैं।",
       },
       {
-        question: "नई एसएसओ आईडी कैसे बनाएं?",
+        question: "SSO ID लॉगिन कैसे करें?",
         answer:
-          "RajSSO पोर्टल पर रजिस्ट्रेशन पर क्लिक करें, अपनी श्रेणी चुनें और जन आधार, आधार या Google अकाउंट से रजिस्टर करें।",
+          "sso.rajasthan.gov.in खोलें, अपनी SSO ID (username) और पासवर्ड डालें, CAPTCHA type करें, और Login पर क्लिक करें। पासवर्ड भूल गए हों तो उसी पेज पर 'Forgot Password' का लिंक है।",
       },
       {
-        question: "एसएसओ आईडी भूल गए, कैसे रिकवर करें?",
+        question: "SSO ID कैसे बनाएं?",
         answer:
-          "लॉगिन पेज पर 'I Forgot my SSOID' लिंक चुनें और अपना रजिस्टर्ड मोबाइल नंबर या जन आधार सत्यापित कर आईडी रिकवर करें।",
+          "SSO पोर्टल पर 'Registration' पर क्लिक करें। रजिस्ट्रेशन का तरीका चुनें: जन आधार (परिवारों के लिए), Aadhaar (अकेले के लिए), या Google/Facebook (सीमित सेवाएं)। जानकारी भरें, OTP से verify करें, username और पासवर्ड सेट करें। आपका username ही आपकी permanent SSO ID होगी।",
       },
       {
-        question: "क्या RajSSO लॉगिन मुफ़्त है?",
+        question: "SSO ID भूल गए तो क्या करें?",
         answer:
-          "हां। आधिकारिक राजस्थान पोर्टल पर एसएसओ आईडी बनाना और उपयोग करना पूरी तरह मुफ़्त है।",
+          "सबसे तेज़ तरीका: अपने रजिस्टर्ड मोबाइल नंबर से 9223166166 पर 'RJ SSO' SMS भेजें — कुछ ही सेकंड में SSO ID return SMS से आ जाएगी। ऑनलाइन तरीके के लिए SSO लॉगिन पेज पर 'Forgot Username' पर क्लिक करें, रजिस्टर्ड मोबाइल नंबर या ईमेल डालें, OTP से verify करें। SSO ID स्क्रीन पर आ जाएगी और रजिस्टर्ड contact पर भी।",
+      },
+      {
+        question: "SSO ID बनाना फ्री है?",
+        answer:
+          "हाँ। sso.rajasthan.gov.in पर SSO ID बनाना और इस्तेमाल करना पूरी तरह मुफ्त है। कुछ सेवाओं की अपनी fee होती है — जैसे OTR exam registration — जो संबंधित विभाग तय करता है।",
+      },
+      {
+        question: "क्या दो SSO ID रख सकते हैं?",
+        answer:
+          "नहीं रखनी चाहिए। एक Aadhaar नंबर और एक मोबाइल नंबर सिर्फ एक SSO ID से link हो सकते हैं। अगर गलती से दो बन गई हैं तो profile में Merge option से एक में मिला लें।",
+      },
+      {
+        question: "SSO ID रजिस्ट्रेशन के लिए कौन से दस्तावेज़ चाहिए?",
+        answer:
+          "आधार कार्ड या जन आधार कार्ड, उस दस्तावेज़ से linked मोबाइल नंबर (OTP के लिए), और एक ईमेल एड्रेस। रजिस्ट्रेशन के लिए फोटो की ज़रूरत नहीं होती।",
+      },
+      {
+        question: "SSO राजस्थान पोर्टल कौन चलाता है?",
+        answer:
+          "यह पोर्टल राजस्थान सरकार का सूचना प्रौद्योगिकी एवं संचार विभाग (DoITC) चलाता है। यह 2013 से active है।",
+      },
+      {
+        question: "SSO राजस्थान पोर्टल का address क्या है?",
+        answer:
+          "आधिकारिक पोर्टल का address है sso.rajasthan.gov.in। यही एकमात्र valid URL है। किसी भी third-party साइट पर SSO credentials मत डालें।",
+      },
+      {
+        question: "पासवर्ड रीसेट करने के बाद भी लॉगिन नहीं हो रहा?",
+        answer:
+          "नया पासवर्ड सेट करते ही login करें — OTP session जल्दी expire होता है। Browser cache clear करें और incognito mode में try करें। अगर फिर भी नहीं हो रहा तो e-Mitra जाएं।",
+      },
+      {
+        question: "क्या राजस्थान के बाहर रहने वाला व्यक्ति SSO ID बना सकता है?",
+        answer:
+          "हाँ, मुख्य रूप से परीक्षा के लिए। दूसरे राज्य के उम्मीदवार RPSC या RSSB की अखिल भारतीय परीक्षाओं के लिए रजिस्टर करके OTR पूरा कर सकते हैं, लेकिन उन्हें आमतौर पर 'सामान्य' शुल्क श्रेणी में गिना जाता है — भले ही उनके गृह राज्य में आरक्षण श्रेणी कुछ भी हो।",
+      },
+      {
+        question: "क्या पुरानी भामाशाह-आधारित SSO ID 2026 में अभी भी चलती है?",
+        answer:
+          "भामाशाह को अब जन आधार में मिला दिया गया है, लेकिन भामाशाह से बनी पुरानी SSO ID आम तौर पर चलती रहती हैं। अगर पुरानी ID से login नहीं हो रहा तो यह मान लेने की बजाय कि अकाउंट खत्म हो गया, पहले जाँचें कि उससे जुड़ा मोबाइल नंबर अभी active है या नहीं।",
+      },
+      {
+        question: "अगर SSO ID पर नाम आधार से मेल नहीं खाता तो क्या होगा?",
+        answer:
+          "रोज़मर्रा के काम में इससे फ़र्क नहीं पड़ता, पर भर्ती परीक्षाओं के OTR के समय यह समस्या बनती है, जहाँ auto-fill हुए विवरण आपकी 10वीं की अंकतालिका से मिलाए जाते हैं। submit करने के बाद मेल न खाने को ठीक करने में अलग शुल्क लगता है, इसलिए आवेदन से पहले profile में इसे ठीक कर लें।",
+      },
+      {
+        question: "रजिस्ट्रेशन के लिए कंप्यूटर चाहिए या फोन से भी हो जाएगा?",
+        answer:
+          "रजिस्ट्रेशन मोबाइल पर आराम से हो जाता है। दिक्कत स्कॉलरशिप फॉर्म या परीक्षा आवेदन में document upload के समय आती है, खासकर धीमे कनेक्शन पर, इसलिए वे step हो सके तो desktop या laptop पर करना बेहतर है।",
+      },
+      {
+        question: "क्या SSO ID और जन आधार नंबर एक ही चीज़ हैं?",
+        answer:
+          "नहीं। जन आधार एक 10-अंकों का परिवार पहचान नंबर है जिसे रजिस्ट्रेशन के एक तरीके के रूप में इस्तेमाल किया जाता है। SSO ID वह अलग username है जो आप उसी रजिस्ट्रेशन के दौरान चुनते हैं — और login इसी username से होता है, जन आधार नंबर से नहीं।",
+      },
+      {
+        question: "अगर मैं राजस्थान में दूसरे शहर चला जाऊं तो क्या SSO ID बदलेगी?",
+        answer:
+          "नहीं। SSO ID आपकी पहचान से जुड़ी है, पते से नहीं। शहर बदलने पर नया अकाउंट नहीं चाहिए, हालाँकि अगर कोई योजना निवास विवरण जाँचती है तो जन आधार में अपना पता अपडेट कर लेना उपयोगी रहता है।",
       },
     ],
   },

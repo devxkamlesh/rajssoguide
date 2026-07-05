@@ -77,13 +77,12 @@ function PrivacyPolicyEnglish() {
 
           <h3 className="text-xl font-semibold text-zinc-800 mb-3">2.2 Automatically Collected Information</h3>
           <p className="text-zinc-700 leading-relaxed mb-4">
-            When you visit our website, we automatically collect certain information through Google Analytics and Vercel Analytics:
+            When you visit our website, we automatically collect certain information through Google Analytics:
           </p>
           <ul className="list-disc pl-6 text-zinc-700 space-y-2 mb-4">
             <li><strong>Device Information:</strong> Browser type, operating system, device type (mobile/desktop)</li>
             <li><strong>Usage Data:</strong> Pages visited, time spent on pages, referral source, clicks</li>
             <li><strong>Technical Data:</strong> IP address (anonymized), approximate location (city/state level), language preference</li>
-            <li><strong>Performance Data:</strong> Page load times, errors (via Vercel Speed Insights)</li>
           </ul>
         </section>
 
@@ -126,17 +125,7 @@ function PrivacyPolicyEnglish() {
             Google's use of this data is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" className="text-amber-700 underline">Google Privacy Policy</a>.
           </p>
 
-          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.2 Vercel Analytics</h3>
-          <p className="text-zinc-700 leading-relaxed mb-4">
-            We use Vercel Speed Insights (privacy-friendly) to monitor website performance. This service:
-          </p>
-          <ul className="list-disc pl-6 text-zinc-700 space-y-2 mb-4">
-            <li>Does not use cookies</li>
-            <li>Collects anonymous performance metrics</li>
-            <li>Does not track individual users</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.3 Managing Cookies</h3>
+          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.2 Managing Cookies</h3>
           <p className="text-zinc-700 leading-relaxed mb-4">
             You can control cookies through your browser settings:
           </p>
@@ -242,7 +231,7 @@ function PrivacyPolicyEnglish() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              Email: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
+              Email: <a href="mailto:contact@rajssoidguide.in" className="text-amber-700 underline">contact@rajssoidguide.in</a>
             </p>
             <p className="text-zinc-700">
               Website: <a href="https://rajssoidguide.in" className="text-amber-700 underline">rajssoidguide.in</a>
@@ -301,13 +290,12 @@ function PrivacyPolicyHindi() {
 
           <h3 className="text-xl font-semibold text-zinc-800 mb-3">2.2 स्वचालित रूप से एकत्रित जानकारी</h3>
           <p className="text-zinc-700 leading-relaxed mb-4">
-            जब आप हमारी वेबसाइट पर जाते हैं, तो हम Google Analytics और Vercel Analytics के माध्यम से स्वचालित रूप से कुछ जानकारी एकत्र करते हैं:
+            जब आप हमारी वेबसाइट पर जाते हैं, तो हम Google Analytics के माध्यम से स्वचालित रूप से कुछ जानकारी एकत्र करते हैं:
           </p>
           <ul className="list-disc pl-6 text-zinc-700 space-y-2 mb-4">
             <li><strong>डिवाइस जानकारी:</strong> ब्राउज़र प्रकार, ऑपरेटिंग सिस्टम, डिवाइस प्रकार (मोबाइल/डेस्कटॉप)</li>
             <li><strong>उपयोग डेटा:</strong> देखे गए पेज, पेज पर बिताया गया समय, रेफरल स्रोत, क्लिक्स</li>
             <li><strong>तकनीकी डेटा:</strong> IP पता (गुमनाम), अनुमानित स्थान (शहर/राज्य स्तर), भाषा प्राथमिकता</li>
-            <li><strong>परफॉर्मेंस डेटा:</strong> पेज लोड समय, त्रुटियां (Vercel Speed Insights के माध्यम से)</li>
           </ul>
         </section>
 
@@ -350,17 +338,7 @@ function PrivacyPolicyHindi() {
             इस डेटा का Google का उपयोग <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" className="text-amber-700 underline">Google गोपनीयता नीति</a> द्वारा नियंत्रित है।
           </p>
 
-          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.2 Vercel Analytics</h3>
-          <p className="text-zinc-700 leading-relaxed mb-4">
-            हम वेबसाइट परफॉर्मेंस को मॉनिटर करने के लिए Vercel Speed Insights (गोपनीयता-अनुकूल) का उपयोग करते हैं। यह सेवा:
-          </p>
-          <ul className="list-disc pl-6 text-zinc-700 space-y-2 mb-4">
-            <li>कुकीज़ का उपयोग नहीं करती</li>
-            <li>गुमनाम परफॉर्मेंस मेट्रिक्स एकत्र करती है</li>
-            <li>व्यक्तिगत उपयोगकर्ताओं को ट्रैक नहीं करती</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.3 कुकीज़ प्रबंधित करना</h3>
+          <h3 className="text-xl font-semibold text-zinc-800 mb-3">4.2 कुकीज़ प्रबंधित करना</h3>
           <p className="text-zinc-700 leading-relaxed mb-4">
             आप अपनी ब्राउज़र सेटिंग्स के माध्यम से कुकीज़ को नियंत्रित कर सकते हैं:
           </p>
