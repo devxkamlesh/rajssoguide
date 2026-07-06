@@ -136,7 +136,7 @@ against the actual codebase (schema functions in `lib/schema.ts`, content in
 | `/exams` | 🟢 | ~800 | 800 | IL·FAQ·BC | ✅ | Verify fees/dates; add more exams later. |
 | `/services` | 🟢 | ~1,100 | 800 | IL·FAQ·BC | ✅ | Fine. |
 | `/scholarships` | 🟢 | ~1,600 | 800 | IL·HT·FAQ·BC | ✅ | Verify income limits. |
-| `/cities` | 🟡 | ~350 | 600 | IL·FAQ·BC | ✅ | Add 2–3 paragraphs + more FAQs. |
+| `/cities` | 🟢 | ~1,250 | 600 | IL·FAQ·BC | ✅ | Updated July 2026: hero + stats, 7 new sections, data-driven "known for" table, 8 FAQs, next-step links. Nothing needed. |
 | `/tools` | 🟢 | ~750 | 500 | IL·FAQ·BC | ✅ | Fine. |
 | `/updates` | 🟢 | ~700 | 500 | IL·FAQ·BC | ✅ | Keep feed fresh (freshness = AI citations). |
 
@@ -220,30 +220,45 @@ Counts pulled directly from the source, not guessed:
 - **Data volume:** 4 guides, 3 exams, 3 services, 5 scholarships, 12 cities,
   6 tools, 3 error fixes.
 - **Bespoke (unique) vs templated content:**
-  - Bespoke, hand-written: Home, all 6 hubs, 4 guides, `paymanager`, 3 exam
-    details, all hub editorials, scholarships hub. → these are the 🟢 pages.
-  - Templated (shared 3-paragraph generator in `pageContent.ts`): 12 city pages,
-    5 scholarship details, and `rajkaj` + `jan-aadhaar`. → these are the 🟡/🔴 pages.
+  - Bespoke, hand-written: Home, all 6 hubs (including the rebuilt `/cities`
+    hub), 4 guides, `paymanager`, 3 exam details, all hub editorials, scholarships
+    hub. → these are the 🟢 pages.
+  - Templated (shared 3-paragraph generator in `pageContent.ts`): the 12
+    individual `/city/[slug]` detail pages (the hub itself is now bespoke, but
+    each city's own page still is not), 5 scholarship details, and `rajkaj` +
+    `jan-aadhaar`. → these are the 🟡/🔴 pages.
 - **FAQ block present on:** Home, all hubs (guides, exams, services, scholarships,
-  cities, tools, updates), 4 guides, `paymanager`. **Missing on:** every exam,
-  scholarship, city, tool, and error detail page.
+  cities, tools, updates), 4 guides, `paymanager`. `/cities` now has 8 FAQs (up
+  from 4). **Still missing on:** every exam, scholarship, city detail, tool, and
+  error detail page.
 - **Schema coverage:** every content page has BreadcrumbList; hubs add ItemList +
   FAQPage; guides add Article + HowTo + FAQPage; Home is richest (WebPage + 4 HowTo
   + FAQPage). **Detail pages with only BreadcrumbList** (schema gap): exams,
-  scholarships, cities, tools. **Legal pages have no schema at all.**
+  scholarships, city details, tools. **Legal pages have no schema at all.**
 - **Biggest single weakness:** `rajkaj` and `jan-aadhaar` fall back to the generic
   template while their sibling `paymanager` is fully built out (~1,700 words).
+- **July 2026 update:** the `/cities` hub was rebuilt — bilingual content grew
+  from ~350 to ~1,250 words (7 new sections: how one SSO ID covers the state,
+  when to visit an e-Mitra centre, what to bring, students/job seekers, staying
+  safe, choosing a registration route, address updates, helping family, and a
+  pre-visit checklist), FAQ grew from 4 to 8 questions, and a data-driven
+  City/Region/Known-for table was added linking to all 12 city pages. The UI was
+  also redesigned (hero with stats, city cards, on-page section nav, SVG icons,
+  visible focus states) and two accessibility issues were fixed sitewide: low
+  color-contrast share buttons and links that relied on color alone. **This moves
+  `/cities` from 🟡 to 🟢** but does **not** change the 12 `/city/[slug]` pages,
+  which are still templated.
 
 ### 2.4 Fix order (highest impact first)
 
 1. 🔴 **Write full content for `/service/rajkaj` and `/service/jan-aadhaar`** —
    mirror PayManager (intro, steps, tables, FAQ). ~200 → ~800 words each.
-2. 🔴 **De-duplicate the 12 city pages** — add unique local facts + a per-city FAQ.
+2. 🔴 **De-duplicate the 12 `/city/[slug]` detail pages** — add unique local facts
+   + a per-city FAQ. (The `/cities` hub itself is already fixed — see 2.3.)
 3. 🔴 **Expand the 3 error pages** — causes, prevention, related links, FAQ.
 4. 🟡 **Add FAQ + schema to exam, scholarship, and tool detail pages** — biggest
    AI-citation win, since these are all schema-thin today.
 5. 🟡 **Add schema to legal pages**; add a short intro + FAQ to `/exam-calendar`.
-6. 🟡 **Grow `/cities` hub** slightly and keep all dates/fees verified.
 
 ### 2.5 Minimum content targets by page type (quick reference)
 

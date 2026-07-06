@@ -83,6 +83,14 @@ export const toolsHub = {
         hi: "जन आधार नामांकन स्थिति जांचने का आधिकारिक लिंक और चरण पाएं।",
       },
     },
+    {
+      slug: "pay-matrix-calculator",
+      name: { en: "Pay Matrix Calculator", hi: "पे मैट्रिक्स कैलकुलेटर" },
+      desc: {
+        en: "Interactive 7th CPC pay matrix — find your Level, Stage, and estimated gross salary.",
+        hi: "इंटरैक्टिव 7वां वेतन आयोग पे मैट्रिक्स — अपना लेवल, स्टेज और अनुमानित सकल वेतन जानें।",
+      },
+    },
   ] as ToolItem[],
 
   // Why use these tools

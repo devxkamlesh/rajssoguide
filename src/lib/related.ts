@@ -35,6 +35,20 @@ export function relatedForService(slug: string, loc: Locale): RelatedLink[] {
     .filter((s) => s.slug !== slug)
     .slice(0, 2)
     .map((s) => ({ href: `${base}/service/${s.slug}`, label: s.name[loc] }));
+
+  // PayManager gets its own tool-first related link: the pay matrix
+  // calculator directly extends what the guide covers (basic pay lookup).
+  const toolLink =
+    slug === "paymanager"
+      ? [
+          {
+            href: `${base}/tools/pay-matrix-calculator`,
+            label: L(loc, "Pay Matrix Calculator", "पे मैट्रिक्स कैलकुलेटर"),
+            desc: L(loc, "Find your Level, Stage & salary", "अपना लेवल, स्टेज व वेतन जानें"),
+          },
+        ]
+      : [];
+
   return [
     {
       href: `${base}/sso-id-login`,
@@ -42,6 +56,7 @@ export function relatedForService(slug: string, loc: Locale): RelatedLink[] {
       desc: L(loc, "How to sign in", "लॉगिन कैसे करें"),
     },
     { href: `${base}/services`, label: L(loc, "All Services", "सभी सेवाएं") },
+    ...toolLink,
     ...others,
   ];
 }

@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/tools/scholarship-calculator",   priority: 0.8, changeFrequency: "monthly" },
     { path: "/tools/photo-resizer",            priority: 0.8, changeFrequency: "monthly" },
     { path: "/tools/jan-aadhaar-status",       priority: 0.8, changeFrequency: "monthly" },
+    { path: "/tools/pay-matrix-calculator",    priority: 0.8, changeFrequency: "monthly" },
 
     // ── Exams ─────────────────────────────────────────────────── priority 0.8
     ...exams.map((e) => ({
