@@ -38,12 +38,12 @@ export const homeMeta: {
   sources: { url: string; label: L<string> }[];
   contactCta: L<string>;
 } = {
-  published: "2024-01-01",
-  modified: "2026-06-27",
+  published: "2026-06-08",
+  modified: "2026-07-08",
   byPrefix: { en: "By", hi: "लेखक" },
   updatedLabel: {
-    en: "Updated 27 June 2026",
-    hi: "27 जून 2026 को अपडेट किया गया",
+    en: "Updated 8 July 2026",
+    hi: "8 जुलाई 2026 को अपडेट किया गया",
   },
   reviewedWeekly: { en: "Reviewed weekly", hi: "साप्ताहिक समीक्षा" },
   shareLabel: { en: "Share this guide:", hi: "यह गाइड शेयर करें:" },
@@ -138,11 +138,11 @@ export const homeMeta: {
   aboutBody: {
     en: [
       "RajSSO Guide is an independent, free resource for Rajasthan residents who need straight answers about the SSO portal. It is not affiliated with the Government of Rajasthan or any government department.",
-      "Every page is researched from primary government sources and updated whenever the SSO portal changes. The last full review of this page was 27 June 2026.",
+      "Every page is researched from primary government sources and updated whenever the SSO portal changes. The last full review of this page was 8 July 2026.",
     ],
     hi: [
       "RajSSO Guide राजस्थान के निवासियों के लिए एक स्वतंत्र, मुफ्त संसाधन है जो SSO पोर्टल के बारे में सीधे जवाब देता है। यह राजस्थान सरकार या किसी सरकारी विभाग से संबद्ध नहीं है।",
-      "हर पेज प्राथमिक सरकारी स्रोतों से शोध करके बनाया जाता है और SSO पोर्टल बदलने पर अपडेट किया जाता है। इस पेज की अंतिम पूर्ण समीक्षा 27 जून 2026 को हुई।",
+      "हर पेज प्राथमिक सरकारी स्रोतों से शोध करके बनाया जाता है और SSO पोर्टल बदलने पर अपडेट किया जाता है। इस पेज की अंतिम पूर्ण समीक्षा 8 जुलाई 2026 को हुई।",
     ],
   },
   authorBioPrefix: {
@@ -162,8 +162,8 @@ export const homeMeta: {
     hi: "स्रोत और आधिकारिक संदर्भ",
   },
   sourcesIntro: {
-    en: "This guide is cross-checked against the following official Rajasthan government sources. Last verified: 27 June 2026.",
-    hi: "यह गाइड नीचे दिए गए आधिकारिक राजस्थान सरकार स्रोतों से मिलान करके तैयार की गई है। अंतिम सत्यापन: 27 जून 2026।",
+    en: "This guide is cross-checked against the following official Rajasthan government sources. Last verified: 8 July 2026.",
+    hi: "यह गाइड नीचे दिए गए आधिकारिक राजस्थान सरकार स्रोतों से मिलान करके तैयार की गई है। अंतिम सत्यापन: 8 जुलाई 2026।",
   },
   sources: [
     {

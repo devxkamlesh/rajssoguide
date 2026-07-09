@@ -53,10 +53,9 @@ pie showData
 
 | Page group | Items | Issue |
 |------------|:--:|-------|
-| `/city/[slug]` | 12 | Same template, only name/region/knownFor differ. Breadcrumb-only schema. **Highest dup risk.** |
-| `/scholarship/[category]` | 5 | Same template; name/eligibility swapped. |
-| `/service/rajkaj`, `/service/jan-aadhaar` | 2 | Fall back to generic `serviceBody()` while paymanager is bespoke. |
-| `/error/[code]` | 3 | Unique but brief. No related-links block. |
+| `/city/[slug]` | 12 | Same body template (name/region/knownFor differ). ✅ Now has unique meta description + city FAQ + FAQPage schema (2026-07-06); still the highest dup risk on body prose — add per-city facts later. |
+| `/scholarship/[category]` | 5 | Same body template. ✅ Now has FAQ + FAQPage schema + unique meta (2026-07-06); numeric income limits/amounts still pending. |
+| `/error/[code]` | 3 | Unique but brief. ✅ Now has related-links block + localized breadcrumb (2026-07-06). |
 | `/about`, `/contact` | — | Decent but light; contact is mostly details + form. |
 | `/exam-calendar` | 1 | Table + widget, minimal prose, no FAQ. |
 
@@ -75,7 +74,7 @@ pie showData
 | Home | 1 | 3,000+ | 5 | None |
 | Core guides | 4 | 480 | 5 | None |
 | Exams | 3 | 470 | 4 | 🔶 Verify dates & fees |
-| Services | 3 | 210 (paymanager ~1,200) | 3→ | 🔜 Write rajkaj + jan-aadhaar |
+| Services | 3 | paymanager/rajkaj/jan-aadhaar all bespoke ✅ | 5 | Done (2026-07-06) |
 | Scholarships | 5 | 200 | 3 | 🔶 Verify income limits |
 | Cities | 12 | 210 | 3 | 🔜 De-duplicate / add district detail |
 | Error fixes | 3 | 120 | 3 | 🔜 Add related links + more errors |
@@ -89,11 +88,11 @@ pie showData
 
 ## 🎯 Priority content actions
 
-1. **Verify** all exam dates/fees and scholarship income limits against official sources (highest priority).
-2. Write bespoke content for **`/service/rajkaj`** and **`/service/jan-aadhaar`** (mirror paymanager).
-3. **De-duplicate** the 12 city pages (per-city facts + a city FAQ) or reduce the set.
-4. Add **FAQ + Article JSON-LD** to templated detail pages; add **WebPage/Article schema** to legal pages.
-5. Add more exams (REET, RAS) and error codes.
+1. **Verify** all exam dates/fees and scholarship income limits against official sources (highest priority — still open).
+2. ~~Write bespoke content for `/service/rajkaj` and `/service/jan-aadhaar`~~ ✅ Done 2026-07-06.
+3. **De-duplicate** the 12 city page bodies further with per-city facts (FAQ + schema already added).
+4. ~~Add FAQ to templated detail pages; add WebPage schema to legal pages~~ ✅ Done 2026-07-06 (city, scholarship, privacy, terms).
+5. Add more exams (REET, RAS) and error pages (OTP not received, session timeout, name mismatch).
 
 Use [[10 - Content Playbook]] for templates. Full backlog: [[12 - Roadmap and Improvements]].
 

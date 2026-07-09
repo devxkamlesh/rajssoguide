@@ -2,6 +2,7 @@
 // programmatic pages, weaving in each entity's specific data so pages differ.
 import type { Locale } from "./i18n";
 import type { Exam, Service, City, Scholarship } from "./content";
+import type { FaqItem } from "./schema";
 
 export function examBody(e: Exam, loc: Locale): string[] {
   const name = e.name[loc];
@@ -68,5 +69,77 @@ export function scholarshipBody(s: Scholarship, loc: Locale): string[] {
     `${name} is part of the Government of Rajasthan's scholarship schemes, and applications are submitted using your SSO ID. Eligibility: ${s.eligibility[loc]}`,
     `To apply, log in at sso.rajasthan.gov.in and select the Social Justice & Empowerment (SJE) scholarship portal. Complete your Jan Aadhaar e-KYC before applying, because family and income details for scholarships are verified through Jan Aadhaar. Keep documents ready such as an income certificate, bank passbook, and your caste or category certificate.`,
     `After you submit, you can track your scholarship status (Pending / Approved / Rejected) from the SSO dashboard. Uploading correct and clearly scanned documents helps your application get approved faster. For the latest income slabs and last dates, check the official SJE website. Creating an SSO ID and applying for the scholarship are both completely free.`,
+  ];
+}
+
+// City-specific FAQ. Factual, no invented numbers — adds unique content and
+// a FAQPage rich-result opportunity to each city page.
+export function cityFaqs(c: City, loc: Locale): FaqItem[] {
+  const name = c.name[loc];
+  if (loc === "hi") {
+    return [
+      {
+        question: `${name} में एसएसओ आईडी की मदद कहाँ से मिलेगी?`,
+        answer: `${name} के निवासी sso.rajasthan.gov.in पर ऑनलाइन एसएसओ आईडी बना या रिकवर कर सकते हैं, या अपने आधार/जन आधार कार्ड के साथ ${name} के नज़दीकी ई-मित्र केंद्र पर जाकर रजिस्ट्रेशन, ओटीपी समस्या और दस्तावेज़ अपडेट में व्यक्तिगत सहायता ले सकते हैं।`,
+      },
+      {
+        question: `${name} में एसएसओ आईडी बनाना मुफ़्त है?`,
+        answer: `हाँ। ${name} सहित पूरे राजस्थान में एसएसओ आईडी बनाना पूरी तरह मुफ़्त है। ई-मित्र केंद्र सहायता या प्रिंटआउट के लिए छोटा सेवा शुल्क ले सकते हैं, पर एसएसओ खाता स्वयं निःशुल्क है।`,
+      },
+      {
+        question: `${name} के छात्र एसएसओ आईडी से RPSC/RSMSSB परीक्षाओं के लिए आवेदन कर सकते हैं?`,
+        answer: `हाँ। ${name} के छात्र इसी एसएसओ आईडी से वन-टाइम रजिस्ट्रेशन (OTR) पूरा करके भर्ती पोर्टल के माध्यम से RPSC, RSMSSB और पटवारी भर्तियों में आवेदन करते हैं।`,
+      },
+    ];
+  }
+  return [
+    {
+      question: `Where can I get SSO ID help in ${name}?`,
+      answer: `Residents of ${name} can create or recover an SSO ID online at sso.rajasthan.gov.in, or visit any nearby e-Mitra centre in ${name} with an Aadhaar or Jan Aadhaar card for in-person help with registration, OTP issues, and document updates.`,
+    },
+    {
+      question: `Is creating an SSO ID free in ${name}?`,
+      answer: `Yes. Creating an SSO ID is completely free anywhere in Rajasthan, including ${name}. e-Mitra centres may charge a small service fee for assisted registration or printouts, but the SSO account itself costs nothing.`,
+    },
+    {
+      question: `Can students in ${name} apply for RPSC and RSMSSB exams with their SSO ID?`,
+      answer: `Yes. Students in ${name} use the same SSO ID to complete One-Time Registration (OTR) and then apply for RPSC, RSMSSB, and Patwari recruitments through the Recruitment Portal at sso.rajasthan.gov.in.`,
+    },
+  ];
+}
+
+// Scholarship-specific FAQ. Factual and non-numeric (income limits/amounts
+// change yearly and are intentionally left to the official SJE portal).
+export function scholarshipFaqs(s: Scholarship, loc: Locale): FaqItem[] {
+  const name = s.name[loc];
+  if (loc === "hi") {
+    return [
+      {
+        question: `${name} के लिए एसएसओ आईडी से आवेदन कैसे करें?`,
+        answer: `sso.rajasthan.gov.in पर लॉगिन करें, सामाजिक न्याय एवं अधिकारिता विभाग (SJE) का छात्रवृत्ति पोर्टल खोलें, जन आधार ई-केवाईसी पूरा करें, फॉर्म भरें, आवश्यक दस्तावेज़ अपलोड करें और सबमिट करें। आवेदन निःशुल्क है।`,
+      },
+      {
+        question: `${name} के लिए कौन-कौन से दस्तावेज़ चाहिए?`,
+        answer: `आम तौर पर जन आधार, आय प्रमाणपत्र, जाति/श्रेणी प्रमाणपत्र, बैंक पासबुक, पिछली अंकतालिका और वर्तमान प्रवेश/फीस रसीद। अस्वीकृति से बचने के लिए स्पष्ट स्कैन तैयार रखें।`,
+      },
+      {
+        question: `${name} की स्थिति कैसे जांचें?`,
+        answer: `सबमिट करने के बाद अपने एसएसओ डैशबोर्ड में लॉगिन कर छात्रवृत्ति पोर्टल खोलें और देखें कि आवेदन लंबित, स्वीकृत या अस्वीकृत है। नवीनतम आय सीमा और अंतिम तिथियों के लिए आधिकारिक SJE वेबसाइट देखें।`,
+      },
+    ];
+  }
+  return [
+    {
+      question: `How do I apply for the ${name} using my SSO ID?`,
+      answer: `Log in at sso.rajasthan.gov.in, open the Social Justice & Empowerment (SJE) scholarship portal, complete your Jan Aadhaar e-KYC, fill the scholarship form, upload the required documents, and submit. Applying is free.`,
+    },
+    {
+      question: `What documents are needed for the ${name}?`,
+      answer: `Typically your Jan Aadhaar, an income certificate, a caste or category certificate, a bank passbook, your previous marksheet, and a current admission or fee receipt. Keep clear scans ready to avoid rejection.`,
+    },
+    {
+      question: `How can I check my ${name} application status?`,
+      answer: `After submitting, log in to your SSO dashboard and open the scholarship portal to see whether your application is Pending, Approved, or Rejected. For the latest income limits and last dates, check the official SJE website.`,
+    },
   ];
 }

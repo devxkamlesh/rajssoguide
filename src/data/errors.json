@@ -72,5 +72,89 @@
       ]
     },
     "keywords": ["sso id already exists", "sso id duplicate", "sso id recover"]
+  },
+  {
+    "slug": "otp-not-received",
+    "title": {
+      "en": "SSO OTP Not Received — Fix",
+      "hi": "एसएसओ ओटीपी नहीं मिल रहा — समाधान"
+    },
+    "problem": {
+      "en": "The OTP for SSO login, registration, or password reset is not arriving on your mobile or email.",
+      "hi": "एसएसओ लॉगिन, रजिस्ट्रेशन या पासवर्ड रीसेट का ओटीपी आपके मोबाइल या ईमेल पर नहीं आ रहा।"
+    },
+    "fixes": {
+      "en": [
+        "Confirm the mobile number is the one registered with your Aadhaar or Jan Aadhaar, and that it has network signal.",
+        "Wait 5 minutes for network congestion to clear, then click Resend OTP once instead of repeatedly.",
+        "Try the email OTP option instead of SMS if it is offered.",
+        "Check that your SMS inbox is not full and that no SMS-blocking or DND app is filtering it.",
+        "If the registered number has changed, update it at any e-Mitra centre with your Aadhaar, then retry."
+      ],
+      "hi": [
+        "जांचें कि मोबाइल नंबर वही है जो आपके आधार या जन आधार से रजिस्टर्ड है, और उसमें नेटवर्क सिग्नल है।",
+        "नेटवर्क भीड़ के लिए 5 मिनट रुकें, फिर बार-बार के बजाय एक बार Resend OTP क्लिक करें।",
+        "एसएमएस के बजाय ईमेल ओटीपी विकल्प आज़माएं, यदि उपलब्ध हो।",
+        "जांचें कि एसएमएस इनबॉक्स भरा नहीं है और कोई एसएमएस-ब्लॉकिंग या DND ऐप उसे फ़िल्टर तो नहीं कर रहा।",
+        "रजिस्टर्ड नंबर बदल गया हो तो आधार के साथ किसी ई-मित्र केंद्र पर उसे अपडेट कराएं, फिर पुनः प्रयास करें।"
+      ]
+    },
+    "keywords": ["sso otp not received", "sso id otp not coming", "rajasthan sso otp problem"]
+  },
+  {
+    "slug": "session-timeout",
+    "title": {
+      "en": "SSO Session Timeout / Logged Out — Fix",
+      "hi": "एसएसओ सेशन टाइमआउट / लॉगआउट — समाधान"
+    },
+    "problem": {
+      "en": "The SSO portal logs you out or shows a 'session expired' message while you are still working.",
+      "hi": "काम करते समय एसएसओ पोर्टल आपको लॉगआउट कर देता है या 'session expired' संदेश दिखाता है।"
+    },
+    "fixes": {
+      "en": [
+        "Log in again — sessions expire after a period of inactivity for security.",
+        "Save or submit long forms in steps rather than leaving a tab idle for a long time.",
+        "Avoid opening the portal in several tabs at once, which can cancel your session.",
+        "Clear your browser cache and cookies, then log in on a fresh tab.",
+        "Use an updated Chrome or Firefox; very old browsers drop the session more often."
+      ],
+      "hi": [
+        "दोबारा लॉगिन करें — सुरक्षा के लिए निष्क्रियता के बाद सेशन समाप्त हो जाता है।",
+        "लंबे फॉर्म को चरणों में सेव या सबमिट करें, टैब को देर तक निष्क्रिय न छोड़ें।",
+        "पोर्टल को एक साथ कई टैब में न खोलें, इससे सेशन रद्द हो सकता है।",
+        "ब्राउज़र कैश और कुकीज़ साफ करें, फिर नए टैब में लॉगिन करें।",
+        "अपडेटेड Chrome या Firefox उपयोग करें; बहुत पुराने ब्राउज़र सेशन जल्दी छोड़ देते हैं।"
+      ]
+    },
+    "keywords": ["sso session timeout", "sso session expired", "sso logged out automatically"]
+  },
+  {
+    "slug": "name-mismatch",
+    "title": {
+      "en": "SSO Name Mismatch with Aadhaar — Fix",
+      "hi": "एसएसओ में नाम आधार से मेल नहीं खाता — समाधान"
+    },
+    "problem": {
+      "en": "Your name on the SSO profile does not match your Aadhaar, causing errors during OTR, exams, or scholarship applications.",
+      "hi": "एसएसओ प्रोफ़ाइल पर आपका नाम आधार से मेल नहीं खाता, जिससे ओटीआर, परीक्षा या छात्रवृत्ति आवेदन में त्रुटि आती है।"
+    },
+    "fixes": {
+      "en": [
+        "Open Update/Edit Profile on your SSO dashboard and correct the name to exactly match your Aadhaar.",
+        "For recruitment (OTR), make sure the name also matches your Class 10 marksheet, since details are checked against it.",
+        "Fix any mismatch before you submit an application — corrections after submission usually carry a separate fee.",
+        "If the name comes from Jan Aadhaar, update it in Jan Aadhaar first, then let it sync to your SSO profile.",
+        "If you cannot edit it online, visit an e-Mitra centre with your Aadhaar for help."
+      ],
+      "hi": [
+        "अपने एसएसओ डैशबोर्ड पर Update/Edit Profile खोलें और नाम को आधार से बिल्कुल मिलता हुआ ठीक करें।",
+        "भर्ती (ओटीआर) के लिए सुनिश्चित करें कि नाम 10वीं की अंकतालिका से भी मेल खाता हो, क्योंकि विवरण उसी से जांचे जाते हैं।",
+        "आवेदन सबमिट करने से पहले किसी भी मेल न खाने को ठीक करें — सबमिशन के बाद सुधार पर आमतौर पर अलग शुल्क लगता है।",
+        "यदि नाम जन आधार से आता है, तो पहले जन आधार में अपडेट करें, फिर उसे एसएसओ प्रोफ़ाइल में सिंक होने दें।",
+        "ऑनलाइन ठीक न कर पाएं तो आधार के साथ किसी ई-मित्र केंद्र पर सहायता लें।"
+      ]
+    },
+    "keywords": ["sso name mismatch aadhaar", "sso id name correction", "otr name mismatch fix"]
   }
 ]

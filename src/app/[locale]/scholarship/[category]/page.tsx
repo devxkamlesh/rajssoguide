@@ -5,15 +5,19 @@ import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
 import { ImportantLinks } from "@/components/ImportantLinks";
+import { FaqSection } from "@/components/FaqSection";
 import { scholarships, getScholarship } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
-import { scholarshipBody } from "@/lib/pageContent";
+import { reviewed } from "@/lib/reviewed";
+import { scholarshipBody, scholarshipFaqs } from "@/lib/pageContent";
 import { relatedForScholarship, importantLinksForScholarship } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  faqSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -30,14 +34,20 @@ export async function generateMetadata({
   const { locale, category } = await params;
   const s = getScholarship(category);
   if (!s || !isLocale(locale)) return {};
+  const description =
+    locale === "hi"
+      ? `${s.name[locale]} के लिए एसएसओ आईडी से आवेदन कैसे करें — पात्रता, आवश्यक दस्तावेज़ और स्थिति जांच। पात्रता: ${s.eligibility[locale]}`
+      : `How to apply for the ${s.name[locale]} using your SSO ID — eligibility, documents needed, and status check. Eligibility: ${s.eligibility[locale]}`;
+  const title = `${s.name[locale]} — SSO Login & Eligibility`;
   return {
-    title: `${s.name[locale]} — SSO Login & Eligibility`,
-    description: s.eligibility[locale],
+    title,
+    description,
     keywords: s.keywords,
     alternates: {
       canonical: canonicalFor(locale, `/scholarship/${category}`),
       ...alternates(`/scholarship/${category}`),
     },
+    ...socialMeta({ locale, title, description, path: `/scholarship/${category}` }),
   };
 }
 
@@ -54,12 +64,14 @@ export default async function ScholarshipPage({
   const t = getDictionary(loc);
   const base = `/${loc}`;
 
+  const faqs = scholarshipFaqs(s, loc);
   const graph = buildGraph([
     breadcrumbSchema([
       { name: t.common.home, path: base },
       { name: t.nav.scholarships, path: `${base}/scholarships` },
       { name: s.name[loc], path: `${base}/scholarship/${category}` },
     ]),
+    faqSchema(faqs),
   ]);
 
   return (
@@ -73,6 +85,9 @@ export default async function ScholarshipPage({
         ]}
       />
       <h1 className="text-3xl font-bold tracking-tight">{s.name[loc]}</h1>
+      <p className="mt-2 text-sm text-zinc-500">
+        {t.common.lastVerified}: {reviewed.scholarships}
+      </p>
 
       <h2 className="mt-6 text-xl font-semibold">
         {loc === "hi" ? "पात्रता" : "Eligibility"}
@@ -84,8 +99,8 @@ export default async function ScholarshipPage({
       </h2>
       <p className="mt-2 text-zinc-600">
         {loc === "hi"
-          ? "एसएसओ आईडी से लॉगिन कर SJE/SCholarship पोर्टल में आवेदन करें।"
-          : "Log in with your SSO ID and apply on the SJE/Scholarship portal."}
+          ? "एसएसओ आईडी से लॉगिन कर SJE छात्रवृत्ति पोर्टल में आवेदन करें।"
+          : "Log in with your SSO ID and apply on the SJE scholarship portal."}
       </p>
 
       <div className="mt-6">
@@ -102,6 +117,8 @@ export default async function ScholarshipPage({
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      <FaqSection title={t.common.faqTitle} faqs={faqs} />
 
       <ImportantLinks
         title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}

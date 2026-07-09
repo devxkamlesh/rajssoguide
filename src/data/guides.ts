@@ -873,6 +873,286 @@ export const guides: Guide[] = [
     ],
     lastVerified: "2026-06-18",
   },
+  {
+    slug: "sso-id-helpdesk",
+    title: {
+      en: "SSO ID Helpdesk & Customer Care Number — Rajasthan 2026",
+      hi: "एसएसओ आईडी हेल्पडेस्क और कस्टमर केयर नंबर — राजस्थान 2026",
+    },
+    metaTitle: {
+      en: "SSO ID Helpdesk & Customer Care Number Rajasthan 2026",
+      hi: "एसएसओ आईडी हेल्पडेस्क और कस्टमर केयर नंबर राजस्थान 2026",
+    },
+    metaDescription: {
+      en: "Official RajSSO helpdesk and customer care contacts: call 0141-5153222 or email helpdesk.sso@rajasthan.gov.in (Mon-Fri, 10 AM to 6 PM). Support numbers, Jan Aadhaar toll-free, grievance 181, and how to avoid fake SSO customer care numbers.",
+      hi: "आधिकारिक RajSSO हेल्पडेस्क और कस्टमर केयर संपर्क: 0141-5153222 पर कॉल करें या helpdesk.sso@rajasthan.gov.in पर ईमेल करें (सोम-शुक्र, सुबह 10 से शाम 6)। हेल्पलाइन नंबर, जन आधार टोल-फ्री, शिकायत 181, और नकली एसएसओ कस्टमर केयर नंबरों से बचाव।",
+    },
+    intro: {
+      en: "If your SSO login or account is genuinely stuck, the official help route is the Rajasthan SSO helpdesk on 0141-5153222 or helpdesk.sso@rajasthan.gov.in. Before you call, though, most problems have a faster self-service fix. This page lists the real, official contacts and shows the quickest ways to solve common issues yourself.",
+      hi: "अगर आपका एसएसओ लॉगिन या अकाउंट सचमुच अटक गया है, तो आधिकारिक मदद का रास्ता है राजस्थान एसएसओ हेल्पडेस्क — 0141-5153222 या helpdesk.sso@rajasthan.gov.in। पर कॉल करने से पहले, ज़्यादातर समस्याओं का तेज़ स्व-समाधान मौजूद है। यह पेज असली, आधिकारिक संपर्क और सामान्य समस्याओं को खुद हल करने के सबसे तेज़ तरीके बताता है।",
+    },
+    body: {
+      en: [
+        "The Rajasthan SSO helpdesk is the government's own support line for the portal at sso.rajasthan.gov.in. You can reach it on 0141-5153222 or by email at helpdesk.sso@rajasthan.gov.in, Monday to Friday between 10 AM and 6 PM. It is free, and it is the only official phone support for SSO login and account issues.",
+        "Most people searching for an SSO ID customer care number actually have a problem they can fix in a minute. A forgotten SSO ID comes back by SMS if you send RJ SSO to 9223166166 from your registered mobile. A forgotten password resets from the 'I Forgot my Password' link on the login page. A locked account clears on its own after about 30 minutes. Try those first. The helpdesk is worth calling when none of them work, for example when your registered mobile number has changed and no OTP reaches you.",
+        "Be careful which number you trust. There is no private SSO customer care company. Search results, YouTube comments, and social media are full of fake helpline numbers that ask you to share your password or OTP, or to pay a fee to unlock your account. No real government support agent ever asks for your password or OTP. Use only the official numbers on this page, and if a call feels off, hang up.",
+        "RajSSO Guide is an independent guide, not a call centre and not affiliated with the government. We do not run a helpdesk and never ask for your SSO ID, password, or OTP. This page simply gathers the official contacts and the fastest self-service options so you can get unstuck without waiting on hold.",
+      ],
+      hi: [
+        "राजस्थान एसएसओ हेल्पडेस्क sso.rajasthan.gov.in पोर्टल के लिए सरकार की अपनी सहायता लाइन है। इसे 0141-5153222 पर या helpdesk.sso@rajasthan.gov.in पर ईमेल से, सोमवार से शुक्रवार सुबह 10 से शाम 6 बजे तक संपर्क किया जा सकता है। यह निःशुल्क है और एसएसओ लॉगिन व अकाउंट समस्याओं के लिए एकमात्र आधिकारिक फोन सहायता है।",
+        "एसएसओ आईडी कस्टमर केयर नंबर खोजने वाले ज़्यादातर लोगों की समस्या एक मिनट में खुद हल हो सकती है। भूली हुई एसएसओ आईडी तब वापस आ जाती है जब आप रजिस्टर्ड मोबाइल से RJ SSO को 9223166166 पर भेजते हैं। भूला हुआ पासवर्ड लॉगिन पेज पर 'I Forgot my Password' लिंक से रीसेट होता है। लॉक हुआ अकाउंट लगभग 30 मिनट में अपने आप खुल जाता है। पहले यही आज़माएं। हेल्पडेस्क तब उपयोगी है जब इनमें से कुछ काम न करे, जैसे जब रजिस्टर्ड मोबाइल नंबर बदल गया हो और कोई ओटीपी न पहुँचे।",
+        "किस नंबर पर भरोसा करें, इसमें सावधान रहें। कोई निजी एसएसओ कस्टमर केयर कंपनी नहीं है। सर्च रिज़ल्ट, यूट्यूब कमेंट और सोशल मीडिया नकली हेल्पलाइन नंबरों से भरे हैं जो आपसे पासवर्ड या ओटीपी साझा करने, या अकाउंट अनलॉक के नाम पर शुल्क माँगते हैं। कोई असली सरकारी सहायता कर्मी कभी पासवर्ड या ओटीपी नहीं माँगता। केवल इस पेज पर दिए आधिकारिक नंबर उपयोग करें, और कॉल संदेहजनक लगे तो काट दें।",
+        "RajSSO Guide एक स्वतंत्र गाइड है, न कोई कॉल सेंटर और न सरकार से संबद्ध। हम हेल्पडेस्क नहीं चलाते और कभी आपकी एसएसओ आईडी, पासवर्ड या ओटीपी नहीं माँगते। यह पेज केवल आधिकारिक संपर्क और सबसे तेज़ स्व-समाधान एक जगह रखता है ताकि आप बिना इंतज़ार के समस्या सुलझा सकें।",
+      ],
+    },
+    sections: [
+      {
+        title: {
+          en: "When to call the helpdesk, and when e-Mitra is faster",
+          hi: "हेल्पडेस्क कब कॉल करें, और ई-मित्र कब तेज़ है",
+        },
+        body: {
+          en: [
+            "Phone and email support suit questions the portal cannot answer on its own: an account that stays locked, a service that will not open, or confusion about which login method your account uses. Keep your SSO ID and registered mobile number ready when you call so the agent can help faster.",
+            "For anything that needs your identity verified in person, a nearby e-Mitra centre is usually quicker than the phone. Changing a registered mobile number you no longer control, or finishing Jan Aadhaar e-KYC, are the common examples. Carry your Aadhaar or Jan Aadhaar card, and the operator can update the record on the spot.",
+          ],
+          hi: [
+            "फोन और ईमेल सहायता उन सवालों के लिए ठीक है जिन्हें पोर्टल खुद हल नहीं कर सकता: लगातार लॉक रहने वाला अकाउंट, न खुलने वाली सेवा, या यह उलझन कि आपका अकाउंट कौन सा लॉगिन तरीका उपयोग करता है। कॉल करते समय अपनी एसएसओ आईडी और रजिस्टर्ड मोबाइल नंबर तैयार रखें ताकि सहायता तेज़ मिले।",
+            "जिस काम में व्यक्तिगत पहचान सत्यापन ज़रूरी है, उसके लिए नज़दीकी ई-मित्र केंद्र आमतौर पर फोन से तेज़ होता है। ऐसा रजिस्टर्ड मोबाइल नंबर बदलना जो अब आपके पास नहीं, या जन आधार ई-केवाईसी पूरा करना, इसके सामान्य उदाहरण हैं। अपना आधार या जन आधार कार्ड साथ ले जाएं, संचालक रिकॉर्ड वहीं अपडेट कर देगा।",
+          ],
+        },
+      },
+      {
+        title: {
+          en: "Fake SSO customer care numbers: how to stay safe",
+          hi: "नकली एसएसओ कस्टमर केयर नंबर: सुरक्षित कैसे रहें",
+        },
+        body: {
+          en: [
+            "Treat your SSO login like a bank password. Official recovery is always free, and no genuine helpdesk agent will ask for your password, OTP, or a payment to unlock your account.",
+            "Reach the portal by typing sso.rajasthan.gov.in yourself rather than clicking an ad or a forwarded link, and use only the official numbers listed below. If someone calls claiming to be SSO support and asks for an OTP, it is a scam. Hang up.",
+          ],
+          hi: [
+            "अपने एसएसओ लॉगिन को बैंक पासवर्ड की तरह समझें। आधिकारिक रिकवरी हमेशा मुफ़्त है, और कोई असली हेल्पडेस्क कर्मी आपका पासवर्ड, ओटीपी या अकाउंट अनलॉक के लिए भुगतान नहीं माँगेगा।",
+            "किसी विज्ञापन या फॉरवर्ड लिंक पर क्लिक करने के बजाय sso.rajasthan.gov.in खुद टाइप करके पोर्टल खोलें, और केवल नीचे दिए आधिकारिक नंबर उपयोग करें। कोई एसएसओ सपोर्ट होने का दावा कर ओटीपी माँगे तो यह धोखा है। कॉल काट दें।",
+          ],
+        },
+      },
+    ],
+    tables: [
+      {
+        title: {
+          en: "Official SSO helpline & support contacts",
+          hi: "आधिकारिक एसएसओ हेल्पलाइन और सहायता संपर्क",
+        },
+        cols: {
+          en: ["Purpose", "Contact"],
+          hi: ["उद्देश्य", "संपर्क"],
+        },
+        rows: {
+          en: [
+            ["SSO login & account help", "0141-5153222"],
+            ["Alternate helplines", "0141-2925554 / 0141-5123717"],
+            ["Email support", "helpdesk.sso@rajasthan.gov.in"],
+            ["Jan Aadhaar toll-free", "1800-180-6127"],
+            ["Grievance / Rajasthan Sampark", "181"],
+            ["Support hours", "Monday to Friday, 10 AM to 6 PM"],
+          ],
+          hi: [
+            ["एसएसओ लॉगिन व अकाउंट सहायता", "0141-5153222"],
+            ["वैकल्पिक हेल्पलाइन", "0141-2925554 / 0141-5123717"],
+            ["ईमेल सहायता", "helpdesk.sso@rajasthan.gov.in"],
+            ["जन आधार टोल-फ्री", "1800-180-6127"],
+            ["शिकायत / राजस्थान संपर्क", "181"],
+            ["सहायता समय", "सोमवार से शुक्रवार, सुबह 10 से शाम 6"],
+          ],
+        },
+      },
+    ],
+    steps: {
+      en: [
+        { name: "Try the self-service fix first", text: "For a forgotten ID, SMS RJ SSO to 9223166166; for a password, use 'I Forgot my Password'; for a locked account, wait 30 minutes." },
+        { name: "Keep your details ready", text: "Note your SSO ID and registered mobile number before you contact support." },
+        { name: "Call or email the helpdesk", text: "Call 0141-5153222 or email helpdesk.sso@rajasthan.gov.in, Monday to Friday, 10 AM to 6 PM." },
+        { name: "Use e-Mitra for identity changes", text: "If your registered mobile changed, visit an e-Mitra centre with your Aadhaar to update it." },
+        { name: "Escalate a grievance", text: "If an issue stays unresolved, raise it with Rajasthan Sampark on 181." },
+      ],
+      hi: [
+        { name: "पहले स्व-समाधान आज़माएं", text: "भूली आईडी के लिए RJ SSO को 9223166166 पर SMS करें; पासवर्ड के लिए 'I Forgot my Password' उपयोग करें; लॉक अकाउंट के लिए 30 मिनट रुकें।" },
+        { name: "अपना विवरण तैयार रखें", text: "सहायता से संपर्क से पहले अपनी एसएसओ आईडी और रजिस्टर्ड मोबाइल नंबर नोट कर लें।" },
+        { name: "हेल्पडेस्क को कॉल या ईमेल करें", text: "0141-5153222 पर कॉल करें या helpdesk.sso@rajasthan.gov.in पर ईमेल करें, सोम-शुक्र सुबह 10 से शाम 6।" },
+        { name: "पहचान बदलाव के लिए ई-मित्र", text: "रजिस्टर्ड मोबाइल बदल गया हो तो आधार के साथ ई-मित्र केंद्र जाकर अपडेट कराएं।" },
+        { name: "शिकायत आगे बढ़ाएं", text: "समस्या न सुलझे तो राजस्थान संपर्क 181 पर शिकायत दर्ज करें।" },
+      ],
+    },
+    faqs: {
+      en: [
+        { question: "What is the SSO ID helpdesk number?", answer: "The official Rajasthan SSO helpdesk number is 0141-5153222. You can also email helpdesk.sso@rajasthan.gov.in. Support is available Monday to Friday, 10 AM to 6 PM." },
+        { question: "Is there an SSO ID customer care number?", answer: "There is no separate private customer care line. The government's own SSO helpdesk (0141-5153222, helpdesk.sso@rajasthan.gov.in) is the official support. Be wary of any other 'customer care' number, especially ones that ask for your password, OTP, or a fee." },
+        { question: "What are the SSO helpdesk timings?", answer: "The SSO helpdesk operates Monday to Friday, from 10 AM to 6 PM. It is closed on government holidays. Email support at helpdesk.sso@rajasthan.gov.in can be used any time, with replies during working hours." },
+        { question: "Can the helpdesk recover my SSO ID or password?", answer: "The helpdesk guides you, but the fastest recovery is self-service: SMS RJ SSO to 9223166166 for a forgotten ID, or use the 'I Forgot my Password' link. If your registered mobile number has changed, an e-Mitra centre can update it with your Aadhaar." },
+        { question: "Will the SSO helpdesk ever ask for my password or OTP?", answer: "No. No genuine government helpdesk asks for your password or OTP. Anyone who does is running a scam. Official recovery is always free, so never pay to 'unlock' an account." },
+        { question: "Who do I contact for Jan Aadhaar problems?", answer: "For Jan Aadhaar enrolment or update issues, call the Jan Aadhaar toll-free number 1800-180-6127, or visit an e-Mitra centre with your Aadhaar. Jan Aadhaar issues are separate from the SSO login helpdesk." },
+        { question: "How do I file a grievance if my issue is not resolved?", answer: "If the helpdesk cannot resolve your problem, raise a grievance with Rajasthan Sampark by dialling 181. Keep a note of your SSO ID and what you have already tried." },
+      ],
+      hi: [
+        { question: "एसएसओ आईडी हेल्पडेस्क नंबर क्या है?", answer: "आधिकारिक राजस्थान एसएसओ हेल्पडेस्क नंबर 0141-5153222 है। आप helpdesk.sso@rajasthan.gov.in पर ईमेल भी कर सकते हैं। सहायता सोमवार से शुक्रवार, सुबह 10 से शाम 6 बजे तक उपलब्ध है।" },
+        { question: "क्या कोई एसएसओ आईडी कस्टमर केयर नंबर है?", answer: "कोई अलग निजी कस्टमर केयर लाइन नहीं है। सरकार का अपना एसएसओ हेल्पडेस्क (0141-5153222, helpdesk.sso@rajasthan.gov.in) ही आधिकारिक सहायता है। किसी और 'कस्टमर केयर' नंबर से सावधान रहें, खासकर जो पासवर्ड, ओटीपी या शुल्क माँगे।" },
+        { question: "एसएसओ हेल्पडेस्क का समय क्या है?", answer: "एसएसओ हेल्पडेस्क सोमवार से शुक्रवार, सुबह 10 से शाम 6 बजे तक काम करता है। सरकारी अवकाश पर बंद रहता है। helpdesk.sso@rajasthan.gov.in पर ईमेल कभी भी भेज सकते हैं, जवाब कार्य समय में मिलता है।" },
+        { question: "क्या हेल्पडेस्क मेरी एसएसओ आईडी या पासवर्ड रिकवर कर सकता है?", answer: "हेल्पडेस्क मार्गदर्शन करता है, पर सबसे तेज़ रिकवरी स्व-सेवा है: भूली आईडी के लिए RJ SSO को 9223166166 पर SMS करें, या 'I Forgot my Password' लिंक उपयोग करें। रजिस्टर्ड मोबाइल बदल गया हो तो ई-मित्र केंद्र आधार से अपडेट कर सकता है।" },
+        { question: "क्या एसएसओ हेल्पडेस्क कभी मेरा पासवर्ड या ओटीपी माँगेगा?", answer: "नहीं। कोई असली सरकारी हेल्पडेस्क पासवर्ड या ओटीपी नहीं माँगता। जो माँगे वह धोखा है। आधिकारिक रिकवरी हमेशा मुफ़्त है, इसलिए अकाउंट 'अनलॉक' के नाम पर कभी भुगतान न करें।" },
+        { question: "जन आधार समस्याओं के लिए किससे संपर्क करूँ?", answer: "जन आधार नामांकन या अपडेट समस्या के लिए टोल-फ्री नंबर 1800-180-6127 पर कॉल करें, या आधार के साथ ई-मित्र केंद्र जाएं। जन आधार समस्याएं एसएसओ लॉगिन हेल्पडेस्क से अलग हैं।" },
+        { question: "समस्या न सुलझे तो शिकायत कैसे दर्ज करें?", answer: "हेल्पडेस्क समस्या हल न कर पाए तो राजस्थान संपर्क पर 181 डायल कर शिकायत दर्ज करें। अपनी एसएसओ आईडी और अब तक किए प्रयास नोट रखें।" },
+      ],
+    },
+    lastVerified: "2026-07-08",
+  },
+  {
+    slug: "sso-id-portal",
+    title: {
+      en: "SSO ID Portal Rajasthan 2026 — Services, Dashboard & Access Guide",
+      hi: "एसएसओ आईडी पोर्टल राजस्थान 2026 — सेवाएं, डैशबोर्ड और एक्सेस गाइड",
+    },
+    metaTitle: {
+      en: "SSO ID Portal Rajasthan 2026 — What It Is & How to Use It",
+      hi: "एसएसओ आईडी पोर्टल राजस्थान 2026 — यह क्या है और कैसे उपयोग करें",
+    },
+    metaDescription: {
+      en: "What the Rajasthan SSO ID portal (sso.rajasthan.gov.in) is, the services on your dashboard, how to access it with one login, the mobile app, and safety tips. Independent guide, updated 2026.",
+      hi: "राजस्थान एसएसओ आईडी पोर्टल (sso.rajasthan.gov.in) क्या है, आपके डैशबोर्ड की सेवाएं, एक लॉगिन से एक्सेस कैसे करें, मोबाइल ऐप और सुरक्षा सुझाव। स्वतंत्र गाइड, 2026 अपडेटेड।",
+    },
+    intro: {
+      en: "The SSO ID portal is Rajasthan's single front door to online government. One account at sso.rajasthan.gov.in opens more than 100 services, from scholarships and exam forms to salary slips and electricity bills. This guide explains what the portal is, what sits on your dashboard, and how to get into it.",
+      hi: "एसएसओ आईडी पोर्टल राजस्थान की ऑनलाइन सरकार का एकमात्र दरवाज़ा है। sso.rajasthan.gov.in पर एक खाता 100 से अधिक सेवाएं खोलता है — छात्रवृत्ति और परीक्षा फॉर्म से लेकर सैलरी स्लिप और बिजली बिल तक। यह गाइड बताती है कि पोर्टल क्या है, आपके डैशबोर्ड पर क्या होता है, और उसमें कैसे पहुँचें।",
+    },
+    body: {
+      en: [
+        "The SSO ID portal is the Rajasthan government's Single Sign-On system, run by the Department of Information Technology and Communication (DoIT&C). It has been live since 2013. The idea behind it is simple: instead of a separate username and password for every department, you get one identity that works everywhere. Log in once at sso.rajasthan.gov.in and you can move between scholarships, recruitment, e-Mitra, PayManager, Jan Aadhaar, and dozens of other services without signing in again.",
+        "Once you are inside, the portal shows a dashboard of app tiles. Each tile is a government service you are entitled to use, grouped loosely by who you are. A student sees scholarship and recruitment tiles, a government employee sees PayManager and RajKaj, and a business owner sees GST and licensing tiles. If a service you expect is missing, it usually means your account has not been linked to it yet, which is normal for department-specific tools like PayManager.",
+        "Three kinds of people use the portal the most: ordinary citizens who register with Jan Aadhaar or Aadhaar, government employees who register through SIPF, and business owners who register with a Udyog Aadhaar or business registration number. Whichever group you fall into, the portal itself is the same. Only the tiles on your dashboard differ, based on the records tied to your account.",
+        "The portal is free to use, and creating an account costs nothing. It is worth being clear about what this page is: RajSSO Guide is an independent guide, not the government and not the portal. We explain how the portal works and link to the official site, but every real login, registration, and payment happens on sso.rajasthan.gov.in itself. We never ask for your SSO ID, password, or OTP.",
+      ],
+      hi: [
+        "एसएसओ आईडी पोर्टल राजस्थान सरकार का सिंगल साइन-ऑन सिस्टम है, जिसे सूचना प्रौद्योगिकी एवं संचार विभाग (DoIT&C) चलाता है। यह 2013 से चालू है। इसके पीछे विचार सरल है: हर विभाग के लिए अलग यूज़रनेम और पासवर्ड के बजाय, आपको एक ही पहचान मिलती है जो हर जगह काम करती है। sso.rajasthan.gov.in पर एक बार लॉगिन करें और छात्रवृत्ति, भर्ती, ई-मित्र, PayManager, जन आधार और दर्जनों अन्य सेवाओं के बीच बिना दोबारा साइन-इन किए जा सकते हैं।",
+        "अंदर पहुँचते ही पोर्टल ऐप टाइल्स का एक डैशबोर्ड दिखाता है। हर टाइल एक सरकारी सेवा है जिसका उपयोग आप कर सकते हैं, मोटे तौर पर इस आधार पर समूहित कि आप कौन हैं। छात्र को छात्रवृत्ति और भर्ती टाइल्स दिखती हैं, सरकारी कर्मचारी को PayManager और RajKaj, और व्यवसायी को GST व लाइसेंसिंग टाइल्स। कोई अपेक्षित सेवा न दिखे तो आमतौर पर इसका मतलब है कि आपका खाता उससे अभी लिंक नहीं हुआ, जो PayManager जैसे विभाग-विशिष्ट टूल्स के लिए सामान्य है।",
+        "पोर्टल का सबसे ज़्यादा उपयोग तीन तरह के लोग करते हैं: आम नागरिक जो जन आधार या आधार से रजिस्टर करते हैं, सरकारी कर्मचारी जो SIPF से रजिस्टर करते हैं, और व्यवसायी जो उद्योग आधार या व्यवसाय रजिस्ट्रेशन नंबर से। आप किसी भी समूह में हों, पोर्टल एक ही रहता है। केवल डैशबोर्ड की टाइल्स बदलती हैं, आपके खाते से जुड़े रिकॉर्ड के आधार पर।",
+        "पोर्टल का उपयोग मुफ़्त है, और खाता बनाने का कोई शुल्क नहीं। यह साफ़ रखना ज़रूरी है कि यह पेज क्या है: RajSSO Guide एक स्वतंत्र गाइड है, न सरकार और न पोर्टल। हम बताते हैं कि पोर्टल कैसे काम करता है और आधिकारिक साइट से लिंक करते हैं, पर हर असली लॉगिन, रजिस्ट्रेशन और भुगतान sso.rajasthan.gov.in पर ही होता है। हम कभी आपकी एसएसओ आईडी, पासवर्ड या ओटीपी नहीं माँगते।",
+      ],
+    },
+    sections: [
+      {
+        title: {
+          en: "How to access the SSO ID portal",
+          hi: "एसएसओ आईडी पोर्टल कैसे एक्सेस करें",
+        },
+        body: {
+          en: [
+            "If you already have an account, open sso.rajasthan.gov.in, enter your SSO ID and password, type the captcha, and you land on your dashboard. If you registered through Jan Aadhaar or Google, those buttons on the login screen work too. For the full walk-through of login problems, see our SSO login guide.",
+            "If you do not have an account yet, the same portal has a Registration option. Citizens can register with Jan Aadhaar or Aadhaar, government employees with their SIPF details, and businesses with a Udyog Aadhaar or business registration number. Registration is free and takes a few minutes; the username you choose becomes your permanent SSO ID.",
+          ],
+          hi: [
+            "अगर आपके पास पहले से खाता है, तो sso.rajasthan.gov.in खोलें, अपनी एसएसओ आईडी और पासवर्ड डालें, कैप्चा भरें, और आप अपने डैशबोर्ड पर पहुँच जाते हैं। जन आधार या Google से रजिस्टर किया हो तो लॉगिन स्क्रीन पर वे बटन भी काम करते हैं। लॉगिन समस्याओं की पूरी जानकारी के लिए हमारी एसएसओ लॉगिन गाइड देखें।",
+            "अगर अभी खाता नहीं है, तो उसी पोर्टल पर Registration विकल्प है। नागरिक जन आधार या आधार से, सरकारी कर्मचारी अपने SIPF विवरण से, और व्यवसायी उद्योग आधार या व्यवसाय रजिस्ट्रेशन नंबर से रजिस्टर कर सकते हैं। रजिस्ट्रेशन मुफ़्त है और कुछ मिनट लेता है; आपका चुना यूज़रनेम ही स्थायी एसएसओ आईडी बनता है।",
+          ],
+        },
+      },
+      {
+        title: {
+          en: "The SSO Rajasthan mobile app",
+          hi: "एसएसओ राजस्थान मोबाइल ऐप",
+        },
+        body: {
+          en: [
+            "There is an official SSO Rajasthan app on Android and iOS that mirrors most of the portal. It is handy for quick logins, checking your dashboard, and receiving OTPs on the same phone. For everyday tasks the app is fine.",
+            "For heavier work, such as filling a scholarship form, completing OTR for a recruitment, or uploading documents, the desktop browser is more reliable. The mobile upload screens can time out on a slow connection, and a half-finished form is more frustrating than a two-minute wait at a computer.",
+          ],
+          hi: [
+            "Android और iOS पर एक आधिकारिक एसएसओ राजस्थान ऐप है जो पोर्टल के अधिकांश हिस्से को दर्शाता है। यह त्वरित लॉगिन, डैशबोर्ड देखने और उसी फोन पर ओटीपी पाने के लिए उपयोगी है। रोज़मर्रा के कामों के लिए ऐप ठीक है।",
+            "भारी काम के लिए, जैसे छात्रवृत्ति फॉर्म भरना, भर्ती के लिए OTR पूरा करना, या दस्तावेज़ अपलोड करना, डेस्कटॉप ब्राउज़र ज़्यादा भरोसेमंद है। मोबाइल अपलोड स्क्रीन धीमे कनेक्शन पर टाइम आउट हो सकती हैं, और आधा-अधूरा फॉर्म कंप्यूटर पर दो मिनट के इंतज़ार से ज़्यादा परेशान करता है।",
+          ],
+        },
+      },
+      {
+        title: {
+          en: "Staying safe on the SSO portal",
+          hi: "एसएसओ पोर्टल पर सुरक्षित रहना",
+        },
+        body: {
+          en: [
+            "The single most useful habit is to type sso.rajasthan.gov.in yourself and bookmark it, rather than clicking an ad or a forwarded link. Many look-alike websites copy the government design to collect logins. The real portal is the only place you should ever enter your SSO password.",
+            "No genuine helpline, e-Mitra operator, or support agent will ask for your password or OTP. Recovery is always free, so never pay anyone to unlock or fix your account. If you ever get stuck, the official SSO helpdesk is on 0141-5153222, and our SSO helpdesk page lists the other official contacts.",
+          ],
+          hi: [
+            "सबसे उपयोगी आदत है sso.rajasthan.gov.in खुद टाइप करके बुकमार्क करना, न कि किसी विज्ञापन या फॉरवर्ड लिंक पर क्लिक करना। कई मिलती-जुलती वेबसाइटें लॉगिन इकट्ठा करने के लिए सरकारी डिज़ाइन की नकल करती हैं। असली पोर्टल ही एकमात्र जगह है जहाँ आपको अपना एसएसओ पासवर्ड डालना चाहिए।",
+            "कोई असली हेल्पलाइन, ई-मित्र संचालक या सपोर्ट कर्मी आपका पासवर्ड या ओटीपी नहीं माँगेगा। रिकवरी हमेशा मुफ़्त है, इसलिए अकाउंट अनलॉक या ठीक करने के नाम पर किसी को भुगतान न करें। कभी अटक जाएं तो आधिकारिक एसएसओ हेल्पडेस्क 0141-5153222 पर है, और हमारी एसएसओ हेल्पडेस्क पेज अन्य आधिकारिक संपर्क सूचीबद्ध करती है।",
+          ],
+        },
+      },
+    ],
+    tables: [
+      {
+        title: {
+          en: "What you can do on the SSO ID portal",
+          hi: "एसएसओ आईडी पोर्टल पर आप क्या कर सकते हैं",
+        },
+        cols: {
+          en: ["Category", "Examples of services"],
+          hi: ["श्रेणी", "सेवाओं के उदाहरण"],
+        },
+        rows: {
+          en: [
+            ["Students & job seekers", "Recruitment Portal (OTR), RPSC & RSMSSB forms, SJE scholarships"],
+            ["General citizens", "e-Mitra bill payments, Jan Aadhaar, Chiranjeevi, certificates"],
+            ["Government employees", "PayManager salary slips, RajKaj, SIPF, GA-55"],
+            ["Business owners", "State GST, BPAS building approvals, Udyog Aadhaar, labour compliance"],
+          ],
+          hi: [
+            ["छात्र व नौकरी आवेदक", "भर्ती पोर्टल (OTR), RPSC व RSMSSB फॉर्म, SJE छात्रवृत्ति"],
+            ["आम नागरिक", "ई-मित्र बिल भुगतान, जन आधार, चिरंजीवी, प्रमाण पत्र"],
+            ["सरकारी कर्मचारी", "PayManager सैलरी स्लिप, RajKaj, SIPF, GA-55"],
+            ["व्यवसायी", "स्टेट GST, BPAS भवन स्वीकृति, उद्योग आधार, श्रम अनुपालन"],
+          ],
+        },
+      },
+    ],
+    steps: {
+      en: [
+        { name: "Open the portal", text: "Type sso.rajasthan.gov.in in your browser and bookmark it." },
+        { name: "Log in or register", text: "Enter your SSO ID and password, or use the Registration option if you are new." },
+        { name: "Open your dashboard", text: "After the captcha, you land on your dashboard of service tiles." },
+        { name: "Find a service", text: "Use the search box on the dashboard to find a tile such as PayManager or Scholarship." },
+        { name: "Use the service", text: "Click the tile to open that service without logging in again." },
+      ],
+      hi: [
+        { name: "पोर्टल खोलें", text: "ब्राउज़र में sso.rajasthan.gov.in टाइप करें और बुकमार्क करें।" },
+        { name: "लॉगिन या रजिस्टर करें", text: "अपनी एसएसओ आईडी और पासवर्ड डालें, या नए हैं तो Registration विकल्प उपयोग करें।" },
+        { name: "डैशबोर्ड खोलें", text: "कैप्चा के बाद आप सेवा टाइल्स के डैशबोर्ड पर पहुँच जाते हैं।" },
+        { name: "सेवा ढूंढें", text: "डैशबोर्ड के सर्च बॉक्स से PayManager या Scholarship जैसी टाइल ढूंढें।" },
+        { name: "सेवा उपयोग करें", text: "दोबारा लॉगिन किए बिना उस सेवा को खोलने के लिए टाइल पर क्लिक करें।" },
+      ],
+    },
+    faqs: {
+      en: [
+        { question: "What is the SSO ID portal?", answer: "The SSO ID portal is the Rajasthan government's Single Sign-On website at sso.rajasthan.gov.in. It lets residents, government employees, and businesses use one login to reach more than 100 state government services, from scholarships and exams to salary slips and bill payments. It has been run by the Department of IT & Communication (DoIT&C) since 2013." },
+        { question: "What is the SSO ID portal address?", answer: "The official Rajasthan SSO portal address is sso.rajasthan.gov.in. This is the only legitimate login URL. Type it yourself and avoid look-alike sites that copy the government design to steal logins." },
+        { question: "Is the SSO ID portal free to use?", answer: "Yes. Creating an SSO ID and using the portal are completely free. Some services accessed through it, such as OTR exam registration, have their own fees set by the respective departments, but the portal and account cost nothing." },
+        { question: "What services are available on the SSO portal?", answer: "Over 100 services, grouped by user type: recruitment (OTR), RPSC and RSMSSB exams, and SJE scholarships for students; e-Mitra, Jan Aadhaar, and Chiranjeevi for citizens; PayManager, RajKaj, and SIPF for employees; and GST, BPAS, and Udyog Aadhaar for businesses." },
+        { question: "Why is a service tile missing from my dashboard?", answer: "A missing tile usually means your account has not been linked to that service yet. This is common for department-specific tools like PayManager, where your DDO links your Employee ID to your SSO account. Contact the relevant department to get it added." },
+        { question: "Is there an SSO portal mobile app?", answer: "Yes, the official SSO Rajasthan app is on Android and iOS and covers most portal functions. It is good for quick logins and OTPs. For filling forms or uploading documents, the desktop browser is more reliable." },
+        { question: "Is RajSSO Guide the official SSO portal?", answer: "No. RajSSO Guide is an independent guide that explains how the portal works. The official portal is sso.rajasthan.gov.in, and all real logins and transactions happen there. We never ask for your SSO ID, password, or OTP." },
+      ],
+      hi: [
+        { question: "एसएसओ आईडी पोर्टल क्या है?", answer: "एसएसओ आईडी पोर्टल राजस्थान सरकार की सिंगल साइन-ऑन वेबसाइट sso.rajasthan.gov.in है। यह निवासियों, सरकारी कर्मचारियों और व्यवसायों को एक लॉगिन से 100 से अधिक राज्य सेवाओं तक पहुँच देती है — छात्रवृत्ति व परीक्षा से लेकर सैलरी स्लिप व बिल भुगतान तक। इसे 2013 से सूचना प्रौद्योगिकी एवं संचार विभाग (DoIT&C) चलाता है।" },
+        { question: "एसएसओ आईडी पोर्टल का पता क्या है?", answer: "आधिकारिक राजस्थान एसएसओ पोर्टल का पता sso.rajasthan.gov.in है। यही एकमात्र वैध लॉगिन URL है। इसे खुद टाइप करें और लॉगिन चुराने के लिए सरकारी डिज़ाइन की नकल करने वाली मिलती-जुलती साइटों से बचें।" },
+        { question: "क्या एसएसओ आईडी पोर्टल उपयोग करना मुफ़्त है?", answer: "हाँ। एसएसओ आईडी बनाना और पोर्टल उपयोग करना पूरी तरह मुफ़्त है। इसके ज़रिए ली जाने वाली कुछ सेवाओं, जैसे OTR परीक्षा रजिस्ट्रेशन, के अपने शुल्क संबंधित विभाग तय करते हैं, पर पोर्टल और खाता निःशुल्क हैं।" },
+        { question: "एसएसओ पोर्टल पर कौन सी सेवाएं उपलब्ध हैं?", answer: "100 से अधिक सेवाएं, उपयोगकर्ता अनुसार समूहित: छात्रों के लिए भर्ती (OTR), RPSC व RSMSSB परीक्षाएं, और SJE छात्रवृत्ति; नागरिकों के लिए ई-मित्र, जन आधार व चिरंजीवी; कर्मचारियों के लिए PayManager, RajKaj व SIPF; और व्यवसायों के लिए GST, BPAS व उद्योग आधार।" },
+        { question: "मेरे डैशबोर्ड से कोई सेवा टाइल क्यों गायब है?", answer: "गायब टाइल का आमतौर पर मतलब है कि आपका खाता उस सेवा से अभी लिंक नहीं हुआ। यह PayManager जैसे विभाग-विशिष्ट टूल्स के लिए सामान्य है, जहाँ आपका DDO आपकी Employee ID को एसएसओ खाते से लिंक करता है। जुड़वाने के लिए संबंधित विभाग से संपर्क करें।" },
+        { question: "क्या एसएसओ पोर्टल का मोबाइल ऐप है?", answer: "हाँ, आधिकारिक एसएसओ राजस्थान ऐप Android और iOS पर है और अधिकांश पोर्टल फंक्शन कवर करता है। यह त्वरित लॉगिन और ओटीपी के लिए अच्छा है। फॉर्म भरने या दस्तावेज़ अपलोड के लिए डेस्कटॉप ब्राउज़र ज़्यादा भरोसेमंद है।" },
+        { question: "क्या RajSSO Guide आधिकारिक एसएसओ पोर्टल है?", answer: "नहीं। RajSSO Guide एक स्वतंत्र गाइड है जो बताती है कि पोर्टल कैसे काम करता है। आधिकारिक पोर्टल sso.rajasthan.gov.in है, और सभी असली लॉगिन व लेनदेन वहीं होते हैं। हम कभी आपकी एसएसओ आईडी, पासवर्ड या ओटीपी नहीं माँगते।" },
+      ],
+    },
+    lastVerified: "2026-07-08",
+  },
 ];
 
 export const getGuide = (slug: string) => guides.find((g) => g.slug === slug);

@@ -14,6 +14,7 @@ import {
   canonicalFor,
   faqSchema,
   itemListSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -35,6 +36,12 @@ export async function generateMetadata({
       canonical: canonicalFor(locale, "/exams"),
       ...alternates("/exams"),
     },
+    ...socialMeta({
+      locale,
+      title: c.metaTitle[locale],
+      description: c.metaDescription[locale],
+      path: "/exams",
+    }),
   };
 }
 

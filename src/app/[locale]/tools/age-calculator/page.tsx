@@ -8,6 +8,8 @@ import {
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  socialMeta,
+  softwareAppSchema,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -39,13 +41,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const description = body[locale][0].slice(0, 155);
   return {
     title: titles[locale],
-    description: body[locale][0].slice(0, 155),
+    description,
     alternates: {
       canonical: canonicalFor(locale, "/tools/age-calculator"),
       ...alternates("/tools/age-calculator"),
     },
+    ...socialMeta({ locale, title: titles[locale], description, path: "/tools/age-calculator" }),
   };
 }
 
@@ -64,6 +68,12 @@ export default async function AgeCalculatorPage({
       { name: "Tools", path: `/${loc}/tools` },
       { name: titles[loc], path: `/${loc}/tools/age-calculator` },
     ]),
+    softwareAppSchema({
+      name: titles[loc],
+      description: body[loc][0].slice(0, 155),
+      path: "/tools/age-calculator",
+      locale: loc,
+    }),
   ]);
 
   return (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { canonicalFor, alternates } from "@/lib/schema";
+import { canonicalFor, alternates, buildGraph, webPageSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
 type Props = {
@@ -40,11 +41,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TermsOfServicePage({ params }: Props) {
   const { locale } = await params;
 
-  if (locale === "hi") {
-    return <TermsOfServiceHindi />;
-  }
+  const graph = buildGraph([
+    webPageSchema({
+      name: locale === "hi" ? "सेवा की शर्तें" : "Terms of Service",
+      description:
+        locale === "hi"
+          ? "RajSSO Guide की सेवा की शर्तें — कानूनी अस्वीकरण, दायित्व की सीमाएं और उपयोग की शर्तें।"
+          : "Terms of Service for RajSSO Guide — legal disclaimers, limitations of liability, and terms of use.",
+      path: `/${locale}/terms-of-service`,
+      locale,
+      datePublished: "2026-06-13",
+      dateModified: "2026-06-13",
+    }),
+  ]);
 
-  return <TermsOfServiceEnglish />;
+  return (
+    <>
+      <JsonLd data={graph} />
+      {locale === "hi" ? <TermsOfServiceHindi /> : <TermsOfServiceEnglish />}
+    </>
+  );
 }
 
 function TermsOfServiceEnglish() {

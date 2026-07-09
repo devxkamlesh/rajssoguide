@@ -9,6 +9,8 @@ import {
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  socialMeta,
+  softwareAppSchema,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -40,16 +42,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const description =
+    locale === "hi"
+      ? "राजस्थान सरकारी परीक्षाओं की ओटीआर फीस श्रेणी अनुसार जानें।"
+      : "Calculate the OTR fee for Rajasthan government exams by category.";
   return {
     title: titles[locale],
-    description:
-      locale === "hi"
-        ? "राजस्थान सरकारी परीक्षाओं की ओटीआर फीस श्रेणी अनुसार जानें।"
-        : "Calculate the OTR fee for Rajasthan government exams by category.",
+    description,
     alternates: {
       canonical: canonicalFor(locale, "/tools/otr-fee-calculator"),
       ...alternates("/tools/otr-fee-calculator"),
     },
+    ...socialMeta({ locale, title: titles[locale], description, path: "/tools/otr-fee-calculator" }),
   };
 }
 
@@ -68,6 +72,12 @@ export default async function OtrFeeCalculatorPage({
       { name: "Tools", path: `/${loc}/tools` },
       { name: titles[loc], path: `/${loc}/tools/otr-fee-calculator` },
     ]),
+    softwareAppSchema({
+      name: titles[loc],
+      description: body[loc][0].slice(0, 155),
+      path: "/tools/otr-fee-calculator",
+      locale: loc,
+    }),
   ]);
 
   return (

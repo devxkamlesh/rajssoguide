@@ -14,12 +14,51 @@ export interface Update {
   tag: UpdateTag;
 }
 
+// Each entry points to a real page on this site. Titles stay honest — we do
+// not publish unverified deadlines here; exam/scholarship dates live on their
+// own pages and are confirmed against the official notification.
 export const updates: Update[] = [
+  {
+    date: "2026-07-08",
+    title: {
+      en: "New guide: SSO ID Portal — services, dashboard & how to access",
+      hi: "नई गाइड: एसएसओ आईडी पोर्टल — सेवाएं, डैशबोर्ड और एक्सेस कैसे करें",
+    },
+    href: "/sso-id-portal",
+    tag: "general",
+  },
+  {
+    date: "2026-07-08",
+    title: {
+      en: "New guide: SSO ID Helpdesk & customer care numbers",
+      hi: "नई गाइड: एसएसओ आईडी हेल्पडेस्क और कस्टमर केयर नंबर",
+    },
+    href: "/sso-id-helpdesk",
+    tag: "general",
+  },
+  {
+    date: "2026-07-06",
+    title: {
+      en: "New service guides added for RajKaj and Jan Aadhaar",
+      hi: "RajKaj और जन आधार के लिए नई सेवा गाइड जोड़ी गईं",
+    },
+    href: "/service/rajkaj",
+    tag: "service",
+  },
+  {
+    date: "2026-07-06",
+    title: {
+      en: "New fix guides: OTP not arriving, session timeout, name mismatch",
+      hi: "नई समाधान गाइड: ओटीपी न आना, सेशन टाइमआउट, नाम मेल न खाना",
+    },
+    href: "/error/otp-not-received",
+    tag: "general",
+  },
   {
     date: "2026-06-10",
     title: {
-      en: "RPSC CET 2026 — OTR application open, last date 31 July",
-      hi: "RPSC CET 2026 — OTR आवेदन शुरू, अंतिम तिथि 31 जुलाई",
+      en: "RPSC CET 2026 — how to apply via SSO (OTR), fees & steps",
+      hi: "RPSC CET 2026 — SSO से आवेदन (OTR), शुल्क और चरण",
     },
     href: "/exam/rpsc-cet",
     tag: "exam",
@@ -27,8 +66,8 @@ export const updates: Update[] = [
   {
     date: "2026-06-05",
     title: {
-      en: "RSMSSB LDC 2026 exam scheduled for 5–6 July",
-      hi: "RSMSSB LDC 2026 परीक्षा 5–6 जुलाई को निर्धारित",
+      en: "RSMSSB LDC 2026 — SSO application & OTR guide",
+      hi: "RSMSSB LDC 2026 — SSO आवेदन और OTR गाइड",
     },
     href: "/exam/rsmssb-ldc",
     tag: "exam",
@@ -36,8 +75,8 @@ export const updates: Update[] = [
   {
     date: "2026-05-28",
     title: {
-      en: "Rajasthan Patwari 2026 — apply via SSO before 10 September",
-      hi: "राजस्थान पटवारी 2026 — 10 सितंबर से पहले SSO से आवेदन करें",
+      en: "Rajasthan Patwari 2026 — how to apply via SSO",
+      hi: "राजस्थान पटवारी 2026 — SSO से आवेदन कैसे करें",
     },
     href: "/exam/patwari",
     tag: "exam",
@@ -45,8 +84,8 @@ export const updates: Update[] = [
   {
     date: "2026-05-20",
     title: {
-      en: "Post-matric scholarship portal open for SC/ST/OBC students",
-      hi: "एससी/एसटी/ओबीसी छात्रों के लिए पोस्ट-मैट्रिक छात्रवृत्ति पोर्टल खुला",
+      en: "Post-matric scholarships — how to apply via SSO (SC/ST/OBC/EWS/Minority)",
+      hi: "पोस्ट-मैट्रिक छात्रवृत्ति — SSO से आवेदन कैसे करें (SC/ST/OBC/EWS/अल्पसंख्यक)",
     },
     href: "/scholarships",
     tag: "scholarship",
@@ -54,8 +93,8 @@ export const updates: Update[] = [
   {
     date: "2026-05-12",
     title: {
-      en: "PayManager salary slip download enabled for June",
-      hi: "PayManager जून सैलरी स्लिप डाउनलोड सक्षम",
+      en: "PayManager — download your salary slip & GA-55",
+      hi: "PayManager — अपनी सैलरी स्लिप और GA-55 डाउनलोड करें",
     },
     href: "/service/paymanager",
     tag: "service",
@@ -63,8 +102,8 @@ export const updates: Update[] = [
   {
     date: "2026-05-02",
     title: {
-      en: "Jan Aadhaar e-KYC now mandatory for scholarship forms",
-      hi: "छात्रवृत्ति फॉर्म के लिए जन आधार ई-केवाईसी अब अनिवार्य",
+      en: "Jan Aadhaar e-KYC & family record updates through SSO",
+      hi: "SSO से जन आधार ई-केवाईसी और परिवार रिकॉर्ड अपडेट",
     },
     href: "/service/jan-aadhaar",
     tag: "service",

@@ -376,6 +376,442 @@ export const serviceContent: Record<string, Partial<Record<Locale, ServiceRich>>
       ],
     },
   },
+  rajkaj: {
+    en: {
+      metaTitle:
+        "RajKaj Rajasthan 2026 — SSO Login, e-Leave & Integrated e-Office Guide",
+      metaDescription:
+        "RajKaj (rajkaj.rajasthan.gov.in) guide for Rajasthan government employees — log in via SSO, apply for leave (e-Leave), track files (e-File), and access APAR, service book and GPF. Updated 2026.",
+      h1: "RajKaj Rajasthan 2026 — SSO Login, e-Leave & Integrated e-Office",
+      intro:
+        "RajKaj is the Government of Rajasthan's Integrated e-Office system for state employees. Leave applications, file and note movement, APAR performance reports, service book records, GPF, and government residential allotment all run through it — and you reach all of it with your SSO ID. If you work for the Rajasthan government, RajKaj is where your day-to-day official workflow lives.",
+      portalNote: "rajkaj.rajasthan.gov.in",
+      lastVerified: "2026-07-06",
+      blocks: [
+        {
+          type: "section",
+          title: "How RajKaj connects to your SSO ID",
+          body: [
+            "You reach RajKaj through your SSO ID — there is no separate RajKaj registration. Log in to sso.rajasthan.gov.in and click the RajKaj tile on your dashboard.",
+            "If the RajKaj tile is not on your dashboard, your employee account has not been mapped to RajKaj yet. This mapping is done by your department's RajKaj admin or nodal officer, not by you — contact your office administrator to get added.",
+          ],
+        },
+        {
+          type: "table",
+          title: "Quick reference",
+          cols: ["Task", "Where to go"],
+          rows: [
+            ["Apply for leave", "RajKaj → e-Leave → Apply Leave"],
+            ["Check leave balance", "RajKaj → e-Leave → Leave Balance"],
+            ["Track a file / note", "RajKaj → e-File → File Tracking"],
+            ["APAR / ACR", "RajKaj → APAR module"],
+            ["Service book", "RajKaj → Employee Service Book"],
+            ["GPF details", "RajKaj → GPF module"],
+            ["Residential allotment", "RajKaj → Estate / Allotment module"],
+          ],
+        },
+        {
+          type: "section",
+          title: "What is RajKaj?",
+          body: [
+            "RajKaj is Rajasthan's Integrated e-Office, built to move government work from paper files to a digital workflow. Instead of physical note-sheets travelling between desks, files, dak, and approvals move electronically between officers.",
+            "For an ordinary employee, the most-used part is e-Leave — applying for leave and watching it get approved online. For officers, RajKaj also handles file noting, APAR, and inter-departmental correspondence. It is maintained by the Department of Information Technology & Communication (DoIT&C) and RISL.",
+          ],
+        },
+        {
+          type: "steps",
+          title: "How to apply for leave on RajKaj (e-Leave)",
+          steps: [
+            { name: "Log in through SSO", text: "Sign in at sso.rajasthan.gov.in and open the RajKaj tile." },
+            { name: "Open e-Leave", text: "In RajKaj, go to the e-Leave (Leave Management) module." },
+            { name: "Click Apply Leave", text: "Select Apply Leave to start a new leave request." },
+            { name: "Choose leave type and dates", text: "Pick the leave type (Casual, Earned, Half Pay, etc.), enter the From and To dates, and check the balance shown." },
+            { name: "Add a reason and attachments", text: "Enter the reason for leave and attach a supporting document if the leave type needs one (for example a medical certificate)." },
+            { name: "Submit for approval", text: "Submit the application. It routes to your reporting/controlling officer, who approves or returns it." },
+            { name: "Track the status", text: "Return to e-Leave to see whether the request is Pending, Approved, or Rejected." },
+          ],
+        },
+        {
+          type: "section",
+          title: "Leave types you will see in e-Leave",
+          body: [
+            "The leave types follow the Rajasthan Service Rules. Casual Leave (CL) is for short absences and cannot usually be combined with other leave or taken for long stretches. Earned Leave (EL), also called Privilege Leave, accumulates over service and is used for longer planned leave. Half Pay Leave (HPL) is commonly used for medical reasons, and there are separate provisions for Maternity, Paternity, and special leave.",
+            "Exact entitlements and how much has accrued depend on your service category and years of service, and they are calculated by the system. Always go by the balance shown in your own e-Leave module rather than a general figure, and apply in advance for planned leave so your officer has time to approve it.",
+          ],
+        },
+        {
+          type: "section",
+          title: "e-File and note movement",
+          body: [
+            "Beyond leave, RajKaj runs the government's electronic files. Dak (incoming correspondence) is received, converted into or attached to a file, and moved with digital note-sheets from one officer to the next. Each action is time-stamped, so files are easier to trace than a physical folder that could sit forgotten on a desk.",
+            "If you are an officer or dealing hand, the File Tracking option shows where a file currently sits and its history. This is the RajKaj feature most people mean when they say a file is 'in the system'.",
+          ],
+        },
+        {
+          type: "table",
+          title: "Common RajKaj issues and fixes",
+          cols: ["Issue", "Cause", "Fix"],
+          rows: [
+            ["RajKaj tile not on SSO dashboard", "Employee not mapped to RajKaj", "Ask your department's RajKaj admin/nodal officer to map your account"],
+            ["Leave application not reaching an officer", "Reporting/controlling officer not set", "Contact your office admin to set your reporting officer in RajKaj"],
+            ["Login fails at SSO stage", "SSO password or account issue", "Reset via SSO Forgot Password; SSO login issues go to the SSO helpdesk, not RajKaj"],
+            ["Leave balance looks wrong", "Service data not updated", "Raise it with your DDO/establishment section to correct the service record"],
+            ["Page not loading / slow", "Heavy traffic or maintenance", "Try during off-peak hours and use an updated Chrome or Firefox"],
+          ],
+        },
+        {
+          type: "section",
+          title: "RajKaj vs PayManager — which one for what",
+          body: [
+            "People often mix these up because both are for government employees and both open through SSO. PayManager is for money — salary slips, GA-55, and pay details. RajKaj is for office workflow — leave, files, APAR, and service records. If you want a salary slip, that is PayManager; if you want to apply for leave, that is RajKaj.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "How do I apply for leave on RajKaj?", answer: "Log in at sso.rajasthan.gov.in, open the RajKaj tile, go to the e-Leave module, and click Apply Leave. Choose the leave type and dates, add a reason, attach any required document, and submit. The request goes to your reporting officer for approval." },
+        { question: "How do I access RajKaj?", answer: "RajKaj is accessed through your SSO ID. Log in to sso.rajasthan.gov.in and click the RajKaj tile on your dashboard. There is no separate RajKaj login." },
+        { question: "The RajKaj tile is not showing on my SSO dashboard. Why?", answer: "Your employee account has not been mapped to RajKaj yet. This is done by your department's RajKaj admin or nodal officer. Contact your office administrator to get your account added." },
+        { question: "How do I check my leave balance?", answer: "Open RajKaj through SSO, go to the e-Leave module, and select Leave Balance. Always rely on the balance shown there, since it reflects your actual service record." },
+        { question: "What is APAR in RajKaj?", answer: "APAR (Annual Performance Appraisal Report), earlier called ACR, is the yearly performance report for government employees. RajKaj lets employees and reporting officers fill and forward APAR digitally instead of on paper." },
+        { question: "Is RajKaj the same as PayManager?", answer: "No. RajKaj handles office workflow — leave, files, APAR, and service records. PayManager handles salary — pay slips, GA-55, and pay details. Both open through your SSO ID but are separate systems." },
+        { question: "Can I track where my file has reached in RajKaj?", answer: "Yes. The e-File / File Tracking option shows the current location of a file and its movement history, with each step time-stamped." },
+        { question: "I can't log in to RajKaj. What should I do?", answer: "RajKaj login goes through SSO, so a login failure is usually an SSO issue. Reset your password with SSO Forgot Password. For persistent SSO problems, contact the SSO helpdesk on 0141-5153222 rather than a RajKaj number." },
+      ],
+    },
+    hi: {
+      metaTitle:
+        "RajKaj राजस्थान 2026 — SSO Login, e-Leave और Integrated e-Office गाइड",
+      metaDescription:
+        "RajKaj (rajkaj.rajasthan.gov.in) गाइड — राजस्थान सरकारी कर्मचारियों के लिए SSO से login, छुट्टी आवेदन (e-Leave), file tracking (e-File), APAR, service book और GPF। 2026 अपडेटेड।",
+      h1: "RajKaj राजस्थान 2026 — SSO Login, e-Leave और Integrated e-Office",
+      intro:
+        "RajKaj राजस्थान सरकार का Integrated e-Office सिस्टम है — राज्य कर्मचारियों के लिए। छुट्टी आवेदन, file और note movement, APAR परफॉरमेंस रिपोर्ट, service book, GPF, और सरकारी आवास आवंटन सब इसी से चलते हैं, और यह सब आपकी SSO ID से खुलता है। अगर आप राजस्थान सरकार में काम करते हैं, तो आपका रोज़ का official काम RajKaj पर ही होता है।",
+      portalNote: "rajkaj.rajasthan.gov.in",
+      lastVerified: "2026-07-06",
+      blocks: [
+        {
+          type: "section",
+          title: "RajKaj का SSO ID से connection",
+          body: [
+            "RajKaj तक SSO ID से पहुँचा जाता है — अलग RajKaj registration नहीं होता। sso.rajasthan.gov.in पर login करें और dashboard पर RajKaj tile click करें।",
+            "अगर dashboard पर RajKaj tile नहीं दिख रही, तो आपका employee account अभी RajKaj से map नहीं हुआ है। यह mapping आपके विभाग का RajKaj admin या nodal officer करता है, आप खुद नहीं — जुड़ने के लिए office administrator से संपर्क करें।",
+          ],
+        },
+        {
+          type: "table",
+          title: "Quick reference",
+          cols: ["काम", "कहाँ जाएं"],
+          rows: [
+            ["छुट्टी के लिए आवेदन", "RajKaj → e-Leave → Apply Leave"],
+            ["Leave balance देखें", "RajKaj → e-Leave → Leave Balance"],
+            ["File / note track करें", "RajKaj → e-File → File Tracking"],
+            ["APAR / ACR", "RajKaj → APAR module"],
+            ["Service book", "RajKaj → Employee Service Book"],
+            ["GPF details", "RajKaj → GPF module"],
+            ["आवास आवंटन", "RajKaj → Estate / Allotment module"],
+          ],
+        },
+        {
+          type: "section",
+          title: "RajKaj क्या है?",
+          body: [
+            "RajKaj राजस्थान का Integrated e-Office है, जो सरकारी काम को कागज़ी फाइलों से digital workflow पर लाने के लिए बना है। डेस्क-दर-डेस्क घूमती physical note-sheets की जगह files, dak और approvals officers के बीच electronically चलते हैं।",
+            "आम कर्मचारी के लिए सबसे ज़्यादा use होने वाला हिस्सा e-Leave है — छुट्टी के लिए आवेदन और उसका online approval देखना। Officers के लिए RajKaj file noting, APAR और अंतर-विभागीय पत्राचार भी संभालता है। इसे सूचना प्रौद्योगिकी एवं संचार विभाग (DoIT&C) और RISL संभालते हैं।",
+          ],
+        },
+        {
+          type: "steps",
+          title: "RajKaj पर छुट्टी के लिए आवेदन कैसे करें (e-Leave)",
+          steps: [
+            { name: "SSO से login करें", text: "sso.rajasthan.gov.in पर login करें और RajKaj tile खोलें।" },
+            { name: "e-Leave खोलें", text: "RajKaj में e-Leave (Leave Management) module पर जाएं।" },
+            { name: "Apply Leave click करें", text: "नया leave request शुरू करने के लिए Apply Leave चुनें।" },
+            { name: "Leave type और dates चुनें", text: "Leave type (Casual, Earned, Half Pay आदि) चुनें, From और To dates डालें, और दिखाया गया balance जांचें।" },
+            { name: "कारण और attachment जोड़ें", text: "छुट्टी का कारण डालें और यदि leave type के लिए ज़रूरी हो तो supporting document (जैसे medical certificate) attach करें।" },
+            { name: "Approval के लिए submit करें", text: "आवेदन submit करें। यह आपके reporting/controlling officer के पास जाता है, जो approve या return करते हैं।" },
+            { name: "Status track करें", text: "e-Leave में वापस जाकर देखें कि request Pending, Approved या Rejected है।" },
+          ],
+        },
+        {
+          type: "section",
+          title: "e-Leave में दिखने वाले Leave types",
+          body: [
+            "Leave types राजस्थान सेवा नियमों के अनुसार होते हैं। Casual Leave (CL) छोटी अनुपस्थिति के लिए है और आमतौर पर अन्य leave के साथ या लंबे समय के लिए नहीं ली जा सकती। Earned Leave (EL), जिसे Privilege Leave भी कहते हैं, सेवा के साथ जमा होती है और लंबी नियोजित छुट्टी के लिए use होती है। Half Pay Leave (HPL) आमतौर पर चिकित्सा कारणों के लिए होती है, और Maternity, Paternity व special leave के अलग प्रावधान हैं।",
+            "सटीक हक़ और कितना जमा है यह आपकी सेवा श्रेणी और सेवा वर्षों पर निर्भर करता है और system द्वारा गणना होती है। हमेशा अपने e-Leave module में दिखाए गए balance के अनुसार चलें, और नियोजित छुट्टी के लिए पहले से आवेदन करें ताकि officer के पास approve करने का समय हो।",
+          ],
+        },
+        {
+          type: "section",
+          title: "e-File और note movement",
+          body: [
+            "छुट्टी के अलावा RajKaj सरकार की electronic files भी चलाता है। Dak (आने वाला पत्राचार) प्राप्त होकर किसी file में जुड़ता है और digital note-sheets के साथ एक officer से दूसरे तक जाता है। हर action time-stamped होता है, इसलिए physical फ़ोल्डर की तुलना में file को ट्रेस करना आसान होता है।",
+            "यदि आप officer या dealing hand हैं, तो File Tracking option दिखाता है कि file इस समय कहाँ है और उसका इतिहास क्या है। जब लोग कहते हैं कि file 'system में है', तो आमतौर पर इसी feature की बात होती है।",
+          ],
+        },
+        {
+          type: "table",
+          title: "RajKaj की सामान्य समस्याएं और हल",
+          cols: ["समस्या", "कारण", "हल"],
+          rows: [
+            ["SSO dashboard पर RajKaj tile नहीं दिख रही", "Employee RajKaj से map नहीं", "विभाग के RajKaj admin/nodal officer से account map करवाएं"],
+            ["Leave application किसी officer तक नहीं पहुँच रही", "Reporting/controlling officer set नहीं", "Office admin से RajKaj में अपना reporting officer set करवाएं"],
+            ["SSO स्तर पर login fail", "SSO password या account समस्या", "SSO Forgot Password से reset करें; SSO login समस्या SSO helpdesk पर, RajKaj पर नहीं"],
+            ["Leave balance गलत दिख रहा", "Service data update नहीं", "DDO/establishment section से service record ठीक करवाएं"],
+            ["Page load नहीं हो रहा / slow", "Heavy traffic या maintenance", "Off-peak समय में try करें और updated Chrome या Firefox use करें"],
+          ],
+        },
+        {
+          type: "section",
+          title: "RajKaj बनाम PayManager — किसके लिए कौन सा",
+          body: [
+            "लोग अक्सर इन्हें मिला देते हैं क्योंकि दोनों सरकारी कर्मचारियों के लिए हैं और दोनों SSO से खुलते हैं। PayManager पैसे के लिए है — salary slip, GA-55, और pay details। RajKaj office workflow के लिए है — छुट्टी, files, APAR, और service records। Salary slip चाहिए तो PayManager; छुट्टी के लिए आवेदन करना है तो RajKaj।",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "RajKaj पर छुट्टी के लिए आवेदन कैसे करें?", answer: "sso.rajasthan.gov.in पर login करें, RajKaj tile खोलें, e-Leave module पर जाएं और Apply Leave click करें। Leave type और dates चुनें, कारण डालें, ज़रूरी document attach करें और submit करें। Request आपके reporting officer के पास approval के लिए जाती है।" },
+        { question: "RajKaj कैसे access करें?", answer: "RajKaj आपकी SSO ID से access होता है। sso.rajasthan.gov.in पर login करें और dashboard पर RajKaj tile click करें। अलग RajKaj login नहीं होता।" },
+        { question: "SSO dashboard पर RajKaj tile क्यों नहीं दिख रही?", answer: "आपका employee account अभी RajKaj से map नहीं हुआ। यह विभाग का RajKaj admin या nodal officer करता है। जुड़ने के लिए office administrator से संपर्क करें।" },
+        { question: "अपना leave balance कैसे देखें?", answer: "SSO से RajKaj खोलें, e-Leave module पर जाएं और Leave Balance चुनें। हमेशा वहीं दिखाए गए balance पर भरोसा करें, क्योंकि वह आपके actual service record को दर्शाता है।" },
+        { question: "RajKaj में APAR क्या है?", answer: "APAR (Annual Performance Appraisal Report), पहले ACR कहलाता था, सरकारी कर्मचारियों की सालाना परफॉरमेंस रिपोर्ट है। RajKaj में कर्मचारी और reporting officer इसे कागज़ के बजाय digitally भरते और forward करते हैं।" },
+        { question: "क्या RajKaj और PayManager एक ही हैं?", answer: "नहीं। RajKaj office workflow संभालता है — छुट्टी, files, APAR, service records। PayManager salary संभालता है — pay slip, GA-55, pay details। दोनों SSO ID से खुलते हैं पर अलग systems हैं।" },
+        { question: "क्या मैं RajKaj में अपनी file की स्थिति track कर सकता हूँ?", answer: "हाँ। e-File / File Tracking option file की वर्तमान स्थिति और उसका movement इतिहास दिखाता है, हर चरण time-stamped के साथ।" },
+        { question: "RajKaj में login नहीं हो रहा। क्या करूँ?", answer: "RajKaj login SSO से होता है, इसलिए login fail आमतौर पर SSO समस्या है। SSO Forgot Password से password reset करें। लगातार SSO समस्या पर RajKaj नंबर के बजाय SSO helpdesk 0141-5153222 पर संपर्क करें।" },
+      ],
+    },
+  },
+  "jan-aadhaar": {
+    en: {
+      metaTitle:
+        "Jan Aadhaar Rajasthan 2026 — SSO Login, e-KYC, Update & Status Guide",
+      metaDescription:
+        "Jan Aadhaar guide — complete e-KYC, update income, mobile, bank or address, add a family member, and check enrolment status through your SSO ID. janaadhaar.rajasthan.gov.in. Updated 2026.",
+      h1: "Jan Aadhaar Rajasthan 2026 — SSO Login, e-KYC, Update & Status",
+      intro:
+        "Jan Aadhaar is Rajasthan's family identity system, the successor to Bhamashah. It gives each family a 10-digit Jan Aadhaar ID and every member an individual ID, and it is the record that dozens of state schemes check before they pay out. Chiranjeevi health insurance, scholarships, pensions, and many e-Mitra services all read your family and income details from Jan Aadhaar — and you manage all of it through your SSO ID.",
+      portalNote: "janaadhaar.rajasthan.gov.in",
+      lastVerified: "2026-07-06",
+      blocks: [
+        {
+          type: "section",
+          title: "How Jan Aadhaar connects to your SSO ID",
+          body: [
+            "You manage Jan Aadhaar through your SSO ID. Log in to sso.rajasthan.gov.in and open the Jan Aadhaar tile on your dashboard to reach enrolment, e-KYC, updates, and status.",
+            "Some quick tasks, like checking status, can also be done directly on janaadhaar.rajasthan.gov.in, but edits to your family record are done from inside the SSO-linked Jan Aadhaar section.",
+          ],
+        },
+        {
+          type: "table",
+          title: "Quick reference",
+          cols: ["Task", "Where to go"],
+          rows: [
+            ["Complete e-KYC", "SSO → Jan Aadhaar → e-KYC"],
+            ["Update income", "Jan Aadhaar → Edit → Income"],
+            ["Update mobile number", "Jan Aadhaar → Edit → Mobile"],
+            ["Update bank details", "Jan Aadhaar → Edit → Bank"],
+            ["Add a family member", "Jan Aadhaar → Add Member"],
+            ["Check enrolment / update status", "Jan Aadhaar → Enrolment Status"],
+          ],
+        },
+        {
+          type: "section",
+          title: "What is Jan Aadhaar?",
+          body: [
+            "Jan Aadhaar replaced the older Bhamashah scheme as Rajasthan's single family database. The family gets one 10-digit Jan Aadhaar number, and each member gets their own member ID linked to it. The head of the family holds the primary registration.",
+            "It matters because eligibility for welfare is checked against it. When you apply for a scholarship, a pension, Chiranjeevi cover, or many certificates, the portal pulls your family size, income, and member details straight from Jan Aadhaar. If that record is wrong or out of date, the application can fail — which is why keeping Jan Aadhaar current is worth the effort before a deadline, not after.",
+          ],
+        },
+        {
+          type: "steps",
+          title: "How to complete Jan Aadhaar e-KYC",
+          steps: [
+            { name: "Log in through SSO", text: "Sign in at sso.rajasthan.gov.in and open the Jan Aadhaar tile." },
+            { name: "Open the e-KYC option", text: "In the Jan Aadhaar section, select the e-KYC option." },
+            { name: "Select the member", text: "Choose the family member whose e-KYC you are completing." },
+            { name: "Verify with Aadhaar OTP", text: "An OTP goes to the Aadhaar-linked mobile number; enter it to authenticate that member." },
+            { name: "Repeat for each member", text: "Every family member above five years of age must complete e-KYC before other details can be edited." },
+          ],
+        },
+        {
+          type: "steps",
+          title: "How to update Jan Aadhaar details",
+          steps: [
+            { name: "Finish e-KYC first", text: "e-KYC is the mandatory first step; you cannot edit details until it is done." },
+            { name: "Open the edit option", text: "In the Jan Aadhaar section, choose the detail you want to change — income, bank, mobile, address, or a family member." },
+            { name: "Enter the new details", text: "Type the corrected information exactly as it appears on your supporting document." },
+            { name: "Upload the supporting document", text: "Attach a clear scan of the document required for that update type (see the table below)." },
+            { name: "Submit and wait for verification", text: "The request goes through a two-level verification that usually takes about 7 to 15 days." },
+          ],
+        },
+        {
+          type: "table",
+          title: "Documents required by update type",
+          cols: ["Update", "Document needed"],
+          rows: [
+            ["Income", "Self-declaration or income certificate"],
+            ["Bank details", "Bank passbook copy or a cancelled cheque"],
+            ["New family member", "Birth certificate and Aadhaar card"],
+            ["Marriage record", "Marriage certificate"],
+            ["Land / farmer details", "Jamabandi (land record)"],
+            ["Mobile number", "Aadhaar OTP verification of the member"],
+          ],
+        },
+        {
+          type: "section",
+          title: "How to check your enrolment or update status",
+          body: [
+            "Open the Enrolment Status option in your Jan Aadhaar dashboard to see where a request stands. A green checkmark means the update was approved. A red cross means it was rejected — usually because a scanned document was unclear — and you should re-upload a better copy and submit again.",
+            "You can also check status by entering your Jan Aadhaar or enrolment number on the official janaadhaar.rajasthan.gov.in portal. Keep the receipt or enrolment number you get after submitting; it is the quickest way to look up a pending request.",
+          ],
+        },
+        {
+          type: "table",
+          title: "Common Jan Aadhaar issues and fixes",
+          cols: ["Issue", "Cause", "Fix"],
+          rows: [
+            ["'Jan Aadhaar not found / data mismatch'", "Wrong number, or name does not match records", "Re-check the 10-digit family ID; if it still fails, verify at an e-Mitra centre"],
+            ["Mobile number not registered", "Old or unlinked number on the record", "Update the mobile via e-KYC, or do it at an e-Mitra centre with Aadhaar"],
+            ["e-KYC pending", "A member has not completed e-KYC", "Complete e-KYC for every member above five before editing details"],
+            ["A family member is not showing", "Member not yet added or linked", "Use Add Member with a birth certificate and Aadhaar, or visit an e-Mitra centre"],
+            ["Biometric / OTP e-KYC keeps failing", "Aadhaar mobile inactive or biometric mismatch", "Use the email/OTP route if available, otherwise complete it at an e-Mitra centre"],
+            ["Update rejected (red cross)", "Unclear or wrong document uploaded", "Re-upload a clear, correct scan and resubmit"],
+          ],
+        },
+        {
+          type: "section",
+          title: "A note on safety and cost",
+          body: [
+            "Enrolling in and updating Jan Aadhaar is free. An e-Mitra operator may charge a small government-set fee for assisted service or printouts, but never for the record itself. Never share your SSO password or an OTP with anyone, including someone who calls claiming to be from a helpline. RajSSO Guide is an independent guide and never asks for your SSO ID, password, or OTP.",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "How do I complete Jan Aadhaar e-KYC?", answer: "Log in at sso.rajasthan.gov.in, open the Jan Aadhaar tile, and select e-KYC. Choose the member, verify with the Aadhaar OTP sent to the linked mobile, and repeat for each member. Every family member above five years must complete e-KYC before other details can be edited." },
+        { question: "Is Jan Aadhaar required for scholarships?", answer: "Yes. Scholarship eligibility, including income and family details, is verified through Jan Aadhaar e-KYC. Your Jan Aadhaar record must be complete and up to date before you apply through the SSO scholarship portal." },
+        { question: "How do I update my mobile number in Jan Aadhaar?", answer: "Log in through SSO, open Jan Aadhaar, and choose the mobile update option. It is verified with an Aadhaar OTP. If the OTP cannot reach you because the old number is inactive, update it at an e-Mitra centre with your Aadhaar." },
+        { question: "How long does a Jan Aadhaar update take?", answer: "Updates usually take about 7 to 15 days because they go through a two-level verification. You can track the request under Enrolment Status in your dashboard." },
+        { question: "How do I check my Jan Aadhaar status?", answer: "Open the Enrolment Status option in your Jan Aadhaar dashboard, or enter your Jan Aadhaar or enrolment number on janaadhaar.rajasthan.gov.in. A green tick means approved; a red cross means rejected and needing resubmission." },
+        { question: "What is the difference between Jan Aadhaar and Aadhaar?", answer: "Aadhaar is the 12-digit national ID issued by UIDAI for an individual. Jan Aadhaar is Rajasthan's 10-digit family ID that links all family members and is used to check eligibility for state schemes. They are separate; Jan Aadhaar uses Aadhaar for e-KYC verification." },
+        { question: "Is creating or updating Jan Aadhaar free?", answer: "Yes. Enrolment and updates are free. An e-Mitra operator may charge a small government-set fee for assisted service or printouts, but never for the Jan Aadhaar record itself." },
+        { question: "A family member is not showing in my Jan Aadhaar. What do I do?", answer: "Use the Add Member option with the member's birth certificate and Aadhaar card, then complete their e-KYC. If it will not go through online, visit an e-Mitra centre with the documents to add the member to the family record." },
+      ],
+    },
+    hi: {
+      metaTitle:
+        "जन आधार राजस्थान 2026 — SSO Login, e-KYC, अपडेट और स्थिति गाइड",
+      metaDescription:
+        "जन आधार गाइड — SSO ID से e-KYC पूरा करें, आय, मोबाइल, बैंक या पता अपडेट करें, नया सदस्य जोड़ें और नामांकन स्थिति जांचें। janaadhaar.rajasthan.gov.in। 2026 अपडेटेड।",
+      h1: "जन आधार राजस्थान 2026 — SSO Login, e-KYC, अपडेट और स्थिति",
+      intro:
+        "जन आधार राजस्थान की परिवार पहचान प्रणाली है, जो भामाशाह की उत्तराधिकारी है। हर परिवार को 10-अंकीय जन आधार आईडी और हर सदस्य को अलग सदस्य आईडी मिलती है, और यही वह रिकॉर्ड है जिसे कई राज्य योजनाएं भुगतान से पहले जांचती हैं। चिरंजीवी स्वास्थ्य बीमा, छात्रवृत्ति, पेंशन और कई ई-मित्र सेवाएं आपके परिवार और आय विवरण जन आधार से पढ़ती हैं — और यह सब आप अपनी SSO ID से प्रबंधित करते हैं।",
+      portalNote: "janaadhaar.rajasthan.gov.in",
+      lastVerified: "2026-07-06",
+      blocks: [
+        {
+          type: "section",
+          title: "जन आधार का SSO ID से connection",
+          body: [
+            "जन आधार आप अपनी SSO ID से प्रबंधित करते हैं। sso.rajasthan.gov.in पर login करें और dashboard पर जन आधार tile खोलें — नामांकन, e-KYC, अपडेट और स्थिति यहीं मिलते हैं।",
+            "स्थिति जांचने जैसे कुछ त्वरित काम janaadhaar.rajasthan.gov.in पर सीधे भी हो सकते हैं, पर परिवार रिकॉर्ड में बदलाव SSO से जुड़े जन आधार सेक्शन से ही किए जाते हैं।",
+          ],
+        },
+        {
+          type: "table",
+          title: "Quick reference",
+          cols: ["काम", "कहाँ जाएं"],
+          rows: [
+            ["e-KYC पूरा करें", "SSO → जन आधार → e-KYC"],
+            ["आय अपडेट करें", "जन आधार → Edit → Income"],
+            ["मोबाइल नंबर अपडेट करें", "जन आधार → Edit → Mobile"],
+            ["बैंक विवरण अपडेट करें", "जन आधार → Edit → Bank"],
+            ["नया सदस्य जोड़ें", "जन आधार → Add Member"],
+            ["नामांकन / अपडेट स्थिति जांचें", "जन आधार → Enrolment Status"],
+          ],
+        },
+        {
+          type: "section",
+          title: "जन आधार क्या है?",
+          body: [
+            "जन आधार ने राजस्थान की एकल परिवार डेटाबेस के रूप में पुरानी भामाशाह योजना की जगह ली। परिवार को एक 10-अंकीय जन आधार नंबर मिलता है, और हर सदस्य को उससे जुड़ी अपनी सदस्य आईडी। मुख्य पंजीकरण परिवार के मुखिया के पास होता है।",
+            "यह इसलिए महत्वपूर्ण है क्योंकि कल्याणकारी योजनाओं की पात्रता इसी से जांची जाती है। जब आप छात्रवृत्ति, पेंशन, चिरंजीवी या कई प्रमाण पत्रों के लिए आवेदन करते हैं, तो पोर्टल आपका परिवार आकार, आय और सदस्य विवरण सीधे जन आधार से लेता है। रिकॉर्ड गलत या पुराना हो तो आवेदन fail हो सकता है — इसलिए जन आधार को अंतिम तिथि के बाद नहीं, पहले अद्यतन रखना समझदारी है।",
+          ],
+        },
+        {
+          type: "steps",
+          title: "जन आधार e-KYC कैसे पूरा करें",
+          steps: [
+            { name: "SSO से login करें", text: "sso.rajasthan.gov.in पर login करें और जन आधार tile खोलें।" },
+            { name: "e-KYC option खोलें", text: "जन आधार सेक्शन में e-KYC option चुनें।" },
+            { name: "सदस्य चुनें", text: "जिस सदस्य का e-KYC कर रहे हैं उसे चुनें।" },
+            { name: "Aadhaar OTP से verify करें", text: "आधार से जुड़े मोबाइल पर OTP आता है; उस सदस्य को authenticate करने के लिए इसे डालें।" },
+            { name: "हर सदस्य के लिए दोहराएं", text: "अन्य विवरण edit करने से पहले पाँच वर्ष से ऊपर के हर सदस्य को e-KYC पूरा करना होता है।" },
+          ],
+        },
+        {
+          type: "steps",
+          title: "जन आधार विवरण कैसे अपडेट करें",
+          steps: [
+            { name: "पहले e-KYC पूरा करें", text: "e-KYC अनिवार्य पहला चरण है; जब तक यह न हो, विवरण edit नहीं होंगे।" },
+            { name: "Edit option खोलें", text: "जन आधार सेक्शन में जो विवरण बदलना है चुनें — आय, बैंक, मोबाइल, पता, या परिवार सदस्य।" },
+            { name: "नया विवरण डालें", text: "supporting document पर जैसा लिखा है वैसा ही सही विवरण डालें।" },
+            { name: "supporting document अपलोड करें", text: "उस update type के लिए ज़रूरी document का स्पष्ट स्कैन attach करें (नीचे तालिका देखें)।" },
+            { name: "submit कर verification का इंतज़ार करें", text: "अनुरोध दो-स्तरीय verification से गुज़रता है, जो आमतौर पर 7 से 15 दिन लेता है।" },
+          ],
+        },
+        {
+          type: "table",
+          title: "update type अनुसार आवश्यक दस्तावेज़",
+          cols: ["Update", "आवश्यक दस्तावेज़"],
+          rows: [
+            ["आय", "स्व-घोषणा या आय प्रमाण पत्र"],
+            ["बैंक विवरण", "बैंक पासबुक कॉपी या रद्द चेक"],
+            ["नया परिवार सदस्य", "जन्म प्रमाण पत्र और आधार कार्ड"],
+            ["विवाह रिकॉर्ड", "विवाह प्रमाण पत्र"],
+            ["भूमि / किसान विवरण", "जमाबंदी (भूमि रिकॉर्ड)"],
+            ["मोबाइल नंबर", "सदस्य का Aadhaar OTP सत्यापन"],
+          ],
+        },
+        {
+          type: "section",
+          title: "नामांकन या अपडेट स्थिति कैसे जांचें",
+          body: [
+            "अपने जन आधार dashboard में Enrolment Status option खोलें और देखें कि अनुरोध कहाँ है। हरा checkmark का अर्थ है अपडेट स्वीकृत। लाल क्रॉस का अर्थ है अस्वीकृत — आमतौर पर स्कैन दस्तावेज़ अस्पष्ट होने से — और आपको बेहतर कॉपी फिर से अपलोड कर दोबारा submit करना चाहिए।",
+            "आप janaadhaar.rajasthan.gov.in पर अपना जन आधार या नामांकन नंबर डालकर भी स्थिति जांच सकते हैं। submit के बाद मिली रसीद या नामांकन संख्या संभाल कर रखें; लंबित अनुरोध देखने का यह सबसे तेज़ तरीका है।",
+          ],
+        },
+        {
+          type: "table",
+          title: "जन आधार की सामान्य समस्याएं और हल",
+          cols: ["समस्या", "कारण", "हल"],
+          rows: [
+            ["'Jan Aadhaar not found / data mismatch'", "गलत नंबर, या नाम रिकॉर्ड से मेल नहीं", "10-अंकीय family ID दोबारा जांचें; फिर भी न हो तो ई-मित्र केंद्र पर सत्यापित करें"],
+            ["मोबाइल नंबर registered नहीं", "रिकॉर्ड पर पुराना या unlinked नंबर", "e-KYC से मोबाइल update करें, या आधार के साथ ई-मित्र केंद्र पर करें"],
+            ["e-KYC pending", "किसी सदस्य ने e-KYC पूरा नहीं किया", "विवरण edit करने से पहले पाँच वर्ष से ऊपर हर सदस्य का e-KYC पूरा करें"],
+            ["कोई परिवार सदस्य नहीं दिख रहा", "सदस्य अभी जोड़ा/लिंक नहीं", "जन्म प्रमाण पत्र और आधार के साथ Add Member use करें, या ई-मित्र केंद्र जाएं"],
+            ["Biometric / OTP e-KYC बार-बार fail", "आधार मोबाइल निष्क्रिय या biometric mismatch", "उपलब्ध हो तो email/OTP route use करें, वरना ई-मित्र केंद्र पर पूरा करें"],
+            ["Update अस्वीकृत (लाल क्रॉस)", "अस्पष्ट या गलत दस्तावेज़ अपलोड", "स्पष्ट, सही स्कैन फिर से अपलोड कर दोबारा submit करें"],
+          ],
+        },
+        {
+          type: "section",
+          title: "सुरक्षा और शुल्क पर एक बात",
+          body: [
+            "जन आधार में नामांकन और अपडेट मुफ़्त है। ई-मित्र संचालक सहायता या प्रिंटआउट के लिए सरकार द्वारा तय छोटा शुल्क ले सकते हैं, पर रिकॉर्ड के लिए कभी नहीं। अपना SSO password या OTP किसी को न दें, चाहे कोई helpline से होने का दावा करके कॉल करे। RajSSO Guide एक स्वतंत्र गाइड है और कभी आपकी SSO ID, password या OTP नहीं मांगता।",
+          ],
+        },
+      ],
+      faqs: [
+        { question: "जन आधार e-KYC कैसे पूरा करें?", answer: "sso.rajasthan.gov.in पर login करें, जन आधार tile खोलें और e-KYC चुनें। सदस्य चुनें, linked मोबाइल पर आए Aadhaar OTP से verify करें, और हर सदस्य के लिए दोहराएं। अन्य विवरण edit करने से पहले पाँच वर्ष से ऊपर हर सदस्य का e-KYC ज़रूरी है।" },
+        { question: "क्या छात्रवृत्ति के लिए जन आधार जरूरी है?", answer: "हाँ। छात्रवृत्ति पात्रता, आय और परिवार विवरण सहित, जन आधार e-KYC से सत्यापित होती है। SSO छात्रवृत्ति पोर्टल से आवेदन से पहले आपका जन आधार रिकॉर्ड पूर्ण और अद्यतन होना चाहिए।" },
+        { question: "जन आधार में मोबाइल नंबर कैसे अपडेट करें?", answer: "SSO से login कर जन आधार खोलें और मोबाइल update option चुनें। यह Aadhaar OTP से verify होता है। पुराना नंबर निष्क्रिय होने से OTP न पहुँचे तो आधार के साथ ई-मित्र केंद्र पर update करें।" },
+        { question: "जन आधार अपडेट में कितना समय लगता है?", answer: "अपडेट आमतौर पर 7 से 15 दिन लेते हैं क्योंकि वे दो-स्तरीय verification से गुज़रते हैं। आप dashboard में Enrolment Status के तहत अनुरोध track कर सकते हैं।" },
+        { question: "जन आधार स्थिति कैसे जांचें?", answer: "अपने जन आधार dashboard में Enrolment Status option खोलें, या janaadhaar.rajasthan.gov.in पर अपना जन आधार या नामांकन नंबर डालें। हरा टिक स्वीकृत; लाल क्रॉस अस्वीकृत और दोबारा submit की ज़रूरत।" },
+        { question: "जन आधार और आधार में क्या फर्क है?", answer: "आधार UIDAI द्वारा व्यक्ति के लिए जारी 12-अंकीय राष्ट्रीय पहचान है। जन आधार राजस्थान की 10-अंकीय परिवार आईडी है जो सभी सदस्यों को जोड़ती है और राज्य योजनाओं की पात्रता जांचने में उपयोग होती है। दोनों अलग हैं; जन आधार e-KYC सत्यापन के लिए आधार का उपयोग करता है।" },
+        { question: "क्या जन आधार बनाना या अपडेट करना मुफ़्त है?", answer: "हाँ। नामांकन और अपडेट मुफ़्त हैं। ई-मित्र संचालक सहायता या प्रिंटआउट के लिए सरकार द्वारा तय छोटा शुल्क ले सकते हैं, पर जन आधार रिकॉर्ड के लिए कभी नहीं।" },
+        { question: "मेरे जन आधार में कोई परिवार सदस्य नहीं दिख रहा। क्या करूँ?", answer: "सदस्य के जन्म प्रमाण पत्र और आधार कार्ड के साथ Add Member option use करें, फिर उनका e-KYC पूरा करें। online न हो तो दस्तावेज़ों के साथ ई-मित्र केंद्र जाकर सदस्य को परिवार रिकॉर्ड में जोड़ें।" },
+      ],
+    },
+  },
 };
 
 export function getServiceContent(slug: string, locale: Locale): ServiceRich | undefined {

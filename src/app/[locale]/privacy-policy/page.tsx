@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { canonicalFor, alternates } from "@/lib/schema";
+import { canonicalFor, alternates, buildGraph, webPageSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 
 type Props = {
@@ -40,11 +41,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PrivacyPolicyPage({ params }: Props) {
   const { locale } = await params;
 
-  if (locale === "hi") {
-    return <PrivacyPolicyHindi />;
-  }
+  const graph = buildGraph([
+    webPageSchema({
+      name: locale === "hi" ? "गोपनीयता नीति" : "Privacy Policy",
+      description:
+        locale === "hi"
+          ? "RajSSO Guide की गोपनीयता नीति — हम आपकी जानकारी कैसे एकत्र, उपयोग और सुरक्षित करते हैं।"
+          : "Privacy Policy for RajSSO Guide — how we collect, use, and protect your information.",
+      path: `/${locale}/privacy-policy`,
+      locale,
+      datePublished: "2026-06-13",
+      dateModified: "2026-06-13",
+    }),
+  ]);
 
-  return <PrivacyPolicyEnglish />;
+  return (
+    <>
+      <JsonLd data={graph} />
+      {locale === "hi" ? <PrivacyPolicyHindi /> : <PrivacyPolicyEnglish />}
+    </>
+  );
 }
 
 function PrivacyPolicyEnglish() {
@@ -231,7 +247,10 @@ function PrivacyPolicyEnglish() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              Email: <a href="mailto:contact@rajssoidguide.in" className="text-amber-700 underline">contact@rajssoidguide.in</a>
+              Privacy / data requests: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
+            </p>
+            <p className="text-zinc-700 mb-2">
+              Grievance Officer (India IT Rules 2021): <a href="mailto:grievance@rajssoidguide.in" className="text-amber-700 underline">grievance@rajssoidguide.in</a>
             </p>
             <p className="text-zinc-700">
               Website: <a href="https://rajssoidguide.in" className="text-amber-700 underline">rajssoidguide.in</a>
@@ -444,7 +463,10 @@ function PrivacyPolicyHindi() {
               <strong>RajSSO Guide</strong>
             </p>
             <p className="text-zinc-700 mb-2">
-              ईमेल: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
+              गोपनीयता / डेटा अनुरोध: <a href="mailto:privacy@rajssoidguide.in" className="text-amber-700 underline">privacy@rajssoidguide.in</a>
+            </p>
+            <p className="text-zinc-700 mb-2">
+              शिकायत अधिकारी (India IT Rules 2021): <a href="mailto:grievance@rajssoidguide.in" className="text-amber-700 underline">grievance@rajssoidguide.in</a>
             </p>
             <p className="text-zinc-700">
               वेबसाइट: <a href="https://rajssoidguide.in" className="text-amber-700 underline">rajssoidguide.in</a>

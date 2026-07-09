@@ -76,6 +76,8 @@ flowchart TB
 | 13 | [[13 - Changelog]] | Record of the June 2026 SEO/GEO upgrades | `#changelog` |
 | 14 | [[14 - Glossary]] | SSO + project terminology | `#glossary` |
 | 15 | [[15 - Page Flow and Low-Level Detail]] | Visitor's view: URL structure, site map, and user journeys | `#pages` |
+| 16 | [[16 - 30-Day SEO and Authority Roadmap]] | Day-by-day plan: DR 0→10, long-tail rankings, AI citations | `#seo` `#growth` |
+| 17 | [[17 - Directory Submissions and Listing Assets]] | Per-platform, SEO-optimised listing copy + backlink tracker | `#seo` `#link-building` |
 
 ---
 
@@ -86,6 +88,9 @@ flowchart TB
 
 > [!example]- Content editor / SEO
 > [[05 - Content Inventory]] → [[06 - SEO and Structured Data]] → [[10 - Content Playbook]] → [[12 - Roadmap and Improvements]]
+
+> [!example]- Grow traffic & authority (30-day sprint)
+> [[16 - 30-Day SEO and Authority Roadmap]] → [[17 - Directory Submissions and Listing Assets]] → [[06 - SEO and Structured Data]] → [[10 - Content Playbook]]
 
 > [!example]- Ship it today
 > [[08 - Cloudflare Deployment]] → [[07 - Security and Performance]] → [[13 - Changelog]]
@@ -105,10 +110,10 @@ flowchart TB
 | **Worker name** | `rajssoguide` → `rajssoguide.devxkamlesh.workers.dev` |
 | **Custom domain** | `rajssoidguide.in` |
 | **Locales** | `/en` (default) + `/hi`, `x-default → /en` |
-| **Pages** | ~108 static routes (~54 per language) |
+| **Pages** | ~122 static routes (~61 per language) |
 | **Middleware** | `src/middleware.ts` sets `x-locale`; prefixing via `next.config.ts` `redirects()` |
 | **Analytics** | Google Analytics `G-RYT943398Y` (lazy-loaded) |
-| **Data** | 3 exams · 3 services · 5 scholarships · 12 cities · 4 guides · 6 tools · 3 errors |
+| **Data** | 3 exams · 3 services · 5 scholarships · 12 cities · 6 guides · 6 tools · 6 errors |
 
 > [!warning] Ongoing accuracy duty
 > Exam dates/fees, scholarship income limits, and the updates feed are **realistic values that must be re-verified** against official notifications. See [[12 - Roadmap and Improvements#1. Correctness and trust]].

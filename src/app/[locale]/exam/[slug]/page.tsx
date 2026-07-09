@@ -13,6 +13,7 @@ import {
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -30,14 +31,19 @@ export async function generateMetadata({
   const e = getExam(slug);
   if (!e || !isLocale(locale)) return {};
   const title = `${e.fullName[locale]} — SSO ID & OTR`;
+  const description =
+    locale === "hi"
+      ? `${e.fullName[locale]} के लिए राजस्थान एसएसओ पोर्टल से आवेदन — वन-टाइम रजिस्ट्रेशन (OTR), शुल्क और चरण-दर-चरण गाइड।`
+      : `Apply for ${e.fullName[locale]} through the Rajasthan SSO portal — One-Time Registration (OTR), fees, and a step-by-step guide.`;
   return {
     title,
-    description: e.fullName[locale],
+    description,
     keywords: e.keywords,
     alternates: {
       canonical: canonicalFor(locale, `/exam/${slug}`),
       ...alternates(`/exam/${slug}`),
     },
+    ...socialMeta({ locale, title, description, path: `/exam/${slug}`, type: "article" }),
   };
 }
 

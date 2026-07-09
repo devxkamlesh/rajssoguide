@@ -4,15 +4,19 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RelatedLinks } from "@/components/RelatedLinks";
+import { FaqSection } from "@/components/FaqSection";
 import { cities, getCity } from "@/lib/content";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
-import { cityBody } from "@/lib/pageContent";
+import { reviewed } from "@/lib/reviewed";
+import { cityBody, cityFaqs } from "@/lib/pageContent";
 import { relatedForCity } from "@/lib/related";
 import {
   alternates,
   breadcrumbSchema,
   buildGraph,
   canonicalFor,
+  faqSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -29,14 +33,20 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const c = getCity(slug);
   if (!c || !isLocale(locale)) return {};
+  const description =
+    locale === "hi"
+      ? `${c.name[locale]} (${c.region[locale]}, राजस्थान) में एसएसओ आईडी लॉगिन, नया रजिस्ट्रेशन, भूली हुई आईडी रिकवरी और ई-मित्र केंद्र की मदद। एसएसओ आईडी बनाना मुफ़्त है।`
+      : `SSO ID help for ${c.name[locale]}, ${c.region[locale]} Rajasthan — login, new registration, forgot-ID recovery, and finding e-Mitra centres. Creating an SSO ID is free.`;
+  const title = `SSO ID ${c.name[locale]} — Login, Registration & e-Mitra`;
   return {
-    title: `SSO ID ${c.name[locale]} — Login, Registration & e-Mitra`,
-    description: c.keywords.join(", "),
+    title,
+    description,
     keywords: c.keywords,
     alternates: {
       canonical: canonicalFor(locale, `/city/${slug}`),
       ...alternates(`/city/${slug}`),
     },
+    ...socialMeta({ locale, title, description, path: `/city/${slug}` }),
   };
 }
 
@@ -53,12 +63,14 @@ export default async function CityPage({
   const t = getDictionary(loc);
   const base = `/${loc}`;
 
+  const faqs = cityFaqs(c, loc);
   const graph = buildGraph([
     breadcrumbSchema([
       { name: t.common.home, path: base },
       { name: t.nav.cities, path: `${base}/cities` },
       { name: c.name[loc], path: `${base}/city/${slug}` },
     ]),
+    faqSchema(faqs),
   ]);
 
   return (
@@ -78,6 +90,9 @@ export default async function CityPage({
         {loc === "hi"
           ? `${c.name[loc]} (${c.knownFor[loc]}) में एसएसओ आईडी लॉगिन, रजिस्ट्रेशन और ई-मित्र सेवाओं की जानकारी।`
           : `SSO ID login, registration and e-Mitra service help for ${c.name[loc]} — ${c.knownFor[loc]}.`}
+      </p>
+      <p className="mt-2 text-sm text-zinc-500">
+        {t.common.lastVerified}: {reviewed.cities}
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
         <Link
@@ -99,6 +114,8 @@ export default async function CityPage({
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      <FaqSection title={t.common.faqTitle} faqs={faqs} />
 
       <RelatedLinks title={t.common.related} links={relatedForCity(loc)} />
     </article>

@@ -18,6 +18,8 @@ export function Footer({ locale }: { locale: Locale }) {
         { label: t.nav.registration, href: `${base}/sso-id-registration` },
         { label: t.nav.forgot, href: `${base}/forgot-sso-id` },
         { label: hi ? "मर्ज SSO ID" : "Merge SSO ID", href: `${base}/merge-sso-id` },
+        { label: hi ? "SSO हेल्पडेस्क" : "SSO Helpdesk", href: `${base}/sso-id-helpdesk` },
+        { label: hi ? "SSO आईडी पोर्टल" : "SSO ID Portal", href: `${base}/sso-id-portal` },
         { label: hi ? "सभी गाइड्स" : "All Guides", href: `${base}/guides` },
       ],
     },
@@ -36,6 +38,7 @@ export function Footer({ locale }: { locale: Locale }) {
       title: hi ? "मदद व जानकारी" : "Help & Info",
       links: [
         { label: t.nav.updates, href: `${base}/updates` },
+        { label: hi ? "चेंजलॉग" : "Changelog", href: `${base}/changelog` },
         { label: hi ? "हमारे बारे में" : "About", href: `${base}/about` },
         { label: hi ? "संपर्क करें" : "Contact", href: `${base}/contact` },
         { label: hi ? "गोपनीयता नीति" : "Privacy Policy", href: `${base}/privacy-policy` },

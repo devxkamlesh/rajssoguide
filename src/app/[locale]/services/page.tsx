@@ -7,6 +7,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { ImportantLinks } from "@/components/ImportantLinks";
 import { services } from "@/lib/content";
 import { servicesHub as sh, servicesLong } from "@/data/servicesHub";
+import { draftServiceGroups, draftServicePriorityCount } from "@/data/draftServices";
 import { importantLinksForService } from "@/lib/related";
 import { site } from "@/lib/site";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
@@ -17,6 +18,7 @@ import {
   canonicalFor,
   faqSchema,
   itemListSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -37,6 +39,12 @@ export async function generateMetadata({
       canonical: canonicalFor(locale, "/services"),
       ...alternates("/services"),
     },
+    ...socialMeta({
+      locale,
+      title: sh.metaTitle[locale],
+      description: sh.metaDescription[locale],
+      path: "/services",
+    }),
   };
 }
 
@@ -325,6 +333,53 @@ export default async function ServicesHub({
         title={loc === "hi" ? "महत्वपूर्ण लिंक" : "Important Links"}
         rows={importantLinksForService(loc)}
       />
+
+      {/* ponytail: DRAFT — dev-only. NODE_ENV is "production" during `next build`
+          and on Cloudflare, so this never ships to prod or Google. Lets the
+          editor review candidate service pages before they are built. */}
+      {process.env.NODE_ENV !== "production" && (
+        <section className="mt-14 rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50/40 p-6">
+          <p className="mb-1 text-xs font-bold uppercase tracking-wide text-amber-700">
+            {loc === "hi"
+              ? "ड्राफ्ट — केवल पूर्वावलोकन (Google पर प्रकाशित नहीं)"
+              : "Draft — preview only (not published to Google)"}
+          </p>
+          <h2 className="text-xl font-semibold tracking-tight">
+            {loc === "hi" ? "जोड़ने के लिए और सेवाएं" : "More services to add"}
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+            {loc === "hi"
+              ? `SSO और ई-मित्र से जुड़ी सेवाओं की योजना सूची। ⭐ = पहले बनाने योग्य प्राथमिकता पेज (${draftServicePriorityCount})। यह खंड केवल dev में दिखता है, production/Google में नहीं। असली पेज /service/[slug] रूट पर बनेंगे।`
+              : `A planning list of SSO and e-Mitra services. ⭐ = priority pages to build first (${draftServicePriorityCount}). This block shows in dev only, not in production/Google. Real pages will live at the /service/[slug] route.`}
+          </p>
+          <div className="mt-5 space-y-8">
+            {draftServiceGroups.map((group) => (
+              <div key={group.category}>
+                <h3 className="text-base font-semibold text-zinc-900">
+                  {group.category}{" "}
+                  <span className="text-xs font-normal text-zinc-500">
+                    ({group.items.length})
+                  </span>
+                </h3>
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.items.map((s) => (
+                    <li
+                      key={s.slug}
+                      className="flex items-center gap-2 rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm"
+                    >
+                      {s.priority && <span aria-hidden>⭐</span>}
+                      <span className="font-medium text-zinc-800">{s.name}</span>
+                      <code className="ml-auto text-xs text-zinc-400">
+                        /service/{s.slug}
+                      </code>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <p className="mt-10 text-center text-sm text-zinc-500">
         {t.common.officialPortalNote}{" "}

@@ -9,6 +9,7 @@ import { ShareWhatsApp } from "@/components/ShareWhatsApp";
 import { guides, getGuide } from "@/data/guides";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { relatedForGuide, importantLinksForGuide } from "@/lib/related";
+import { site } from "@/lib/site";
 import {
   alternates,
   articleSchema,
@@ -17,6 +18,7 @@ import {
   canonicalFor,
   faqSchema,
   howToSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -33,13 +35,16 @@ export async function generateMetadata({
   const { locale, guide } = await params;
   const g = getGuide(guide);
   if (!g || !isLocale(locale)) return {};
+  const title = g.metaTitle?.[locale] ?? g.title[locale];
+  const description = g.metaDescription?.[locale] ?? g.intro[locale];
   return {
-    title: g.metaTitle?.[locale] ?? g.title[locale],
-    description: g.metaDescription?.[locale] ?? g.intro[locale],
+    title,
+    description,
     alternates: {
       canonical: canonicalFor(locale, `/${guide}`),
       ...alternates(`/${guide}`),
     },
+    ...socialMeta({ locale, title, description, path: `/${guide}`, type: "article" }),
   };
 }
 
@@ -84,7 +89,11 @@ export default async function GuidePage({
           { name: g.title[loc] },
         ]}
       />
-      <GuideArticle guide={g} locale={loc} />
+      <GuideArticle
+        guide={g}
+        locale={loc}
+        portalUrl={guide === "sso-id-login" ? site.officialSignin : undefined}
+      />
       <div className="mt-6">
         <ShareWhatsApp
           path={`${base}/${guide}`}

@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { FaqSection } from "@/components/FaqSection";
 import { LatestUpdates } from "@/components/LatestUpdates";
 import { ShareBar } from "@/components/ShareBar";
-import { exams, services, cities, scholarships } from "@/lib/content";
+import { exams, services, cities, scholarships, errors } from "@/lib/content";
 import { homeContent } from "@/data/home";
 import { homeMeta } from "@/data/homeMeta";
 import { homeGuide as g } from "@/data/homeGuide";
@@ -50,7 +50,9 @@ export async function generateMetadata({
       ? [
           "SSO ID",
           "SSO ID लॉगिन",
+          "SSO ID पोर्टल",
           "SSOID",
+          "RajSSO",
           "SSO पोर्टल राजस्थान",
           "राजस्थान सिंगल साइन ऑन",
           "sso.rajasthan.gov.in",
@@ -58,7 +60,9 @@ export async function generateMetadata({
       : [
           "SSO ID",
           "SSO ID Login",
+          "SSO ID Portal",
           "SSOID",
+          "RajSSO",
           "SSO Portal Rajasthan",
           "Rajasthan Single Sign On",
           "sso.rajasthan.gov.in",
@@ -96,7 +100,7 @@ export async function generateMetadata({
       creator: ATTRIBUTION.handle,
     },
     other: {
-      "article:author": ATTRIBUTION.linkedin,
+      "article:author": ATTRIBUTION.url,
       "article:published_time": homeMeta.published,
       "article:modified_time": homeMeta.modified,
       "article:section": isHi ? "सरकारी सेवाएं" : "Government Services",
@@ -180,7 +184,7 @@ export default async function Home({
           <span>
             {homeMeta.byPrefix[loc]}{" "}
             <a
-              href={ATTRIBUTION.linkedin}
+              href={ATTRIBUTION.url}
               target="_blank"
               rel="author noopener"
               className="font-semibold text-zinc-700 hover:text-amber-700"
@@ -782,6 +786,24 @@ export default async function Home({
             </tbody>
           </table>
         </div>
+
+        {/* Detailed error-fix guides — internal links to error pages */}
+        <div className="mt-5">
+          <h3 className="text-sm font-semibold text-zinc-900">
+            {loc === "hi" ? "विस्तृत समाधान गाइड" : "Step-by-step fixes"}
+          </h3>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {errors.map((e) => (
+              <Link
+                key={e.slug}
+                href={`${base}/error/${e.slug}`}
+                className="rounded-full border border-zinc-200 px-3 py-1.5 text-sm text-zinc-700 hover:border-amber-500 hover:text-amber-700"
+              >
+                {e.title[loc]}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Mobile app */}
@@ -900,7 +922,7 @@ export default async function Home({
           <p>
             {homeMeta.authorBioPrefix[loc]}{" "}
             <a
-              href={ATTRIBUTION.linkedin}
+              href={ATTRIBUTION.url}
               target="_blank"
               rel="author noopener"
               className="font-semibold text-zinc-800 hover:text-amber-700"
@@ -911,8 +933,8 @@ export default async function Home({
             {homeMeta.authorBio[loc].split("—")[1]?.trim() ?? homeMeta.authorBio[loc]}
           </p>
           <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-            <a href={ATTRIBUTION.linkedin} target="_blank" rel="noopener" className="text-amber-700 hover:underline">
-              LinkedIn
+            <a href={ATTRIBUTION.github} target="_blank" rel="noopener" className="text-amber-700 hover:underline">
+              GitHub
             </a>
             <span aria-hidden className="text-zinc-300">·</span>
             <a href={ATTRIBUTION.url} target="_blank" rel="noopener" className="text-amber-700 hover:underline">

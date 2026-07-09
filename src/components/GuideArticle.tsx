@@ -7,12 +7,17 @@ import { HowToSection } from "./HowToSection";
 export function GuideArticle({
   guide,
   locale,
+  portalUrl,
 }: {
   guide: Guide;
   locale: Locale;
+  /** CTA target for the top "Visit Portal" button. Defaults to the portal home;
+   *  the SSO login guide passes the direct /signin page. */
+  portalUrl?: string;
 }) {
   const t = getDictionary(locale);
   const portalHost = site.officialPortal.replace("https://", "");
+  const ctaUrl = portalUrl ?? site.officialPortal;
 
   return (
     <article>
@@ -25,7 +30,7 @@ export function GuideArticle({
           <p className="text-sm font-semibold text-zinc-800">{portalHost}</p>
         </div>
         <a
-          href={site.officialPortal}
+          href={ctaUrl}
           target="_blank"
           rel="noopener"
           className="rounded-full bg-amber-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-amber-800"

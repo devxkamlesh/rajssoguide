@@ -12,6 +12,7 @@ import {
   canonicalFor,
   organizationSchema,
   personSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 const copy = {
@@ -73,6 +74,12 @@ export async function generateMetadata({
       canonical: canonicalFor(locale, "/about"),
       ...alternates("/about"),
     },
+    ...socialMeta({
+      locale,
+      title: copy[locale].title,
+      description: copy[locale].intro,
+      path: "/about",
+    }),
   };
 }
 
@@ -111,8 +118,8 @@ export default async function AboutPage({
           {ATTRIBUTION.url.replace("https://", "")}
         </a>
         {"  ·  "}
-        <a href={ATTRIBUTION.linkedin} target="_blank" rel="noopener" className="text-amber-700 underline">
-          LinkedIn ({ATTRIBUTION.handle})
+        <a href={ATTRIBUTION.url} target="_blank" rel="noopener" className="text-amber-700 underline">
+          devxkamlesh.com
         </a>
       </p>
 

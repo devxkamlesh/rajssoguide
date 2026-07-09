@@ -11,6 +11,7 @@ import {
   buildGraph,
   canonicalFor,
   organizationSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -24,16 +25,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const title = locale === "hi" ? "संपर्क करें — RajSSO Guide" : "Contact Us — RajSSO Guide";
+  const description =
+    locale === "hi"
+      ? "RajSSO Guide संपादकीय टीम से संपर्क करें या किसी गलत जानकारी की रिपोर्ट करें।"
+      : "Contact the RajSSO Guide editorial team or report incorrect information.";
   return {
-    title: locale === "hi" ? "संपर्क करें — RajSSO Guide" : "Contact Us — RajSSO Guide",
-    description:
-      locale === "hi"
-        ? "RajSSO Guide संपादकीय टीम से संपर्क करें या किसी गलत जानकारी की रिपोर्ट करें।"
-        : "Contact the RajSSO Guide editorial team or report incorrect information.",
+    title,
+    description,
     alternates: {
       canonical: canonicalFor(locale, "/contact"),
       ...alternates("/contact"),
     },
+    ...socialMeta({ locale, title, description, path: "/contact" }),
   };
 }
 
@@ -87,12 +91,33 @@ export default async function ContactPage({
         </p>
         <ul className="mt-4 space-y-2">
           <li>
-            <span className="text-zinc-500">{hi ? "ईमेल: " : "Email: "}</span>
-            <a
-              href={`mailto:${site.contactEmail}`}
-              className="font-medium text-amber-700 hover:underline"
-            >
-              {site.contactEmail}
+            <span className="text-zinc-500">{hi ? "सामान्य पूछताछ: " : "General queries: "}</span>
+            <a href={`mailto:${site.emails.contact}`} className="font-medium text-amber-700 hover:underline">
+              {site.emails.contact}
+            </a>
+          </li>
+          <li>
+            <span className="text-zinc-500">{hi ? "सामग्री सुधार: " : "Content corrections: "}</span>
+            <a href={`mailto:${site.emails.editor}`} className="font-medium text-amber-700 hover:underline">
+              {site.emails.editor}
+            </a>
+          </li>
+          <li>
+            <span className="text-zinc-500">{hi ? "कानूनी / टेकडाउन: " : "Legal / takedown: "}</span>
+            <a href={`mailto:${site.emails.legal}`} className="font-medium text-amber-700 hover:underline">
+              {site.emails.legal}
+            </a>
+          </li>
+          <li>
+            <span className="text-zinc-500">{hi ? "गोपनीयता / डेटा अनुरोध: " : "Privacy / data requests: "}</span>
+            <a href={`mailto:${site.emails.privacy}`} className="font-medium text-amber-700 hover:underline">
+              {site.emails.privacy}
+            </a>
+          </li>
+          <li>
+            <span className="text-zinc-500">{hi ? "शिकायत अधिकारी: " : "Grievance Officer: "}</span>
+            <a href={`mailto:${site.emails.grievance}`} className="font-medium text-amber-700 hover:underline">
+              {site.emails.grievance}
             </a>
           </li>
           <li>
@@ -107,14 +132,14 @@ export default async function ContactPage({
             </a>
           </li>
           <li>
-            <span className="text-zinc-500">LinkedIn: </span>
+            <span className="text-zinc-500">{hi ? "वेबसाइट: " : "Website: "}</span>
             <a
-              href={ATTRIBUTION.linkedin}
+              href={ATTRIBUTION.url}
               target="_blank"
               rel="noopener"
               className="font-medium text-amber-700 hover:underline"
             >
-              {ATTRIBUTION.handle} ↗
+              devxkamlesh.com ↗
             </a>
           </li>
         </ul>

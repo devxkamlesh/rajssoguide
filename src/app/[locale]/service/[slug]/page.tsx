@@ -17,6 +17,7 @@ import {
   canonicalFor,
   faqSchema,
   howToSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -34,14 +35,17 @@ export async function generateMetadata({
   const s = getService(slug);
   if (!s || !isLocale(locale)) return {};
   const rich = getServiceContent(slug, locale);
+  const title = rich?.metaTitle ?? `${s.name[locale]} — SSO Login Guide`;
+  const description = rich?.metaDescription ?? s.purpose[locale];
   return {
-    title: rich?.metaTitle ?? `${s.name[locale]} — SSO Login Guide`,
-    description: rich?.metaDescription ?? s.purpose[locale],
+    title,
+    description,
     keywords: s.keywords,
     alternates: {
       canonical: canonicalFor(locale, `/service/${slug}`),
       ...alternates(`/service/${slug}`),
     },
+    ...socialMeta({ locale, title, description, path: `/service/${slug}` }),
   };
 }
 

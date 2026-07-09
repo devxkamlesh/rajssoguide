@@ -3,6 +3,8 @@ import { site } from "@/lib/site";
 import { locales } from "@/lib/i18n";
 import { guides } from "@/data/guides";
 import { exams, services, cities, errors, scholarships } from "@/lib/content";
+import { reviewed } from "@/lib/reviewed";
+import { changelogLastUpdated } from "@/data/changelog";
 
 export const dynamic = "force-static";
 
@@ -12,6 +14,8 @@ interface PathConfig {
   path: string;
   priority: number;
   changeFrequency: Freq;
+  /** Optional per-URL lastmod; falls back to build time when omitted. */
+  lastModified?: Date;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -33,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Core guides ───────────────────────────────────────────── priority 0.9
     ...guides.map((g) => ({
       path: `/${g.slug}`,   priority: 0.9, changeFrequency: "weekly" as Freq,
+      lastModified: new Date(g.lastVerified),
     })),
 
     // ── Tools ─────────────────────────────────────────────────── priority 0.8
@@ -53,37 +58,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Services ──────────────────────────────────────────────── priority 0.7
     ...services.map((s) => ({
       path: `/service/${s.slug}`, priority: 0.7, changeFrequency: "monthly" as Freq,
+      lastModified: new Date(reviewed.services),
     })),
 
     // ── Scholarships ──────────────────────────────────────────── priority 0.7
     ...scholarships.map((s) => ({
       path: `/scholarship/${s.slug}`, priority: 0.7, changeFrequency: "monthly" as Freq,
+      lastModified: new Date(reviewed.scholarships),
     })),
 
     // ── Cities ────────────────────────────────────────────────── priority 0.6
     ...cities.map((c) => ({
       path: `/city/${c.slug}`,  priority: 0.6, changeFrequency: "monthly" as Freq,
+      lastModified: new Date(reviewed.cities),
     })),
 
     // ── Error fixes ───────────────────────────────────────────── priority 0.6
     ...errors.map((e) => ({
       path: `/error/${e.slug}`, priority: 0.6, changeFrequency: "monthly" as Freq,
+      lastModified: new Date(reviewed.errors),
     })),
 
     // ── About & Legal ─────────────────────────────────────────── priority 0.5-0.6
     { path: "/about",  priority: 0.5, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.5, changeFrequency: "monthly" },
+    { path: "/changelog", priority: 0.5, changeFrequency: "weekly", lastModified: new Date(changelogLastUpdated) },
     { path: "/privacy-policy", priority: 0.6, changeFrequency: "monthly" },
     { path: "/terms-of-service", priority: 0.6, changeFrequency: "monthly" },
   ];
 
   // Emit one entry per locale per path - simplified for Google Search Console compatibility
   return locales.flatMap((locale) =>
-    paths.map(({ path, priority, changeFrequency }) => ({
-      url: `${site.url}/${locale}${path}`,
-      lastModified,
-      changeFrequency,
-      priority,
+    paths.map((p) => ({
+      url: `${site.url}/${locale}${p.path}`,
+      lastModified: p.lastModified ?? lastModified,
+      changeFrequency: p.changeFrequency,
+      priority: p.priority,
     })),
   );
 }

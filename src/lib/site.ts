@@ -13,11 +13,21 @@ export const site = {
   },
   // We are an INDEPENDENT guide, not the official portal.
   officialPortal: "https://sso.rajasthan.gov.in",
+  // Direct sign-in page on the official portal (used by the SSO login guide CTA).
+  officialSignin: "https://sso.rajasthan.gov.in/signin",
   officialHelpdesk: {
     phone: "0141-5153222",
     email: "helpdesk.sso@rajasthan.gov.in",
   },
   contactEmail: "contact@rajssoidguide.in",
+  // Purpose-specific inboxes.
+  emails: {
+    contact: "contact@rajssoidguide.in", // general user queries
+    editor: "editor@rajssoidguide.in", // editorial / content corrections
+    legal: "legal@rajssoidguide.in", // legal notices, terms, takedown/DMCA
+    privacy: "privacy@rajssoidguide.in", // privacy / data requests (GDPR / India DPDP)
+    grievance: "grievance@rajssoidguide.in", // Grievance Officer (India IT Rules 2021)
+  },
   contactWhatsApp: "919257241205",
   established: "2024",
   geo: {

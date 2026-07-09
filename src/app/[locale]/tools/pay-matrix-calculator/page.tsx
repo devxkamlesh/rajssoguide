@@ -14,6 +14,8 @@ import {
   buildGraph,
   canonicalFor,
   faqSchema,
+  socialMeta,
+  softwareAppSchema,
 } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -127,6 +129,12 @@ export async function generateMetadata({
       canonical: canonicalFor(locale, "/tools/pay-matrix-calculator"),
       ...alternates("/tools/pay-matrix-calculator"),
     },
+    ...socialMeta({
+      locale,
+      title: titles[locale],
+      description: metaDescriptions[locale],
+      path: "/tools/pay-matrix-calculator",
+    }),
   };
 }
 
@@ -148,6 +156,12 @@ export default async function PayMatrixCalculatorPage({
       { name: t.nav.tools, path: `${base}/tools` },
       { name: titles[loc], path: `${base}/tools/pay-matrix-calculator` },
     ]),
+    softwareAppSchema({
+      name: titles[loc],
+      description: metaDescriptions[loc],
+      path: "/tools/pay-matrix-calculator",
+      locale: loc,
+    }),
     faqSchema(faqs[loc]),
   ]);
 

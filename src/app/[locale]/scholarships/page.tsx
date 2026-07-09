@@ -16,6 +16,7 @@ import {
   faqSchema,
   howToSchema,
   itemListSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 const intro = {
@@ -58,21 +59,24 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const hub = getScholarshipsHub(locale);
+  const title =
+    hub?.metaTitle ??
+    (locale === "hi"
+      ? "राजस्थान छात्रवृत्ति 2026 — SSO आवेदन गाइड"
+      : "Rajasthan Scholarships 2026 — SSO Application Guide");
+  const description =
+    hub?.metaDescription ??
+    (locale === "hi"
+      ? "एससी, एसटी, ओबीसी, ईडब्ल्यूएस और अल्पसंख्यक छात्रवृत्ति के लिए एसएसओ आईडी से आवेदन कैसे करें।"
+      : "How to apply for SC, ST, OBC, EWS and Minority scholarships using your SSO ID.");
   return {
-    title:
-      hub?.metaTitle ??
-      (locale === "hi"
-        ? "राजस्थान छात्रवृत्ति 2026 — SSO आवेदन गाइड"
-        : "Rajasthan Scholarships 2026 — SSO Application Guide"),
-    description:
-      hub?.metaDescription ??
-      (locale === "hi"
-        ? "एससी, एसटी, ओबीसी, ईडब्ल्यूएस और अल्पसंख्यक छात्रवृत्ति के लिए एसएसओ आईडी से आवेदन कैसे करें।"
-        : "How to apply for SC, ST, OBC, EWS and Minority scholarships using your SSO ID."),
+    title,
+    description,
     alternates: {
       canonical: canonicalFor(locale, "/scholarships"),
       ...alternates("/scholarships"),
     },
+    ...socialMeta({ locale, title, description, path: "/scholarships" }),
   };
 }
 

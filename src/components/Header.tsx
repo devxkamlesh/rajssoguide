@@ -22,6 +22,7 @@ export function Header({ locale }: { locale: Locale }) {
         { href: `${base}/sso-id-registration`, label: t.nav.registration, desc: locale === "hi" ? "नया खाता बनाएं" : "Create new account" },
         { href: `${base}/forgot-sso-id`, label: t.nav.forgot, desc: locale === "hi" ? "पासवर्ड रिकवर करें" : "Recover password" },
         { href: `${base}/merge-sso-id`, label: locale === "hi" ? "मर्ज SSO ID" : "Merge SSO ID", desc: locale === "hi" ? "IDs को मर्ज करें" : "Merge multiple IDs" },
+        { href: `${base}/sso-id-helpdesk`, label: locale === "hi" ? "SSO हेल्पडेस्क" : "SSO Helpdesk", desc: locale === "hi" ? "कस्टमर केयर नंबर" : "Customer care numbers" },
         { href: `${base}/guides`, label: locale === "hi" ? "सभी गाइड्स →" : "All Guides →", desc: locale === "hi" ? "सभी गाइड्स देखें" : "View all guides" },
       ],
     },
@@ -59,6 +60,7 @@ export function Header({ locale }: { locale: Locale }) {
       items: [
         { href: `${base}/about`, label: locale === "hi" ? "हमारे बारे में" : "About", desc: locale === "hi" ? "हमारे बारे में जानें" : "Learn about us" },
         { href: `${base}/contact`, label: locale === "hi" ? "संपर्क करें" : "Contact", desc: locale === "hi" ? "हमसे संपर्क करें" : "Get in touch" },
+        { href: `${base}/changelog`, label: locale === "hi" ? "चेंजलॉग" : "Changelog", desc: locale === "hi" ? "क्या और कब बदला" : "What changed, and when" },
         { href: `${base}/cities`, label: locale === "hi" ? "शहर" : "Cities", desc: locale === "hi" ? "शहर अनुसार मदद" : "Help by city" },
         { href: `/sitemap.xml`, label: locale === "hi" ? "साइटमैप" : "Sitemap", desc: locale === "hi" ? "सभी पेज देखें" : "View all pages" },
         { href: `${base}/privacy-policy`, label: locale === "hi" ? "गोपनीयता" : "Privacy", desc: locale === "hi" ? "गोपनीयता नीति" : "Privacy Policy" },

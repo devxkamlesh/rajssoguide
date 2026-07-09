@@ -3,7 +3,7 @@
 import type { Locale } from "./i18n";
 import type { RelatedLink } from "@/components/RelatedLinks";
 import type { ImportantLinkRow } from "@/components/ImportantLinks";
-import { exams, services, scholarships } from "./content";
+import { exams, services, scholarships, errors } from "./content";
 import { site } from "./site";
 
 const L = (loc: Locale, en: string, hi: string) => (loc === "hi" ? hi : en);
@@ -91,6 +91,27 @@ export function relatedForScholarship(slug: string, loc: Locale): RelatedLink[] 
   ];
 }
 
+export function relatedForError(slug: string, loc: Locale): RelatedLink[] {
+  const base = `/${loc}`;
+  const otherErrors = errors
+    .filter((e) => e.slug !== slug)
+    .slice(0, 2)
+    .map((e) => ({ href: `${base}/error/${e.slug}`, label: e.title[loc] }));
+  return [
+    {
+      href: `${base}/sso-id-login`,
+      label: L(loc, "SSO Login Guide", "एसएसओ लॉगिन गाइड"),
+      desc: L(loc, "Step-by-step login help", "चरण-दर-चरण लॉगिन सहायता"),
+    },
+    {
+      href: `${base}/forgot-sso-id`,
+      label: L(loc, "Forgot SSO ID", "एसएसओ आईडी भूल गए"),
+      desc: L(loc, "Recover your ID or password", "अपनी आईडी या पासवर्ड रिकवर करें"),
+    },
+    ...otherErrors,
+  ];
+}
+
 export function relatedForGuide(slug: string, loc: Locale): RelatedLink[] {
   const base = `/${loc}`;
   const all = [
@@ -98,6 +119,8 @@ export function relatedForGuide(slug: string, loc: Locale): RelatedLink[] {
     { slug: "sso-id-registration", en: "SSO Registration", hi: "एसएसओ रजिस्ट्रेशन" },
     { slug: "forgot-sso-id", en: "Forgot SSO ID", hi: "एसएसओ आईडी भूल गए" },
     { slug: "merge-sso-id", en: "Merge SSO ID", hi: "एसएसओ आईडी मर्ज" },
+    { slug: "sso-id-helpdesk", en: "SSO Helpdesk", hi: "एसएसओ हेल्पडेस्क" },
+    { slug: "sso-id-portal", en: "SSO ID Portal", hi: "एसएसओ आईडी पोर्टल" },
   ];
   return all
     .filter((g) => g.slug !== slug)

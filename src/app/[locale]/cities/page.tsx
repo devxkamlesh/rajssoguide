@@ -14,6 +14,7 @@ import {
   canonicalFor,
   faqSchema,
   itemListSchema,
+  socialMeta,
 } from "@/lib/schema";
 
 const intro = {
@@ -314,19 +315,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const title =
+    locale === "hi"
+      ? "शहर अनुसार एसएसओ आईडी मदद — राजस्थान"
+      : "SSO ID Help by City — Rajasthan";
+  const description =
+    locale === "hi"
+      ? "जयपुर, जोधपुर, कोटा सहित राजस्थान के शहरों में एसएसओ आईडी और ई-मित्र सहायता।"
+      : "SSO ID and e-Mitra help across Rajasthan cities including Jaipur, Jodhpur and Kota.";
   return {
-    title:
-      locale === "hi"
-        ? "शहर अनुसार एसएसओ आईडी मदद — राजस्थान"
-        : "SSO ID Help by City — Rajasthan",
-    description:
-      locale === "hi"
-        ? "जयपुर, जोधपुर, कोटा सहित राजस्थान के शहरों में एसएसओ आईडी और ई-मित्र सहायता।"
-        : "SSO ID and e-Mitra help across Rajasthan cities including Jaipur, Jodhpur and Kota.",
+    title,
+    description,
     alternates: {
       canonical: canonicalFor(locale, "/cities"),
       ...alternates("/cities"),
     },
+    ...socialMeta({ locale, title, description, path: "/cities" }),
   };
 }
 
