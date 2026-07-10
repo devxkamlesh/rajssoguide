@@ -1,5 +1,9 @@
 {
   "name": "rajssoguide",
+  // Pinned to the devxkamlesh Cloudflare account (kamleshgchoudhary007@gmail.com).
+  // If Wrangler is logged into any other account, deploy will fail instead of
+  // shipping to the wrong place.
+  "account_id": "064c0a80defbead6b29c2c0399dc57da",
   "compatibility_date": "2025-03-25",
   "compatibility_flags": ["nodejs_compat"],
   "main": ".open-next/worker.js",
