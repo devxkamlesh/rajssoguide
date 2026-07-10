@@ -42,7 +42,7 @@ frame-ancestors 'self'
 
 ### Other security notes
 
-- **No secrets in code.** `G-RYT943398Y` is a public GA measurement ID.
+- **No secrets in code.** `G-H7XRW67HZH` is a public GA measurement ID.
 - Official-portal links use `rel="nofollow noopener"`.
 - Interactive tools **never transmit** user data — all computation is local (privacy by design).
 

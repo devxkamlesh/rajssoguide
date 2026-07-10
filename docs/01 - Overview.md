@@ -65,7 +65,7 @@ mindmap
 | Language | TypeScript `5` |
 | Rendering | Static Site Generation (SSG) |
 | Hosting | Cloudflare Workers via OpenNext (`@opennextjs/cloudflare`) |
-| Analytics | Google Analytics `G-RYT943398Y` (lazy) |
+| Analytics | Google Analytics `G-H7XRW67HZH` (lazy) |
 
 > [!note] Build command matters
 > This branch builds with **`next build --webpack`** (not Turbopack), then OpenNext transforms the output into a Worker bundle. See [[08 - Cloudflare Deployment]].

@@ -93,7 +93,9 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const graph = buildGraph([websiteSchema(), organizationSchema(), personSchema()]);
-  const GA_ID = "G-RYT943398Y";
+  // Native GA4 Measurement ID for the rajssoidguide.in web data stream.
+  // (Previously G-RYT943398Y, which only forwarded here via tag destinations.)
+  const GA_ID = "G-H7XRW67HZH";
 
   return (
     <>
