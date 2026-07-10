@@ -96,6 +96,8 @@ export default async function LocaleLayout({
   // Native GA4 Measurement ID for the rajssoidguide.in web data stream.
   // (Previously G-RYT943398Y, which only forwarded here via tag destinations.)
   const GA_ID = "G-H7XRW67HZH";
+  // Additional Google tag (container) — loaded alongside the GA4 stream.
+  const GTAG_ID = "GT-K8FC4S4H";
 
   return (
     <>
@@ -114,7 +116,7 @@ export default async function LocaleLayout({
             strategy="lazyOnload"
           />
           <Script id="gtag-init" strategy="lazyOnload">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');gtag('config','${GTAG_ID}');`}
           </Script>
         </>
       )}
