@@ -83,7 +83,7 @@ Create these logins now so you're not blocked mid-task (just create them; don't 
 - **Objective:** Be able to measure progress.
 - **Time:** 45 min.
 - **Steps:**
-  1. **GA4 is already installed** (`G-H7XRW67HZH`, the site's native data stream, lazy-loaded — see [[README]] status table). Just confirm it's firing: open the site, then check GA4 → Realtime for your visit. If you prefer privacy-friendly, Cloudflare Web Analytics is an option too.
+  1. **GA4 is already installed** (`G-3FW9ME1DP2`, the site's native data stream, lazy-loaded — see [[README]] status table). Just confirm it's firing: open the site, then check GA4 → Realtime for your visit. If you prefer privacy-friendly, Cloudflare Web Analytics is an option too.
   2. Build the tracking sheet ([[#📊 Tracking sheet]]). Enter all 15 target queries.
   3. Record **baseline** positions today: search each query in an incognito window (or use Ahrefs Webmaster Tools) and note where you rank (or "not in top 100").
 - **✅ Done when:** GA4 Realtime shows your own visit; sheet has 15 baselines.

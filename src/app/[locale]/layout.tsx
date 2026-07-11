@@ -93,11 +93,8 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   const graph = buildGraph([websiteSchema(), organizationSchema(), personSchema()]);
-  // Native GA4 Measurement ID for the rajssoidguide.in web data stream.
-  // (Previously G-RYT943398Y, which only forwarded here via tag destinations.)
-  const GA_ID = "G-H7XRW67HZH";
-  // Additional Google tag (container) — loaded alongside the GA4 stream.
-  const GTAG_ID = "GT-K8FC4S4H";
+  // Single GA4 Google tag for the site (fresh property, replaces all prior IDs).
+  const GA_ID = "G-3FW9ME1DP2";
 
   return (
     <>
@@ -116,10 +113,16 @@ export default async function LocaleLayout({
             strategy="lazyOnload"
           />
           <Script id="gtag-init" strategy="lazyOnload">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');gtag('config','${GTAG_ID}');`}
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
           </Script>
         </>
       )}
+      {/* Ahrefs Web Analytics — loads when browser is idle */}
+      <Script
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="CT1P8J5yuhCN+cNDIhco1Q"
+        strategy="lazyOnload"
+      />
       <Header locale={locale} />
       <main id="main-content" className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
         {children}

@@ -112,7 +112,7 @@ flowchart TB
 | **Locales** | `/en` (default) + `/hi`, `x-default → /en` |
 | **Pages** | ~122 static routes (~61 per language) |
 | **Middleware** | `src/middleware.ts` sets `x-locale`; prefixing via `next.config.ts` `redirects()` |
-| **Analytics** | Google Analytics `G-H7XRW67HZH` (lazy-loaded) |
+| **Analytics** | Google Analytics `G-3FW9ME1DP2` (lazy-loaded) |
 | **Data** | 3 exams · 3 services · 5 scholarships · 12 cities · 6 guides · 6 tools · 6 errors |
 
 > [!warning] Ongoing accuracy duty
