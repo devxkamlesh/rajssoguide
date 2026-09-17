@@ -1,0 +1,465 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import StepGuide from "../components/StepGuide.astro";
+import HelpdeskCard from "../components/HelpdeskCard.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { GUIDES } from "../data/guides";
+import { SITE } from "../data/site";
+
+const guide = GUIDES["sso-id-login"];
+const breadcrumbs = [{ name: "SSO ID Login", url: `${SITE.url}/sso-id-login` }];
+---
+
+<Layout
+  title={guide.metaTitle}
+  description={guide.metaDescription}
+  canonicalPath="/sso-id-login"
+  type="article"
+>
+  <slot slot="head">
+    <JsonLd
+      type="HowTo"
+      title={guide.title}
+      description={guide.metaDescription}
+      canonicalUrl={`${SITE.url}/sso-id-login`}
+      faqs={guide.faqs}
+      howToSteps={guide.steps}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Guide Header Band -->
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+        <span>{guide.eyebrow}</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span>{SITE.lastVerifiedLabel}</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        {guide.title}
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        {guide.lead}
+      </p>
+
+      <!-- Official Portal Verification Banner -->
+      <div class="mt-6 p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="space-y-0.5">
+          <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">Verified Sign-In Endpoint</span>
+          <p class="text-xs sm:text-sm font-mono font-medium text-[var(--color-ink)]">
+            https://sso.rajasthan.gov.in/signin
+          </p>
+        </div>
+        <a
+          href={guide.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 bg-[var(--color-ink)] text-[var(--color-on-primary)] hover:bg-neutral-800 text-xs sm:text-sm font-medium h-9 px-4 rounded-full transition-all flex-shrink-0"
+        >
+          <span>{guide.officialButtonLabel}</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 1: Authentication Architecture & User Categories -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SYSTEM OVERVIEW
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Understanding the Rajasthan Single Sign-On (RajSSO) Architecture
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          The Rajasthan Single Sign-On (RajSSO) portal, engineered and maintained by the Department of Information Technology &amp; Communication (DoIT&amp;C), functions as the digital identity backbone for over 80 million residents across Rajasthan. Before the deployment of RajSSO, citizens were required to remember distinct account credentials for municipal taxes, state examinations, scholarship distributions, and healthcare enrollments. RajSSO unifies these disparate databases into a hardened, centralized authentication framework.
+        </p>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Under the hood, the RajSSO infrastructure leverages federated identity protocols with secure session tokens, role-based access control (RBAC), and direct database synchronization with the State Resident Data Hub (SRDH) and Jan Aadhaar authority. When you sign in, the authentication server evaluates your identity tier and presents tailored application dashboards corresponding to your verified citizenship, business ownership, or civil service designation.
+        </p>
+      </div>
+
+      <!-- Access Categories Table -->
+      <div>
+        <h3 class="text-base sm:text-lg font-semibold text-[var(--color-ink)] tracking-tight mb-3">
+          RajSSO User Profiles and Access Permissions
+        </h3>
+        <div class="overflow-x-auto border border-[var(--color-hairline)] rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)]">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--color-hairline)] bg-[var(--color-hairline-soft)] text-[var(--color-ink)] font-mono">
+                <th class="p-3">User Category</th>
+                <th class="p-3">Primary Identifier</th>
+                <th class="p-3">Key Enabled Services</th>
+                <th class="p-3">Security Requirements</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--color-hairline)] text-[var(--color-body)]">
+              <tr>
+                <td class="p-3 font-semibold text-[var(--color-ink)]">Citizen (नागरिक)</td>
+                <td class="p-3">Jan Aadhaar ID / Google ID</td>
+                <td class="p-3">e-Mitra, RPSC/RSSB Recruitment, Scholarships, Chiranjeevi/Ayushman Health, Caste &amp; Domicile Certificates</td>
+                <td class="p-3">Mobile OTP linked to Jan Aadhaar / UIDAI Aadhaar biometric validation</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-[var(--color-ink)]">Government Employee (कर्मचारी)</td>
+                <td class="p-3">SIPF Employee ID (RJXX...)</td>
+                <td class="p-3">RajKaj e-Office, PayManager salary slips, IFMS budget allocation, APAR annual performance appraisals</td>
+                <td class="p-3">Govt official mobile authentication, IP restricted access for financial disbursements</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold text-[var(--color-ink)]">Udhyog / Business (उद्योग)</td>
+                <td class="p-3">BRN (16 digits) / Udyog Aadhaar</td>
+                <td class="p-3">Single Window Clearance System, Factory inspection compliance, Trade licensing, State e-Tendering</td>
+                <td class="p-3">Authorized signatory KYC verification, Corporate PAN linkage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Procedure with Screenshots -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight">
+          Step-by-Step Login Instructions
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
+          Follow these authenticated steps to sign into the official Rajasthan Single Sign-On dashboard without credential lockouts.
+        </p>
+      </div>
+
+      <!-- Visual Login Portal Screenshot 1 -->
+      <figure class="mb-8 border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+        <img
+          src="/images/sso-id-login-portal-guide.webp"
+          alt="Official Rajasthan Single Sign-On SSO ID Login Screen showing Digital Identity and Password Credentials Fields"
+          width="1200"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto object-cover"
+        />
+        <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+          <span>Official Rajasthan SSO Sign-In Portal Gateway (sso.rajasthan.gov.in)</span>
+          <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">DoIT&amp;C Endpoint</span>
+        </figcaption>
+      </figure>
+
+      <StepGuide
+        steps={guide.steps}
+        prerequisites={guide.prerequisites}
+        officialUrl={guide.officialUrl}
+        officialLabel={guide.officialButtonLabel}
+      />
+
+      <!-- Visual Credentials Close-up Screenshot 2 -->
+      <div class="mt-12 pt-8 border-t border-[var(--color-hairline)] space-y-4">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+            INTERFACE VERIFICATION
+          </span>
+          <h3 class="text-lg sm:text-xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            Understanding the Credential Input Form Elements
+          </h3>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Ensure every field on the sign-in modal is completed accurately to prevent automated IP throttling or account locks.
+          </p>
+        </div>
+
+        <figure class="border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+          <img
+            src="/images/rajasthan-sso-login-credentials-screen.webp"
+            alt="Rajasthan SSO Sign-In Credential Input Screen with SSOID field, Password field, and Security Captcha verification code"
+            width="1200"
+            height="600"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto object-cover"
+          />
+          <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+            <span>Detailed View of SSO Username, Password, and Dynamic 6-Digit Captcha Box</span>
+            <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">Verified UI</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 2: Post-Login Workspace Navigation -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          DASHBOARD TUTORIAL
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Navigating Your Post-Login Workspace: G2C and G2G Portals
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Once your authentication credentials pass validation, the state portal redirects you to your unified RajSSO home dashboard. For first-time visitors, the grid of dozens of colorful application icons can appear overwhelming. The portal organizes tools into two core classifications:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">G2C (Government to Citizen) Applications</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            These services are accessible by all registered citizens and job seekers. Primary tiles include:
+          </p>
+          <ul class="text-xs text-[var(--color-body)] space-y-1.5 list-disc pl-4">
+            <li><strong>Recruitment Portal (RPSC &amp; RSSB):</strong> Execute One-Time Registration (OTR), submit examination forms, download admit cards, and review answer keys.</li>
+            <li><strong>Jan Aadhaar Authority:</strong> Access digital family cards, download e-cards, and inspect direct benefit transfers (DBT).</li>
+            <li><strong>e-Mitra Citizen Services:</strong> Apply for Bonafide, Caste, Income, and EWS certificates or pay electricity and water bills.</li>
+            <li><strong>Scholarship (SJE):</strong> Track Post-Matric and CM higher education financial assistance grants.</li>
+          </ul>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">G2G (Government to Government) Applications</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Reserved exclusively for authenticated state government officers and civil servants. Key modules include:
+          </p>
+          <ul class="text-xs text-[var(--color-body)] space-y-1.5 list-disc pl-4">
+            <li><strong>RajKaj (Electronic Office):</strong> Paperless file drafting, digital e-signatures, file dispatching, and leave tracking.</li>
+            <li><strong>PayManager &amp; PRI PayManager:</strong> Monthly salary preparation, DA increment calculations, and tax declarations.</li>
+            <li><strong>SIPF Portal:</strong> State Insurance, General Provident Fund (GPF) withdrawals, and loan ledgers.</li>
+            <li><strong>IFMS (Integrated Financial Management):</strong> Departmental budgetary allocations and treasury sanction approvals.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)]">
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          <strong>Efficiency Tip:</strong> If an application tile does not appear in your primary view, click the "Clear Preference" or "Active Apps" toggle on the top toolbar. You can also type the first few letters of the service into the quick-search filter bar to launch it instantly without scrolling.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Multi-Factor Authentication (2FA) Security Layer -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SECURITY PROTOCOL
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Multi-Factor Authentication (2FA) &amp; Jan Aadhaar OTP Layer
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          To combat automated credential stuffing and phishing attacks against government accounts, the Department of Information Technology &amp; Communication (DoIT&amp;C) implements an intelligent risk-based Multi-Factor Authentication (2FA) layer across the RajSSO platform. While basic sign-ins from trusted home networks may only request username and password, the authentication gateway automatically triggers an SMS One-Time Password (OTP) challenge under specific security conditions:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-blue-600 font-semibold uppercase">Trigger 01: New IP Subnet</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Unrecognized Location or Device</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Logging in from a new smartphone browser, an out-of-state IP address, or a public cyber cafe initiates an automated OTP dispatch to the citizen's registered Jan Aadhaar phone number.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-emerald-800 font-semibold uppercase">Trigger 02: High-Value Actions</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Profile &amp; Bank Modifications</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Updating your primary bank account number for scholarship refunds or altering your registered Aadhaar identity requires mandatory biometric or OTP confirmation.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-purple-600 font-semibold uppercase">Trigger 03: Administrative Portals</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Govt Employee Workspaces</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            State employees logging into financial disbursal modules (IFMS, PayManager treasury systems) are subjected to mandatory two-tier cryptographic OTP authorization.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)]">
+        <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)] mb-1">
+          What to Do if the 2FA Verification SMS is Delayed
+        </h3>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          The RajSSO OTP gateway delivers messages through the National Informatics Centre (NIC) SMS bridge. During heavy traffic periods (such as the final day of competitive exam submissions), SMS delivery may experience brief routing queues. Wait 60 seconds for the countdown timer to expire before clicking "Resend OTP". Avoid rapidly clicking the resend trigger, as this invalidates earlier codes in transit and generates token mismatch errors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Session Management & Idle Timeout Hygiene -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SESSION LIFECYCLE MANAGEMENT
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Handling Idle Timeouts &amp; Multi-Tab Session Conflicts
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Every active login to RajSSO is governed by a server-side session watchdog designed to protect citizen data if a workstation is abandoned. Understanding how session tokens operate is vital for candidates filling out complex multi-page recruitment forms or e-Mitra certificate requests:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            The 15-Minute Strict Inactivity Watchdog
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The portal automatically terminates any active session after 15 consecutive minutes of user inactivity (no mouse movements, clicks, or keystrokes registered by the browser DOM). If you leave an exam application open while searching for scanned certificates, your session will expire silently. When you finally click "Submit", the portal redirects to the login screen and all unsaved form entries are lost. Always click "Save as Draft" after completing each section.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Multi-Tab Session Collisions and Cross-Contamination
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Never open RajSSO simultaneously in two different tabs of the same web browser to fill forms for different family members. Because browsers store session cookies globally across tabs for a domain, opening a second account in Tab B instantly overwrites the active session token in Tab A. Submitting Tab A afterward will inadvertently submit data under Tab B's identity, resulting in severe registration corruption.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            How to Safely Handle Multiple Simultaneous Applications
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            If you need to process submissions for two different individuals simultaneously (e.g., helping a sibling while managing your own profile), open one session in your primary browser window and the second session inside an entirely separate browser (e.g., Chrome alongside Mozilla Firefox or Microsoft Edge) or within a dedicated Private/Incognito profile window.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Login Errors & Fixes -->
+  {guide.commonIssues && (
+    <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="mb-6">
+          <span class="font-mono text-xs uppercase tracking-wider text-amber-900 font-semibold">
+            DIAGNOSTIC PROTOCOLS
+          </span>
+          <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            In-Depth Troubleshooting for SSO Login Failures
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Step-by-step diagnostic solutions for password mismatches, server timeouts, and browser session expiry.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {guide.commonIssues.map((issue) => (
+            <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                <h3 class="text-sm font-semibold text-[var(--color-ink)]">{issue.title}</h3>
+              </div>
+              <p class="text-xs text-[var(--color-body)] leading-relaxed">{issue.solution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Editorial Section 3: Cyber Cafe & Public Terminal Security -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SECURITY &amp; DATA PRIVACY
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Cyber Cafe &amp; Shared Computer Security Guidelines
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Millions of applicants across Rajasthan log in to RajSSO from public kiosks, university libraries, or commercial cyber cafes to complete exam forms or print admit cards. Shared workstations represent the single highest vector for credential theft and unauthorized profile tampering. Adhere strictly to these five operational security mandates whenever accessing your account outside personal devices:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            1. Always Operate in Private Browsing / Incognito Mode
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Press <kbd class="px-1.5 py-0.5 rounded bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)] font-mono text-[11px]">Ctrl + Shift + N</kbd> (Chrome/Edge) or <kbd class="px-1.5 py-0.5 rounded bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)] font-mono text-[11px]">Ctrl + Shift + P</kbd> (Firefox) to spawn a clean session window. Incognito mode ensures session cookies, autofill records, and cached credentials are automatically purged the moment you close the window.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            2. Never Accept "Save Password" or "Remember Credentials" Prompts
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Public web browsers frequently display popups asking to save login credentials for subsequent visits. Always click "Never" or "Don't Save". If you accidentally save your password, anyone sitting at that terminal next can open RajSSO and manipulate your application data.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            3. Execute the Explicit Two-Step Logout Procedure
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Closing the browser window does not necessarily invalidate server-side session cookies. Always click your profile avatar at the top right of the dashboard and select "Logout". Wait until the screen reloads back to the official login gateway before walking away from the computer.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            4. Scrub Downloaded PDF Documents and Clear Temporary Storage
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            When you print an RPSC admit card, exam receipt, or Jan Aadhaar certificate, the PDF is permanently stored in the public workstation's "Downloads" folder. Open the file explorer, locate the downloaded files containing your personal Aadhaar, family details, and roll numbers, and permanently delete them (<kbd class="px-1.5 py-0.5 rounded bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)] font-mono text-[11px]">Shift + Delete</kbd>).
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            5. Beware of Keylogger Software and Fake Hardware Plugs
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Visually inspect the back of the computer tower to ensure no unauthorized USB hardware dongles are connected between the keyboard cable and the port. If you suspect any anomalies, change your SSO password immediately from your personal smartphone using mobile data.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Helpdesk Support Component -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <HelpdeskCard />
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <FaqAccordion
+    faqs={guide.faqs}
+    title="SSO Login Questions & Answers"
+    subtitle="Verified answers to common queries regarding login credentials, mobile access, session errors, and security."
+  />
+</Layout>

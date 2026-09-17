@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { SITE } from "../data/site";
+
+const pageTitle = "About RajSSO Guide — Mission, Editorial Standards & Author";
+const pageDescription =
+  "Learn about RajSSO Guide (rajssoidguide.in), our editorial mission to simplify Rajasthan digital governance, our research team, and verified government sources.";
+const breadcrumbs = [{ name: "About Us", url: `${SITE.url}/about` }];
+---
+
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/about">
+  <slot slot="head">
+    <JsonLd
+      title={pageTitle}
+      description={pageDescription}
+      canonicalUrl={`${SITE.url}/about`}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- About Header -->
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-ink)]"></span>
+        <span>EDITORIAL INDEPENDENCE &amp; MISSION</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        About RajSSO Guide
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        RajSSO Guide (rajssoidguide.in) is an independent public information project founded in 2026. Our objective is to bridge the clarity gap between complex state e-governance systems and everyday citizens, students, and small business owners in Rajasthan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission & Principles Content -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
+      <!-- Why This Guide Exists -->
+      <div class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight">
+          Why We Built This Portal
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+          The Government of Rajasthan has built one of India's most advanced citizen-service infrastructures with over 100+ public portals unified under a Single Sign-On (SSO) engine. However, official portals are designed for transactions, not step-by-step guidance.
+        </p>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+          Thousands of students each month face recruitment application blocks because they inadvertently created duplicate accounts, or struggle with Jan Aadhaar e-KYC mismatch errors. We provide clear, plain-English procedural roadmaps to resolve these problems without needing to travel to a physical district office.
+        </p>
+      </div>
+
+      <!-- Core Editorial Principles -->
+      <div class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight">
+          Our Editorial Code of Conduct
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+            <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">PRINCIPLE 01</span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Zero Credential Collection</h3>
+            <p class="text-xs text-[var(--color-body)] leading-relaxed">
+              We never ask for, collect, store, or transmit your SSO username, password, Jan Aadhaar number, OTP, or identity documents. All interactions must happen directly on official .gov.in domains.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+            <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">PRINCIPLE 02</span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Strict Verification</h3>
+            <p class="text-xs text-[var(--color-body)] leading-relaxed">
+              Every fee, helpline number, and procedure published on this site is verified directly against gazette notifications from DoIT&amp;C, RPSC, and RSSB portals.
+            </p>
+          </div>
+
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+            <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">PRINCIPLE 03</span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Free Public Access</h3>
+            <p class="text-xs text-[var(--color-body)] leading-relaxed">
+              All guides, step-by-step tutorials, and recovery syntaxes on rajssoidguide.in are completely free of charge. We do not sell government forms or charge consulting fees.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Author & Research Attribution -->
+      <div class="p-6 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] flex flex-col sm:flex-row items-start sm:items-center gap-5">
+        <div class="w-14 h-14 rounded-full bg-[var(--color-ink)] text-[var(--color-on-primary)] flex items-center justify-center font-bold text-lg flex-shrink-0">
+          KC
+        </div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <h3 class="text-base font-semibold text-[var(--color-ink)]">{SITE.author.name}</h3>
+            <span class="font-mono text-[11px] text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-emerald-300 font-medium">
+              Verified Author
+            </span>
+          </div>
+          <p class="text-xs text-[var(--color-mute)] font-mono">{SITE.author.title}</p>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed pt-1">
+            Kamlesh is an independent digital identity researcher focusing on e-governance accessibility and high-performance web systems in India. You can connect via <a href={SITE.author.url} target="_blank" rel="noopener noreferrer" aria-label="Kamlesh Choudhary Personal Website devxkamlesh.com" class="text-[var(--color-link)] underline">devxkamlesh.com</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Government Notice -->
+      <div class="p-4 bg-amber-50 border border-amber-300 rounded-[var(--radius-md)] text-xs text-amber-900 leading-relaxed space-y-1">
+        <p class="font-semibold">Statutory Non-Affiliation Disclaimer</p>
+        <p>{SITE.disclaimer}</p>
+      </div>
+    </div>
+  </section>
+</Layout>

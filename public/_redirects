@@ -1,0 +1,54 @@
+# Exact guide redirects from old /en and /hi locale prefixes
+/en/sso-id-login /sso-id-login 301
+/hi/sso-id-login /sso-id-login 301
+/en/sso-id-registration /sso-id-registration 301
+/hi/sso-id-registration /sso-id-registration 301
+/en/forgot-sso-id /forgot-sso-id 301
+/hi/forgot-sso-id /forgot-sso-id 301
+
+# Static utility pages
+/en/about /about 301
+/hi/about /about 301
+/en/contact /contact 301
+/hi/contact /contact 301
+/en/privacy-policy /privacy-policy 301
+/hi/privacy-policy /privacy-policy 301
+/en/terms-of-service /terms-of-service 301
+/hi/terms-of-service /terms-of-service 301
+
+# Dropped low-value guide pages permanently redirected to relevant home sections
+/merge-sso-id /#merge-duplicate-sso 301
+/en/merge-sso-id /#merge-duplicate-sso 301
+/hi/merge-sso-id /#merge-duplicate-sso 301
+/sso-id-helpdesk /contact 301
+/en/sso-id-helpdesk /contact 301
+/hi/sso-id-helpdesk /contact 301
+/sso-id-portal / 301
+/en/sso-id-portal / 301
+/hi/sso-id-portal / 301
+/sso-id-password-change /forgot-sso-id 301
+/en/sso-id-password-change /forgot-sso-id 301
+/hi/sso-id-password-change /forgot-sso-id 301
+/emitra-sso-id / 301
+/en/emitra-sso-id / 301
+/hi/emitra-sso-id / 301
+
+# Competitor URL aliases (from ssoidguide.com URL structure)
+/login /sso-id-login 301
+/login/ /sso-id-login 301
+/register /sso-id-registration 301
+/register/ /sso-id-registration 301
+/forgot-sso-id-password /forgot-sso-id 301
+/forgot-sso-id-password/ /forgot-sso-id 301
+/contact-us /contact 301
+/contact-us/ /contact 301
+/about-us /about 301
+/about-us/ /about 301
+
+# Root locale redirects
+/en / 301
+/hi / 301
+
+# Wildcard catch-all for any remaining indexed locale URLs
+/en/* / 301
+/hi/* / 301

@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { SITE } from "../data/site";
+
+const pageTitle = "Privacy Policy — RajSSO Guide (rajssoidguide.in)";
+const pageDescription =
+  "Our privacy policy explains our zero-credential-collection commitment, cookie practices, and compliance with the Indian Digital Personal Data Protection Act.";
+const breadcrumbs = [{ name: "Privacy Policy", url: `${SITE.url}/privacy-policy` }];
+---
+
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/privacy-policy">
+  <slot slot="head">
+    <JsonLd
+      title={pageTitle}
+      description={pageDescription}
+      canonicalUrl={`${SITE.url}/privacy-policy`}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>DATA PROTECTION DISCLOSURE</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span>LAST REVISED SEPTEMBER 2026</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        Privacy Policy
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        At RajSSO Guide (accessible from https://rajssoidguide.in), the privacy and security of our visitors is our paramount priority. This document describes the minimal data we handle and reinforces our commitment to safeguarding citizen trust.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8 text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+      <!-- 1. Zero Credentials Policy -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          1. Strict Zero-Credential Collection Policy
+        </h2>
+        <p>
+          RajSSO Guide is purely an informational and educational website. We <strong>never</strong> request, collect, store, process, or sell your Rajasthan SSO ID, password, Jan Aadhaar number, Aadhaar number, bank account details, or One-Time Passwords (OTPs).
+        </p>
+        <p>
+          All login and registration buttons on our website link directly to the official state government servers at <code>https://sso.rajasthan.gov.in</code>. Ensure you only submit sensitive credentials on domains ending with <code>.gov.in</code>.
+        </p>
+      </div>
+
+      <!-- 2. Log Files -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          2. Server Log Files
+        </h2>
+        <p>
+          Like almost all websites hosted on modern cloud edge infrastructure (such as Cloudflare), we log standard non-personally-identifiable network information. This includes Internet Protocol (IP) addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring pages. These logs are used solely for analyzing trends, preventing DDoS attacks, and administering site performance.
+        </p>
+      </div>
+
+      <!-- 3. Cookies and Web Beacons -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          3. Cookies &amp; Local Storage
+        </h2>
+        <p>
+          We do not use tracking cookies to build personal advertising dossiers. We may use minimal local storage purely to remember your interactive directory filter preferences (e.g. category selections).
+        </p>
+      </div>
+
+      <!-- 4. Third-Party Links -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          4. Links to External Government &amp; Third-Party Sites
+        </h2>
+        <p>
+          Our guides contain links to official state and central government portals (including <code>sso.rajasthan.gov.in</code>, <code>emitra.rajasthan.gov.in</code>, and <code>rpsc.rajasthan.gov.in</code>). Once you leave our domain via an outbound link, you are subject to the respective privacy policy and security practices of that destination website.
+        </p>
+      </div>
+
+      <!-- 5. DPDP Compliance -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          5. Compliance with India's DPDP Act, 2023
+        </h2>
+        <p>
+          RajSSO Guide operates in strict compliance with the Digital Personal Data Protection Act, 2023 of India. Because we do not collect personal data registries or biometric credentials, no personal data processing occurs on this website.
+        </p>
+      </div>
+
+      <!-- 6. Contact -->
+      <div class="space-y-2 pt-4 border-t border-[var(--color-hairline)]">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          6. Contacting the Editorial Desk
+        </h2>
+        <p>
+          If you have any questions regarding this privacy policy or our data practices, contact us via email at <code>editorial@rajssoidguide.in</code> or visit our <a href="/contact" class="text-[var(--color-link)] underline">Contact Page</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

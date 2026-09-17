@@ -1,0 +1,139 @@
+---
+import { SITE } from "../data/site";
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface HowToStepItem {
+  step: number;
+  title: string;
+  description: string;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  type?: "WebPage" | "Article" | "FAQPage" | "HowTo";
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  datePublished?: string;
+  dateModified?: string;
+  faqs?: FaqItem[];
+  howToSteps?: HowToStepItem[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  type = "WebPage",
+  title,
+  description,
+  canonicalUrl,
+  datePublished = "2026-08-30T00:00:00+05:30",
+  dateModified = "2026-09-16T12:00:00+05:30",
+  faqs,
+  howToSteps,
+  breadcrumbs,
+} = Astro.props;
+
+const graph: any[] = [
+  // Organization
+  {
+    "@type": "Organization",
+    "@id": `${SITE.url}/#organization`,
+    name: SITE.name,
+    url: SITE.url,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE.url}/favicon.svg`,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+91-141-5153222",
+      contactType: "customer support",
+      areaServed: "IN-RJ",
+      availableLanguage: ["English", "Hindi"],
+    },
+  },
+
+  // WebSite
+  {
+    "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
+    url: SITE.url,
+    name: SITE.name,
+    publisher: {
+      "@id": `${SITE.url}/#organization`,
+    },
+    inLanguage: "en-IN",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE.url}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  },
+
+  // WebPage
+  {
+    "@type": type === "HowTo" ? ["WebPage", "HowTo"] : faqs?.length ? ["WebPage", "FAQPage"] : "WebPage",
+    "@id": `${canonicalUrl}/#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description: description,
+    datePublished: datePublished,
+    dateModified: dateModified,
+    isPartOf: {
+      "@id": `${SITE.url}/#website`,
+    },
+    inLanguage: "en-IN",
+    ...(faqs && faqs.length > 0
+      ? {
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : {}),
+    ...(howToSteps && howToSteps.length > 0
+      ? {
+          step: howToSteps.map((s, idx) => ({
+            "@type": "HowToStep",
+            position: idx + 1,
+            name: s.title,
+            text: s.description,
+          })),
+        }
+      : {}),
+  },
+];
+
+// Breadcrumbs Schema
+if (breadcrumbs && breadcrumbs.length > 0) {
+  graph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}/#breadcrumb`,
+    itemListElement: breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.name,
+      item: b.url,
+    })),
+  });
+}
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": graph,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../data/site";
+---
+
+<Layout
+  title="Page Not Found (404) — RajSSO Guide"
+  description="The requested page could not be located. Browse our official Rajasthan SSO guides or return to the homepage."
+  canonicalPath="/404"
+>
+  <section class="py-20 sm:py-28 text-center">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 space-y-6">
+      <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold px-2.5 py-1 rounded-[var(--radius-sm)] bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)]">
+        ERROR 404
+      </span>
+
+      <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-[var(--color-ink)]">
+        Page Not Found
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] leading-relaxed">
+        The page you are looking for has been relocated, renamed, or updated as part of our streamlined English portal restructuring.
+      </p>
+
+      <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/"
+          class="inline-flex items-center gap-1.5 bg-[var(--color-ink)] text-[var(--color-on-primary)] hover:bg-neutral-800 text-sm font-medium h-10 px-5 rounded-full transition-all shadow-sm"
+        >
+          <span>Return to Homepage</span>
+          <span>→</span>
+        </a>
+        <a
+          href="/sso-id-login"
+          class="inline-flex items-center gap-1.5 bg-[var(--color-canvas-elevated)] text-[var(--color-ink)] border border-[var(--color-hairline)] hover:border-[var(--color-mute)] text-sm font-medium h-10 px-5 rounded-full transition-all"
+        >
+          <span>SSO ID Login</span>
+        </a>
+      </div>
+
+      <div class="pt-8 border-t border-[var(--color-hairline)] text-xs text-[var(--color-mute)] font-mono">
+        Need official portal assistance? Visit <a href={SITE.officialPortalUrl} target="_blank" rel="noopener noreferrer" class="text-[var(--color-link)] underline">sso.rajasthan.gov.in</a>
+      </div>
+    </div>
+  </section>
+</Layout>

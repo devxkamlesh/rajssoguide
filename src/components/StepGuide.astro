@@ -1,0 +1,90 @@
+---
+import type { Step } from "../data/guides";
+
+interface Props {
+  steps: Step[];
+  prerequisites?: string[];
+  officialUrl?: string;
+  officialLabel?: string;
+}
+
+const {
+  steps,
+  prerequisites,
+  officialUrl = "https://sso.rajasthan.gov.in/signin",
+  officialLabel = "Launch Official SSO Portal",
+} = Astro.props;
+---
+
+<div class="space-y-8">
+  <!-- Prerequisites Box if present -->
+  {prerequisites && prerequisites.length > 0 && (
+    <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 sm:p-6">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+        <h3 class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink)] font-semibold">
+          Prerequisites Checklist Before You Start
+        </h3>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-[var(--color-body)]">
+        {prerequisites.map((item) => (
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <!-- Numbered Stepper List -->
+  <div class="space-y-4">
+    {steps.map((s) => (
+      <div class="relative bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 sm:p-6 transition-all hover:border-[var(--color-mute)] shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-start gap-4">
+          <!-- Step Badge -->
+          <div class="w-8 h-8 rounded-full bg-[var(--color-ink)] text-[var(--color-on-primary)] font-mono font-semibold text-xs flex items-center justify-center flex-shrink-0">
+            {String(s.step).padStart(2, "0")}
+          </div>
+
+          <div class="flex-1 space-y-1.5">
+            <h4 class="text-sm sm:text-base font-semibold text-[var(--color-ink)] tracking-tight">
+              {s.title}
+            </h4>
+            <p class="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+              {s.description}
+            </p>
+
+            {s.tip && (
+              <div class="mt-2.5 inline-flex items-center gap-1.5 text-xs text-amber-800 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 px-3 py-1 rounded-[var(--radius-sm)]">
+                <svg class="w-3.5 h-3.5 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span><strong>Pro-Tip:</strong> {s.tip}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Action Bar -->
+  <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>
+      <h4 class="text-sm font-semibold text-[var(--color-ink)]">Ready to complete this step?</h4>
+      <p class="text-xs text-[var(--color-mute)] mt-0.5">Proceed to the official state portal to enter your data safely.</p>
+    </div>
+    <a
+      href={officialUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 bg-[var(--color-ink)] text-[var(--color-on-primary)] hover:bg-neutral-800 text-xs sm:text-sm font-medium h-10 px-5 rounded-full transition-all shadow-sm active:scale-98"
+    >
+      <span>{officialLabel}</span>
+      <span>↗</span>
+    </a>
+  </div>
+</div>

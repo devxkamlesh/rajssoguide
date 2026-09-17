@@ -1,11 +1,567 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import JsonLd from "../components/JsonLd.astro";
+import QuickActionGrid from "../components/QuickActionGrid.astro";
+import HelpdeskCard from "../components/HelpdeskCard.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import { SITE } from "../data/site";
+import {
+  OVERVIEW_TABLE,
+  OTR_FEES,
+  JAN_AADHAAR_DOCS,
+  HOME_FAQS,
+} from "../data/homeContent";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = "SSO ID Rajasthan 2026 — SSO Portal, SSO ID Login & Registration";
+const pageDescription =
+  "Complete guide to SSO ID Rajasthan (sso.rajasthan.gov.in). Access official login steps, online registration, password recovery, Jan Aadhaar e-KYC updates, and government services.";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/">
+  <slot slot="head">
+    <JsonLd
+      title={pageTitle}
+      description={pageDescription}
+      canonicalUrl={SITE.url}
+      faqs={HOME_FAQS}
+    />
+  </slot>
+
+  <!-- Hero Section with Mesh Gradient -->
+  <section class="relative border-b border-[var(--color-hairline)] mesh-gradient py-16 sm:py-24 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-xs font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-[var(--color-ink)] font-medium">STATE PORTAL ACTIVE</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span class="text-[var(--color-mute)]">{SITE.lastVerifiedLabel}</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-2px] text-[var(--color-ink)] max-w-4xl mx-auto leading-[1.15]">
+        SSO ID Rajasthan 2026 — SSO Portal, Login &amp; Registration
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg text-[var(--color-body)] max-w-2xl mx-auto mt-5 leading-relaxed font-normal">
+        Your unified single sign-on access to Rajasthan government schemes, recruitment exams (RPSC/RSSB), Jan Aadhaar services, and e-Mitra applications.
+      </p>
+
+      <!-- Primary Action Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 mt-8">
+        <a
+          href={SITE.officialLoginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-on-primary)] hover:bg-neutral-800 text-sm font-medium h-11 px-6 rounded-full transition-all shadow hover:shadow-md active:scale-98"
+        >
+          <span>Launch Official SSO Portal</span>
+          <svg class="w-4 h-4 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+
+        <a
+          href="#portal-overview"
+          class="inline-flex items-center gap-2 bg-[var(--color-canvas-elevated)] text-[var(--color-ink)] border border-[var(--color-hairline)] hover:border-[var(--color-mute)] text-sm font-medium h-11 px-6 rounded-full transition-all shadow-sm active:scale-98"
+        >
+          <span>Portal Specifications</span>
+          <svg class="w-4 h-4 text-[var(--color-mute)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Verified Domain Callout -->
+      <div class="mt-8 text-xs font-mono text-[var(--color-mute)] flex items-center justify-center gap-2">
+        <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+        <span>Official Government Domain: <strong>sso.rajasthan.gov.in</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Action Gateway (4 Primary Hubs) -->
+  <QuickActionGrid />
+
+  <!-- Comprehensive Guide: What is Rajasthan SSO Section -->
+  <section class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+            <span>STATE E-GOVERNANCE ARCHITECTURE</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight">
+            What is SSO ID Rajasthan (RajSSO)?
+          </h2>
+          <p class="text-sm text-[var(--color-body)] leading-relaxed">
+            The <strong>Rajasthan Single Sign-On (RajSSO)</strong> system, hosted officially at <code class="text-xs bg-[var(--color-hairline-soft)] px-1.5 py-0.5 rounded border border-[var(--color-hairline)]">sso.rajasthan.gov.in</code>, is a pioneering digital identity framework engineered by the Department of Information Technology &amp; Communication (DoIT&amp;C), Government of Rajasthan. It serves as a unified digital gateway that consolidates over 100+ state government departmental services, schemes, and recruitment applications into a single, lifetime digital credential.
+          </p>
+          <p class="text-sm text-[var(--color-body)] leading-relaxed">
+            Historically, Rajasthan residents had to register separate accounts, memorize independent passwords, and physically visit distinct government secretariats for each service—such as applying for a caste certificate on e-Mitra, filing for an RPSC vacancy, tracking college scholarships, or reviewing rural land records (Jamabandi). With the launch of RajSSO, the state government eliminated this administrative friction by deploying a secure Single Sign-On engine powered by SAML and OAuth 2.0 security tokens. Once authenticated, a citizen's verified demographic data auto-populates across all state applications.
+          </p>
+
+          <div class="pt-2 space-y-3">
+            <h3 class="text-sm font-semibold text-[var(--color-ink)] font-mono uppercase tracking-wider">
+              Three Distinct User Access Categories:
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div class="p-3.5 bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+                <span class="font-semibold text-xs text-[var(--color-ink)] block">1. Citizen (नागरिक)</span>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  For individual residents and students accessing recruitment portals, Jan Aadhaar welfare benefits, pension schemes, and utility payments.
+                </p>
+              </div>
+              <div class="p-3.5 bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+                <span class="font-semibold text-xs text-[var(--color-ink)] block">2. Udhyog (उद्योग)</span>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  For commercial partnerships, proprietary firms, and industrial factories registered with a 16-digit Business Registration Number (BRN).
+                </p>
+              </div>
+              <div class="p-3.5 bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+                <span class="font-semibold text-xs text-[var(--color-ink)] block">3. Govt Employee (राजकीय)</span>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  For state government personnel authenticated through official State Insurance &amp; Provident Fund (SIPF) numbers and RajKaj workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <figure class="border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas-elevated)] shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+            <img
+              src="/images/rajasthan-sso-login-credentials-screen.webp"
+              alt="Rajasthan SSO ID Login and Password Authentication Screen at sso.rajasthan.gov.in"
+              width="1200"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover"
+            />
+            <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+              <span>Official SSO Login &amp; Credentials Interface</span>
+              <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">Verified SSL 256-Bit</span>
+            </figcaption>
+          </figure>
+
+          <div class="p-4 bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] text-xs text-[var(--color-body)] leading-relaxed space-y-1.5">
+            <strong class="text-[var(--color-ink)] block font-mono uppercase tracking-wider text-[11px]">Core Security Guarantee:</strong>
+            <span>RajSSO operates under ISO/IEC 27001 security standards with encrypted server facilities stationed at the State Data Center (SDC), Jaipur. Citizens must never share their credentials or OTPs with unauthorized intermediaries.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Overview Table Section -->
+  <section id="portal-overview" class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas-elevated)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-8">
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SYSTEM SPECIFICATIONS
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Rajasthan SSO Portal Overview
+        </h2>
+        <p class="text-sm text-[var(--color-body)] mt-2">
+          Key facts, official departments, contact numbers, and security architecture of the Single Sign-On ecosystem.
+        </p>
+      </div>
+
+      <!-- Visual Overview Screenshot & Specifications Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5">
+          <figure class="border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+            <img
+              src="/images/rajasthan-sso-portal-overview.webp"
+              alt="Official SSO ID Rajasthan Government Portal Dashboard Interface at sso.rajasthan.gov.in"
+              width="1200"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover"
+            />
+            <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+              <span>Official SSO Portal Interface</span>
+              <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">sso.rajasthan.gov.in</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="lg:col-span-7">
+          <!-- Clean Hairline Table per DESIGN.md -->
+          <div class="border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr class="border-b border-[var(--color-hairline)] bg-[var(--color-hairline-soft)]/60 font-mono text-xs text-[var(--color-ink)]">
+                    <th class="py-3 px-4 sm:px-6 font-semibold w-1/3">Feature</th>
+                    <th class="py-3 px-4 sm:px-6 font-semibold">Official Description</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--color-hairline)]">
+                  {OVERVIEW_TABLE.map((row) => (
+                    <tr class="hover:bg-[var(--color-canvas-elevated)] transition-colors">
+                      <td class="py-3.5 px-4 sm:px-6 font-medium text-[var(--color-ink)] flex items-center gap-2">
+                        <span>{row.feature}</span>
+                        {row.badge && (
+                          <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded-[var(--radius-sm)] bg-emerald-50 text-emerald-900 border border-emerald-300 font-medium">
+                            {row.badge}
+                          </span>
+                        )}
+                      </td>
+                      <td class="py-3.5 px-4 sm:px-6 text-[var(--color-body)] leading-relaxed">
+                        {row.description}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- One-Time Registration (OTR) Recruitment Section -->
+  <section id="recruitment-otr" class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas-elevated)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+            RPSC &amp; RSSB RECRUITMENT
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight">
+            One-Time Registration (OTR) for Government Exams
+          </h2>
+          <p class="text-sm text-[var(--color-body)] leading-relaxed">
+            If you plan to apply for Rajasthan government competitive exams (such as CET, LDC, Patwari, Police Constable, or RAS), the SSO Recruitment Portal's One-Time Registration (OTR) system is your primary gateway.
+          </p>
+          <p class="text-sm text-[var(--color-body)] leading-relaxed">
+            You pay a one-time fee per registration cycle. Once completed, you can submit applications to multiple state recruitment drives without paying separate fees each time.
+          </p>
+
+          <div class="pt-2">
+            <h3 class="font-semibold text-xs font-mono uppercase tracking-wider text-[var(--color-ink)] mb-2.5">
+              Steps to Complete OTR:
+            </h3>
+            <ol class="space-y-2 text-xs sm:text-sm text-[var(--color-body)] list-decimal pl-5">
+              <li>Log in to your SSO ID and launch the <strong>Recruitment Portal</strong> tile.</li>
+              <li>Click <strong>"One Time Registration (OTR)"</strong> on the top dashboard.</li>
+              <li>Verify details using <strong>Jan Aadhaar or Aadhaar</strong> (auto-fetches name, DOB, and gender).</li>
+              <li>Match auto-filled fields strictly against your Class 10 Certificate.</li>
+              <li>Pay the one-time registration fee online and download your permanent OTR receipt.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- OTR Fee Table Card -->
+        <div class="lg:col-span-6 bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-[var(--color-hairline)]">
+            <h3 class="text-base font-semibold text-[var(--color-ink)]">
+              Official OTR Fee Schedule
+            </h3>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">ONE-TIME PER CYCLE</span>
+          </div>
+
+          <table class="w-full text-left text-xs sm:text-sm mb-4">
+            <thead>
+              <tr class="border-b border-[var(--color-hairline)] font-mono text-[11px] text-[var(--color-mute)]">
+                <th class="py-2">Candidate Category</th>
+                <th class="py-2 text-right">Fee</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--color-hairline)]">
+              {OTR_FEES.map((fee) => (
+                <tr>
+                  <td class="py-2.5 pr-2 font-medium text-[var(--color-ink)]">{fee.category}</td>
+                  <td class="py-2.5 text-right font-mono font-semibold text-[var(--color-ink)]">{fee.fee}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <div class="p-3 bg-[var(--color-hairline-soft)] rounded-[var(--radius-sm)] text-[11px] text-[var(--color-body)] leading-relaxed">
+            <strong>Important Notice:</strong> Candidates from states other than Rajasthan are categorized under General for fee calculation regardless of their native reservation status. Later correction of OTR fields usually incurs a penalty fee (approx. ₹300).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Jan Aadhaar Update & Duplicate Merge Guide Sections -->
+  <section class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-8">
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          ACCOUNT &amp; PROFILE MANAGEMENT
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Jan Aadhaar Updates &amp; Duplicate Account Merge
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Jan Aadhaar Update Card -->
+        <div id="jan-aadhaar-update" class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-6 sm:p-8 flex flex-col justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div>
+            <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-2">
+              <span>PROFILE ACCURACY</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--color-ink)] tracking-tight mb-2">
+              Updating Jan Aadhaar Details Through SSO
+            </h3>
+            <p class="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed mb-4">
+              State subsidies, scholarships, and Chiranjeevi health benefits require verified family data. Updates are completed online in two mandatory phases:
+            </p>
+
+            <div class="space-y-3 text-xs sm:text-sm mb-6">
+              <div class="p-3 rounded-[var(--radius-sm)] bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)]">
+                <span class="font-semibold text-[var(--color-ink)] block">Phase 1: Mandatory Family e-KYC</span>
+                <span class="text-[var(--color-body)] text-xs">All family members above 5 years of age must complete Aadhaar OTP biometric verification before data edits are unlocked.</span>
+              </div>
+              <div class="p-3 rounded-[var(--radius-sm)] bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)]">
+                <span class="font-semibold text-[var(--color-ink)] block">Phase 2: Specific Information Update</span>
+                <span class="text-[var(--color-body)] text-xs">Upload supporting documents for income certificates, bank passbooks, birth records, or land records. Verification takes 7–15 days.</span>
+              </div>
+            </div>
+
+            <!-- Docs Table -->
+            <div class="border border-[var(--color-hairline)] rounded-[var(--radius-sm)] overflow-hidden text-xs">
+              <table class="w-full text-left">
+                <thead class="bg-[var(--color-hairline-soft)] font-mono text-[11px] text-[var(--color-mute)]">
+                  <tr>
+                    <th class="p-2.5">Update Type</th>
+                    <th class="p-2.5">Document Required</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--color-hairline)]">
+                  {JAN_AADHAAR_DOCS.map((doc) => (
+                    <tr>
+                      <td class="p-2.5 font-medium text-[var(--color-ink)]">{doc.updateType}</td>
+                      <td class="p-2.5 text-[var(--color-body)]">{doc.requiredDoc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-[var(--color-hairline)] text-xs text-[var(--color-mute)]">
+            Status check: A <strong>green tick</strong> indicates approval; a <strong>red cross</strong> requires re-upload with a clearer document scan.
+          </div>
+        </div>
+
+        <!-- How to Merge Duplicate SSO IDs Card -->
+        <div id="merge-duplicate-sso" class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-6 sm:p-8 flex flex-col justify-between shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div>
+            <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-300 px-2 py-0.5 rounded-[var(--radius-sm)] mb-2 font-medium">
+              <span>CRITICAL PROBLEM SOLVER</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[var(--color-ink)] tracking-tight mb-2">
+              How to Merge Duplicate SSO IDs
+            </h3>
+            <p class="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed mb-4">
+              Many citizens mistakenly register twice—once through Google and later via Jan Aadhaar. Because an Aadhaar number can link to only ONE SSO ID, duplicate accounts block recruitment applications and scholarship disbursements.
+            </p>
+
+            <h4 class="font-semibold text-xs font-mono uppercase tracking-wider text-[var(--color-ink)] mb-2.5">
+              Official Merge Procedure:
+            </h4>
+            <ol class="space-y-3 text-xs sm:text-sm text-[var(--color-body)] list-decimal pl-5 mb-6">
+              <li>
+                <strong>Log in to the DUPLICATE account</strong> that you wish to close (not your primary account).
+              </li>
+              <li>
+                Click the <strong>"Edit Profile"</strong> pencil icon located at the top-right corner of your dashboard.
+              </li>
+              <li>
+                Click <strong>"Deactivate Account"</strong>, then select the <strong>"Merge"</strong> option from the prompt.
+              </li>
+              <li>
+                Complete OTP verification, then enter the <strong>Primary SSO ID</strong> you want to keep active.
+              </li>
+              <li>
+                Confirm the transfer. All linked services will migrate to the primary ID and the duplicate will be deleted.
+              </li>
+            </ol>
+
+            <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-[var(--radius-sm)] text-xs text-amber-900 leading-relaxed">
+              <strong>Caution:</strong> Confirm you are logged in to the account to be CLOSED at step 1. Merging in the reverse direction can disrupt access to your primary employment records!
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-[var(--color-hairline)] flex items-center justify-between text-xs">
+            <span class="text-[var(--color-mute)] font-mono">SUPPORT CALL: 0141-5153222</span>
+            <a href="/sso-id-login" aria-label="Login to your SSO ID to start the account merge process" class="text-[var(--color-link)] font-medium hover:underline">
+              Login to start merge →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key State Departments & Schemes Unified Under RajSSO -->
+  <section class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mb-8">
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          INTEGRATED GOVERNMENT SERVICES
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Key Government Portals Unified Under One Identity
+        </h2>
+        <p class="text-sm text-[var(--color-body)] mt-2 leading-relaxed">
+          The primary objective of Rajasthan Single Sign-On is eliminating fragmented logins across individual departmental databases. Once you log in to <code class="text-xs bg-[var(--color-hairline-soft)] px-1.5 py-0.5 rounded border border-[var(--color-hairline)]">sso.rajasthan.gov.in</code>, your authenticated session unlocks direct single-click access to the state's most critical public services:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Tile 1: e-Mitra -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-emerald-800 font-semibold uppercase bg-emerald-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-emerald-200">CITIZEN KIOSK</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">500+ SCHEMES</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">e-Mitra Network Services</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Apply online for digital Domicile (Mool Niwas), Caste, EWS, and Minority certificates. Pay Discom electricity bills, water utilities, traffic e-challans, and state revenue fees through integrated payment gateways.
+          </p>
+        </div>
+
+        <!-- Tile 2: RPSC & RSSB Recruitment -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-blue-800 font-semibold uppercase bg-blue-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-blue-200">JOB VACANCIES</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">RPSC / RSSB</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">Recruitment Portal (OTR)</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Submit applications for state competitive drives including Rajasthan Administrative Service (RAS), Common Eligibility Test (CET), Sub-Inspector, Patwari, Police Constable, and Senior Teacher recruitment.
+          </p>
+        </div>
+
+        <!-- Tile 3: Jan Aadhaar -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-purple-800 font-semibold uppercase bg-purple-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-purple-200">FAMILY CARD</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">DIRECT BENEFIT</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">Jan Aadhaar e-KYC</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The foundation of Direct Benefit Transfers (DBT) in Rajasthan. Manage family member enrollments, update subsidized ration entitlements, verify income certificates, and register newborn children online.
+          </p>
+        </div>
+
+        <!-- Tile 4: Land Records (Apna Khata) -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-amber-900 font-semibold uppercase bg-amber-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-amber-200">REVENUE RECORDS</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">APNA KHATA</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">Digital Land Records (Jamabandi)</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Search computerized Record of Rights (RoR / जमाबंदी नकल), apply for land mutation (नामांतरण), check Khasra maps (Bhu Naksha), and verify rural parcel ownership without queuing at tehsil offices.
+          </p>
+        </div>
+
+        <!-- Tile 5: Scholarships (HTE) -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-teal-800 font-semibold uppercase bg-teal-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-teal-200">STUDENT AID</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">POST-MATRIC</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">Higher Education Scholarships</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Apply for Social Justice &amp; Empowerment Department (SJED) Post-Matric scholarships, Chief Minister Higher Education scholarships, and minority education allowances with auto-verified fee receipts.
+          </p>
+        </div>
+
+        <!-- Tile 6: RajKaj & SIPF -->
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] text-indigo-800 font-semibold uppercase bg-indigo-50 px-2 py-0.5 rounded-[var(--radius-sm)] border border-indigo-200">GOVT EMPLOYEES</span>
+            <span class="font-mono text-[11px] text-[var(--color-mute)]">E-OFFICE</span>
+          </div>
+          <h3 class="text-base font-semibold text-[var(--color-ink)]">RajKaj Enterprise Workflow</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Enables state government officers and teachers to file electronic leave applications, track departmental file movements, monitor General Provident Fund (GPF) ledgers, and manage Annual Performance Appraisals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citizen Cybersecurity & Identity Protection Advisory -->
+  <section class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas-elevated)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-300 px-2.5 py-0.5 rounded-[var(--radius-sm)] font-medium">
+            <span>CONSUMER SECURITY DIRECTIVE</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-[var(--color-ink)] tracking-tight">
+            Protecting Your Digital Identity on Public Portals
+          </h2>
+          <p class="text-sm text-[var(--color-body)] leading-relaxed">
+            Because your SSO ID acts as the master key to your Jan Aadhaar bank subsidies, land ownership records, and recruitment exam admit cards, safeguarding your digital credentials is of paramount importance. Thousands of cybersecurity incidents in Rajasthan arise from citizens entering credentials on unauthorized third-party websites or failing to log out on public computers.
+          </p>
+
+          <div class="space-y-3 pt-2 text-xs sm:text-sm text-[var(--color-body)]">
+            <div class="p-3.5 bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+              <span class="font-semibold text-[var(--color-ink)] block">1. Verify the Official Domain URL Strictly</span>
+              <p class="text-xs leading-relaxed">
+                Always ensure your browser address bar displays <strong class="text-[var(--color-ink)]">https://sso.rajasthan.gov.in</strong> before typing your username or password. Fraudulent phishing portals frequently purchase similar domains (such as <code>.com</code>, <code>.org</code>, or <code>.co.in</code> extensions) to steal user identities. Legitimate state portals exclusively end in <strong class="text-[var(--color-ink)]">.gov.in</strong>.
+              </p>
+            </div>
+
+            <div class="p-3.5 bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+              <span class="font-semibold text-[var(--color-ink)] block">2. Public Cyber Cafe &amp; e-Mitra Kiosk Precautions</span>
+              <p class="text-xs leading-relaxed">
+                If applying for government vacancies at an internet cafe, always open a <strong>Private / Incognito Window</strong>. Never allow the browser to save your password. After completing fee payment, manually click the <strong>"Log Out"</strong> icon at the top right and close the browser completely to purge session tokens.
+              </p>
+            </div>
+
+            <div class="p-3.5 bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] space-y-1">
+              <span class="font-semibold text-[var(--color-ink)] block">3. Immediate Action on Suspicious SMS Alerts</span>
+              <p class="text-xs leading-relaxed">
+                If you receive an unsolicited SMS alert from <strong class="text-[var(--color-ink)]">RJ-SSOGOV</strong> stating that an OTP was requested or that your password was updated, immediately log in to sso.rajasthan.gov.in, navigate to Profile Settings, update your password, and call the DoIT&amp;C helpdesk at <strong>0141-5153222</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <div class="p-6 bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] space-y-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+            <h3 class="text-base font-semibold text-[var(--color-ink)]">
+              Digital Identity Checklist:
+            </h3>
+            <ul class="space-y-2.5 text-xs text-[var(--color-body)] list-disc pl-5">
+              <li>Keep your mobile number synchronized in both Aadhaar and Jan Aadhaar cards.</li>
+              <li>Never create a secondary SSO ID; merge existing duplicates to prevent recruitment rejection.</li>
+              <li>Ensure your name and date of birth match your Class 10 mark sheet letter-for-letter.</li>
+              <li>Keep your 1-time OTR transaction receipt saved securely in Google Drive or printed form.</li>
+              <li>Change your SSO password every 90 days following strong complexity rules (minimum 8 characters with numbers and symbols).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Helpline & Support Card -->
+  <section class="py-12 sm:py-16 border-t border-[var(--color-hairline)] bg-[var(--color-canvas-elevated)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <HelpdeskCard />
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions -->
+  <FaqAccordion faqs={HOME_FAQS} />
 </Layout>

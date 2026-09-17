@@ -1,0 +1,52 @@
+---
+import { SITE } from "../data/site";
+---
+
+<div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-6 sm:p-8 shadow-[0_1px_2px_rgba(0,0,0,0.03)] space-y-6">
+  <div class="flex items-center gap-2">
+    <div class="w-8 h-8 rounded-[var(--radius-sm)] bg-[var(--color-ink)] text-[var(--color-on-primary)] flex items-center justify-center font-bold text-sm">
+      ☎
+    </div>
+    <div>
+      <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)]">OFFICIAL HELPDESK</span>
+      <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">Government Contact Directory</h2>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+    <!-- Toll-Free -->
+    <div class="border border-[var(--color-hairline)] rounded-[var(--radius-sm)] p-4 bg-[var(--color-canvas)]">
+      <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">Jan Aadhaar Toll-Free</span>
+      <div class="text-base font-semibold text-[var(--color-ink)] mt-1">{SITE.support.helplineTollFree}</div>
+      <p class="text-xs text-[var(--color-body)] mt-0.5">Toll-free across Rajasthan (Free call)</p>
+    </div>
+
+    <!-- General Support -->
+    <div class="border border-[var(--color-hairline)] rounded-[var(--radius-sm)] p-4 bg-[var(--color-canvas)]">
+      <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">DoIT&amp;C General Line</span>
+      <div class="text-base font-semibold text-[var(--color-ink)] mt-1">{SITE.support.generalHelpline}</div>
+      <p class="text-xs text-[var(--color-body)] mt-0.5">Alt: {SITE.support.generalHelplineAlt}</p>
+    </div>
+
+    <!-- CM Helpline -->
+    <div class="border border-[var(--color-hairline)] rounded-[var(--radius-sm)] p-4 bg-[var(--color-canvas)]">
+      <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">Rajasthan Sampark (Grievance)</span>
+      <div class="text-base font-semibold text-[var(--color-ink)] mt-1">{SITE.support.cmHelpline}</div>
+      <p class="text-xs text-[var(--color-body)] mt-0.5">Dial 181 for service complaints</p>
+    </div>
+
+    <!-- Email -->
+    <div class="border border-[var(--color-hairline)] rounded-[var(--radius-sm)] p-4 bg-[var(--color-canvas)]">
+      <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">Official Support Email</span>
+      <div class="text-sm font-semibold text-[var(--color-link)] mt-1">
+        <a href={`mailto:${SITE.support.email}`} aria-label={`Send email to ${SITE.support.email}`} class="hover:underline">{SITE.support.email}</a>
+      </div>
+      <p class="text-xs text-[var(--color-body)] mt-0.5">{SITE.support.hours}</p>
+    </div>
+  </div>
+
+  <div class="p-3 bg-[var(--color-hairline-soft)] rounded-[var(--radius-sm)] text-xs text-[var(--color-body)] font-mono flex items-center justify-between">
+    <span>SMS Recovery: Send <strong class="text-[var(--color-ink)]">{SITE.support.smsFormat}</strong> to <strong class="text-[var(--color-ink)]">{SITE.support.smsNumber}</strong></span>
+    <span class="text-[var(--color-mute)]">CARRIER SMS</span>
+  </div>
+</div>

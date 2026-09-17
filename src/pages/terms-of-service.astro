@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { SITE } from "../data/site";
+
+const pageTitle = "Terms of Service & Disclaimer — RajSSO Guide";
+const pageDescription =
+  "Terms of service, statutory non-affiliation disclaimers, and user obligations when using RajSSO Guide (rajssoidguide.in).";
+const breadcrumbs = [{ name: "Terms of Service", url: `${SITE.url}/terms-of-service` }];
+---
+
+<Layout title={pageTitle} description={pageDescription} canonicalPath="/terms-of-service">
+  <slot slot="head">
+    <JsonLd
+      title={pageTitle}
+      description={pageDescription}
+      canonicalUrl={`${SITE.url}/terms-of-service`}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-ink)]"></span>
+        <span>LEGAL &amp; USAGE AGREEMENT</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span>EFFECTIVE SEPTEMBER 2026</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        Terms of Service
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        Please review these terms carefully before utilizing RajSSO Guide (rajssoidguide.in). By accessing our website, you agree to comply with and be bound by the following conditions.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8 text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+      <!-- Disclaimer Alert -->
+      <div class="p-5 bg-amber-50 border border-amber-300 rounded-[var(--radius-md)] text-xs text-amber-900 leading-relaxed space-y-1.5">
+        <h2 class="font-semibold text-sm uppercase tracking-wide">IMPORTANT STATUTORY DISCLAIMER</h2>
+        <p>
+          {SITE.disclaimer}
+        </p>
+      </div>
+
+      <!-- 1. Purpose -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          1. Educational &amp; Informational Purpose Only
+        </h2>
+        <p>
+          All materials, procedural tutorials, troubleshooting suggestions, and fee schedules published on this site are presented strictly for general public informational assistance. While we make every reasonable effort to keep data up to date according to government releases, rules, portal interfaces, and recruitment fees change periodically. Always verify current details on <code>sso.rajasthan.gov.in</code> before making financial or administrative commitments.
+        </p>
+      </div>
+
+      <!-- 2. No Governmental Authority -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          2. No Agency, Power of Attorney, or Representation
+        </h2>
+        <p>
+          RajSSO Guide is not an e-Mitra kiosk, not an agent of DoIT&amp;C, and does not possess authority to grant, modify, issue, or cancel government registrations, caste certificates, or exam admit cards. For dispute resolution or technical support with state portals, please contact the official helpdesk at 0141-5153222 or dial 181 (Rajasthan Sampark).
+        </p>
+      </div>
+
+      <!-- 3. Intellectual Property -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          3. Intellectual Property &amp; Official Trademarks
+        </h2>
+        <p>
+          All trademarks, official logos, emblems, and scheme acronyms (such as "SSO Rajasthan", "Jan Aadhaar", "e-Mitra", "RPSC", "RSSB") referenced on this website belong to their respective government departments and statutory bodies. Their appearance on this platform is purely for identification, reference, and educational clarity under nominal fair use doctrine.
+        </p>
+      </div>
+
+      <!-- 4. Limitation of Liability -->
+      <div class="space-y-2">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          4. Limitation of Liability
+        </h2>
+        <p>
+          Under no circumstances shall RajSSO Guide, its authors, contributors, or web hosts be liable for any direct, indirect, incidental, or consequential damages resulting from portal downtime at <code>sso.rajasthan.gov.in</code>, missed exam registration deadlines, rejected scheme applications, or technical errors during state portal transactions.
+        </p>
+      </div>
+
+      <!-- 5. Applicable Law -->
+      <div class="space-y-2 pt-4 border-t border-[var(--color-hairline)]">
+        <h2 class="text-lg font-semibold text-[var(--color-ink)] tracking-tight">
+          5. Governing Jurisdiction
+        </h2>
+        <p>
+          These terms and your use of this guide shall be governed by and construed in accordance with the laws of India, with exclusive jurisdiction in the courts of Jaipur, Rajasthan.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,38 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="py-3 border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] text-xs text-[var(--color-mute)] font-mono">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center space-x-2 overflow-x-auto whitespace-nowrap">
+    <a href="/" class="hover:text-[var(--color-ink)] transition-colors flex items-center gap-1">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>HOME</span>
+    </a>
+
+    {items.map((item, idx) => (
+      <span class="flex items-center space-x-2">
+        <span class="text-[var(--color-faint)]">/</span>
+        {idx === items.length - 1 ? (
+          <span class="text-[var(--color-ink)] font-semibold truncate max-w-[240px] sm:max-w-md">
+            {item.name.toUpperCase()}
+          </span>
+        ) : (
+          <a href={item.url} class="hover:text-[var(--color-ink)] transition-colors">
+            {item.name.toUpperCase()}
+          </a>
+        )}
+      </span>
+    ))}
+  </div>
+</nav>

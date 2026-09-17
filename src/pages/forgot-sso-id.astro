@@ -1,0 +1,502 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import StepGuide from "../components/StepGuide.astro";
+import HelpdeskCard from "../components/HelpdeskCard.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { GUIDES } from "../data/guides";
+import { SITE } from "../data/site";
+
+const guide = GUIDES["forgot-sso-id"];
+const breadcrumbs = [{ name: "Account Recovery", url: `${SITE.url}/forgot-sso-id` }];
+---
+
+<Layout
+  title={guide.metaTitle}
+  description={guide.metaDescription}
+  canonicalPath="/forgot-sso-id"
+  type="article"
+>
+  <slot slot="head">
+    <JsonLd
+      type="HowTo"
+      title={guide.title}
+      description={guide.metaDescription}
+      canonicalUrl={`${SITE.url}/forgot-sso-id`}
+      faqs={guide.faqs}
+      howToSteps={guide.steps}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Guide Header Band -->
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+        <span>{guide.eyebrow}</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span>INSTANT SELF-SERVICE</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        {guide.title}
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        {guide.lead}
+      </p>
+
+      <!-- Instant SMS Callout Box -->
+      <div class="mt-6 p-5 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] shadow-[0_1px_2px_rgba(0,0,0,0.02)] space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+            <h2 class="text-sm font-semibold text-[var(--color-ink)]">
+              Fastest Method: 10-Second SMS Recovery
+            </h2>
+          </div>
+          <span class="font-mono text-[11px] text-[var(--color-mute)]">OFFICIAL GOVT SMS GATEWAY</span>
+        </div>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          If you have your registered mobile number active, send this SMS text directly from your phone to retrieve your SSOID immediately:
+        </p>
+        <div class="flex items-center justify-between bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)] rounded-[var(--radius-sm)] p-3 font-mono text-xs">
+          <span>SMS text: <strong>RJ SSO</strong> &nbsp;→&nbsp; Send to: <strong>9223166166</strong></span>
+          <button
+            type="button"
+            id="copy-sms-code-btn"
+            aria-label="Copy recovery SMS syntax RJ SSO"
+            class="px-3 py-1 bg-[var(--color-ink)] text-[var(--color-on-primary)] rounded-[var(--radius-sm)] text-[11px] font-medium hover:bg-neutral-800 transition-colors cursor-pointer"
+          >
+            Copy Text
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 1: Why Recovery is Safer Than Creating Duplicate Accounts -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          IDENTITY PROTECTION
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Why You Must Recover Your Account Instead of Creating a New SSO ID
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          When citizens forget their SSOID or password, an instinctive reaction is to open the registration page and attempt to create a brand-new account. Under Rajasthan state IT architecture, this is the worst possible course of action. Because your 12-digit Aadhaar and 10-digit Jan Aadhaar numbers are permanently bound to your initial SSOID in the State Resident Data Hub (SRDH), attempting to register a second account causes irreversible credential conflicts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Recruitment Form Rejection Risks</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The Rajasthan Public Service Commission (RPSC) and Staff Selection Board (RSSB) run automated integrity scans prior to publishing exam admit cards. If a candidate is flagged with multiple active SSOIDs sharing the same biometric Aadhaar, candidate registration can be placed on hold or rejected for duplicate identity misrepresentation.
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Loss of Historical Application Data</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Your original SSO ID contains your lifetime One-Time Registration (OTR) fee receipt, previously issued Bonafide and Caste certificates, e-Mitra transaction ledgers, and scholarship disbursement histories. Creating a new account starts with a blank record and forfeits access to past documents.
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">OTR Single Lifetime Fee Protection</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Under Rajasthan's One-Time Registration policy, citizens pay a single recruitment fee (₹600 General, ₹400 Reserved) once in their lifetime. If you abandon your old SSOID, you cannot transfer your OTR receipt to a new account without submitting complex manual affidavits at the state directorate.
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Instant 100% Free Self-Service Recovery</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The Government of Rajasthan has engineered automated self-service recovery channels that take less than 60 seconds to retrieve your username via SMS or reset your secret password via Jan Aadhaar OTP. Account recovery is instantaneous and completely free.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Procedure with Screenshots -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight">
+          Recovery Options (Username &amp; Password)
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
+          Select between instant SMS syntax or the online Jan Aadhaar OTP self-service portal.
+        </p>
+      </div>
+
+      <!-- Visual Recovery Portal Screenshot -->
+      <figure class="mb-8 border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+        <img
+          src="/images/forgot-sso-id-recovery-portal.webp"
+          alt="Rajasthan SSO ID and Password Recovery Portal Interface with I Forgot My Digital Identity Options"
+          width="800"
+          height="400"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto object-cover"
+        />
+        <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+          <span>Official Rajasthan SSO Password Reset Gateway</span>
+          <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">sso.rajasthan.gov.in/recovery</span>
+        </figcaption>
+      </figure>
+
+      <StepGuide
+        steps={guide.steps}
+        prerequisites={guide.prerequisites}
+        officialUrl={guide.officialUrl}
+        officialLabel={guide.officialButtonLabel}
+      />
+
+      <!-- Visual Recovery Channels Breakdown -->
+      <div class="mt-12 pt-8 border-t border-[var(--color-hairline)] space-y-6">
+        <div class="max-w-2xl">
+          <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+            OFFICIAL RECOVERY PATHWAYS
+          </span>
+          <h3 class="text-lg sm:text-xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            Three Verification Channels on RajSSO
+          </h3>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Depending on your registered identity assets, the state portal offers three distinct automated recovery flows:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Option 1: Mobile OTP -->
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+            <img
+              src="/images/sso-password-recovery-mobile-otp.webp"
+              alt="SSO ID Password Reset Screen using Registered Mobile Number and One-Time Password OTP Verification"
+              width="800"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover border-b border-[var(--color-hairline)]"
+            />
+            <div class="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-[10px] text-blue-600 font-semibold uppercase">Channel 01</span>
+                <h4 class="text-sm font-semibold text-[var(--color-ink)]">Mobile Number OTP</h4>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  Enter your 10-digit mobile number linked with Jan Aadhaar to receive an instantaneous 6-digit verification code.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 2: Email OTP -->
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+            <img
+              src="/images/sso-password-recovery-email-otp.webp"
+              alt="SSO ID Password Recovery Portal using Registered Email Address Verification Link"
+              width="800"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover border-b border-[var(--color-hairline)]"
+            />
+            <div class="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-[10px] text-emerald-800 font-semibold uppercase">Channel 02</span>
+                <h4 class="text-sm font-semibold text-[var(--color-ink)]">Registered Email Link</h4>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  Receive an encrypted 15-minute temporary password reset hyperlink directly on your registered email address.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option 3: Aadhaar / VID -->
+          <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+            <img
+              src="/images/sso-password-recovery-aadhaar-vid.webp"
+              alt="SSO ID Password Reset via Aadhaar ID and Virtual ID Biometric Authentication"
+              width="800"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto object-cover border-b border-[var(--color-hairline)]"
+            />
+            <div class="p-4 space-y-1.5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-[10px] text-purple-600 font-semibold uppercase">Channel 03</span>
+                <h4 class="text-sm font-semibold text-[var(--color-ink)]">Aadhaar / Virtual ID (VID)</h4>
+                <p class="text-xs text-[var(--color-body)] leading-relaxed">
+                  Direct UIDAI authentication using your 12-digit Aadhaar or 16-digit VID if you no longer retain access to past mobile numbers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 2: Lost SIM Card Recovery Protocol -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          SPECIAL CIRCUMSTANCES
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Lost or Deactivated SIM Card? The Offline e-Mitra Recovery Protocol
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          A frequent dilemma arises when a citizen loses access to the mobile number originally registered on their SSO profile. Because automated recovery depends on SMS one-time passwords, standard online self-service channels will fail. Follow this four-step official protocol to regain access:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Step 1: Visit Your Nearest Authorized e-Mitra Kiosk
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Locate an authorized government e-Mitra center or Atal Seva Kendra in your gram panchayat or ward. Carry your original physical Jan Aadhaar Card and 12-digit UIDAI Aadhaar Card along with your new, active mobile SIM card.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Step 2: Undergo Biometric Fingerprint / Iris Authentication
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The e-Mitra operator initiates a "Jan Aadhaar Citizen Data Update" transaction. You must place your finger on the biometric scanner to prove physical identity against UIDAI records. This completely bypasses the need for the old phone number.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Step 3: Update Mobile Number in the Jan Aadhaar Master Registry
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            The operator inputs your new mobile number and triggers an instant OTP to your new SIM to verify possession. Once confirmed, an electronic token is submitted to the block development officer (BDO) for Level-1 approval.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Step 4: Allow 24-Hour Database Sync &amp; Reset Online Password
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Once BDO approval is granted (typically 12 to 24 hours), the State Resident Data Hub automatically synchronizes your new phone number with the RajSSO authentication engine. You can now use the "I Forgot my Password" online tool or send SMS RJ SSO to 9223166166 from your new SIM card.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Family Household Recovery Disambiguation -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          MULTI-USER HOUSEHOLDS
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Recovering Accounts When Multiple Family Members Share One Phone
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          In millions of Rajasthan households, all family members (parents, siblings, children) are enrolled under a single Jan Aadhaar card linked to one shared mobile number. When you attempt account recovery, take care to target your specific record:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            SMS Query Response for Shared Numbers
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            When you send <code class="font-mono text-xs bg-[var(--color-hairline-soft)] px-1.5 py-0.5 rounded">RJ SSO</code> to 9223166166 from a shared number, the NIC SMS server returns a comma-separated list of all SSO IDs linked to that phone number (e.g., <em>"Your SSOIDs are: rahul.sharma99, priya.sharma02, ram.sharma65"</em>). Match your name to the exact username before attempting a password reset.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Preventing Accidental Password Overwrites for Family Members
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Never initiate a password reset using another family member's SSO ID. Doing so invalidates their active login session, locks their mobile app, and causes confusion during recruitment exams. Always verify the member selection radio button on the Jan Aadhaar roster screen before submitting the password change token.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Reactivating Dormant or Archived SSO IDs -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          ACCOUNT LIFECYCLE
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Reactivating Archived and Dormant SSO Profiles (3-Year Policy)
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Under Rajasthan State Cybersecurity and Data Hygiene standards, SSO accounts that register zero successful logins for 36 consecutive months (3 years) are automatically transitioned to an "Archived / Dormant" status. If your account is dormant, standard automated password resets may fail with the message <em>"Account status inactive"</em>. Follow this reactivation protocol:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-blue-600 font-semibold uppercase">Protocol Step 01</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Compose Formal Support Request</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Send an email to <strong>helpdesk.sso@rajasthan.gov.in</strong> from your registered email address with the subject line: <em>"Request for SSOID Reactivation - [Your SSOID]"</em>.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-emerald-800 font-semibold uppercase">Protocol Step 02</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Attach Verification Identity Proofs</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Attach self-attested scanned copies of your Jan Aadhaar Card, 12-digit UIDAI Aadhaar Card, and an active mobile bill or declaration showing ownership of the registered phone.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-hairline-soft)] border border-[var(--color-hairline)]">
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          <strong>Resolution Timeline:</strong> State IT engineers review reactivation tickets within 2 to 3 working business days. Once unfrozen, your complete historical profile—including your permanent OTR candidate enrollment—is fully restored without penalty.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 3: Password Hardening & Complexity Rules -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          PASSWORD POLICY
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          SSO Password Hardening Guidelines &amp; Complexity Standards
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          When defining a new password during the recovery process, the state authentication firewall enforces strict entropy criteria. If your proposed password fails any of these conditions, the submission button remains disabled:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[var(--color-body)]">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1">
+          <span class="font-mono text-[11px] text-emerald-800 font-semibold uppercase">Rule 1: Length</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">Minimum 8 Characters</h3>
+          <p>Must contain between 8 and 16 characters. Shorter inputs are rejected automatically by the client validator.</p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1">
+          <span class="font-mono text-[11px] text-blue-600 font-semibold uppercase">Rule 2: Case Mixing</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">Uppercase &amp; Lowercase Letters</h3>
+          <p>Must include at least one English capital letter (A–Z) and at least one small letter (a–z).</p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1">
+          <span class="font-mono text-[11px] text-purple-600 font-semibold uppercase">Rule 3: Numerals</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">At Least One Numeric Digit</h3>
+          <p>Must contain at least one numeral from 0 through 9. Avoid sequential numbers like 1234.</p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1">
+          <span class="font-mono text-[11px] text-amber-800 font-semibold uppercase">Rule 4: Symbols</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">At Least One Special Character</h3>
+          <p>Must include at least one approved symbol: @, #, $, %, ^, &amp;, or *. Do not use spaces or quotation marks.</p>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-2">
+        <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+          Recommended Passphrase Strategy for High Security and Easy Recall
+        </h3>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          Instead of using random jumbles of characters that are easily forgotten (e.g., <code class="font-mono text-[11px]">X7#mK$9q</code>), state cybersecurity experts recommend combining two memorable words separated by a symbol and two digits (e.g., <code class="font-mono text-[11px]">Jaipur#Fort24</code> or <code class="font-mono text-[11px]">Desert$Camel98</code>). This creates a cryptographically resilient password with high mathematical entropy while ensuring you can easily type it on smartphone keyboards without triggering lockouts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Troubleshooting Box -->
+  {guide.commonIssues && (
+    <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="mb-6">
+          <span class="font-mono text-xs uppercase tracking-wider text-amber-900 font-semibold">
+            RECOVERY ASSISTANCE
+          </span>
+          <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            Common Recovery Roadblocks &amp; Official Solutions
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Troubleshooting for expired reset tokens, inactive SIMs, and unreceived carrier SMS alerts.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {guide.commonIssues.map((issue) => (
+            <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                <h3 class="text-sm font-semibold text-[var(--color-ink)]">{issue.title}</h3>
+              </div>
+              <p class="text-xs text-[var(--color-body)] leading-relaxed">{issue.solution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Helpdesk Support Component -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <HelpdeskCard />
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <FaqAccordion
+    faqs={guide.faqs}
+    title="Recovery Questions & Answers"
+    subtitle="Answers about SMS response times, SIM card replacements, token expirations, and helpline escalation."
+  />
+</Layout>
+
+<script>
+  const copyBtn = document.getElementById("copy-sms-code-btn");
+  copyBtn?.addEventListener("click", () => {
+    navigator.clipboard.writeText("RJ SSO");
+    copyBtn.innerText = "Copied!";
+    setTimeout(() => {
+      copyBtn.innerText = "Copy Text";
+    }, 2000);
+  });
+</script>

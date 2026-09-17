@@ -1,0 +1,471 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import StepGuide from "../components/StepGuide.astro";
+import HelpdeskCard from "../components/HelpdeskCard.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { GUIDES } from "../data/guides";
+import { SITE } from "../data/site";
+
+const guide = GUIDES["sso-id-registration"];
+const breadcrumbs = [{ name: "SSO Registration", url: `${SITE.url}/sso-id-registration` }];
+---
+
+<Layout
+  title={guide.metaTitle}
+  description={guide.metaDescription}
+  canonicalPath="/sso-id-registration"
+  type="article"
+>
+  <slot slot="head">
+    <JsonLd
+      type="HowTo"
+      title={guide.title}
+      description={guide.metaDescription}
+      canonicalUrl={`${SITE.url}/sso-id-registration`}
+      faqs={guide.faqs}
+      howToSteps={guide.steps}
+      breadcrumbs={breadcrumbs}
+    />
+  </slot>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Guide Header Band -->
+  <section class="border-b border-[var(--color-hairline)] bg-[var(--color-canvas)] py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] mb-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>{guide.eyebrow}</span>
+        <span class="text-[var(--color-faint)]">|</span>
+        <span>100% FREE OF CHARGE</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl font-semibold text-[var(--color-ink)] tracking-tight leading-tight">
+        {guide.title}
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--color-body)] mt-4 leading-relaxed">
+        {guide.lead}
+      </p>
+
+      <!-- Registration Endpoint Banner -->
+      <div class="mt-6 p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="space-y-0.5">
+          <span class="font-mono text-[11px] text-[var(--color-mute)] uppercase">Official Registration URL</span>
+          <p class="text-xs sm:text-sm font-mono font-medium text-[var(--color-ink)]">
+            https://sso.rajasthan.gov.in/register
+          </p>
+        </div>
+        <a
+          href={guide.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 bg-[var(--color-ink)] text-[var(--color-on-primary)] hover:bg-neutral-800 text-xs sm:text-sm font-medium h-9 px-4 rounded-full transition-all flex-shrink-0"
+        >
+          <span>{guide.officialButtonLabel}</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 1: Lifetime Benefits of RajSSO Digital Identity -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          DIGITAL IDENTITY ADVANTAGES
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Why Creating an SSO ID is Essential for Rajasthan Residents
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          The Rajasthan Single Sign-On (RajSSO) system is far more than a simple recruitment login portal; it is the official digital identity required to interface with state administration, welfare schemes, higher education admissions, and public utility infrastructures. Once generated, your SSOID serves as your permanent electronic dossier throughout your lifetime in Rajasthan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">State Recruitment &amp; One-Time Registration (OTR)</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            All competitive exam notifications published by the Rajasthan Public Service Commission (RPSC) and the Rajasthan Staff Selection Board (RSSB) require candidate submission via RajSSO. Through your SSOID, you complete the mandatory One-Time Registration (OTR), pay the single lifetime recruitment fee, and generate admit cards for exams including RAS, REET, Patwari, Police Constable, and Junior Accountant.
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Direct Benefit Transfer (DBT) &amp; Social Welfare</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            RajSSO directly connects to your Jan Aadhaar family record. This enables automatic disbursal of student scholarships (Social Justice and Empowerment department), Mukhyamantri Ayushman Arogya health insurance claims, agricultural equipment subsidies, old-age pensions, and domestic LPG gas cylinder subsidies directly to your verified bank account.
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Digital Certificates &amp; Revenue Records</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Eliminating physical visits to tehsil offices, your SSO profile allows you to apply for, track, and download legally valid digitally signed certificates: Bonafide / Domicile Certificates, Caste Certificates (SC, ST, OBC, MBC, EWS), Income Certificates, and digitized land ownership records (Apna Khata / Jamabandi नकल).
+          </p>
+        </div>
+
+        <div class="bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2">
+          <div class="inline-flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+            <h3 class="text-sm font-semibold text-[var(--color-ink)]">Utility Services &amp; Municipal Payments</h3>
+          </div>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Through the integrated e-Mitra citizen portal, you can make instant cashless payments for electricity bills (JVVNL, AVVNL, JdVVNL), water utility charges (PHED), property tax, traffic challans, and commercial municipal licenses with instant verifiable receipts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Comparison Cards -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="mb-6">
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          REGISTRATION CHANNELS &amp; ELIGIBILITY
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Select Your Verified Registration Pathway
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
+          Choose the category that matches your legal status to ensure full access to relevant government modules.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <span class="font-mono text-[11px] text-blue-600 font-semibold uppercase">1. Citizen (नागरिक)</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">Jan Aadhaar or Google</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            For individual residents and job applicants. Domicile holders must link their Jan Aadhaar to enable state quotas, fee concessions, and student scholarships.
+          </p>
+          <div class="pt-2 border-t border-[var(--color-hairline)] text-[11px] text-[var(--color-mute)]">
+            <strong>Mandatory:</strong> Jan Aadhaar Family ID or Active Google Account
+          </div>
+        </div>
+
+        <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <span class="font-mono text-[11px] text-emerald-800 font-semibold uppercase">2. Udhyog (उद्योग)</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">Business Registration (BRN)</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            For proprietors, partnerships, LLPs, and industrial units. Provides access to single-window clearances, labor licenses, factory inspections, and state tenders.
+          </p>
+          <div class="pt-2 border-t border-[var(--color-hairline)] text-[11px] text-[var(--color-mute)]">
+            <strong>Mandatory:</strong> 16-Digit BRN or Udyog Aadhaar
+          </div>
+        </div>
+
+        <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+          <span class="font-mono text-[11px] text-purple-600 font-semibold uppercase">3. Govt Employee</span>
+          <h3 class="text-sm font-semibold text-[var(--color-ink)]">SIPF Employee Number</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            For state government employees and civil servants. Unlocks RajKaj e-Office files, electronic salary pay slips via PayManager, and GPF ledgers.
+          </p>
+          <div class="pt-2 border-t border-[var(--color-hairline)] text-[11px] text-[var(--color-mute)]">
+            <strong>Mandatory:</strong> Verified SIPF ID &amp; Govt Phone
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 2: Jan Aadhaar vs Google Authentication Warning -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-amber-900 font-semibold">
+          CRITICAL REGISTRATION ADVISORY
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Jan Aadhaar vs Google Authentication: Avoiding the Duplicate ID Trap
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          The single most common pitfall encountered by Rajasthan students and job aspirants is registering their initial SSO ID via the "Google" button. While clicking "Google" appears fast and convenient, it creates a decoupled identity that lacks verification from the State Resident Data Hub (SRDH).
+        </p>
+      </div>
+
+      <div class="p-5 rounded-[var(--radius-md)] bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-800 space-y-3">
+        <h3 class="text-sm font-semibold text-amber-900 dark:text-amber-300">
+          Why Rajasthan Residents Must NEVER Register Initially with Google
+        </h3>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          When you register via Google, the portal creates an unverified account. Months later, when you attempt to submit an RPSC recruitment form or apply for a Post-Matric scholarship, the application portal mandates linking your 10-digit Jan Aadhaar card to prove state domicile and category benefits. However, if any family member or previous e-Mitra transaction already mapped your Jan Aadhaar to an earlier account, the portal throws the catastrophic error: <em>"Jan Aadhaar ID already associated with another SSOID"</em>.
+        </p>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          Resolving this requires an extensive duplicate account merger process or submitting physical affidavits at the DoIT&amp;C state headquarters in Jaipur. <strong>To prevent this nightmare, always select 'Jan Aadhaar' as your authentication provider from day one.</strong>
+        </p>
+      </div>
+
+      <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)]">
+        <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)] mb-1">
+          When is Google Registration Appropriate?
+        </h3>
+        <p class="text-xs text-[var(--color-body)] leading-relaxed">
+          The Google registration pathway is explicitly engineered for candidates residing outside Rajasthan (e.g., Uttar Pradesh, Haryana, Delhi, Bihar, Punjab) who are applying for open-merit all-India vacancies in RPSC or RSSB recruitment. Non-Rajasthan candidates do not possess a Jan Aadhaar card and are eligible for General/Unreserved category quotas exclusively.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Procedure with Screenshots -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="mb-6">
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight">
+          Step-by-Step Online Registration Walkthrough
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-mute)] mt-1">
+          Follow these sequential steps to set up your lifetime digital SSO ID on the official government portal.
+        </p>
+      </div>
+
+      <!-- Visual Registration Portal Screenshot 1 -->
+      <figure class="mb-8 border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+        <img
+          src="/images/sso-id-registration-portal-guide.webp"
+          alt="Rajasthan SSO ID Online Registration Portal showing Citizen, Udhyog, and Government Employee Signup Options"
+          width="1200"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto object-cover"
+        />
+        <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+          <span>Official Rajasthan SSO New Registration Gateway</span>
+          <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">sso.rajasthan.gov.in/register</span>
+        </figcaption>
+      </figure>
+
+      <StepGuide
+        steps={guide.steps}
+        prerequisites={guide.prerequisites}
+        officialUrl={guide.officialUrl}
+        officialLabel={guide.officialButtonLabel}
+      />
+
+      <!-- Visual Registration Options Screenshot 2 -->
+      <div class="mt-12 pt-8 border-t border-[var(--color-hairline)] space-y-4">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+            DIGITAL ONBOARDING SCREEN
+          </span>
+          <h3 class="text-lg sm:text-xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            Understanding the Citizen Digital Onboarding Interface
+          </h3>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Review the interface layout before proceeding to ensure you enter verified identification numbers.
+          </p>
+        </div>
+
+        <figure class="border border-[var(--color-hairline)] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-canvas)] shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+          <img
+            src="/images/rajasthan-sso-registration-options-screen.webp"
+            alt="Rajasthan SSO Portal Registration Category Selector Screen with Jan Aadhaar and Google Onboarding Tabs"
+            width="1200"
+            height="600"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-auto object-cover"
+          />
+          <figcaption class="p-3 text-xs text-[var(--color-mute)] border-t border-[var(--color-hairline)] flex items-center justify-between">
+            <span>Citizen Signup Options: Jan Aadhaar and Google Authentication Selectors</span>
+            <span class="font-mono text-[11px] text-[var(--color-ink)] font-medium">Verified Gateway</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section 3: Mandatory Post-Registration Profile Completion -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          ESSENTIAL SECOND STEP
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Mandatory Post-Registration Profile Completion Checklist
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Generating your username is merely phase one of onboarding. To unlock government recruitment forms, subsidy claims, and utility applications, you must finalize your profile metadata. Immediately after your initial login, complete these four mandatory linkage items:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            1. Link and Biometrically Verify Your 12-Digit UIDAI Aadhaar
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Click the pencil icon beside your name on the dashboard header. In the Aadhaar field, type your 12-digit number and click the biometric / OTP verify button. This permanently confirms your identity and prevents malicious impersonation.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            2. Seed Your Primary Active Mobile Number &amp; Recovery Email
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Ensure your active 10-digit mobile number is verified with an SMS OTP. Input a secure, permanent personal email address (e.g., personal Gmail). This guarantees you can reset your password even if you misplace your SIM card.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            3. Synchronize Bank Account for Direct Benefit Transfers (DBT)
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            For students applying for higher education scholarships or citizens eligible for utility refunds, enter your active bank account number and IFSC code. The portal verifies your name against the bank ledger to prevent transaction failures.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            4. Upload a Compliant Passport Photograph &amp; Signature
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Upload a clear passport photograph (JPEG format, 50 KB – 100 KB) and digital signature (20 KB – 50 KB). This photo automatically seeds into RPSC admit cards and e-Mitra certificates, saving hours during future online submissions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Jan Aadhaar Family Mechanics & Marksheet Data Matching -->
+  <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          IDENTITY VERIFICATION STANDARDS
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Jan Aadhaar Family Structure &amp; Marksheet Data Alignment
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          The State Resident Data Hub (SRDH) structures Jan Aadhaar cards around a designated female head of household (मुखिया) with affiliated family members (सदस्य) listed underneath. When registering an individual SSO ID, understand how this hierarchy interacts with state identity systems:
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            Individual Identity Sovereignty Under One Family Card
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Every adult family member listed on a Jan Aadhaar card is entitled to create their own distinct, password-protected SSO ID. The portal does not restrict families to a single communal account. However, when selecting your name from the family roster, ensure your individual 12-digit UIDAI Aadhaar number is properly seeded against your member profile rather than the parent's record.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas)] border border-[var(--color-hairline)] space-y-1.5">
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">
+            The Golden Rule: Match Jan Aadhaar Exactly to 10th Board Marksheets
+          </h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Before initiating SSO registration for competitive recruitment (RPSC/RSSB), inspect the spelling of your name, your father's name, and your date of birth in your Jan Aadhaar card. State examination software pulls these demographic attributes directly from Jan Aadhaar to populate your One-Time Registration (OTR). If your mark sheet reads "Suresh Kumar" while Jan Aadhaar reads "Suresh", exam document verification boards may disqualify your candidature. Correct discrepancies at an e-Mitra kiosk prior to registration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section: Special Reservation Categories & Concessions -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wider text-[var(--color-mute)] font-semibold">
+          RESERVATION &amp; FEE EXEMPTIONS
+        </span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+          Special Category Quotas: Automatic Concessions via SSO Profile
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--color-body)] mt-3 leading-relaxed">
+          Rajasthan's unified digital platform automatically maps statutory affirmative action benefits to verified candidate profiles. By ensuring your certificates are uploaded during or immediately after registration, you unlock automated fee waivers and age relaxations:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-blue-600 font-semibold uppercase">Category 01: EWS / OBC / MBC</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Digital Caste Certificates</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Link your digital caste certificate token issued by revenue tehsildars. The portal verifies validity dates and auto-qualifies candidates for fee concessions.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-emerald-800 font-semibold uppercase">Category 02: Divyangjan (PwD)</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">UDID Card Integration</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Candidates with 40% or higher permanent benchmark disability can input their Unique Disability ID (UDID) to claim 100% exam fee exemptions and scribe assistance.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-[var(--radius-md)] bg-[var(--color-canvas-elevated)] border border-[var(--color-hairline)] space-y-2">
+          <span class="font-mono text-[11px] text-purple-600 font-semibold uppercase">Category 03: Ex-Servicemen</span>
+          <h3 class="text-xs sm:text-sm font-semibold text-[var(--color-ink)]">Defense Discharge Book</h3>
+          <p class="text-xs text-[var(--color-body)] leading-relaxed">
+            Ex-servicemen entering their PPO and military discharge book numbers receive statutory age relaxations and dedicated state service reservation quotas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Issues & Fixes -->
+  {guide.commonIssues && (
+    <section class="py-12 bg-[var(--color-canvas-elevated)] border-b border-[var(--color-hairline)]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="mb-6">
+          <span class="font-mono text-xs uppercase tracking-wider text-amber-900 font-semibold">
+            REGISTRATION GOTCHAS
+          </span>
+          <h2 class="text-xl sm:text-2xl font-semibold text-[var(--color-ink)] tracking-tight mt-1">
+            Common Registration Obstacles &amp; Official Solutions
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--color-body)] mt-1">
+            Solutions for duplicate account blocks, mobile OTP delays, and business registration validation issues.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {guide.commonIssues.map((issue) => (
+            <div class="bg-[var(--color-canvas)] border border-[var(--color-hairline)] rounded-[var(--radius-md)] p-5 space-y-2 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                <h3 class="text-sm font-semibold text-[var(--color-ink)]">{issue.title}</h3>
+              </div>
+              <p class="text-xs text-[var(--color-body)] leading-relaxed">{issue.solution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Helpdesk Support Component -->
+  <section class="py-12 bg-[var(--color-canvas)] border-b border-[var(--color-hairline)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <HelpdeskCard />
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <FaqAccordion
+    faqs={guide.faqs}
+    title="Registration Questions & Answers"
+    subtitle="Answers about eligibility, domicile rules, document requirements, and account troubleshooting."
+  />
+</Layout>
