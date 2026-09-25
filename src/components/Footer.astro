@@ -23,10 +23,16 @@ import { SITE, FOOTER_LINKS } from "../data/site";
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
       <!-- Col 1: About Platform -->
       <div class="md:col-span-1 space-y-4">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-[var(--radius-sm)] bg-[var(--color-ink)] text-[var(--color-on-primary)] flex items-center justify-center font-bold text-xs">
-            SSO
-          </div>
+        <div class="flex items-center gap-2.5">
+          <img
+            src="/favicon.svg"
+            alt="SSO ID Rajasthan Portal Guide Logo"
+            width="32"
+            height="32"
+            class="w-8 h-8 object-contain"
+            loading="lazy"
+            decoding="async"
+          />
           <span class="font-semibold text-[var(--color-ink)] tracking-tight">
             {SITE.name}
           </span>

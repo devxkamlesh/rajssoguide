@@ -12,9 +12,15 @@ const { currentPath = "/" } = Astro.props;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
     <a href="/" aria-label="SSO ID Rajasthan Portal Guide Home" class="flex items-center gap-2.5 group focus:outline-none">
-      <div class="w-8 h-8 rounded-[var(--radius-sm)] bg-[var(--color-ink)] text-[var(--color-on-primary)] flex items-center justify-center font-bold text-sm tracking-tight transition-transform group-hover:scale-105">
-        SSO
-      </div>
+      <img
+        src="/favicon.svg"
+        alt="SSO ID Rajasthan Portal Guide Logo"
+        width="36"
+        height="36"
+        class="w-9 h-9 object-contain transition-transform group-hover:scale-105"
+        loading="eager"
+        decoding="async"
+      />
       <div class="flex flex-col">
         <span class="font-semibold text-sm sm:text-base text-[var(--color-ink)] tracking-tight leading-tight flex items-center gap-1.5">
           {SITE.name}
