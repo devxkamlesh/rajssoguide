@@ -1,9 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rajGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#FFD626"/>
+      <stop offset="28%" stop-color="#FBBA16"/>
+      <stop offset="68%" stop-color="#F28B15"/>
+      <stop offset="100%" stop-color="#D6620E"/>
+    </linearGradient>
+    <filter id="mapShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Offset group to center in 200x200 square -->
+  <g transform="translate(1.5, 11)">
+    <!-- Rajasthan Map Silhouette -->
+    <path d="M 98.0 0.0 L 94.0 2.0 L 90.0 2.0 L 88.0 3.0 L 86.0 7.0 L 86.0 12.0 L 85.0 15.0 L 83.0 18.0 L 80.0 21.0 L 78.0 26.0 L 75.0 29.0 L 73.0 29.0 L 69.0 31.0 L 63.0 37.0 L 63.0 40.0 L 62.0 42.0 L 54.0 50.0 L 52.0 56.0 L 49.0 57.0 L 42.0 57.0 L 38.0 58.0 L 32.0 61.0 L 28.0 61.0 L 26.0 59.0 L 24.0 55.0 L 19.0 54.0 L 14.0 58.0 L 12.0 62.0 L 12.0 64.0 L 11.0 66.0 L 2.0 75.0 L 0.0 81.0 L 0.0 85.0 L 3.0 88.0 L 5.0 89.0 L 11.0 89.0 L 13.0 90.0 L 15.0 92.0 L 15.0 98.0 L 13.0 102.0 L 13.0 106.0 L 15.0 109.0 L 18.0 112.0 L 20.0 113.0 L 25.0 113.0 L 26.0 115.0 L 26.0 120.0 L 29.0 123.0 L 30.0 125.0 L 30.0 128.0 L 31.0 131.0 L 34.0 134.0 L 35.0 137.0 L 39.0 139.0 L 41.0 139.0 L 45.0 137.0 L 48.0 139.0 L 54.0 138.0 L 59.0 139.0 L 62.0 139.0 L 64.0 140.0 L 66.0 143.0 L 69.0 142.0 L 71.0 144.0 L 74.0 145.0 L 77.0 145.0 L 81.0 143.0 L 82.0 145.0 L 81.0 151.0 L 83.0 154.0 L 86.0 152.0 L 88.0 155.0 L 86.0 157.0 L 86.0 159.0 L 88.0 162.0 L 92.0 164.0 L 92.0 166.0 L 94.0 168.0 L 96.0 169.0 L 98.0 169.0 L 101.0 171.0 L 103.0 173.0 L 103.0 175.0 L 107.0 175.0 L 112.0 177.0 L 116.0 175.0 L 117.0 173.0 L 113.0 170.0 L 114.0 167.0 L 116.0 167.0 L 120.0 165.0 L 121.0 163.0 L 121.0 157.0 L 122.0 154.0 L 120.0 152.0 L 120.0 150.0 L 117.0 149.0 L 117.0 146.0 L 119.0 144.0 L 116.0 142.0 L 117.0 140.0 L 119.0 138.0 L 121.0 138.0 L 123.0 137.0 L 118.0 133.0 L 121.0 132.0 L 125.0 132.0 L 125.0 130.0 L 127.0 128.0 L 130.0 129.0 L 129.0 131.0 L 130.0 133.0 L 129.0 137.0 L 138.0 136.0 L 141.0 137.0 L 142.0 140.0 L 142.0 142.0 L 140.0 144.0 L 140.0 149.0 L 139.0 151.0 L 141.0 153.0 L 139.0 155.0 L 134.0 155.0 L 136.0 159.0 L 138.0 159.0 L 143.0 157.0 L 148.0 151.0 L 149.0 148.0 L 154.0 148.0 L 158.0 149.0 L 161.0 149.0 L 166.0 151.0 L 164.0 147.0 L 165.0 141.0 L 169.0 142.0 L 169.0 138.0 L 164.0 133.0 L 166.0 128.0 L 171.0 128.0 L 177.0 126.0 L 175.0 123.0 L 175.0 121.0 L 174.0 119.0 L 173.0 121.0 L 171.0 123.0 L 168.0 122.0 L 162.0 122.0 L 159.0 121.0 L 157.0 119.0 L 156.0 116.0 L 157.0 110.0 L 173.0 97.0 L 176.0 95.0 L 178.0 95.0 L 184.0 92.0 L 187.0 89.0 L 191.0 87.0 L 193.0 87.0 L 196.0 84.0 L 195.0 81.0 L 193.0 81.0 L 192.0 83.0 L 189.0 83.0 L 185.0 82.0 L 183.0 83.0 L 181.0 85.0 L 177.0 84.0 L 182.0 80.0 L 184.0 80.0 L 181.0 76.0 L 182.0 74.0 L 182.0 72.0 L 180.0 70.0 L 178.0 70.0 L 175.0 68.0 L 174.0 63.0 L 175.0 61.0 L 174.0 59.0 L 168.0 62.0 L 166.0 60.0 L 166.0 51.0 L 165.0 49.0 L 161.0 53.0 L 158.0 55.0 L 154.0 52.0 L 150.0 54.0 L 150.0 58.0 L 147.0 59.0 L 144.0 57.0 L 146.0 51.0 L 146.0 49.0 L 145.0 47.0 L 143.0 45.0 L 140.0 44.0 L 135.0 38.0 L 134.0 36.0 L 134.0 29.0 L 131.0 26.0 L 131.0 23.0 L 125.0 23.0 L 122.0 22.0 L 120.0 20.0 L 117.0 20.0 L 115.0 21.0 L 113.0 19.0 L 114.0 10.0 L 112.0 6.0 L 110.0 4.0 L 98.0 3.0 Z" fill="url(#rajGrad)" filter="url(#mapShadow)"/>
+
+    <!-- Official Ashoka Lion Capital (State Emblem of India) -->
+    <g transform="translate(97, 28) scale(0.36)" fill="#784108">
+      <!-- Center Lion Face & Mane -->
+      <path d="M-5,-38 C-8,-38 -10,-35 -10,-31 C-10,-28 -8,-25 -8,-22 C-8,-17 -5,-13 0,-13 C5,-13 8,-17 8,-22 C8,-25 10,-28 10,-31 C10,-35 8,-38 5,-38 C3,-38 2,-36 0,-36 C-2,-36 -3,-38 -5,-38 Z"/>
+      <ellipse cx="0" cy="-24" rx="2.5" ry="3.5" fill="#FFD626"/>
+      <polygon points="-2.5,-21 2.5,-21 0,-18" fill="#784108"/>
+
+      <!-- Left Lion (Profile) -->
+      <path d="M-8,-26 C-12,-32 -18,-30 -22,-24 C-24,-20 -23,-15 -18,-13 C-15,-12 -12,-11 -8,-10 Z"/>
+      <circle cx="-16" cy="-21" r="1.5" fill="#FFD626"/>
+
+      <!-- Right Lion (Profile) -->
+      <path d="M8,-26 C12,-32 18,-30 22,-24 C24,-20 23,-15 18,-13 C15,-12 12,-11 8,-10 Z"/>
+      <circle cx="16" cy="-21" r="1.5" fill="#FFD626"/>
+
+      <!-- Combined Majestic Mane Body -->
+      <path d="M-17,-12 C-18,-5 -15,0 -12,4 L12,4 C15,0 18,-5 17,-12 Z"/>
+      
+      <!-- Three Pillars / Front Paws -->
+      <rect x="-13" y="4" width="6" height="11" rx="1.5"/>
+      <rect x="-3" y="4" width="6" height="11" rx="1.5"/>
+      <rect x="7" y="4" width="6" height="11" rx="1.5"/>
+
+      <!-- Abacus Base Plate -->
+      <rect x="-25" y="15" width="50" height="6.5" rx="2"/>
+      
+      <!-- Ashoka Chakra wheel in abacus -->
+      <circle cx="0" cy="18.2" r="3.2" fill="#FFD626"/>
+      <circle cx="0" cy="18.2" r="1.4" fill="#784108"/>
+
+      <!-- Galloping Horse (left) & Bull (right) silhouettes on abacus -->
+      <ellipse cx="-14" cy="18.2" rx="3.5" ry="1.8" fill="#FFD626"/>
+      <ellipse cx="14" cy="18.2" rx="3.5" ry="1.8" fill="#FFD626"/>
+
+      <!-- Bell-shaped Inverted Lotus Base -->
+      <path d="M-21,21.5 L21,21.5 C24,26 23,28 20,29 L-20,29 C-23,28 -24,26 -21,21.5 Z"/>
+
+      <!-- Satyameva Jayate Inscription Plinth -->
+      <rect x="-17" y="30.5" width="34" height="3" rx="1"/>
+    </g>
+
+    <!-- Trade Mark 'TM' -->
+    <text x="165" y="29" 
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="8" 
+          font-weight="900" 
+          fill="#E89B15" 
+          letter-spacing="0.5">TM</text>
+
+    <!-- Single Sign On Key -->
+    <g fill="#480D15" stroke="#480D15">
+      <!-- Horizontal Shaft -->
+      <rect x="23" y="91" width="112" height="5" rx="2" stroke-width="0"/>
+      
+      <!-- Left Bit / Ward (Notch) -->
+      <rect x="25" y="95" width="4.5" height="4" rx="0.5" stroke-width="0"/>
+      <rect x="33" y="95" width="4" height="2.5" rx="0.5" stroke-width="0"/>
+
+      <!-- Collars -->
+      <rect x="131" y="88.5" width="3.5" height="10" rx="1.5" stroke-width="0"/>
+      <rect x="135.5" y="89.5" width="3" height="8" rx="1" stroke-width="0"/>
+
+      <!-- Unified Trefoil Bow with 3 circular holes -->
+      <g fill-rule="evenodd">
+        <path d="
+          M 146 72
+          A 11.5 11.5 0 0 1 154.5 83
+          A 11.5 11.5 0 0 1 169 93.5
+          A 11.5 11.5 0 0 1 154.5 104
+          A 11.5 11.5 0 0 1 146 115
+          A 11.5 11.5 0 0 1 137.5 104
+          A 11.5 11.5 0 0 1 138 83
+          A 11.5 11.5 0 0 1 146 72 Z
+          
+          M 146 78
+          A 5.5 5.5 0 1 0 146 89
+          A 5.5 5.5 0 1 0 146 78 Z
+
+          M 146 98
+          A 5.5 5.5 0 1 0 146 109
+          A 5.5 5.5 0 1 0 146 98 Z
+
+          M 158 88
+          A 5.5 5.5 0 1 0 158 99
+          A 5.5 5.5 0 1 0 158 88 Z
+        " stroke-width="0"/>
+      </g>
+    </g>
+
+    <!-- Typography: "Rajasthan" -->
+    <text x="76" y="86.5" 
+          font-family="Georgia, 'Times New Roman', serif" 
+          font-size="17.5" 
+          font-weight="900" 
+          fill="#480D15" 
+          letter-spacing="0.4"
+          text-anchor="middle">Rajasthan</text>
+
+    <!-- Typography: "Single Sign On" -->
+    <text x="76" y="106.5" 
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
+          font-size="11.5" 
+          font-weight="800" 
+          fill="#480D15" 
+          letter-spacing="0.4"
+          text-anchor="middle">Single Sign On</text>
+  </g>
 </svg>
